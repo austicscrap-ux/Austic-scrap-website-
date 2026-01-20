@@ -1,0 +1,58 @@
+.blogContent h1,
+.blogContent h2,
+.blogContent h3,
+.blogContent h4,
+.blogContent h5,
+.blogContent h6 {
+  font-weight: 700;
+  color: #111827;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-family: var(--font-josefin-sans), sans-serif;
+}
+
+.blogContent p {
+  color: #374151;
+  line-height: 1.625;
+  margin-bottom: 1.5rem;
+  font-family: var(--font-inter), sans-serif;
+}
+
+.blogContent ul,
+.blogContent ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.blogContent li {
+  margin-bottom: 0.5rem;
+}
+
+.blogContent img {
+  border-radius: 0.75rem;
+  box-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 0.1),
+    0 2px 4px -2px rgb(0 0 0 / 0.1);
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.blogContent a {
+  color: #03c5ce;
+  text-decoration: none;
+}
+
+.blogContent a:hover {
+  text-decoration: underline;
+}
+
+.blogContent blockquote {
+  border-left-width: 4px;
+  border-left-style: solid;
+  border-left-color: #03c5ce;
+  padding-left: 1.5rem;
+  font-style: italic;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  color: #4b5563;
+}

@@ -1,0 +1,94 @@
+[00:00:04.800] Server  LOG     ✓ Ready in 3.6s
+[00:01:31.517] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:33.254] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+      <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} forbidden={undefined} ...>
+        <RedirectBoundary>
+          <RedirectErrorBoundary router={{...}}>
+            <Head>
+            <__next_root_layout_boundary__>
+              <SegmentViewNode type="layout" pagePath="layout.tsx">
+                <SegmentTrieNode>
+                <link>
+                <script>
+                <script>
+                <script>
+                <RootLayout>
+                  <html lang="en">
+                    <body className="inter_5901..." suppressHydrationWarning={true}>
+                      <Navbar>
+                      <FloatingActions>
+                      <OuterLayoutRouter>
+                      <BackToTop>
+                      <Footer>
+                        <footer id="contact" className="bg-neutral..." role="contentinfo">
+                          <div className="container ...">
+                            <div className="grid grid-...">
+                              <div>
+                              <div>
+                              <div>
+                              <div>
+                                <h3>
+                                <p>
+                                <form onSubmit={function handleNewsletterSubmit} className="flex gap-2...">
+                                  <input
+                                    type="email"
+                                    value=""
+                                    onChange={function onChange}
+                                    className="bg-neutral-800 border border-neutral-700 rounded-md px-3 py-2 text-sm t..."
+                                    placeholder="Your Email"
+                                    aria-label="Email for newsletter"
+                                    required={true}
+-                                   style={{background-image:"url(\"data...",background-repeat:"no-repeat",background-size:"20px", ...}}
+-                                   data-temp-mail-org="1"
+                                  >
+                                  ...
+                                ...
+                          ...
+            ...
+
+[00:01:33.254] Browser WARN    Image with src "http://localhost:3000/images/ewaste%20recyling%20logo.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:01:51.362] Browser WARN    Image with src "/images/kas.jpeg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:01:52.703] Browser WARN    Image with src "/images/POLO_FLOATEL_LOGO_(1).avif" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:01:52.703] Browser WARN    Image with src "/images/yes_bank-removebg-preview.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:01:53.531] Browser WARN    Image with src "/images/taj.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:01:58.522] Browser WARN    Image with src "/images/sudha.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:02:49.406] Server  ERROR   ⨯ "The requested resource isn't a valid image for" "/vector-57.png" "received" null
+[00:02:49.408] Server  ERROR   ⨯ "The requested resource isn't a valid image for" "/vector-56.png" "received" null
+[00:02:49.801] Server  ERROR   ⨯ "The requested resource isn't a valid image for" "/images/blog/132-2.png" "received" null
+[00:02:50.034] Server  ERROR   ⨯ "The requested resource isn't a valid image for" "/images/blog/118-1.png" "received" null
+[00:02:50.041] Server  ERROR   ⨯ "The requested resource isn't a valid image for" "/images/blog/128-1-1.png" "received" null
+[00:03:51.869] Server  ERROR   ⨯ "The requested resource isn't a valid image for" "/vector-57.png" "received" null
+[00:03:51.928] Server  ERROR   ⨯ "The requested resource isn't a valid image for" "/vector-56.png" "received" null
+[00:03:52.727] Server  ERROR   ⨯ "The requested resource isn't a valid image for" "/images/blog/118-1.png" "received" null
+[00:03:52.733] Server  ERROR   ⨯ "The requested resource isn't a valid image for" "/images/blog/128-1-1.png" "received" null
+[00:03:52.746] Server  ERROR   ⨯ "The requested resource isn't a valid image for" "/images/blog/132-2.png" "received" null
+[00:09:57.238] Server  ERROR   ⨯ "The requested resource isn't a valid image for" "/vector-57.png" "received" null
+[00:09:57.259] Server  ERROR   ⨯ "The requested resource isn't a valid image for" "/vector-56.png" "received" null
+[00:09:58.013] Server  ERROR   ⨯ "The requested resource isn't a valid image for" "/images/blog/132-2.png" "received" null
+[00:09:58.019] Server  ERROR   ⨯ "The requested resource isn't a valid image for" "/images/blog/128-1-1.png" "received" null
+[00:09:58.023] Server  ERROR   ⨯ "The requested resource isn't a valid image for" "/images/blog/118-1.png" "received" null
+[00:10:12.535] Server  ERROR   ⨯ "The requested resource isn't a valid image for" "/images/workstation scrap buyer.jpeg" "received" null
+[00:10:27.532] Server  ERROR   ⨯ "The requested resource isn't a valid image for" "/vector-57.png" "received" null
+[00:10:28.395] Server  ERROR   ⨯ "The requested resource isn't a valid image for" "/vector-56.png" "received" null
+[00:10:28.399] Server  ERROR   ⨯ "The requested resource isn't a valid image for" "/images/blog/132-2.png" "received" null
+[00:10:28.456] Server  ERROR   ⨯ "The requested resource isn't a valid image for" "/images/blog/118-1.png" "received" null
+[00:10:28.468] Server  ERROR   ⨯ "The requested resource isn't a valid image for" "/images/blog/128-1-1.png" "received" null
+[00:10:30.915] Server  ERROR   ⨯ "The requested resource isn't a valid image for" "/images/workstation scrap buyer.jpeg" "received" null
+[00:10:45.648] Server  ERROR   ⨯ "The requested resource isn't a valid image for" "/vector-57.png" "received" null
+[00:10:45.653] Server  ERROR   ⨯ "The requested resource isn't a valid image for" "/images/blog/132-2.png" "received" null
+[00:10:45.657] Server  ERROR   ⨯ "The requested resource isn't a valid image for" "/images/blog/128-1-1.png" "received" null
+[00:10:45.687] Server  ERROR   ⨯ "The requested resource isn't a valid image for" "/vector-56.png" "received" null
+[00:10:45.699] Server  ERROR   ⨯ "The requested resource isn't a valid image for" "/images/blog/118-1.png" "received" null
