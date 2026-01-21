@@ -59,65 +59,88 @@ const services = [
 
 const ServiceGrid = () => {
   return (
-    <SectionWrapper id="services" className="bg-neutral-50">
-      <motion.div 
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-        className="text-center mb-16"
-      >
-        <h3 className="text-3xl md:text-4xl font-primary font-bold text-neutral-800 relative inline-block mb-4">
-          Procurement Sources and Services
-          <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-secondary rounded-full"></span>
-        </h3>
-        <p className="text-neutral-600 max-w-2xl mx-auto mt-4 text-lg">
-          We offer comprehensive scrap buying services for various sectors, ensuring best prices and eco-friendly disposal.
-        </p>
-      </motion.div>
-      
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+    <SectionWrapper id="services" className="bg-neutral-50/50">
+      <div className="flex flex-col items-center text-center mb-16 md:mb-24">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="max-w-3xl"
+        >
+          <div className="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-widest text-secondary uppercase bg-secondary/10 rounded-full font-secondary">
+            Our Expertise
+          </div>
+          <h2 className="text-4xl md:text-5xl font-primary font-bold text-neutral-900 mb-6 leading-tight">
+            Procurement Sources &{" "}
+            <span className="text-secondary">Specialized Services</span>
+          </h2>
+          <p className="text-neutral-600 text-lg leading-relaxed font-secondary">
+            We provide specialized scrap management and recycling solutions for
+            high-end commercial sectors, ensuring the best value and absolute
+            environmental compliance.
+          </p>
+        </motion.div>
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
         {services.map((service, index) => (
-          <motion.div 
-            key={index} 
+          <motion.div
+            key={index}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
             viewport={{ once: true }}
-            className="h-full"
+            className="group"
           >
-            <Link href={service.link} className="block group card-base h-full overflow-hidden flex flex-col">
-              <div className="relative w-full aspect-[4/3] overflow-hidden bg-neutral-200">
-                  <Image
+            <Link
+              href={service.link}
+              className="block bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 h-full border border-neutral-100 flex flex-col group-hover:-translate-y-2"
+            >
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <Image
                   src={service.img}
                   alt={service.title}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
+                  <span className="text-white font-bold text-sm tracking-widest uppercase flex items-center gap-2">
+                    Learn More <span className="text-accent">→</span>
+                  </span>
+                </div>
               </div>
-              
-              <div className="p-6 flex flex-col flex-grow text-center">
-                <h4 className="text-xl font-bold mb-3 text-primary group-hover:text-primary-dark transition-colors font-primary line-clamp-2 min-h-[3.5rem] flex items-center justify-center">
+
+              <div className="p-8 flex flex-col flex-grow">
+                <h3 className="text-xl md:text-2xl font-bold mb-4 text-neutral-900 font-primary line-clamp-1 group-hover:text-secondary transition-colors">
                   {service.title}
-                </h4>
-                <p className="text-neutral-600 text-sm leading-relaxed line-clamp-4 mb-4 flex-grow">
+                </h3>
+                <p className="text-neutral-500 text-sm md:text-base leading-relaxed line-clamp-3 mb-6 flex-grow font-secondary font-medium">
                   {service.desc}
                 </p>
-                <span className="inline-block text-secondary font-semibold text-sm border-b-2 border-transparent group-hover:border-secondary transition-all uppercase tracking-wide">
-                  Learn More →
-                </span>
+                <div className="w-full h-[1px] bg-neutral-100 mb-6" />
+                <div className="flex items-center justify-between">
+                  <span className="text-neutral-400 text-xs font-bold uppercase tracking-widest font-secondary">
+                    Verified Service
+                  </span>
+                  <div className="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center group-hover:bg-secondary group-hover:text-white transition-all duration-300">
+                    <span className="transform translate-x-[1px]">→</span>
+                  </div>
+                </div>
               </div>
             </Link>
           </motion.div>
         ))}
       </div>
-      
-      <div className="text-center mt-16 relative z-10">
-          <Link href="/contact" className="btn-secondary px-8 py-3 rounded-full">
-              View All Services
-          </Link>
+
+      <div className="text-center mt-20 relative z-10">
+        <Link
+          href="/ewaste"
+          className="inline-flex items-center justify-center px-10 py-4 text-lg font-bold text-white bg-primary-dark rounded-full hover:bg-secondary transition-all shadow-lg hover:shadow-primary-dark/40 transform hover:-translate-y-1"
+        >
+          Explore All Services
+        </Link>
       </div>
     </SectionWrapper>
   );

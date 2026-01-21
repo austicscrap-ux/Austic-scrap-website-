@@ -1,9 +1,10 @@
-// src/components/sections/ServiceCardsSection.tsx
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import { Button } from '@/components/ui/Button'; // Assuming you have a Button component
-import ServiceModal from '@/components/ui/ServiceModal';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/Button";
+import ServiceModal from "@/components/ui/ServiceModal";
+import SectionWrapper from "@/components/common/SectionWrapper";
 
 interface ServiceCardData {
   title: string;
@@ -14,15 +15,19 @@ interface ServiceCardData {
 interface ServiceCardsSectionProps {
   sectionTitle: string;
   cards: ServiceCardData[];
-  titleColorClass?: string; // Optional class for section title color
+  titleColorClass?: string;
+  id?: string;
 }
 
 const ServiceCardsSection: React.FC<ServiceCardsSectionProps> = ({
   sectionTitle,
   cards,
-  titleColorClass = 'text-text-black-dark', // Default to black-ish text
+  titleColorClass = "text-neutral-900",
+  id,
 }) => {
-  const [selectedCard, setSelectedCard] = useState<ServiceCardData | null>(null);
+  const [selectedCard, setSelectedCard] = useState<ServiceCardData | null>(
+    null,
+  );
 
   const handleOpenModal = (card: ServiceCardData) => {
     setSelectedCard(card);
@@ -33,47 +38,62 @@ const ServiceCardsSection: React.FC<ServiceCardsSectionProps> = ({
   };
 
   return (
-    <section id="service-cards" className="team_wrapper wrapper py-12">
-      <div className="container mx-auto px-4">
-        <div className="row">
-          <div className="col-sm-12 text-center mb-10">
-            <h3 className={`${titleColorClass} text-3xl md:text-4xl font-bold font-josefin-sans`}>
-              {sectionTitle}
-            </h3>
-          </div>
+    <SectionWrapper id={id || "service-cards"} className="bg-white">
+      <div className="text-center mb-16">
+        <div className="inline-block px-4 py-1.5 mb-4 text-sm font-bold tracking-widest text-secondary uppercase bg-secondary/10 rounded-full font-secondary">
+          Our Services
         </div>
-        <div className="row flex flex-wrap -mx-2">
-          {cards.map((card, index) => (
-            <div key={index} className="col-md-3 col-sm-6 mb-8 px-2 w-full md:w-1/2 lg:w-1/4">
-              <div 
-                onClick={() => handleOpenModal(card)}
-                className="card rounded-lg block overflow-hidden shadow-md transition-transform duration-300 hover:translate-y-[-0.625rem] hover:shadow-lg h-full flex flex-col justify-between p-4 bg-white cursor-pointer group"
-              >
-                <div className="team-info pt-4 text-center">
-                  <h5 className="text-xl font-semibold text-text-black-dark mb-2 group-hover:text-secondary transition-colors">{card.title}</h5>
-                  <p className="text-text-gray text-justify text-base line-clamp-4">
-                    {card.shortDescription}
-                  </p>
-                  <Button
-                    size="sm"
-                    className="mt-4 pointer-events-none bg-secondary hover:bg-secondary/90 text-white" // Custom styling if variant 'fill' doesn't exist
-                  >
-                    Read More
-                  </Button>
-                </div>
+        <h3
+          className={`${titleColorClass} text-3xl md:text-5xl font-bold font-primary leading-tight max-w-3xl mx-auto`}
+        >
+          {sectionTitle}
+        </h3>
+        <div className="w-20 h-1.5 bg-secondary mx-auto mt-8 rounded-full" />
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {cards.map((card, index) => (
+          <motion.div
+            key={index}
+            className="group bg-white p-8 rounded-3xl border border-neutral-100 shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden cursor-pointer flex flex-col"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            viewport={{ once: true }}
+            onClick={() => handleOpenModal(card)}
+          >
+            <div className="absolute top-0 right-0 w-24 h-24 bg-neutral-50 rounded-bl-full -mr-12 -mt-12 transition-transform duration-500 group-hover:scale-110" />
+
+            <div className="relative z-10 flex flex-col h-full">
+              <h4 className="text-xl font-bold font-primary mb-4 text-[#127749] group-hover:text-black transition-colors">
+                {card.title}
+              </h4>
+              <p className="text-neutral-500 leading-relaxed font-secondary mb-8 line-clamp-4 group-hover:text-neutral-600">
+                {card.shortDescription}
+              </p>
+              <div className="mt-auto">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="rounded-full border-[#127749] text-[#127749] group-hover:bg-[#127749] group-hover:text-white transition-all w-full md:w-auto"
+                >
+                  Read More
+                </Button>
               </div>
             </div>
-          ))}
-        </div>
+          </motion.div>
+        ))}
       </div>
-      
+
       <ServiceModal
         isOpen={!!selectedCard}
         onClose={handleCloseModal}
-        title={selectedCard?.title || ''}
-        description={selectedCard?.longDescription || selectedCard?.shortDescription || ''}
+        title={selectedCard?.title || ""}
+        description={
+          selectedCard?.longDescription || selectedCard?.shortDescription || ""
+        }
       />
-    </section>
+    </SectionWrapper>
   );
 };
 

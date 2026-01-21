@@ -3,6 +3,8 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { Quote } from "lucide-react";
+import { motion } from "framer-motion";
+import SectionWrapper from "@/components/common/SectionWrapper";
 
 const testimonials = [
   {
@@ -34,90 +36,107 @@ const Testimonials = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-    }, 5000);
+    }, 6000);
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <section className="wrapper bg-gray-50 py-16 relative overflow-hidden">
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-[#127749] text-3xl md:text-4xl font-semibold font-secondary mb-3">
-            What Our Clients Say
+    <SectionWrapper
+      id="testimonials"
+      className="bg-neutral-50/50 relative overflow-hidden"
+    >
+      {/* Background decoration */}
+      <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none">
+        <div className="absolute top-10 left-10 w-64 h-64 bg-secondary rounded-full blur-3xl" />
+        <div className="absolute bottom-10 right-10 w-96 h-96 bg-primary rounded-full blur-3xl" />
+      </div>
+
+      <div className="flex flex-col items-center text-center mb-16 md:mb-20">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="max-w-3xl"
+        >
+          <div className="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-widest text-secondary uppercase bg-secondary/10 rounded-full font-secondary">
+            Testimonials
+          </div>
+          <h2 className="text-4xl md:text-5xl font-primary font-bold text-neutral-900 mb-6 leading-tight">
+            What Our <span className="text-secondary">Clients</span> Say
           </h2>
-          <div className="w-24 h-1 bg-secondary mx-auto"></div>
-        </div>
+          <div className="w-24 h-1.5 bg-secondary mx-auto rounded-full" />
+        </motion.div>
+      </div>
 
-        <div className="max-w-4xl mx-auto">
-          <div className="relative h-[400px] md:h-[300px]">
-            {testimonials.map((t, i) => (
-              <div
-                key={i}
-                className={`absolute top-0 left-0 w-full transition-all duration-700 ease-in-out transform ${
-                  i === currentIndex
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 translate-x-full"
-                }`}
-                style={{
-                  transform:
-                    i === currentIndex
-                      ? "translateX(0%)"
-                      : i < currentIndex
-                        ? "translateX(-100%)"
-                        : "translateX(100%)",
-                  opacity: i === currentIndex ? 1 : 0,
-                }}
-              >
-                <div className="bg-white p-8 md:p-10 rounded-xl shadow-lg text-center mx-4 relative">
-                  <Quote className="text-4xl text-secondary/10 absolute top-4 left-4" />
+      <div className="max-w-5xl mx-auto relative px-4 md:px-10">
+        <div className="relative min-h-[500px] md:min-h-[400px]">
+          {testimonials.map((t, i) => (
+            <div
+              key={i}
+              className={`absolute top-0 left-0 w-full transition-all duration-1000 ease-in-out transform ${
+                i === currentIndex
+                  ? "opacity-100 translate-x-0 scale-100 z-10"
+                  : "opacity-0 translate-x-12 scale-95 z-0"
+              }`}
+            >
+              <div className="bg-white p-10 md:p-16 rounded-[40px] shadow-2xl relative border border-neutral-100/50">
+                <Quote className="text-8xl text-secondary/5 absolute -top-4 -left-4 transform -rotate-12" />
 
-                  <div className="relative w-24 h-24 mx-auto mb-6 rounded-full overflow-hidden border-4 border-white shadow-md">
-                    <Image
-                      src={t.img}
-                      alt={t.name}
-                      fill
-                      className="object-cover"
-                    />
+                <div className="flex flex-col md:flex-row items-center gap-10">
+                  <div className="relative-flex-shrink-0">
+                    <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-3xl overflow-hidden shadow-2xl border-4 border-white transform -rotate-3 transition-transform duration-500 hover:rotate-0">
+                      <Image
+                        src={t.img}
+                        alt={t.name}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
                   </div>
 
-                  <p className="text-gray-600 italic text-lg mb-6 leading-relaxed relative z-10">
-                    "{t.review}"
-                  </p>
+                  <div className="flex-grow text-center md:text-left">
+                    <div className="flex justify-center md:justify-start mb-4 text-accent text-xl">
+                      {[...Array(5)].map((_, starI) => (
+                        <span key={starI}>★</span>
+                      ))}
+                    </div>
 
-                  <div className="flex justify-center mb-2 text-yellow-500 text-lg">
-                    {[...Array(5)].map((_, starI) => (
-                      <span key={starI}>★</span>
-                    ))}
+                    <p className="text-neutral-600 italic text-lg md:text-2xl mb-8 leading-relaxed font-secondary">
+                      "{t.review}"
+                    </p>
+
+                    <div>
+                      <h4 className="text-2xl font-bold text-neutral-900 font-primary">
+                        {t.name}
+                      </h4>
+                      <span className="text-sm text-secondary font-bold uppercase tracking-widest">
+                        {t.role}
+                      </span>
+                    </div>
                   </div>
-
-                  <h6 className="text-xl font-bold text-text-black mb-1 font-secondary">
-                    {t.name}
-                  </h6>
-                  <span className="text-sm text-secondary block font-medium uppercase tracking-wide">
-                    {t.role}
-                  </span>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
+        </div>
 
-          <div className="flex justify-center mt-8 space-x-2">
-            {testimonials.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setCurrentIndex(i)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  i === currentIndex
-                    ? "bg-secondary w-8"
-                    : "bg-gray-300 hover:bg-secondary/50"
-                }`}
-                aria-label={`Go to testimonial ${i + 1}`}
-              />
-            ))}
-          </div>
+        <div className="flex justify-center mt-12 space-x-3">
+          {testimonials.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrentIndex(i)}
+              className={`h-2.5 rounded-full transition-all duration-500 ${
+                i === currentIndex
+                  ? "bg-secondary w-12"
+                  : "bg-neutral-200 hover:bg-secondary/40 w-2.5"
+              }`}
+              aria-label={`Go to testimonial ${i + 1}`}
+            />
+          ))}
         </div>
       </div>
-    </section>
+    </SectionWrapper>
   );
 };
 

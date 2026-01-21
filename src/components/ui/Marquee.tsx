@@ -25,8 +25,8 @@ const items = [
 
 const Marquee = () => {
   return (
-    <div className="w-full h-[40px] overflow-hidden bg-bg-light-green flex items-center -mt-[41px] relative z-20">
-      <div className="flex whitespace-nowrap animate-marquee">
+    <div className="w-full h-[50px] overflow-hidden bg-primary-dark/5 flex items-center border-y border-primary-dark/10 relative z-20 backdrop-blur-sm">
+      <div className="flex whitespace-nowrap animate-marquee py-2">
         {/* Render items twice to ensure seamless looping */}
         {[...items, ...items, ...items].map((item, index) => (
           <p

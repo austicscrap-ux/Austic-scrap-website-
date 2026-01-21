@@ -1,69 +1,193 @@
-'use client';
-import React, { useEffect } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+"use client";
+
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import SectionWrapper from "@/components/common/SectionWrapper";
+import { Button } from "@/components/ui/Button";
 
 const CorporateScrapContent: React.FC = () => {
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: true,
-    });
-  }, []);
+  const furnitureTypes = [
+    {
+      title: "Wooden Furniture",
+      description:
+        "Old desks, tables, and shelving. We specialize in dismantling wooden pieces, recovering high-quality wood for sustainable reuse in new products.",
+    },
+    {
+      title: "Mixed-Material Recycling",
+      description:
+        "Expert separation of wood, metal, and plastic from workstations and chairs to maximize recycling efficiency and support industrial sustainability.",
+    },
+    {
+      title: "Conference Room Disposal",
+      description:
+        "Hassle-free removal and recycling of large conference tables and presentation desks from corporate hubs and meeting centers across Kolkata.",
+    },
+    {
+      title: "Cabinet & Shelving Recycling",
+      description:
+        "From compact file cabinets to heavy-duty industrial shelving. We separate materials for eco-friendly disposal and resource recovery.",
+    },
+  ];
 
   return (
-    <div className="product-container">
-      <section className="scrap-section">
-        <div className="scrap-container">
-          <div className="scrap-row">
-            <div className="scrap-col-12">
-              <h1>Coporate Office Scrap Buyers in Kolkata</h1>
+    <div className="flex flex-col">
+      {/* Hero Section */}
+      <section className="relative w-full min-h-[500px] md:min-h-[600px] flex items-center justify-center overflow-hidden">
+        <Image
+          src="/images/office furniture scrap.jpeg"
+          alt="Corporate Office Scrap Buyers"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-neutral-900/60 backdrop-blur-[2px]"></div>
 
-              <p className="scrap-paragraph">
-                Looking to dispose of old office furniture in Kolkata? Our Kolkata-based scrap-buying company specializes in buying and recycling office furniture and other corporate scrap materials. We offer a seamless, environmentally responsible solution for businesses looking to upgrade their office space and get rid of unwanted items like used tables, chairs, cabinets, and workstations. Whether you're a corporate office in Park Street, a bank in Dalhousie, or a start-up in Salt Lake, we make the process simple and hassle-free.
-              </p>
-              <p>
-                Our team will come to your location, collect the unwanted furniture, and transport it to our modern recycling facility. Here, we dismantle each piece, recovering valuable materials like wood, metal, and plastic for reuse. This approach not only ensures proper waste management but also supports environmental sustainability by reducing landfill waste and conserving natural resources.
-              </p>
+        <div className="container mx-auto px-4 relative z-10 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-widest text-accent uppercase bg-accent/10 rounded-full font-secondary">
+              Corporate Asset Recovery
             </div>
-
-            <div className="asset-col" data-aos="fade-right">
-              <h3 className="asset-heading text-center">types of DG Generators we Buy</h3>
-              <div className="asset-types">
-                <div className="asset-type" data-aos="fade-up">
-                  <strong>Wooden Furniture: </strong>
-                  <p>
-                    Old desks, tables, and shelving units made from wood don’t need to end up in landfills. At our Kolkata-based scrap buying company, we specialize in recycling wooden office furniture by dismantling it, recovering the wood, and processing it for reuse in new products. Whether you're upgrading your office or downsizing, we ensure a smooth and eco-friendly disposal of your wooden furniture.
-                  </p>
-                </div>
-                <div className="asset-type" data-aos="fade-up" data-aos-delay="100">
-                  <strong>Mixed-Material Office Furniture Recycling:</strong>
-                  <p>
-                    Many office furniture pieces are made from a mix of wood, metal, and plastic. Our expert team handles the dismantling and separation of these materials to maximize recycling efficiency. Whether it’s a workstation, chair, or cabinet, we ensure each material is properly sorted and processed for reuse, reducing waste and supporting sustainability.
-                  </p>
-                </div>
-                <div className="asset-type" data-aos="fade-up" data-aos-delay="200">
-                  <strong>Conference Room Furniture Disposal: </strong>
-                  <p>
-                    Upgrading your conference room? We take care of the hassle by removing large conference tables, presentation desks, and chairs from your meeting rooms. No matter where your office is located—be it the busy streets of central Kolkata or the IT hub in New Town—we provide reliable transport and expert recycling for these larger pieces of furniture.
-                  </p>
-                </div>
-                <div className="asset-type" data-aos="fade-up" data-aos-delay="200">
-                  <strong>Cabinet and Shelving Recycling: </strong>
-                  <p>
-                    If you have file cabinets, storage units, or shelving to dispose of, we can help. Many of these items are made from a mix of wood and metal, both of which can be separated and recycled. From compact filing cabinets to heavy-duty industrial shelving, we handle it all, providing businesses in Kolkata with an eco-friendly, hassle-free solution to office scrap disposal.
-                  </p>
-                </div>
-              </div>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 font-primary text-white leading-tight max-w-5xl mx-auto">
+              Corporate Office{" "}
+              <span className="text-secondary">Scrap Buyers</span> in Kolkata
+            </h1>
+            <p className="text-neutral-200 text-lg md:text-xl mb-10 max-w-3xl mx-auto font-secondary leading-relaxed">
+              Professional asset disposal and furniture recycling for modern
+              businesses. We provide fair market assessments and rapid logistics
+              for all corporate scrap.
+            </p>
+            <div className="flex flex-wrap justify-center gap-6 mt-10">
+              <Link href="/">
+                <Button className="px-10 py-4 bg-white text-primary font-bold rounded-full hover:bg-secondary hover:text-white transition-all shadow-xl text-lg">
+                  Home
+                </Button>
+              </Link>
+              <Link href="/contact">
+                <Button className="px-10 py-4 bg-secondary text-white font-bold rounded-full hover:bg-white hover:text-primary transition-all shadow-xl text-lg">
+                  Sale Now
+                </Button>
+              </Link>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      <strong style={{ marginLeft: '10px', color: '#127441' }}>Partner with Us for Scrap Management</strong>
-      <p style={{ marginLeft: '10px', color: 'black', textAlign: 'justify', marginRight: '10px' }}>
-        Our Kolkata-based scrap-buying service offers top prices for old office furniture while ensuring responsible recycling practices. By partnering with us, you not only clear out unwanted items but also contribute to environmental sustainability. Contact us today to sell your used office furniture and enjoy a seamless scrap management experience!
-      </p>
+      {/* Main Content */}
+      <SectionWrapper id="about-corporate-scrap" className="bg-white">
+        <div className="flex flex-col lg:flex-row items-center gap-16 mb-24">
+          <motion.div
+            className="w-full lg:w-1/2"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <div className="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-widest text-[#127749] uppercase bg-[#127749]/10 rounded-full font-secondary">
+              Our Vision
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold font-primary mb-8 text-neutral-900 leading-tight">
+              Kolkata's Premier{" "}
+              <span className="text-[#127749]">Corporate Scrap Partner</span>
+            </h2>
+            <div className="space-y-6">
+              <p className="text-neutral-600 text-lg leading-relaxed font-secondary">
+                Looking to dispose of old office furniture in Kolkata? Austic
+                Scrap specializes in buying and recycling office furniture and
+                corporate scrap materials. We offer a seamless, environmentally
+                responsible solution for businesses looking to upgrade their
+                assets.
+              </p>
+              <p className="text-neutral-600 text-lg leading-relaxed font-secondary">
+                Our team handles the collection and transportation to our modern
+                recycling facility. We dismantle each piece, recovering valuable
+                wood, metal, and plastic, supporting environmental
+                sustainability by reducing landfill waste.
+              </p>
+            </div>
+          </motion.div>
+
+          <motion.div
+            className="w-full lg:w-1/2"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <div className="relative aspect-video rounded-[32px] overflow-hidden shadow-2xl border-8 border-white">
+              <Image
+                src="/images/office furniture scrap.jpeg"
+                alt="Office Scrap Recycling Process"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-[32px]" />
+            </div>
+          </motion.div>
+        </div>
+
+        <div className="mt-32">
+          <div className="text-center mb-16">
+            <h3 className="text-3xl md:text-4xl font-bold font-primary mb-4 text-neutral-900">
+              Types of{" "}
+              <span className="text-[#127749]">Corporate Assets We Buy</span>
+            </h3>
+            <div className="w-20 h-1.5 bg-secondary mx-auto rounded-full" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {furnitureTypes.map((type, index) => (
+              <motion.div
+                key={index}
+                className="group bg-white p-10 rounded-3xl border border-neutral-100 shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="absolute top-0 right-0 w-24 h-24 bg-neutral-50 rounded-bl-full -mr-12 -mt-12 transition-transform duration-500 group-hover:scale-110" />
+
+                <h4 className="text-2xl font-bold font-primary mb-4 text-[#127749] group-hover:text-black transition-colors relative z-10 capitalize">
+                  {type.title}
+                </h4>
+                <p className="text-neutral-500 leading-relaxed font-secondary relative z-10 group-hover:text-neutral-600 transition-colors">
+                  {type.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        <motion.div
+          className="mt-24 bg-[#127749] rounded-[40px] p-12 text-white relative overflow-hidden shadow-2xl"
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-32 -mt-32 blur-3xl" />
+          <div className="relative z-10 text-center">
+            <h3 className="text-3xl md:text-4xl font-bold font-primary mb-6">
+              Partner with Us for Strategic Scrap Management
+            </h3>
+            <p className="text-white/80 text-xl mb-10 max-w-2xl mx-auto font-secondary">
+              Clear out unwanted items and join the circular economy. We provide
+              end-to-end logistics and premium market rates for your corporate
+              assets.
+            </p>
+            <Link href="/contact">
+              <Button className="px-12 py-5 bg-white text-[#127749] font-bold rounded-full hover:bg-neutral-100 transition-all shadow-xl text-lg">
+                Request Asset Valuation →
+              </Button>
+            </Link>
+          </div>
+        </motion.div>
+      </SectionWrapper>
     </div>
   );
 };

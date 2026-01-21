@@ -1,113 +1,195 @@
-'use client';
-import React, { useEffect } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import Image from 'next/image';
-import Link from 'next/link';
+"use client";
+
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import SectionWrapper from "@/components/common/SectionWrapper";
+import { Button } from "@/components/ui/Button";
 
 const DelhiEWasteContent: React.FC = () => {
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: true,
-    });
-  }, []);
+  const ewasteServices = [
+    {
+      title: "Institutional ITAD",
+      description:
+        "Comprehensive IT asset disposition for Delhi’s corporate and educational institutions. We ensure secure disposal with certified data destruction.",
+    },
+    {
+      title: "Workstation Lifecycle",
+      description:
+        "Specialized management of office workstations. We handle dismantling, loading, and eco-friendly resource recovery for legacy setups.",
+    },
+    {
+      title: "Public Sector Compliance",
+      description:
+        "Strict adherence to environmental regulations and EPR guidelines, supporting Delhi’s proactive measures in digital waste management.",
+    },
+    {
+      title: "Enterprise Data Security",
+      description:
+        "Leading-edge data destruction services ensuring sensitive institutional information is irretrievably erased using certified protocols.",
+    },
+  ];
 
   return (
-    <>
-      <section id="hero" className="hero-section">
-        <div className="hero-content">
-          <Image
-            src="/images/Ewsate greenbackground and right logo.png"
-            alt="Hero Image"
-            layout="fill"
-            objectFit="cover"
-            className="hero-image"
-          />
-          <div className="hero-text">
-            <h1>Eco-Friendly E-Waste Recycling for Delhi’s Corporate and Educational Institutions</h1>
-            <p>
-              Your subtext or description goes here. Make it catchy and informative.
+    <div className="flex flex-col">
+      {/* Hero Section */}
+      <section className="relative w-full min-h-[500px] md:min-h-[600px] flex items-center justify-center overflow-hidden">
+        <Image
+          src="/images/e-waste-delhi.jpg"
+          alt="E-Waste Recycling Delhi NCR"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-neutral-900/60 backdrop-blur-[2px]"></div>
+
+        <div className="container mx-auto px-4 relative z-10 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-widest text-accent uppercase bg-accent/10 rounded-full font-secondary">
+              Capital Region Sustainability
+            </div>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 font-primary text-white leading-tight max-w-5xl mx-auto">
+              Eco-Friendly E-Waste{" "}
+              <span className="text-secondary">Management in Delhi</span>
+            </h1>
+            <p className="text-neutral-200 text-lg md:text-xl mb-10 max-w-3xl mx-auto font-secondary leading-relaxed">
+              Partnering with corporate and educational institutions across
+              Delhi NCR for responsible technology disposal. Certified security
+              and maximum resource recovery.
             </p>
-            <Link href="#" className="main-btn">Learn More</Link>
-          </div>
+            <div className="flex flex-wrap justify-center gap-6 mt-10">
+              <Link href="/">
+                <Button className="px-10 py-4 bg-white text-primary font-bold rounded-full hover:bg-secondary hover:text-white transition-all shadow-xl text-lg">
+                  Home
+                </Button>
+              </Link>
+              <Link href="/contact">
+                <Button className="px-10 py-4 bg-secondary text-white font-bold rounded-full hover:bg-white hover:text-primary transition-all shadow-xl text-lg">
+                  Sale Now
+                </Button>
+              </Link>
+            </div>
+          </motion.div>
         </div>
       </section>
 
-      <section id="feature" className="feature-wrapper">
-        <div className="feature-container" data-aos="fade-up">
-          <div className="feature-row">
-            <div className="feature-col content-area text-center text-md-start my-auto order-1">
-              <h2>E-Waste Management Leadership in Delhi</h2>
-              <p>
-                Delhi is taking proactive measures to address the escalating issue of electronic waste as older devices are increasingly discarded. The city is adopting innovative recycling strategies through collaborations between government initiatives and private enterprises, with Austic Scrap and Recycling at the forefront of efforts to assist businesses in responsibly disposing of obsolete electronics. By emphasizing the careful handling and recovery of valuable materials, Delhi is promoting a culture of responsible e-waste management. This forward-thinking strategy not only benefits the environment but also generates economic opportunities, establishing Delhi as a model for other cities in sustainable electronic waste management.
+      {/* Main Content */}
+      <SectionWrapper id="about-delhi-ewaste" className="bg-white">
+        <div className="flex flex-col lg:flex-row items-center gap-16 mb-24">
+          <motion.div
+            className="w-full lg:w-1/2"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <div className="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-widest text-[#127749] uppercase bg-[#127749]/10 rounded-full font-secondary">
+              Managing Legacy Tech
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold font-primary mb-8 text-neutral-900 leading-tight">
+              E-Waste Management{" "}
+              <span className="text-[#127749]">Leadership in Delhi</span>
+            </h2>
+            <div className="space-y-6">
+              <p className="text-neutral-600 text-lg leading-relaxed font-secondary">
+                Delhi is taking proactive measures to address the escalating
+                issue of electronic waste. As a major administrative and
+                corporate hub, the city generates a high volume of legacy assets
+                that require professional handling.
+              </p>
+              <p className="text-neutral-600 text-lg leading-relaxed font-secondary">
+                Austic Scrap is at the forefront of efforts to assist Delhi
+                businesses and institutions in responsibly disposing of obsolete
+                electronics. We prioritize the careful recovery of valuable
+                materials, promoting a culture of responsible e-waste
+                management.
               </p>
             </div>
-            <div className="feature-col image-area d-flex justify-content-center align-items-center order-2">
-              <div className="image-wrapper" data-aos="zoom-in">
-                <picture>
-                  <source srcSet="/images/e-waste-delhi.webp" type="image/webp" />
-                  <source srcSet="/images/e-waste-delhi.jpg" type="image/jpeg" />
-                  <img src="/images/e-waste-delhi.jpg" alt="Five outdated monitors from different brands prepared for e-waste disposal and recycling in Delhi NCR. " loading="lazy" />
-                </picture>
-              </div>
+          </motion.div>
+
+          <motion.div
+            className="w-full lg:w-1/2"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <div className="relative aspect-video rounded-[32px] overflow-hidden shadow-2xl border-8 border-white">
+              <Image
+                src="/images/e-waste-delhi.jpg"
+                alt="Institutional E-Waste Disposal Delhi"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-[32px]" />
             </div>
+          </motion.div>
+        </div>
+
+        <div className="mt-32">
+          <div className="text-center mb-16">
+            <h3 className="text-3xl md:text-4xl font-bold font-primary mb-4 text-neutral-900">
+              Institutional{" "}
+              <span className="text-[#127749]">Asset Services</span>
+            </h3>
+            <div className="w-20 h-1.5 bg-secondary mx-auto rounded-full" />
           </div>
 
-          <div className="materials-handled">
-            <strong>Scrap Materials We Handle</strong>
-            <p>
-              Office Waste: We manage everything from outdated documents to excess stationery with care and professionalism. Workstations: We collect old office workstations, making sure they are either refurbished or recycled in an eco-friendly manner. Metal Scrap: We offer competitive rates for various metals like aluminum and steel. Electrical Scrap: We handle all forms of electrical waste, ensuring safe disposal and adherence to regulations. Furniture Scrap: We recycle old office furniture, contributing to reduced landfill waste. Wooden Items: We buy different types of wooden scraps, making sure they are reused or recycled efficiently. Office Cabinets and Panels: We process old office cabinets and panels through our recycling programs. Server Room Equipment: Our experts are adept at securely recycling server room equipment, and prioritizing data protection.
-            </p>
-          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {ewasteServices.map((type, index) => (
+              <motion.div
+                key={index}
+                className="group bg-white p-10 rounded-3xl border border-neutral-100 shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="absolute top-0 right-0 w-24 h-24 bg-neutral-50 rounded-bl-full -mr-12 -mt-12 transition-transform duration-500 group-hover:scale-110" />
 
-          <div className="why-choose">
-            <strong>Why We Need E-Waste Recycling</strong>
-            <p>
-              The definition of e-waste can be referred to as a huge series of electronics that are disposable and include office computers, laptops, UPS systems, and batteries. These devices often contain toxic substances, which get released into the environment in the case of poor disposal and pose great danger to human health and the planet. Also, aside from being an eyesore, e-waste is an ore of valuable material value, like gold, silver, and copper, which can efficiently be recovered and reused in manufacturing, saving these resources from being wasted.
-            </p>
-          </div>
-
-          <ul className="scrap-list">
-            <li> <span style={{ color: '#127749' }}>Office Computers & Laptops:</span> Our company recycles office computers and laptops that are at the end of their service life, with data protection and environmental protection in view.</li>
-            <li><span>Desktops & CPUs: </span> Our safe disposal solutions recover useful resources—from big desktops to essential CPUs.</li>
-            <li><span>UPS Systems & Batteries:</span> Since UPS systems and batteries come with hazardous materials, we handle them with extra care to ensure their responsible disposal.</li>
-            <li>Battery</li>
-          </ul>
-
-          <div className="asset-col" data-aos="fade-right">
-            <h3 className="asset-heading text-center">Types of IT Assets</h3>
-            <div className="asset-types">
-              <div className="asset-type" data-aos="fade-up">
-                <strong>End-to-end IT Asset Disposition Services</strong>
-                <p>
-                  We understand how businesses have issues handling legacy IT assets in the office and across other areas involving varieties of electronic equipment. Our IT asset disposition service provides IT asset managers, IT leaders, system administrators, and procurement professionals with an efficient and secure process. The guarantee of data security in the certified destruction of sensitive information is paramount, having been irretrievably erased. Besides, our e-waste recycling processes are completely in compliance with the existing environmental regulations that ensure maximum material recovery and minimize electronic waste generation. Partner with us for a dependable, effective, and responsible solution for every challenge connected with the management of IT assets.
+                <h4 className="text-2xl font-bold font-primary mb-4 text-[#127749] group-hover:text-black transition-colors relative z-10 capitalize">
+                  {type.title}
+                </h4>
+                <p className="text-neutral-500 leading-relaxed font-secondary relative z-10 group-hover:text-neutral-600 transition-colors">
+                  {type.description}
                 </p>
-              </div>
-              <div className="asset-type" data-aos="fade-up" data-aos-delay="100">
-                <strong>Office Workstation scrap</strong>
-                <p>
-                  Is your office filled up with old workstations or office furniture? We understand—it happens in offices. That’s why Austic is here! We are devoted to buying and disposing of old office workstations in Delhi. Our labor and team will carefully dismantle the office workstation along with the old chairs. Let us handle the heavy lifting so you can enjoy a more organized workspace!
-                </p>
-              </div>
-              <div className="asset-type" data-aos="fade-up" data-aos-delay="200">
-                <strong>IT Companies and software offices scrap</strong>
-                <p>
-                  In IT companies and the tech corporate world, staying up-to-date often means upgrading their IT assets. But what happens to the old IT asset that gets outdated is very hectic for corporate officers to maintain. So, Austic is here to buy all kinds of old and used IT asset scrap in Delhi. We understand how important it is to keep tech industries' data safe, so we handle everything—from securely wiping old devices to recycling them responsibly.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="why-choose">
-            <strong>Why choose Austic for E-waste Recyling</strong>
-            <p><span>Proven Expertise:</span> With several decades of experience in e-waste recycling, we bring depth and understanding to every project we undertake with the best in industry standards and regulations.</p>
-            <p><span>Second-to-None Data Security:</span> Protection of your most critical information comes first. We make sure to provide certified data destruction so that the data is totally and irrevocably eradicated.</p>
-            <p><span>Sustainability Commitment:</span> Our recycling processes are designed not only to minimize the harm to the environment but also to maximize the return of useful materials. We care about a greener planet.</p>
+              </motion.div>
+            ))}
           </div>
         </div>
-      </section>
-    </>
+
+        <div className="mt-24 bg-neutral-900 rounded-[40px] p-12 text-white relative overflow-hidden shadow-2xl">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-accent/10 rounded-full -mr-32 -mt-32 blur-3xl" />
+          <div className="relative z-10 max-w-4xl">
+            <h3 className="text-3xl font-bold font-primary mb-6">
+              Why Austic in Delhi NCR?
+            </h3>
+            <p className="text-white/70 text-lg mb-8 font-secondary leading-relaxed">
+              With decades of experience in the capital region, we bring a deep
+              understanding of institutional and governmental e-waste
+              regulations. Our second-to-none data security protocols ensure
+              that your sensitive information is permanently erased, while our
+              commitment to sustainability ensures maximum material recovery.
+            </p>
+            <div className="flex flex-wrap gap-8 text-accent font-bold font-secondary text-sm uppercase tracking-widest">
+              <div className="flex items-center gap-3">
+                <div className="w-2 h-2 bg-accent rounded-full" />
+                <span>NCT Compliant Disposal</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-2 h-2 bg-secondary rounded-full" />
+                <span>Certified Secure Destruction</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </SectionWrapper>
+    </div>
   );
 };
 

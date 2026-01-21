@@ -15,13 +15,13 @@ const goalItems: GoalItemProps[] = [
     icon: <Target />,
     title: "Mission",
     description:
-      "At FEXMON, our mission is to transform the scrap recycling industry through high-quality, eco-friendly services. We assist businesses in effectively managing electronic waste and excess materials, promoting sustainability and conservation. With a commitment to quality and ethics, we strive to create a cleaner, greener future.",
+      "At Austic Scrap, our mission is to transform the scrap recycling industry through high-quality, eco-friendly services. We assist businesses in effectively managing electronic waste and excess materials, promoting sustainability and conservation. With a commitment to quality and ethics, we strive to create a cleaner, greener future.",
   },
   {
     icon: <Eye />,
     title: "Vision",
     description:
-      "Our vision is to lead India's scrap recycling industry with innovative solutions, environmental stewardship, and a customer-centric ethos. We envision a world of minimal waste and preserved resources. FEXMON strives to establish new standards, setting benchmarks for reliability and excellence.",
+      "Our vision is to lead India's scrap recycling industry with innovative solutions, environmental stewardship, and a customer-centric ethos. We envision a world of minimal waste and preserved resources. Austic Scrap strives to establish new standards, setting benchmarks for reliability and excellence.",
   },
   {
     icon: <Gem />,

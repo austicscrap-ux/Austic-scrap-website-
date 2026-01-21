@@ -1,32 +1,60 @@
-// src/components/sections/EwasteHero.tsx
-'use client';
+"use client";
 
-import React from 'react';
-import Image from 'next/image';
-import { Button } from '@/components/ui/Button';
-import Link from 'next/link';
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/Button";
 
 const EwasteHero: React.FC = () => {
   return (
-    <section id="hero" className="hero-section relative w-full h-96 flex items-center justify-center text-center overflow-hidden">
-      {/* Background Image - original used an <img> tag with a hero-image class, which suggests it might have been positioned */}
+    <section className="relative w-full min-h-[500px] md:min-h-[600px] flex items-center justify-center overflow-hidden">
       <Image
         src="/images/Ewsate greenbackground and right logo.png"
-        alt="E-waste recycling banner"
+        alt="E-waste Recycling & Disposal"
         fill
-        className="object-cover -z-10" // Use negative z-index to place behind content
+        className="object-cover"
         priority
       />
-      <div className="absolute inset-0 bg-black opacity-50"></div> {/* Overlay */}
+      <div className="absolute inset-0 bg-neutral-900/60 backdrop-blur-[2px]"></div>
 
-      <div className="hero-content relative z-10 p-4 text-white">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4 font-josefin-sans">Your Headline Here</h1>
-        <p className="text-lg md:text-xl mb-6">Your subtext or description goes here. Make it catchy and informative.</p>
-        <Link href="#">
-          <Button variant="default" className="main-btn border-white text-white">
-            Learn More
-          </Button>
-        </Link>
+      <div className="container mx-auto px-4 relative z-10 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-widest text-accent uppercase bg-accent/10 rounded-full font-secondary">
+            Sustainable Solutions
+          </div>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 font-primary text-white leading-tight max-w-5xl mx-auto">
+            Responsible E-Waste{" "}
+            <span className="text-secondary">Recycling & Disposal</span>
+          </h1>
+          <p className="text-neutral-200 text-lg md:text-xl mb-10 max-w-3xl mx-auto font-secondary leading-relaxed">
+            Leading the way in secure and environmentally friendly electronic
+            waste management. Certified data destruction and sustainable
+            material recovery for a cleaner future.
+          </p>
+          <div className="flex flex-wrap justify-center gap-6 mt-10">
+            <Link href="/">
+              <Button className="px-10 py-4 bg-white text-primary font-bold rounded-full hover:bg-secondary hover:text-white transition-all shadow-xl text-lg">
+                Home
+              </Button>
+            </Link>
+            <Link href="/contact">
+              <Button className="px-10 py-4 bg-secondary text-white font-bold rounded-full hover:bg-white hover:text-primary transition-all shadow-xl text-lg">
+                Sale Now
+              </Button>
+            </Link>
+          </div>
+        </motion.div>
+      </div>
+
+      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div className="w-6 h-10 rounded-full border-2 border-white/30 flex justify-center p-1">
+          <div className="w-1.5 h-1.5 bg-white rounded-full" />
+        </div>
       </div>
     </section>
   );

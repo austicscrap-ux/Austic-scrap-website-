@@ -1,90 +1,217 @@
-import React from 'react';
+"use client";
+
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import SectionWrapper from "@/components/common/SectionWrapper";
+import { Button } from "@/components/ui/Button";
 
 const DataSecurityContent: React.FC = () => {
+  const securityFeatures = [
+    {
+      title: "Hard Drive Shredding",
+      description:
+        "Complete physical destruction of storage devices to prevent any possibility of data retrieval. Our industrial shredders ensure zero recovery.",
+    },
+    {
+      title: "Advanced Data Wiping",
+      description:
+        "Software solutions that overwrite data multiple times using military-grade algorithms, ensuring total erasure of all logical drives.",
+    },
+    {
+      title: "Degaussing",
+      description:
+        "A powerful electromagnetic field is applied to disrupt magnetic storage media, rendering hard drives and tapes permanently unreadable.",
+    },
+    {
+      title: "Legal Compliance",
+      description:
+        "Strict adherence to the IT Act 2000 and the 2011 Privacy Rules, ensuring your organization remains fully compliant with national data laws.",
+    },
+  ];
+
   return (
-    <div className="product-container">
-      <section className="scrap-section">
-        <div className="scrap-container">
-          <div className="scrap-row">
-            <div className="scrap-col-12">
-              <h1>Data Security and Data Destruction</h1>
+    <div className="flex flex-col">
+      {/* Hero Section */}
+      <section className="relative w-full min-h-[500px] md:min-h-[600px] flex items-center justify-center overflow-hidden">
+        <Image
+          src="/images/IT Asset Disposition Buyer.jpeg"
+          alt="Data Security and Destruction"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-neutral-900/60 backdrop-blur-[2px]"></div>
 
-              <p className="scrap-paragraph">
-                Are you overwhelmed by electronic waste? Let our team in Kolkata help you out! We're not just a scrap-buying company; we're electronic waste superheroes. Tired of old computers and laptops taking up space? We'll take care of them for you! Our team is dedicated to giving your tech a second chance. Whether you have towering stacks of monitors or mountains of mobiles, we'll handle it safely, responsibly, and with a smile. Let us handle the e-waste so you can focus on running your business. It's not just about being environmentally friendly; it's also about smart business. Free up space, save money, and feel good about helping the planet. Ready to get started? Give us a call!
-              </p>
+        <div className="container mx-auto px-4 relative z-10 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-widest text-accent uppercase bg-accent/10 rounded-full font-secondary">
+              Uncompromising Information Security
             </div>
-          </div>
-          <div className="scrap-row">
-            <div className="scrap-col-12">
-              <div className="scrap-types">
-                <div className="scrap-type">
-                  <h4 style={{ color: 'red' }}>Data Destruction</h4>
-                  <strong>Certified Data Destruction Services </strong>
-                  <p>
-                    At Austic Scrap, data security isn’t just a priority—it’s a guarantee. Our certified data destruction services are designed to permanently eliminate all traces of sensitive information from your electronic devices, ensuring that your data is unrecoverable and that your privacy is fully protected
-                  </p>
-                  <strong>Cutting-Edge Data Destruction Technologies </strong>
-                  <p>
-                    We utilize the latest technologies and adhere to internationally recognized standards to securely destroy data from a wide range of electronic devices, including computers, smartphones, and servers. Our methods include:
-                  </p>
-                  <ul>
-                    <li>
-                      <strong>Hard Drive Shredding:</strong> Complete physical destruction of storage devices to prevent any possibility of data retrieval.
-                    </li>
-                    <li>
-                      <strong>Data Wiping:</strong> Advanced software solutions that overwrite all data multiple times to ensure total erasure.
-                    </li>
-                    <li>
-                      <strong>Degaussing:</strong> A powerful electromagnetic field is applied to disrupt data on magnetic storage media, rendering it unreadable.
-                    </li>
-                  </ul>
-                </div>
-
-                <div className="scrap-type">
-                  <h4 style={{ color: 'red' }}>Data Security</h4>
-                  <strong>Uncompromising Data Security Protocols </strong>
-                  <p>
-                    In today’s digital world, data is a valuable asset, and protecting it is crucial. At Austic Scrap, we go above and beyond to ensure that your data remains secure throughout every stage of our e-waste recycling process.
-                  </p>
-
-                  <strong>Security-First Approach </strong>
-                  <p>
-                    From the moment we collect your electronic devices to the final stages of recycling, we implement industry-leading security protocols to safeguard your data. Our facilities are equipped with state-of-the-art security systems, and our processes are designed to prevent unauthorized access at every step.
-                  </p>
-
-                  <strong>Advanced Encryption & Protection </strong>
-                  <p>
-                    We employ advanced encryption technologies to ensure that any data transfer or temporary storage is fully protected. Our encryption protocols meet the highest industry standards, ensuring that your information remains confidential and secure until it is permanently destroyed.
-                  </p>
-
-                  <strong>Legal Compliance </strong>
-                  <p>
-                    We strictly adhere to data privacy regulations, including the Information Technology Act, 2000 and the Information Technology (Reasonable Security Practices and Procedures and Sensitive Personal Data or Information) Rules, 2011. These regulations are designed to protect sensitive personal data, and our commitment to compliance ensures that your data is handled in accordance with legal requirements.
-                  </p>
-
-                  <strong> End-to-End Security </strong>
-                  <p>
-                    Our comprehensive data security measures cover the entire lifecycle of your electronic devices, from initial collection through to final destruction. You can trust us to protect your sensitive information and help your organization remain compliant with all relevant data protection laws.
-                  </p>
-
-                  <h4 style={{ color: 'red' }}>E-Waste Recycling Regulations</h4>
-
-                  <strong>Comprehensive Compliance with E-Waste Recycling Regulations</strong>
-
-                  <p>
-                    At Austic Scrap, we are fully committed to complying with all relevant regulations governing the recycling of electronic waste. We understand the importance of responsible e-waste disposal and ensure that our processes meet or exceed regulatory requirements at both national and international levels.
-                  </p>
-
-                  <strong>Compliance with India’s E-Waste (Management) Rules, 2016</strong>
-                  <p>
-                    We strictly follow India’s E-Waste (Management) Rules, 2016, which mandate the proper disposal and recycling of electronic waste to protect the environment and human health. Our recycling facilities are certified to handle e-waste in accordance with these regulations, ensuring that hazardous materials are managed safely and responsibly.
-                  </p>
-                </div>
-              </div>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 font-primary text-white leading-tight max-w-5xl mx-auto">
+              Data Security &{" "}
+              <span className="text-secondary">Destruction</span> in Kolkata
+            </h1>
+            <p className="text-neutral-200 text-lg md:text-xl mb-10 max-w-3xl mx-auto font-secondary leading-relaxed">
+              Certified destruction and specialized security protocols for your
+              sensitive digital assets. We ensure absolute privacy and total
+              compliance with international standards.
+            </p>
+            <div className="flex flex-wrap justify-center gap-6 mt-10">
+              <Link href="/">
+                <Button className="px-10 py-4 bg-white text-primary font-bold rounded-full hover:bg-secondary hover:text-white transition-all shadow-xl text-lg">
+                  Home
+                </Button>
+              </Link>
+              <Link href="/contact">
+                <Button className="px-10 py-4 bg-secondary text-white font-bold rounded-full hover:bg-white hover:text-primary transition-all shadow-xl text-lg">
+                  Sale Now
+                </Button>
+              </Link>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
+
+      {/* Main Content */}
+      <SectionWrapper id="about-data-security" className="bg-white">
+        <div className="flex flex-col lg:flex-row items-center gap-16 mb-24">
+          <motion.div
+            className="w-full lg:w-1/2"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <div className="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-widest text-[#127749] uppercase bg-[#127749]/10 rounded-full font-secondary">
+              Absolute Protection
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold font-primary mb-8 text-neutral-900 leading-tight">
+              Kolkata's Partner for{" "}
+              <span className="text-[#127749]">
+                Secure Information Disposal
+              </span>
+            </h2>
+            <div className="space-y-6">
+              <p className="text-neutral-600 text-lg leading-relaxed font-secondary">
+                Are you overwhelmed by electronic waste and the security risks
+                associated with it? Austic Scrap is your dedicated partner in
+                Kolkata for certified data destruction. We provide a
+                security-first approach to tech lifecycle management.
+              </p>
+              <p className="text-neutral-600 text-lg leading-relaxed font-secondary">
+                Our team is dedicated to giving your assets a secure end.
+                Whether you have towering stacks of servers or mountains of
+                mobile devices, we'll handle data erasure safely, responsibly,
+                and with absolute transparency.
+              </p>
+            </div>
+          </motion.div>
+
+          <motion.div
+            className="w-full lg:w-1/2"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <div className="relative aspect-video rounded-[32px] overflow-hidden shadow-2xl border-8 border-white">
+              <Image
+                src="/images/IT Asset Disposition Buyer.jpeg"
+                alt="Secure Data Destruction Process"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-[32px]" />
+            </div>
+          </motion.div>
+        </div>
+
+        <div className="mt-32">
+          <div className="text-center mb-16">
+            <h3 className="text-3xl md:text-4xl font-bold font-primary mb-4 text-neutral-900">
+              Certified{" "}
+              <span className="text-[#127749]">Destruction Methods</span>
+            </h3>
+            <div className="w-20 h-1.5 bg-secondary mx-auto rounded-full" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {securityFeatures.map((type, index) => (
+              <motion.div
+                key={index}
+                className="group bg-white p-10 rounded-3xl border border-neutral-100 shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="absolute top-0 right-0 w-24 h-24 bg-neutral-50 rounded-bl-full -mr-12 -mt-12 transition-transform duration-500 group-hover:scale-110" />
+
+                <h4 className="text-2xl font-bold font-primary mb-4 text-secondary group-hover:text-black transition-colors relative z-10 capitalize">
+                  {type.title}
+                </h4>
+                <p className="text-neutral-500 leading-relaxed font-secondary relative z-10 group-hover:text-neutral-600 transition-colors">
+                  {type.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-32 grid grid-cols-1 md:grid-cols-2 gap-12">
+          <motion.div
+            className="bg-[#127749] rounded-[40px] p-12 text-white relative overflow-hidden shadow-2xl"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-32 -mt-32 blur-3xl" />
+            <h3 className="text-3xl font-bold font-primary mb-6 relative z-10">
+              Uncompromising Protocols
+            </h3>
+            <p className="text-white/80 text-lg mb-8 font-secondary leading-relaxed relative z-10">
+              From the moment we collect your devices to final destruction, we
+              implement industry-leading security. Our facilities are equipped
+              with state-of-the-art surveillance and access control systems to
+              prevent unauthorized handling at every step.
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="bg-neutral-900 rounded-[40px] p-12 text-white relative overflow-hidden shadow-2xl"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <div className="absolute top-0 right-0 w-64 h-64 bg-accent/10 rounded-full -mr-32 -mt-32 blur-3xl" />
+            <h3 className="text-3xl font-bold font-primary mb-6 relative z-10 text-accent">
+              Legal & Ethical Compliance
+            </h3>
+            <p className="text-white/70 text-lg mb-8 font-secondary leading-relaxed relative z-10">
+              We strictly adhere to India’s E-Waste Rules 2016 and IT Act 2000.
+              Our commitment to compliance ensures that your data is handled in
+              accordance with the most stringent legal requirements, protecting
+              your organization from liability and reputational risk.
+            </p>
+          </motion.div>
+        </div>
+
+        <div className="mt-24 text-center">
+          <Link href="/contact">
+            <Button className="px-12 py-5 bg-secondary text-white font-bold rounded-full hover:bg-neutral-900 transition-all shadow-xl text-lg">
+              Secure Your Data Now →
+            </Button>
+          </Link>
+        </div>
+      </SectionWrapper>
     </div>
   );
 };

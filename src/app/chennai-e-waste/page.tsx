@@ -1,13 +1,15 @@
-import ChennaiEWasteContent from '@/components/sections/ChennaiEWasteContent';
+import ChennaiEWasteContent from "@/components/sections/ChennaiEWasteContent";
 
 export const metadata = {
-  title: 'Chennai Advanced E-Waste Recycling | ITAD & Data Destruction Services',
-  description: 'Efficient e-waste recycling in Chennai for tech companies. We offer secure IT asset disposition, data destruction, and sustainable electronic waste management.',
+  title:
+    "Chennai Advanced E-Waste Recycling | ITAD & Data Destruction Services",
+  description:
+    "Efficient e-waste recycling in Chennai for tech companies. We offer secure IT asset disposition, data destruction, and sustainable electronic waste management.",
 };
 
 export default function ChennaiEWastePage() {
   return (
-    <main className="pt-20">
+    <main>
       <ChennaiEWasteContent />
     </main>
   );

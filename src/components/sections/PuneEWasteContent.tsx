@@ -1,133 +1,196 @@
-'use client';
-import React, { useEffect } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import Image from 'next/image';
-import Link from 'next/link';
+"use client";
+
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import SectionWrapper from "@/components/common/SectionWrapper";
+import { Button } from "@/components/ui/Button";
 
 const PuneEWasteContent: React.FC = () => {
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: true,
-    });
-  }, []);
+  const ewasteServices = [
+    {
+      title: "Hinjewadi ITAD",
+      description:
+        "Advanced IT asset disposition for Pune’s technology leaders. We ensure secure disposal with 100% certified data destruction and environmental compliance.",
+    },
+    {
+      title: "Data Center Decommissioning",
+      description:
+        "Specialized management of server rooms and network infrastructure, focusing on secure decommissioning and high-value material recovery.",
+    },
+    {
+      title: "Manufacturing E-Waste",
+      description:
+        "Customized solutions for Pune’s industrial sector, recovering rare components from outdated machinery and electronic assemblies.",
+    },
+    {
+      title: "Critical Power Recycling",
+      description:
+        "Safe handling of industrial UPS systems and batteries, ensuring hazardous materials are neutralized while reclaiming valuable lead and lithium.",
+    },
+  ];
 
   return (
-    <>
-      <section id="hero" className="hero-section">
-        <div className="hero-content">
-          <Image
-            src="/images/Ewsate greenbackground and right logo.png"
-            alt="Hero Image"
-            layout="fill"
-            objectFit="cover"
-            className="hero-image"
-          />
-          <div className="hero-text">
-            <h1>E-Waste Management Solutions for Pune’s Evolving Tech and Industrial Sector</h1>
-            <Link href="/" className="main-btn">Home</Link>
-            <Link href="/contact" className="main-btn">Sale Now</Link>
-          </div>
+    <div className="flex flex-col">
+      {/* Hero Section */}
+      <section className="relative w-full min-h-[500px] md:min-h-[600px] flex items-center justify-center overflow-hidden">
+        <Image
+          src="/images/workstation scrap buyer"
+          alt="E-Waste Recycling Pune Tech Hub"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-neutral-900/60 backdrop-blur-[2px]"></div>
+
+        <div className="container mx-auto px-4 relative z-10 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-widest text-accent uppercase bg-accent/10 rounded-full font-secondary">
+              Cultural Capital’s Green Choice
+            </div>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 font-primary text-white leading-tight max-w-5xl mx-auto">
+              Pune’s Strategic{" "}
+              <span className="text-secondary">E-Waste Solutions</span>
+            </h1>
+            <p className="text-neutral-200 text-lg md:text-xl mb-10 max-w-3xl mx-auto font-secondary leading-relaxed">
+              Powering Pune’s sustainable transition with advanced e-waste
+              management. We bridge the gap between industrial innovation and
+              environmental responsibility.
+            </p>
+            <div className="flex flex-wrap justify-center gap-6 mt-10">
+              <Link href="/">
+                <Button className="px-10 py-4 bg-white text-primary font-bold rounded-full hover:bg-secondary hover:text-white transition-all shadow-xl text-lg">
+                  Home
+                </Button>
+              </Link>
+              <Link href="/contact">
+                <Button className="px-10 py-4 bg-secondary text-white font-bold rounded-full hover:bg-white hover:text-primary transition-all shadow-xl text-lg">
+                  Sale Now
+                </Button>
+              </Link>
+            </div>
+          </motion.div>
         </div>
       </section>
 
-      <section id="feature" className="feature-wrapper">
-        <div className="feature-container" data-aos="fade-up">
-          <div className="feature-row">
-            <div className="feature-col content-area text-center text-md-start my-auto order-1">
-              <h2>E-Waste Management Leadership in Pune</h2>
-              <p>
-                Pune, a perfect place balancing both heritage and contemporary, is famous for its institutions of learning, but it is also finding its way in the area of investments and industries. As this vibrant city carves its niche in IT and manufacturing, one problem looms large: the management of electronic waste. At Austic Scrap and Recycling, we pledge to offer solutions for e-waste management that specifically cater to the growing needs in Pune’s steppe business.
+      {/* Main Content */}
+      <SectionWrapper id="about-pune-ewaste" className="bg-white">
+        <div className="flex flex-col lg:flex-row items-center gap-16 mb-24">
+          <motion.div
+            className="w-full lg:w-1/2"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <div className="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-widest text-[#127749] uppercase bg-[#127749]/10 rounded-full font-secondary">
+              Heritage & Modernity
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold font-primary mb-8 text-neutral-900 leading-tight">
+              E-Waste Management{" "}
+              <span className="text-[#127749]">Leadership in Pune</span>
+            </h2>
+            <div className="space-y-6">
+              <p className="text-neutral-600 text-lg leading-relaxed font-secondary">
+                Pune, a city balancing heritage and contemporary growth, has
+                carved a significant niche in the IT and manufacturing sectors.
+                As its tech footprint expands, the management of electronic
+                waste becomes a critical priority.
+              </p>
+              <p className="text-neutral-600 text-lg leading-relaxed font-secondary">
+                At Austic Scrap, we provide e-waste management solutions
+                specifically tailored to Pune’s evolving business needs. We
+                specialize in secure disposal, absolute data protection, and
+                recovering high-value materials for a sustainable future.
               </p>
             </div>
-            <div className="feature-col image-area d-flex justify-content-center align-items-center order-2">
-              <div className="image-wrapper" data-aos="zoom-in">
-                <Image src="/images/workstation scrap buyer" alt="Workstation Scrap Buyer" width={500} height={500} />
-              </div>
+          </motion.div>
+
+          <motion.div
+            className="w-full lg:w-1/2"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <div className="relative aspect-video rounded-[32px] overflow-hidden shadow-2xl border-8 border-white">
+              <Image
+                src="/images/workstation scrap buyer"
+                alt="Pune ITAD Services"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-[32px]" />
             </div>
+          </motion.div>
+        </div>
+
+        <div className="mt-32">
+          <div className="text-center mb-16">
+            <h3 className="text-3xl md:text-4xl font-bold font-primary mb-4 text-neutral-900">
+              Industry-Specific{" "}
+              <span className="text-[#127749]">E-Waste Services</span>
+            </h3>
+            <div className="w-20 h-1.5 bg-secondary mx-auto rounded-full" />
           </div>
 
-          <div className="asset-col" data-aos="fade-right">
-            <h3 className="asset-heading text-center">E-Waste Recycling Services of Our Company for Pune</h3>
-            <p>At Austic, we understand that all sectors in Pune have varying needs when it comes to e-waste management. Hence, we have developed the following interventions to suit those needs:</p>
-            <div className="asset-types">
-              <div className="asset-type" data-aos="fade-up">
-                <strong>IT Asset Disposal (ITAD) for Pune's Tech Industry:</strong>
-                <p>
-                  The IT Asset Disposal services we provide will come in handy to all technology companies based in Pune that are constantly innovating and updating their IT infrastructures. We provide complete data eradication services and also observe all environmental standards during the recycling process.
-                </p>
-              </div>
-              <div className="asset-type" data-aos="fade-up" data-aos-delay="100">
-                <strong>Corporate E-Waste Solutions:</strong>
-                <p>
-                  As businesses in Pune continually upgrade their technology, we provide effective solutions for managing corporate e-waste. Our comprehensive services encompass everything from collection to recycling, all while ensuring adherence to local waste management regulations.
-                </p>
-              </div>
-              <div className="asset-type" data-aos="fade-up" data-aos-delay="200">
-                <strong>Battery & Power System Recycling:</strong>
-                <p>
-                  In a city where reliable power is crucial, the proper disposal of batteries and UPS systems is essential. Our recycling services ensure safe handling and disposal of these items, preventing environmental harm and recovering valuable materials for reuse. This service is particularly important for Pune’s energy-dependent industries.
-                </p>
-              </div>
-              <div className="asset-type" data-aos="fade-up" data-aos-delay="200">
-                <strong>Data Center Equipment Decommissioning:</strong>
-                <p>
-                  Pune’s data centers are critical to its IT infrastructure. Our decommissioning services include secure data destruction and the recycling of servers, networking equipment, and other data center components. We ensure that sensitive information is completely erased and that all materials are processed in an environmentally responsible manner.
-                </p>
-              </div>
-              <div className="asset-type" data-aos="fade-up" data-aos-delay="200">
-                <strong>Manufacturing Industry E-Waste Management:</strong>
-                <p>
-                  Our e-waste management services cater to Pune’s manufacturing industry as well. We focus on recovering valuable materials from outdated machinery and electronic components, thereby promoting sustainable practices within this vital sector
-                </p>
-              </div>
-            </div>
-          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+            {ewasteServices.map((type, index) => (
+              <motion.div
+                key={index}
+                className="group bg-white p-10 rounded-3xl border border-neutral-100 shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="absolute top-0 right-0 w-24 h-24 bg-neutral-50 rounded-bl-full -mr-12 -mt-12 transition-transform duration-500 group-hover:scale-110" />
 
-          <div className="materials-handled">
-            <strong>E-Waste Recycling in Pune</strong>
-            <p>
-              With advancements in technology, the shrinking Pune city is set to witness untold volumes of e-waste shortly. This waste, if care is not taken, can pose great risks to the environment and humankind. It is known that improper dumping of disused electronic equipment, such as computers, can expose the environment to toxic components such as lead and mercury and endanger the health of people and wildlife. The good news though is that these wastes contain claimable materials as precious metals like Gold, Silver, and Rare Earth Elements. It is already possible for e-waste to be recycled even with the rapid growth of technology in Pune.
-            </p>
-          </div>
-
-          <div className="materials-handled">
-            <strong>The Importance of E-Waste Management in Pune</strong>
-            <p>
-              Pune’s rapid growth in technology and education makes responsible e-waste management a critical aspect of the city’s sustainability efforts. By recycling electronic waste, we can recover valuable materials and prevent the release of harmful substances into the environment. Our services are designed to help Pune’s businesses and institutions contribute to the city’s green initiatives, ensuring that Pune’s technological advancements goes hand in hand with environmental responsibility.
-            </p>
-          </div>
-
-          <div className="why-choose">
-            <strong>Why We Need E-Waste Recycling</strong>
-            <p>
-              E-waste includes all types of old office equipment like computers, laptops, and UPS systems. These aren’t just discarded items; they contain harmful substances like lead and mercury that can damage the environment if not handled properly. Fortunately, there’s a positive side: these old electronics also have valuable materials like gold, silver, and copper inside. By recycling e-waste responsibly in a tech-focused city like Pune, we not only protect the environment but also recover these important resources and reduce the need to mine new ones. This practice meets legal requirements and helps Pune maintain its status as a leading tech city while promoting a more sustainable future.
-            </p>
-          </div>
-
-          <ul className="scrap-list">
-            <li>Office Computers & Laptops: Our company recycles office computers and laptops that are at the end of their service life, with data protection and environmental protection in view.</li>
-            <li>Desktops & CPUs: Our safe disposal solutions recover useful resources—from big desktops to essential CPUs.</li>
-            <li>UPS Systems & Batteries: Since UPS systems and batteries come with hazardous materials, we handle them with extra care to ensure their responsible disposal.</li>
-            <li>Battery</li>
-          </ul>
-
-          <div className="why-choose">
-            <strong>Why Choose Austic for E-Waste Management in Pune?</strong>
-            <p>
-              <span>Get the Best Price:</span> At Austic Scrap and Recycling, we pride ourselves on offering the most competitive prices for electronic waste across Pune and Maharashtra. Our commitment to providing exceptional value sets us apart in the e-waste management industry, ensuring that you receive the best return on your electronic scrap.
-            </p>
-            <p>
-              <span>Cutting-Edge Data Security: </span> For Pune’s thriving tech and educational sectors, data security is paramount. Our services include advanced data destruction techniques that ensure your sensitive information is thoroughly erased before the recycling process begins. This added layer of security aligns with the city’s high standards for data privacy and protection.</p>
-            <p>
-              <span>Expertise in Local Regulations:</span> Navigating the regulatory landscape in Pune can be complex. Austic’s deep understanding of local e-waste regulations ensures that our services comply with all necessary guidelines. We provide peace of mind by managing your e-waste in accordance with Pune’s specific environmental and legal requirements.
-            </p>
-            <p><span>Dedicated Customer Support:</span>At Austic, we prioritize customer service with a dedicated team ready to address your specific needs. From initial consultation to final disposal, our customer support ensures a seamless and responsive experience tailored to the unique demands of Pune’s diverse sectors.</p>
+                <h4 className="text-2xl font-bold font-primary mb-4 text-[#127749] group-hover:text-black transition-colors relative z-10 capitalize">
+                  {type.title}
+                </h4>
+                <p className="text-neutral-500 leading-relaxed font-secondary relative z-10 group-hover:text-neutral-600 transition-colors">
+                  {type.description}
+                </p>
+              </motion.div>
+            ))}
           </div>
         </div>
-      </section>
-    </>
+
+        <div className="mt-24 bg-neutral-900 rounded-[40px] p-12 text-white relative overflow-hidden shadow-2xl">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-accent/10 rounded-full -mr-32 -mt-32 blur-3xl" />
+          <div className="relative z-10 max-w-4xl">
+            <h3 className="text-3xl font-bold font-primary mb-6">
+              Why Choose Austic in Pune?
+            </h3>
+            <p className="text-white/70 text-lg mb-8 font-secondary leading-relaxed">
+              At Austic Scrap and Recycling, we offer the most competitive
+              prices for electronic waste across Pune and Maharashtra. For the
+              city’s thriving tech and educational sectors, we provide
+              cutting-edge data destruction protocols that ensure absolute
+              security. Our deep understanding of local regulations ensures your
+              business stays compliant while contributing to Pune’s green
+              initiatives.
+            </p>
+            <div className="flex flex-wrap gap-8 text-accent font-bold font-secondary text-sm uppercase tracking-widest">
+              <div className="flex items-center gap-3">
+                <div className="w-2 h-2 bg-accent rounded-full" />
+                <span>Hinjewadi Tech Specialist</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-2 h-2 bg-secondary rounded-full" />
+                <span>Certified Data Security</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </SectionWrapper>
+    </div>
   );
 };
 
