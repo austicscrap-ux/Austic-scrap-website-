@@ -34,7 +34,7 @@ const features = [
 
 const Features = () => {
   return (
-    <SectionWrapper id="feature" className="bg-white">
+    <SectionWrapper id="feature" className="bg-amber-50/30 border-y border-amber-100/50">
       <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
@@ -43,12 +43,12 @@ const Features = () => {
           viewport={{ once: true }}
           className="w-full lg:w-1/2 text-center lg:text-left order-2 lg:order-1"
         >
-          <div className="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-widest text-secondary uppercase bg-secondary/10 rounded-full font-secondary">
+          <div className="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-widest text-[#127749] uppercase bg-[#127749]/10 rounded-full font-secondary">
             Since 2003
           </div>
           <h2 className="text-4xl md:text-5xl font-primary font-bold text-neutral-900 mb-8 leading-tight">
             Leading the Way in{" "}
-            <span className="text-secondary">Eco-Friendly</span> Recycling
+            <span className="text-[#127749]">Eco-Friendly</span> Recycling
           </h2>
           <div className="space-y-6">
             <p className="text-neutral-600 text-lg leading-relaxed font-secondary">
@@ -66,14 +66,14 @@ const Features = () => {
           </div>
           <div className="mt-10 flex flex-wrap gap-4 justify-center lg:justify-start">
             <div className="flex items-center gap-2 text-primary font-bold">
-              <div className="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center">
-                <span className="text-secondary">✓</span>
+              <div className="w-10 h-10 rounded-full bg-[#127749]/10 flex items-center justify-center">
+                <span className="text-[#127749]">✓</span>
               </div>
               <span>Certified Recycling</span>
             </div>
             <div className="flex items-center gap-2 text-primary font-bold">
-              <div className="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center">
-                <span className="text-secondary">✓</span>
+              <div className="w-10 h-10 rounded-full bg-[#127749]/10 flex items-center justify-center">
+                <span className="text-[#127749]">✓</span>
               </div>
               <span>Instant Quotation</span>
             </div>
@@ -102,11 +102,11 @@ const Features = () => {
                     }}
                   >
                     <div className="absolute top-0 right-0 w-24 h-24 bg-white/5 rounded-bl-full -mr-12 -mt-12 transition-transform duration-500 group-hover:scale-150" />
-                    <item.icon className="w-16 h-16 mb-6 text-accent" />
+                    <item.icon className="w-16 h-16 mb-6 text-[#127749]" />
                     <h3 className="text-xl md:text-2xl font-bold text-center text-white font-primary uppercase tracking-wide">
                       {item.title}
                     </h3>
-                    <div className="mt-4 w-12 h-1 bg-accent/50 rounded-full" />
+                    <div className="mt-4 w-12 h-1 bg-[#127749]/50 rounded-full" />
                   </div>
 
                   {/* Back */}
@@ -114,7 +114,7 @@ const Features = () => {
                     <p className="text-neutral-300 text-sm md:text-lg font-medium leading-relaxed">
                       {item.desc}
                     </p>
-                    <div className="mt-6 text-accent font-bold text-sm tracking-widest uppercase">
+                    <div className="mt-6 text-[#127749] font-bold text-sm tracking-widest uppercase">
                       Expert Solutions
                     </div>
                   </div>

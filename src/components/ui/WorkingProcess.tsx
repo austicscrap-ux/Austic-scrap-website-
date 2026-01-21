@@ -30,7 +30,7 @@ const items = [
 
 const WorkingProcess = () => {
   return (
-    <SectionWrapper id="working-process" className="bg-white">
+    <SectionWrapper id="working-process" className="bg-amber-50/30 border-y border-amber-100/50">
       <div className="flex flex-col items-center text-center mb-16 md:mb-24">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
@@ -39,11 +39,11 @@ const WorkingProcess = () => {
           viewport={{ once: true }}
           className="max-w-3xl"
         >
-          <div className="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-widest text-secondary uppercase bg-secondary/10 rounded-full font-secondary">
+          <div className="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-widest text-[#127749] uppercase bg-[#127749]/10 rounded-full font-secondary">
             Our Sectors
           </div>
           <h2 className="text-4xl md:text-5xl font-primary font-bold text-neutral-900 mb-6 leading-tight">
-            Who We <span className="text-secondary">Serve</span>
+            Who We <span className="text-[#127749]">Serve</span>
           </h2>
           <p className="text-neutral-600 text-lg leading-relaxed font-secondary">
             We provide seamless scrap disposal and recycling services across
@@ -64,13 +64,13 @@ const WorkingProcess = () => {
             className="h-full"
           >
             <div className="group h-full bg-white p-10 rounded-3xl border border-neutral-100 shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 relative overflow-hidden flex flex-col items-center text-center">
-              <div className="absolute top-0 left-0 w-2 h-0 bg-secondary transition-all duration-500 group-hover:h-full" />
+              <div className="absolute top-0 left-0 w-2 h-0 bg-[#127749] transition-all duration-500 group-hover:h-full" />
 
-              <div className="icon-box w-20 h-20 rounded-2xl bg-secondary/5 text-secondary text-4xl mb-8 flex items-center justify-center group-hover:bg-secondary group-hover:text-white transition-all duration-500 transform group-hover:rotate-6">
+              <div className="icon-box w-20 h-20 rounded-2xl bg-[#127749]/5 text-[#127749] text-4xl mb-8 flex items-center justify-center group-hover:bg-[#127749] group-hover:text-white transition-all duration-500 transform group-hover:rotate-6">
                 <item.icon className="w-10 h-10" />
               </div>
 
-              <h3 className="text-xl md:text-2xl font-bold mb-4 text-neutral-900 font-primary group-hover:text-secondary transition-colors">
+              <h3 className="text-xl md:text-2xl font-bold mb-4 text-neutral-900 font-primary group-hover:text-[#127749] transition-colors">
                 {item.title}
               </h3>
               <p className="text-neutral-500 text-base leading-relaxed font-secondary">
@@ -78,7 +78,7 @@ const WorkingProcess = () => {
               </p>
 
               <div className="mt-8 pt-8 border-t border-neutral-100 w-full flex justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <span className="text-secondary font-bold text-xs tracking-widest uppercase">
+                <span className="text-[#127749] font-bold text-xs tracking-widest uppercase">
                   Premium Partner
                 </span>
               </div>

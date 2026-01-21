@@ -43,11 +43,11 @@ const Testimonials = () => {
   return (
     <SectionWrapper
       id="testimonials"
-      className="bg-neutral-50/50 relative overflow-hidden"
+      className="bg-amber-50/30 border-y border-amber-100/50 relative overflow-hidden"
     >
       {/* Background decoration */}
       <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none">
-        <div className="absolute top-10 left-10 w-64 h-64 bg-secondary rounded-full blur-3xl" />
+        <div className="absolute top-10 left-10 w-64 h-64 bg-[#127749] rounded-full blur-3xl" />
         <div className="absolute bottom-10 right-10 w-96 h-96 bg-primary rounded-full blur-3xl" />
       </div>
 
@@ -59,13 +59,13 @@ const Testimonials = () => {
           viewport={{ once: true }}
           className="max-w-3xl"
         >
-          <div className="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-widest text-secondary uppercase bg-secondary/10 rounded-full font-secondary">
+          <div className="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-widest text-[#127749] uppercase bg-[#127749]/10 rounded-full font-secondary">
             Testimonials
           </div>
           <h2 className="text-4xl md:text-5xl font-primary font-bold text-neutral-900 mb-6 leading-tight">
-            What Our <span className="text-secondary">Clients</span> Say
+            What Our <span className="text-[#127749]">Clients</span> Say
           </h2>
-          <div className="w-24 h-1.5 bg-secondary mx-auto rounded-full" />
+          <div className="w-24 h-1.5 bg-[#127749] mx-auto rounded-full" />
         </motion.div>
       </div>
 
@@ -81,7 +81,7 @@ const Testimonials = () => {
               }`}
             >
               <div className="bg-white p-10 md:p-16 rounded-[40px] shadow-2xl relative border border-neutral-100/50">
-                <Quote className="text-8xl text-secondary/5 absolute -top-4 -left-4 transform -rotate-12" />
+                <Quote className="text-8xl text-[#127749]/5 absolute -top-4 -left-4 transform -rotate-12" />
 
                 <div className="flex flex-col md:flex-row items-center gap-10">
                   <div className="relative-flex-shrink-0">
@@ -96,7 +96,7 @@ const Testimonials = () => {
                   </div>
 
                   <div className="flex-grow text-center md:text-left">
-                    <div className="flex justify-center md:justify-start mb-4 text-accent text-xl">
+                    <div className="flex justify-center md:justify-start mb-4 text-[#127749] text-xl">
                       {[...Array(5)].map((_, starI) => (
                         <span key={starI}>★</span>
                       ))}
@@ -110,7 +110,7 @@ const Testimonials = () => {
                       <h4 className="text-2xl font-bold text-neutral-900 font-primary">
                         {t.name}
                       </h4>
-                      <span className="text-sm text-secondary font-bold uppercase tracking-widest">
+                      <span className="text-sm text-[#127749] font-bold uppercase tracking-widest">
                         {t.role}
                       </span>
                     </div>
@@ -128,8 +128,8 @@ const Testimonials = () => {
               onClick={() => setCurrentIndex(i)}
               className={`h-2.5 rounded-full transition-all duration-500 ${
                 i === currentIndex
-                  ? "bg-secondary w-12"
-                  : "bg-neutral-200 hover:bg-secondary/40 w-2.5"
+                  ? "bg-[#127749] w-12"
+                  : "bg-neutral-200 hover:bg-[#127749]/40 w-2.5"
               }`}
               aria-label={`Go to testimonial ${i + 1}`}
             />

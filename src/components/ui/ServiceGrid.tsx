@@ -59,7 +59,7 @@ const services = [
 
 const ServiceGrid = () => {
   return (
-    <SectionWrapper id="services" className="bg-neutral-50/50">
+    <SectionWrapper id="services" className="bg-amber-50/30 border-y border-amber-100/50">
       <div className="flex flex-col items-center text-center mb-16 md:mb-24">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -68,12 +68,12 @@ const ServiceGrid = () => {
           viewport={{ once: true }}
           className="max-w-3xl"
         >
-          <div className="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-widest text-secondary uppercase bg-secondary/10 rounded-full font-secondary">
+          <div className="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-widest text-[#127749] uppercase bg-[#127749]/10 rounded-full font-secondary">
             Our Expertise
           </div>
           <h2 className="text-4xl md:text-5xl font-primary font-bold text-neutral-900 mb-6 leading-tight">
             Procurement Sources &{" "}
-            <span className="text-secondary">Specialized Services</span>
+            <span className="text-[#127749]">Specialized Services</span>
           </h2>
           <p className="text-neutral-600 text-lg leading-relaxed font-secondary">
             We provide specialized scrap management and recycling solutions for
@@ -107,13 +107,13 @@ const ServiceGrid = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
                   <span className="text-white font-bold text-sm tracking-widest uppercase flex items-center gap-2">
-                    Learn More <span className="text-accent">→</span>
+                    Learn More <span className="text-[#127749]">→</span>
                   </span>
                 </div>
               </div>
 
               <div className="p-8 flex flex-col flex-grow">
-                <h3 className="text-xl md:text-2xl font-bold mb-4 text-neutral-900 font-primary line-clamp-1 group-hover:text-secondary transition-colors">
+                <h3 className="text-xl md:text-2xl font-bold mb-4 text-neutral-900 font-primary line-clamp-1 group-hover:text-[#127749] transition-colors">
                   {service.title}
                 </h3>
                 <p className="text-neutral-500 text-sm md:text-base leading-relaxed line-clamp-3 mb-6 flex-grow font-secondary font-medium">
@@ -124,7 +124,7 @@ const ServiceGrid = () => {
                   <span className="text-neutral-400 text-xs font-bold uppercase tracking-widest font-secondary">
                     Verified Service
                   </span>
-                  <div className="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center group-hover:bg-secondary group-hover:text-white transition-all duration-300">
+                  <div className="w-8 h-8 rounded-full bg-[#127749]/10 flex items-center justify-center group-hover:bg-[#127749] group-hover:text-white transition-all duration-300">
                     <span className="transform translate-x-[1px]">→</span>
                   </div>
                 </div>
@@ -137,7 +137,7 @@ const ServiceGrid = () => {
       <div className="text-center mt-20 relative z-10">
         <Link
           href="/ewaste"
-          className="inline-flex items-center justify-center px-10 py-4 text-lg font-bold text-white bg-primary-dark rounded-full hover:bg-secondary transition-all shadow-lg hover:shadow-primary-dark/40 transform hover:-translate-y-1"
+          className="inline-flex items-center justify-center px-10 py-4 text-lg font-bold text-white bg-[#127749] rounded-full hover:bg-[#0e512e] transition-all shadow-lg hover:shadow-[#127749]/40 transform hover:-translate-y-1"
         >
           Explore All Services
         </Link>
