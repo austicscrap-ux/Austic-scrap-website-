@@ -35,7 +35,7 @@ export default function ContactPage() {
   return (
     <main>
       <section id="contact-page" className="contact py-12">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 lg:px-[86px]">
           <h6 className="text-grad-green-end-1 text-4xl text-center font-josefin-sans mb-4">
             Contact Us
           </h6>

@@ -45,7 +45,7 @@ const processSteps: ProcessStep[] = [
 const ScrapBuyingProcess: React.FC = () => {
   return (
     <section id="services" className="services_wrapper wrapper py-12">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 lg:px-[86px]">
         <div className="services-row">
           <div className="col-sm-12 text-center mb-10">
             <h3 className="text-grad-green-end-1 text-3xl font-bold font-josefin-sans">

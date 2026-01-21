@@ -23,7 +23,7 @@ const Hero: React.FC<HeroProps> = ({
         <div className="absolute inset-0 bg-gradient-to-r from-neutral-900/90 via-neutral-900/60 to-transparent z-0"></div>
       </div>
 
-      <div className="container mx-auto px-4 relative z-10 py-20">
+      <div className="container mx-auto px-4 lg:px-[86px] relative z-10 py-20">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-16">
           {/* Left Content */}
           <motion.div

@@ -44,7 +44,7 @@ export default function MumbaiScrapPage() {
         />
         <div className="absolute inset-0 bg-neutral-900/60 backdrop-blur-[2px]"></div>
 
-        <div className="container mx-auto px-4 relative z-10 text-center">
+        <div className="container mx-auto px-4 lg:px-[86px] relative z-10 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}

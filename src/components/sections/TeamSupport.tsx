@@ -43,7 +43,7 @@ const teamSupportItems: TeamSupportItemProps[] = [
 const TeamSupport: React.FC = () => {
   return (
     <section className="something py-16 bg-gray-50">
-      <div className="container mx-auto px-4 max-w-7xl">
+      <div className="container mx-auto px-4 lg:px-[86px] max-w-7xl">
         {teamSupportItems.map((item, index) => (
           <motion.div
             key={index}

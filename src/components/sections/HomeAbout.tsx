@@ -38,7 +38,7 @@ const HomeAbout: React.FC = () => {
 
   return (
     <section id="feature" className="py-12">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 lg:px-[86px]">
         <div className="flex flex-col md:flex-row items-center justify-center">
           {/* Left Part */}
           <div className="w-full md:w-1/2 text-center md:text-left my-auto order-2 md:order-1 p-4">

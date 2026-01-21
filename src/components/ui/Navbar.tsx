@@ -47,7 +47,7 @@ const Navbar: React.FC = () => {
       )}
       role="banner"
     >
-      <div className="container mx-auto flex h-20 items-center justify-between px-4">
+      <div className="container mx-auto flex h-20 items-center justify-between px-4 lg:px-[86px]">
         <Link
           href="/"
           className="flex items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-md"

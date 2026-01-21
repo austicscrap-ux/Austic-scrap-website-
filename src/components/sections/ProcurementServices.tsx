@@ -76,7 +76,7 @@ const servicesData: ServiceCardProps[] = [
 const ProcurementServices: React.FC = () => {
   return (
     <section className="bg-procurement-yellow py-12">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 lg:px-[86px]">
         <div className="text-center mb-10">
           <h3 className="text-text-black-dark text-3xl font-bold font-josefin-sans">Procurement Sources and services</h3>
         </div>

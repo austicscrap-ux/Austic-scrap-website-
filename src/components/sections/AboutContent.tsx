@@ -7,7 +7,7 @@ import Image from 'next/image';
 const AboutContent: React.FC = () => {
   return (
     <section className="about py-12">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 lg:px-[86px]">
         <div className="row flex flex-col md:flex-row items-center justify-center">
           <div className="col-md-6 p-4">
             <Image

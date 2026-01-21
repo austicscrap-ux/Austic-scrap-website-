@@ -25,7 +25,7 @@ const Footer: React.FC = () => {
 
   return (
     <footer id="contact" className="bg-neutral-900 text-neutral-300" role="contentinfo">
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-4 lg:px-[86px] py-12">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           
           {/* Company Info */}
@@ -142,7 +142,7 @@ const Footer: React.FC = () => {
         </div>
       </div>
       <div className="bg-neutral-950/50 border-t border-neutral-800">
-        <div className="container mx-auto px-4 py-4 text-center text-sm">
+        <div className="container mx-auto px-4 lg:px-[86px] py-4 text-center text-sm">
           <p>&copy; {new Date().getFullYear()} Austic Scrap. All Rights Reserved.</p>
         </div>
       </div>
