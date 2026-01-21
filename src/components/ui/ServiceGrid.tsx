@@ -95,7 +95,7 @@ const ServiceGrid = () => {
           >
             <Link
               href={service.link}
-              className="block bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 h-full border border-neutral-100 flex flex-col group-hover:-translate-y-2"
+              className="block bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-transform duration-300 h-full border border-neutral-100/60 flex flex-col hover:-translate-y-1"
             >
               <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
@@ -106,28 +106,21 @@ const ServiceGrid = () => {
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
-                  <span className="text-white font-bold text-sm tracking-widest uppercase flex items-center gap-2">
-                    Learn More <span className="text-[#127749]">→</span>
+                  <span className="text-white font-bold text-sm tracking-widest uppercase flex items-center">
+                    <span>Learn More</span>
+                    <span className="ml-1 text-[#127749]">→</span>
                   </span>
                 </div>
               </div>
 
-              <div className="p-8 flex flex-col flex-grow">
+              <div className="p-6 flex flex-col flex-grow">
                 <h3 className="text-xl md:text-2xl font-bold mb-4 text-neutral-900 font-primary line-clamp-1 group-hover:text-[#127749] transition-colors">
                   {service.title}
                 </h3>
-                <p className="text-neutral-500 text-sm md:text-base leading-relaxed line-clamp-3 mb-6 flex-grow font-secondary font-medium">
+                <p className="text-neutral-500 text-sm md:text-base leading-relaxed line-clamp-3 mb-4 font-secondary font-medium">
                   {service.desc}
                 </p>
-                <div className="w-full h-[1px] bg-neutral-100 mb-6" />
-                <div className="flex items-center justify-between">
-                  <span className="text-neutral-400 text-xs font-bold uppercase tracking-widest font-secondary">
-                    Verified Service
-                  </span>
-                  <div className="w-8 h-8 rounded-full bg-[#127749]/10 flex items-center justify-center group-hover:bg-[#127749] group-hover:text-white transition-all duration-300">
-                    <span className="transform translate-x-[1px]">→</span>
-                  </div>
-                </div>
+                <div className="w-full h-[1px] bg-neutral-100/60" />
               </div>
             </Link>
           </motion.div>
