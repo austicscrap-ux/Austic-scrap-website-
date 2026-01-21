@@ -95,7 +95,7 @@ const ServiceGrid = () => {
           >
             <Link
               href={service.link}
-              className="block bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-transform duration-300 h-full border border-neutral-100/60 flex flex-col hover:-translate-y-1"
+              className="block bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-transform duration-300 h-full border border-neutral-200 flex flex-col hover:-translate-y-1"
             >
               <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
@@ -113,24 +113,24 @@ const ServiceGrid = () => {
                 </div>
               </div>
 
-              <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-xl md:text-2xl font-bold mb-4 text-neutral-900 font-primary line-clamp-1 group-hover:text-[#127749] transition-colors">
+              <div className="p-4 flex flex-col">
+                <h3 className="text-xl md:text-2xl font-semibold mb-3 text-neutral-900 font-primary line-clamp-1 group-hover:text-[#127749] transition-colors">
                   {service.title}
                 </h3>
-                <p className="text-neutral-500 text-sm md:text-base leading-relaxed line-clamp-3 mb-4 font-secondary font-medium">
+                <p className="text-neutral-600 text-sm md:text-base leading-relaxed line-clamp-3 mb-2 font-secondary">
                   {service.desc}
                 </p>
-                <div className="w-full h-[1px] bg-neutral-100/60" />
+                <div className="w-full h-px bg-neutral-200 mt-2" />
               </div>
             </Link>
           </motion.div>
         ))}
       </div>
 
-      <div className="text-center mt-20 relative z-10">
+      <div className="text-center mt-8 md:mt-12 mb-8 relative z-10">
         <Link
           href="/ewaste"
-          className="inline-flex items-center justify-center px-10 py-4 text-lg font-bold text-white bg-[#127749] rounded-full hover:bg-[#0e512e] transition-all shadow-lg hover:shadow-[#127749]/40 transform hover:-translate-y-1"
+          className="inline-flex items-center justify-center px-8 py-3 text-base md:text-lg font-semibold text-white bg-[#127749] rounded-md hover:bg-[#0e512e] transition-shadow duration-150 shadow-md hover:shadow-lg"
         >
           Explore All Services
         </Link>
