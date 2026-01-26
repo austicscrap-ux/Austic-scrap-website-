@@ -38,51 +38,59 @@ const ServiceCardsSection: React.FC<ServiceCardsSectionProps> = ({
   };
 
   return (
-    <SectionWrapper id={id || "service-cards"} className="bg-white">
+    <SectionWrapper id={id || "service-cards"} className="bg-transparent py-16">
       <div className="text-center mb-16">
-        <div className="inline-block px-4 py-1.5 mb-4 text-sm font-bold tracking-widest text-secondary uppercase bg-secondary/10 rounded-full font-secondary">
-          Our Services
-        </div>
-        <h3
-          className={`${titleColorClass} text-3xl md:text-5xl font-bold font-primary leading-tight max-w-3xl mx-auto`}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
         >
-          {sectionTitle}
-        </h3>
-        <div className="w-20 h-1.5 bg-secondary mx-auto mt-8 rounded-full" />
+          <h3
+            className={`${titleColorClass} text-3xl md:text-4xl lg:text-5xl font-bold font-primary leading-tight max-w-4xl mx-auto mb-4`}
+          >
+            {sectionTitle}
+          </h3>
+          <div className="w-24 h-1.5 bg-[#127749] mx-auto rounded-full" />
+        </motion.div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {cards.map((card, index) => (
-          <motion.div
-            key={index}
-            className="group bg-white p-8 rounded-3xl border border-neutral-100 shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden cursor-pointer flex flex-col"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            viewport={{ once: true }}
-            onClick={() => handleOpenModal(card)}
-          >
-            <div className="absolute top-0 right-0 w-24 h-24 bg-neutral-50 rounded-bl-full -mr-12 -mt-12 transition-transform duration-500 group-hover:scale-110" />
+      <div className="container mx-auto px-4 lg:px-[86px] max-w-7xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+          {cards.map((card, index) => (
+            <motion.div
+              key={index}
+              className="group bg-white rounded-lg p-5 border border-neutral-100 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 relative overflow-hidden cursor-pointer flex flex-col h-full"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              onClick={() => handleOpenModal(card)}
+            >
+              <div className="absolute top-0 right-0 w-24 h-24 bg-[#127749]/5 rounded-bl-full -mr-12 -mt-12 transition-transform duration-500 group-hover:scale-110" />
 
-            <div className="relative z-10 flex flex-col h-full">
-              <h4 className="text-xl font-bold font-primary mb-4 text-[#127749] group-hover:text-black transition-colors">
-                {card.title}
-              </h4>
-              <p className="text-neutral-500 leading-relaxed font-secondary mb-8 line-clamp-4 group-hover:text-neutral-600">
-                {card.shortDescription}
-              </p>
-              <div className="mt-auto">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="rounded-full border-[#127749] text-[#127749] group-hover:bg-[#127749] group-hover:text-white transition-all w-full md:w-auto"
-                >
-                  Read More
-                </Button>
+              <div className="relative z-10 flex flex-col h-full">
+                <div className="mb-4">
+                  <h4 className="text-xl font-bold font-primary text-neutral-900 group-hover:text-[#127749] transition-colors uppercase border-l-4 border-[#127749] pl-3">
+                    {card.title}
+                  </h4>
+                </div>
+
+                <p className="text-neutral-600 text-sm leading-relaxed font-secondary font-medium mb-6 line-clamp-4 flex-1">
+                  {card.shortDescription}
+                </p>
+
+                <div className="mt-auto pt-4 border-t border-neutral-100">
+                  <span className="inline-flex items-center text-sm font-bold text-[#127749] group-hover:translate-x-2 transition-transform duration-300 font-secondary">
+                    Read Details →
+                  </span>
+                </div>
               </div>
-            </div>
-          </motion.div>
-        ))}
+
+              {/* Bottom Bar */}
+              <div className="absolute bottom-0 left-0 w-full h-1 bg-[#127749] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+            </motion.div>
+          ))}
+        </div>
       </div>
 
       <ServiceModal

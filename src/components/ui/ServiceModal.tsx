@@ -31,7 +31,7 @@ const ServiceModal: React.FC<ServiceModalProps> = ({
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-[9999] flex items-center justify-center px-4">
+        <div className="fixed inset-0 top-0 left-0 z-[10000] flex items-center justify-center px-4 h-screen w-screen">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -44,7 +44,7 @@ const ServiceModal: React.FC<ServiceModalProps> = ({
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ type: "spring", duration: 0.5 }}
-            className="relative bg-white w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]"
+            className="relative bg-white w-full max-w-3xl rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh] z-[10001]"
           >
             <div className="flex items-center justify-between p-6 border-b border-gray-100 bg-gray-50">
               <h3 className="text-2xl font-bold text-[#127749] font-secondary">
