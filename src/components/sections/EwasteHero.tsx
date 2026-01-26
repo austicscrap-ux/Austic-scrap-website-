@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/Button";
 
 const EwasteHero: React.FC = () => {
   return (
-    <section className="relative w-full h-[60vh] min-h-[600px] flex items-center justify-center overflow-hidden bg-gray-900">
+    <section className="relative w-full h-[40vh] min-h-[300px] mt-20 flex items-center justify-center overflow-hidden bg-gray-900">
       {/* Background Image with Opacity for 'Deep' Look */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -32,7 +32,7 @@ const EwasteHero: React.FC = () => {
             Sustainable Solutions
           </div>
 
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 font-primary text-white leading-tight max-w-5xl mx-auto tracking-tight drop-shadow-xl">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-primary text-white leading-tight max-w-5xl mx-auto tracking-tight drop-shadow-xl">
             Responsible E-Waste{" "}
             <span className="text-[#4CAF50]">Recycling & Disposal</span>
           </h1>

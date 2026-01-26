@@ -34,15 +34,15 @@ const MumbaiEWasteContent: React.FC = () => {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="relative w-full min-h-[500px] md:min-h-[600px] flex items-center justify-center overflow-hidden">
+      <section className="relative w-full h-[40vh] min-h-[300px] mt-20 flex items-center justify-center overflow-hidden bg-gray-900">
         <Image
           src="/images/e-waste-mumbai.jpg"
           alt="E-Waste Recycling Mumbai Financial Capital"
           fill
-          className="object-cover"
+          className="object-cover opacity-40"
           priority
         />
-        <div className="absolute inset-0 bg-neutral-900/60 backdrop-blur-[2px]"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
 
         <div className="container mx-auto px-4 relative z-10 text-center">
           <motion.div
@@ -53,7 +53,7 @@ const MumbaiEWasteContent: React.FC = () => {
             <div className="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-widest text-accent uppercase bg-accent/10 rounded-full font-secondary">
               Financial Capital’s Preferred Partner
             </div>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 font-primary text-white leading-tight max-w-5xl mx-auto">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 font-primary text-white leading-tight max-w-5xl mx-auto">
               Mumbai’s Premier{" "}
               <span className="text-secondary">E-Waste Solutions</span>
             </h1>
