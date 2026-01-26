@@ -38,7 +38,7 @@ const ScrapBuyingProcess = () => {
       id="process"
       className="bg-amber-50/30 border-y border-amber-100/50"
     >
-      <div className="flex flex-col items-center text-center mb-16 md:mb-24">
+      <div className="flex flex-col items-center text-center mb-8 md:mb-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -46,13 +46,13 @@ const ScrapBuyingProcess = () => {
           viewport={{ once: true }}
           className="max-w-3xl"
         >
-          <div className="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-widest text-[#127749] uppercase bg-[#127749]/10 rounded-full font-secondary">
+          <div className="inline-block px-4 py-1.5 mb-4 text-sm font-bold tracking-widest text-[#127749] uppercase bg-[#127749]/10 rounded-full font-secondary">
             Our Workflow
           </div>
-          <h2 className="text-4xl md:text-5xl font-primary font-bold text-neutral-900 mb-6 leading-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-primary font-bold text-neutral-900 mb-4 md:mb-6 leading-tight">
             Our <span className="text-[#127749]">Scrap Buying</span> Process
           </h2>
-          <p className="text-neutral-600 text-lg leading-relaxed font-secondary">
+          <p className="text-neutral-600 text-base md:text-lg leading-relaxed font-secondary">
             Experience a streamlined, transparent, and fair process perfected
             over 20 years to ensure you get the best value with zero hassle.
           </p>
@@ -73,7 +73,7 @@ const ScrapBuyingProcess = () => {
             viewport={{ once: true }}
             className="relative z-10"
           >
-            <div className="group bg-white p-5 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-500 border border-neutral-100 flex flex-col items-center text-center h-full hover:-translate-y-2">
+            <div className="group bg-white p-4 md:p-6 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-500 border border-neutral-100 flex flex-col items-center text-center h-full hover:-translate-y-2">
               <div className="absolute -top-3 -left-3 w-10 h-10 bg-neutral-900 text-white rounded-xl flex items-center justify-center font-bold text-sm shadow-lg group-hover:bg-[#127749] transition-colors duration-500">
                 0{item.step}
               </div>

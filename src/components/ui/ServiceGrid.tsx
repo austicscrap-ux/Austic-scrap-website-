@@ -63,7 +63,7 @@ const ServiceGrid = () => {
       id="services"
       className="bg-amber-50/30 border-y border-amber-100/50"
     >
-      <div className="flex flex-col items-center text-center mb-16 md:mb-24">
+      <div className="flex flex-col items-center text-center mb-8 md:mb-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -71,14 +71,14 @@ const ServiceGrid = () => {
           viewport={{ once: true }}
           className="max-w-3xl"
         >
-          <div className="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-widest text-[#127749] uppercase bg-[#127749]/10 rounded-full font-secondary">
+          <div className="inline-block px-4 py-1.5 mb-4 text-sm font-bold tracking-widest text-[#127749] uppercase bg-[#127749]/10 rounded-full font-secondary">
             Our Expertise
           </div>
-          <h2 className="text-4xl md:text-5xl font-primary font-bold text-neutral-900 mb-6 leading-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-primary font-bold text-neutral-900 mb-4 md:mb-6 leading-tight">
             Procurement Sources &{" "}
             <span className="text-[#127749]">Specialized Services</span>
           </h2>
-          <p className="text-neutral-600 text-lg leading-relaxed font-secondary">
+          <p className="text-neutral-600 text-base md:text-lg leading-relaxed font-secondary">
             We provide specialized scrap management and recycling solutions for
             high-end commercial sectors, ensuring the best value and absolute
             environmental compliance.

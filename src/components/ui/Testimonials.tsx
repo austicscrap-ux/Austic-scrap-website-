@@ -51,7 +51,7 @@ const Testimonials = () => {
         <div className="absolute bottom-10 right-10 w-96 h-96 bg-primary rounded-full blur-3xl" />
       </div>
 
-      <div className="flex flex-col items-center text-center mb-16 md:mb-20">
+      <div className="flex flex-col items-center text-center mb-8 md:mb-12">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -59,10 +59,10 @@ const Testimonials = () => {
           viewport={{ once: true }}
           className="max-w-3xl"
         >
-          <div className="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-widest text-[#127749] uppercase bg-[#127749]/10 rounded-full font-secondary">
+          <div className="inline-block px-4 py-1.5 mb-4 text-sm font-bold tracking-widest text-[#127749] uppercase bg-[#127749]/10 rounded-full font-secondary">
             Testimonials
           </div>
-          <h2 className="text-4xl md:text-5xl font-primary font-bold text-neutral-900 mb-6 leading-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-primary font-bold text-neutral-900 mb-4 md:mb-6 leading-tight">
             What Our <span className="text-[#127749]">Clients</span> Say
           </h2>
           <div className="w-24 h-1.5 bg-[#127749] mx-auto rounded-full" />
@@ -70,7 +70,7 @@ const Testimonials = () => {
       </div>
 
       <div className="max-w-5xl mx-auto relative px-4 md:px-10">
-        <div className="relative min-h-[500px] md:min-h-[400px]">
+        <div className="relative min-h-[480px] sm:min-h-[400px] md:min-h-[350px]">
           {testimonials.map((t, i) => (
             <div
               key={i}
@@ -80,12 +80,12 @@ const Testimonials = () => {
                   : "opacity-0 translate-x-12 scale-95 z-0"
               }`}
             >
-              <div className="bg-white p-10 md:p-16 rounded-[40px] shadow-2xl relative border border-neutral-100/50">
-                <Quote className="text-8xl text-[#127749]/5 absolute -top-4 -left-4 transform -rotate-12" />
+              <div className="bg-white p-6 md:p-10 lg:p-12 rounded-3xl md:rounded-[40px] shadow-2xl relative border border-neutral-100/50">
+                <Quote className="text-6xl md:text-8xl text-[#127749]/5 absolute -top-2 -left-2 md:-top-4 md:-left-4 transform -rotate-12" />
 
                 <div className="flex flex-col md:flex-row items-center gap-10">
-                  <div className="relative-flex-shrink-0">
-                    <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-3xl overflow-hidden shadow-2xl border-4 border-white transform -rotate-3 transition-transform duration-500 hover:rotate-0">
+                  <div className="relative flex-shrink-0">
+                    <div className="relative w-24 h-24 md:w-32 md:h-32 rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl border-4 border-white transform -rotate-3 transition-transform duration-500 hover:rotate-0">
                       <Image
                         src={t.img}
                         alt={t.name}
@@ -96,21 +96,21 @@ const Testimonials = () => {
                   </div>
 
                   <div className="flex-grow text-center md:text-left">
-                    <div className="flex justify-center md:justify-start mb-4 text-[#127749] text-xl">
+                    <div className="flex justify-center md:justify-start mb-3 text-[#127749] text-lg md:text-xl">
                       {[...Array(5)].map((_, starI) => (
                         <span key={starI}>★</span>
                       ))}
                     </div>
 
-                    <p className="text-neutral-600 italic text-lg md:text-2xl mb-8 leading-relaxed font-secondary">
+                    <p className="text-neutral-600 italic text-base sm:text-lg md:text-xl mb-6 md:mb-8 leading-relaxed font-secondary">
                       "{t.review}"
                     </p>
 
                     <div>
-                      <h4 className="text-2xl font-bold text-neutral-900 font-primary">
+                      <h4 className="text-xl md:text-2xl font-bold text-neutral-900 font-primary">
                         {t.name}
                       </h4>
-                      <span className="text-sm text-[#127749] font-bold uppercase tracking-widest">
+                      <span className="text-xs md:text-sm text-[#127749] font-bold uppercase tracking-widest">
                         {t.role}
                       </span>
                     </div>
