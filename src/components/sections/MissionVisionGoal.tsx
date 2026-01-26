@@ -3,6 +3,7 @@
 
 import React from "react";
 import { Target, Eye, Gem } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface GoalItemProps {
   icon: React.ReactNode;
@@ -12,19 +13,19 @@ interface GoalItemProps {
 
 const goalItems: GoalItemProps[] = [
   {
-    icon: <Target />,
+    icon: <Target className="w-10 h-10" />,
     title: "Mission",
     description:
       "At Austic Scrap, our mission is to transform the scrap recycling industry through high-quality, eco-friendly services. We assist businesses in effectively managing electronic waste and excess materials, promoting sustainability and conservation. With a commitment to quality and ethics, we strive to create a cleaner, greener future.",
   },
   {
-    icon: <Eye />,
+    icon: <Eye className="w-10 h-10" />,
     title: "Vision",
     description:
       "Our vision is to lead India's scrap recycling industry with innovative solutions, environmental stewardship, and a customer-centric ethos. We envision a world of minimal waste and preserved resources. Austic Scrap strives to establish new standards, setting benchmarks for reliability and excellence.",
   },
   {
-    icon: <Gem />,
+    icon: <Gem className="w-10 h-10" />,
     title: "Values",
     description:
       "Integrity, transparency, and trust anchor our values. We uphold environmental accountability, embracing sustainable methods to protect our planet. Customer focus propels us beyond expectations. Innovation is pivotal; we constantly refine practices for client service. Stringent standards ensure excellence in all endeavors.",
@@ -33,37 +34,56 @@ const goalItems: GoalItemProps[] = [
 
 const MissionVisionGoal: React.FC = () => {
   return (
-    <section id="services" className="services_wrapper wrapper py-12">
-      <div className="container mx-auto px-4 lg:px-[86px]">
-        <div className="services-row">
-          <div className="col-sm-12 text-center mb-10">
-            <h3 className="text-grad-green-end-1 text-3xl font-bold font-josefin-sans">
-              Our Goal
+    <section className="py-24 bg-gray-50 relative overflow-hidden">
+      {/* Decorative Elements */}
+      <div className="absolute top-0 left-0 w-64 h-64 bg-green-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
+      <div className="absolute bottom-0 right-0 w-64 h-64 bg-teal-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+
+      <div className="container mx-auto px-4 lg:px-[86px] max-w-7xl relative z-10">
+        <div className="text-center mb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h5 className="text-green-600 font-bold tracking-widest uppercase mb-4 text-sm font-secondary">
+              Core Principles
+            </h5>
+            <h3 className="text-4xl lg:text-5xl font-bold font-josefin-sans text-gray-900">
+              Guiding Our <span className="text-green-600">Journey</span>
             </h3>
-          </div>
+            <div className="w-24 h-1.5 bg-gradient-to-r from-green-500 to-teal-400 mx-auto mt-6 rounded-full"></div>
+          </motion.div>
         </div>
-        <div className="services-row flex flex-wrap justify-center -mx-2">
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
           {goalItems.map((item, index) => (
-            <div
+            <motion.div
               key={index}
-              className="col-md-4 col-sm-6 mb-4 w-full md:w-1/2 lg:w-1/3 px-2"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.2, duration: 0.6 }}
+              className="group bg-white p-10 rounded-[2rem] shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 relative overflow-hidden"
             >
-              <div className="card service-item bg-white p-6 rounded-lg shadow-md transition-shadow duration-300 hover:shadow-lg h-full flex flex-col justify-between">
-                <div>
-                  <div className="icon-box text-5xl mb-4 text-text-primary flex items-center justify-center">
-                    {item.icon}
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-semibold text-text-black-dark mb-2">
-                      {item.title}
-                    </h4>
-                    <p className="text-text-gray text-justify text-base">
-                      {item.description}
-                    </p>
-                  </div>
+              {/* Card Hover Gradient */}
+              <div className="absolute inset-0 bg-gradient-to-br from-green-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+              <div className="relative z-10">
+                <div className="mb-8 inline-flex p-4 rounded-2xl bg-green-100 text-green-600 group-hover:bg-green-600 group-hover:text-white transition-all duration-300 transform group-hover:rotate-6">
+                  {item.icon}
                 </div>
+
+                <h4 className="text-2xl font-bold text-gray-900 mb-6 font-josefin-sans group-hover:text-green-700 transition-colors">
+                  {item.title}
+                </h4>
+
+                <p className="text-gray-600 leading-relaxed font-light text-lg">
+                  {item.description}
+                </p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
