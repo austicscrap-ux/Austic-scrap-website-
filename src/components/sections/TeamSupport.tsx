@@ -42,9 +42,9 @@ const teamSupportItems: TeamSupportItemProps[] = [
 
 const TeamSupport: React.FC = () => {
   return (
-    <section className="bg-gray-50 py-20 lg:py-28 relative overflow-hidden">
+    <section className="bg-gray-50 py-16 lg:py-20 relative overflow-hidden">
       <div className="container mx-auto px-4 lg:px-[86px] max-w-7xl relative z-10">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -56,7 +56,7 @@ const TeamSupport: React.FC = () => {
           <div className="w-24 h-1.5 bg-green-500 mx-auto rounded-full"></div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {teamSupportItems.map((item, index) => (
             <motion.div
               key={index}
@@ -64,33 +64,33 @@ const TeamSupport: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.2, duration: 0.5 }}
               viewport={{ once: true }}
-              className="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 flex flex-col h-full"
+              className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col h-full"
             >
               {/* Image Container */}
-              <div className="relative h-56 w-full overflow-hidden bg-white border-b border-gray-50">
+              <div className="relative h-40 w-full overflow-hidden bg-white border-b border-gray-50">
                 <Image
                   src={item.imageSrc}
                   alt={item.imageAlt}
                   fill
-                  className="object-contain p-4 transition-transform duration-700 group-hover:scale-105"
+                  className="object-contain p-3 transition-transform duration-700 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               </div>
 
               {/* Content Container */}
-              <div className="p-8 flex-1 flex flex-col">
-                <div className="mb-4">
-                  <h4 className="text-2xl font-bold text-gray-900 font-josefin-sans uppercase border-l-4 border-green-500 pl-4">
+              <div className="p-5 flex-1 flex flex-col">
+                <div className="mb-2">
+                  <h4 className="text-xl font-bold text-gray-900 font-josefin-sans uppercase border-l-4 border-green-500 pl-3">
                     {item.title}
                   </h4>
                 </div>
 
-                <p className="text-gray-600 leading-relaxed font-light text-justify flex-1">
+                <p className="text-gray-600 text-sm leading-relaxed font-light text-justify flex-1">
                   {item.description}
                 </p>
 
                 {/* Decorative Bottom Bar */}
-                <div className="mt-6 w-full h-1 bg-gradient-to-r from-green-500 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                <div className="mt-4 w-full h-1 bg-gradient-to-r from-green-500 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
               </div>
             </motion.div>
           ))}
