@@ -7,7 +7,6 @@ import {
   Landmark,
   Waves,
   Building,
-  Building,
   Monitor,
   Building2,
   MapPin,
@@ -40,7 +39,7 @@ const Locations: React.FC = () => {
           {locationItems.map((item, index) => (
             <div
               key={index}
-              className="heritage-item mb-4 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/4 px-2"
+              className="heritage-item mb-4 w-1/2 sm:w-1/2 md:w-1/4 lg:w-1/4 px-2"
             >
               {" "}
               {/* Responsive widths */}
