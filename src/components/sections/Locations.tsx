@@ -33,7 +33,7 @@ const locationItems: LocationItemProps[] = [
 
 const Locations: React.FC = () => {
   return (
-    <section className="heritage-section py-12 bg-gray-100">
+    <section className="heritage-section py-12 bg-amber-50/30 border-y border-amber-100/50">
       <div className="container mx-auto px-4 lg:px-[86px]">
         <div className="flex flex-wrap justify-center text-center -mx-2">
           {locationItems.map((item, index) => (
