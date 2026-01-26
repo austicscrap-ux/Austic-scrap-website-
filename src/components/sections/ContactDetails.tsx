@@ -1,4 +1,3 @@
-// src/components/sections/ContactDetails.tsx
 "use client";
 
 import React from "react";
@@ -7,62 +6,82 @@ import { Phone, MessageCircle, Mail, MapPin } from "lucide-react";
 
 const ContactDetails: React.FC = () => {
   return (
-    <div className="info space-y-6">
-      <div className="phone">
-        <Link
-          href="tel:+919831027550"
-          className="flex items-center text-text-black-dark hover:text-text-primary transition-colors"
-        >
-          <Phone className="text-3xl text-primary-color mr-3" />
-          <div>
-            <h4 className="text-xl font-semibold">Call:</h4>
-            <p className="text-text-gray">9831027550</p>
-          </div>
-        </Link>
-      </div>
+    <div className="grid grid-cols-1 gap-6">
+      {/* Phone Card */}
+      <Link
+        href="tel:+919831027550"
+        className="group flex items-center p-6 bg-white rounded-xl shadow-sm border border-neutral-100/50 hover:shadow-md hover:-translate-y-1 transition-all duration-300"
+      >
+        <div className="w-12 h-12 bg-amber-50 rounded-full flex items-center justify-center text-[#127749] group-hover:bg-[#127749] group-hover:text-white transition-colors duration-300 mr-5">
+          <Phone size={24} />
+        </div>
+        <div>
+          <h4 className="text-lg font-bold font-primary text-neutral-900 mb-1">
+            Call Us
+          </h4>
+          <p className="text-neutral-600 font-secondary font-medium">
+            +91 98310 27550
+          </p>
+        </div>
+      </Link>
 
-      <div className="whatsapp">
-        <Link
-          href="https://wa.me/+919831027550"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center text-text-black-dark hover:text-text-primary transition-colors"
-        >
-          <MessageCircle className="text-3xl text-primary-color mr-3" />
-          <div>
-            <h4 className="text-xl font-semibold">Whatsapp:</h4>
-            <p className="text-text-gray">9831027550</p>
-          </div>
-        </Link>
-      </div>
+      {/* WhatsApp Card */}
+      <Link
+        href="https://wa.me/+919831027550"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group flex items-center p-6 bg-white rounded-xl shadow-sm border border-neutral-100/50 hover:shadow-md hover:-translate-y-1 transition-all duration-300"
+      >
+        <div className="w-12 h-12 bg-amber-50 rounded-full flex items-center justify-center text-[#127749] group-hover:bg-[#127749] group-hover:text-white transition-colors duration-300 mr-5">
+          <MessageCircle size={24} />
+        </div>
+        <div>
+          <h4 className="text-lg font-bold font-primary text-neutral-900 mb-1">
+            WhatsApp
+          </h4>
+          <p className="text-neutral-600 font-secondary font-medium">
+            Chat on WhatsApp
+          </p>
+        </div>
+      </Link>
 
-      <div className="email">
-        <Link
-          href="mailto:fexmonscrap98@gmail.com"
-          className="flex items-center text-text-black-dark hover:text-text-primary transition-colors"
-        >
-          <Mail className="text-3xl text-primary-color mr-3" />
-          <div>
-            <h4 className="text-xl font-semibold">Email:</h4>
-            <p className="text-text-gray">fexmonscrap98@gmail.com</p>
-          </div>
-        </Link>
-      </div>
+      {/* Email Card */}
+      <Link
+        href="mailto:fexmonscrap98@gmail.com"
+        className="group flex items-center p-6 bg-white rounded-xl shadow-sm border border-neutral-100/50 hover:shadow-md hover:-translate-y-1 transition-all duration-300"
+      >
+        <div className="w-12 h-12 bg-amber-50 rounded-full flex items-center justify-center text-[#127749] group-hover:bg-[#127749] group-hover:text-white transition-colors duration-300 mr-5">
+          <Mail size={24} />
+        </div>
+        <div>
+          <h4 className="text-lg font-bold font-primary text-neutral-900 mb-1">
+            Email Us
+          </h4>
+          <p className="text-neutral-600 font-secondary font-medium">
+            fexmonscrap98@gmail.com
+          </p>
+        </div>
+      </Link>
 
-      <div className="address">
-        <Link
-          href="https://www.google.com/maps/place/Scrap+Buyer/@22.5549376,88.3530503,17z/data=!4m12!1m6!3m5!1s0x0:0x20a4a1d9df8f9afa!2sScrap+Buyer!8m2!3d22.5549376!4d88.3530503"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center text-text-black-dark hover:text-text-primary transition-colors"
-        >
-          <MapPin className="text-3xl text-primary-color mr-3" />
-          <div>
-            <h4 className="text-xl font-semibold">Location:</h4>
-            <p className="text-text-gray">Park Street Taltala Kolkata-700016</p>
-          </div>
-        </Link>
-      </div>
+      {/* Location Card */}
+      <Link
+        href="https://www.google.com/maps/place/Scrap+Buyer/@22.5549376,88.3530503,17z"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group flex items-center p-6 bg-white rounded-xl shadow-sm border border-neutral-100/50 hover:shadow-md hover:-translate-y-1 transition-all duration-300"
+      >
+        <div className="w-12 h-12 bg-amber-50 rounded-full flex items-center justify-center text-[#127749] group-hover:bg-[#127749] group-hover:text-white transition-colors duration-300 mr-5 flex-shrink-0">
+          <MapPin size={24} />
+        </div>
+        <div>
+          <h4 className="text-lg font-bold font-primary text-neutral-900 mb-1">
+            Our Location
+          </h4>
+          <p className="text-neutral-600 font-secondary font-medium leading-tight">
+            Park Street Taltala, Kolkata-700016
+          </p>
+        </div>
+      </Link>
     </div>
   );
 };

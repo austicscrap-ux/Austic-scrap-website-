@@ -1,13 +1,14 @@
+// src/app/blog/page.tsx
 import { BlogListSection } from "@/components/Blogs/BlogListSection";
-import { HeroSection } from "@/components/common/HeroSection";
+import PageHeader from "@/components/ui/PageHeader";
 import { Suspense } from "react";
 import { Metadata } from "next";
 import { getBlogs } from "@/functions/blog";
 
 export const metadata: Metadata = {
-  title:
-    "Bayshore Intelligence Solutions – AI-Enabled Application & Offshore Development for Start-ups & Enterprises",
-  description: "Bayshore - Blogs Page",
+  title: "Insights & Updates | Austic Scrap Solutions",
+  description:
+    "Stay informed with the latest news, trends, and insights in sustainable scrap management and recycling.",
 };
 
 const Blog = async ({
@@ -21,37 +22,30 @@ const Blog = async ({
   const { blogs: recommendedBlogs } = await getBlogs(1, 5); // Get first 5 for recommendations
 
   return (
-    <div className="bg-[#f7f9fa] w-full min-h-screen">
-      <div className="bg-[#f7f9fa] overflow-hidden w-full relative">
-        {/* Hero Section */}
-        <div className="relative">
-          <HeroSection
-            title="Our Blogs"
-            breadcrumb={[{ label: "Blog", href: "#" }]}
-            titleWidth="max-w-[400px]"
-            height="h-[150px] lg:h-[212px]"
-          />
-        </div>
+    <main className="min-h-screen bg-gray-50">
+      <PageHeader
+        title="Insights & Updates"
+        subtitle="Exploring the future of sustainable waste management, one article at a time."
+        backgroundImage="/images/home page.jpg"
+      />
 
-        {/* Blog list Section */}
-        <div className="relative">
-          <Suspense
-            fallback={
-              <div className="flex justify-center items-center h-64">
-                Loading...
-              </div>
-            }
-          >
-            <BlogListSection
-              blogPosts={blogPosts}
-              totalPages={totalPages}
-              currentPage={currentPage}
-              recommendedBlogs={recommendedBlogs}
-            />
-          </Suspense>
-        </div>
+      <div className="relative">
+        <Suspense
+          fallback={
+            <div className="flex justify-center items-center h-64 text-[#127749]">
+              Loading insights...
+            </div>
+          }
+        >
+          <BlogListSection
+            blogPosts={blogPosts}
+            totalPages={totalPages}
+            currentPage={currentPage}
+            recommendedBlogs={recommendedBlogs}
+          />
+        </Suspense>
       </div>
-    </div>
+    </main>
   );
 };
 
