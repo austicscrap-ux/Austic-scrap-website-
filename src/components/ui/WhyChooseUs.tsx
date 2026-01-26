@@ -1,8 +1,8 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Factory, IndianRupee, MapPin, Recycle } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import SectionWrapper from "@/components/common/SectionWrapper";
 
 const points = [
@@ -14,7 +14,7 @@ const points = [
   {
     icon: IndianRupee,
     title: "Best Prices for Scrap",
-    desc: "At Austic Scrap, we offer competitive prices for old air conditioning units, ensuring that you receive the best value based on Kolkata’s market rates.",
+    desc: "At Austic Scrap, we offer competitive prices for old air conditioning units, ensuring that you receive the best value based on Kolkata's market rates.",
   },
   {
     icon: MapPin,
@@ -29,6 +29,18 @@ const points = [
 ];
 
 const WhyChooseUs = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   return (
     <SectionWrapper
       id="why-choose-us"
@@ -54,31 +66,79 @@ const WhyChooseUs = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
           {points.map((point, index) => (
-            <motion.div
+            <CardItem
               key={index}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              whileTap={{ scale: 0.98 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="group relative bg-[#127749]/5 backdrop-blur-md p-5 md:p-6 rounded-2xl border border-[#127749]/10 hover:bg-[#127749] transition-all duration-500 hover:-translate-y-2 flex items-start gap-4 md:gap-6"
-            >
-              <div className="flex-shrink-0 w-14 h-14 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-[#127749]/20 flex items-center justify-center text-[#127749] group-hover:bg-[#127749] group-hover:text-white transition-all duration-500">
-                <point.icon className="w-7 h-7 md:w-8 md:h-8" />
-              </div>
-              <div>
-                <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 md:mb-3 text-neutral-900 group-hover:text-white transition-colors font-primary">
-                  {point.title}
-                </h3>
-                <p className="text-sm md:text-base text-neutral-600 group-hover:text-white/90 transition-colors leading-relaxed font-secondary">
-                  {point.desc}
-                </p>
-              </div>
-            </motion.div>
+              point={point}
+              index={index}
+              isMobile={isMobile}
+            />
           ))}
         </div>
       </div>
     </SectionWrapper>
+  );
+};
+
+// Separate component to track individual card viewport visibility
+const CardItem = ({
+  point,
+  index,
+  isMobile,
+}: {
+  point: (typeof points)[0];
+  index: number;
+  isMobile: boolean;
+}) => {
+  const ref = React.useRef(null);
+  const isInView = useInView(ref, {
+    amount: 0.3,
+    margin: "-30% 0px -30% 0px",
+  }); // Card is "active" when it passes through the center 40% of the screen
+
+  const isActive = isMobile && isInView;
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      whileTap={{ scale: 0.98 }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      viewport={{ once: true }}
+      className={`group relative backdrop-blur-md p-5 md:p-6 rounded-2xl border border-[#127749]/10 transition-all duration-500 hover:-translate-y-2 flex items-start gap-4 md:gap-6 ${
+        isActive ? "bg-[#127749]" : "bg-[#127749]/5 md:hover:bg-[#127749]"
+      }`}
+    >
+      <div
+        className={`flex-shrink-0 w-14 h-14 md:w-16 md:h-16 rounded-xl md:rounded-2xl flex items-center justify-center transition-all duration-500 ${
+          isActive
+            ? "bg-white/20 text-white"
+            : "bg-[#127749]/20 text-[#127749] md:group-hover:bg-[#127749] md:group-hover:text-white"
+        }`}
+      >
+        <point.icon className="w-7 h-7 md:w-8 md:h-8" />
+      </div>
+      <div>
+        <h3
+          className={`text-lg sm:text-xl md:text-2xl font-bold mb-2 md:mb-3 transition-colors font-primary ${
+            isActive
+              ? "text-white"
+              : "text-neutral-900 md:group-hover:text-white"
+          }`}
+        >
+          {point.title}
+        </h3>
+        <p
+          className={`text-sm md:text-base transition-colors leading-relaxed font-secondary ${
+            isActive
+              ? "text-white/90"
+              : "text-neutral-600 md:group-hover:text-white/90"
+          }`}
+        >
+          {point.desc}
+        </p>
+      </div>
+    </motion.div>
   );
 };
 
