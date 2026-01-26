@@ -86,8 +86,12 @@ const Navbar: React.FC = () => {
                     className={cn(
                       "text-base font-medium transition-colors duration-300 rounded-md px-3 py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-dark",
                       isActive
-                        ? "text-primary-dark font-semibold"
-                        : "text-neutral-700 hover:text-primary",
+                        ? scrolled
+                          ? "text-primary-dark font-semibold"
+                          : "text-white font-semibold"
+                        : scrolled
+                          ? "text-neutral-700 hover:text-primary"
+                          : "text-neutral-200 hover:text-white",
                     )}
                     role="menuitem"
                     aria-current={isActive ? "page" : undefined}
