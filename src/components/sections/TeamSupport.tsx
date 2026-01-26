@@ -42,76 +42,59 @@ const teamSupportItems: TeamSupportItemProps[] = [
 
 const TeamSupport: React.FC = () => {
   return (
-    <section className="bg-white py-24 lg:py-32 overflow-hidden">
-      <div className="container mx-auto px-4 lg:px-[86px] max-w-7xl">
-        {teamSupportItems.map((item, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 50 }}
+    <section className="bg-gray-50 py-20 lg:py-28 relative overflow-hidden">
+      <div className="container mx-auto px-4 lg:px-[86px] max-w-7xl relative z-10">
+        <div className="text-center mb-16">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            viewport={{ once: true, margin: "-100px" }}
-            className={`flex flex-col md:flex-row items-center justify-between gap-12 lg:gap-32 mb-32 last:mb-0
-              ${item.reverse ? "md:flex-row-reverse" : ""}`}
+            viewport={{ once: true }}
+            className="text-4xl lg:text-5xl font-bold text-gray-900 font-josefin-sans mb-4"
           >
-            {/* Text Content */}
-            <div className="w-full md:w-1/2 space-y-8">
-              <div className="relative">
-                <h4 className="text-4xl lg:text-6xl font-bold text-gray-900 tracking-tight font-josefin-sans leading-tight">
-                  {item.title.split(" ").map((word, i) => (
-                    <span
-                      key={i}
-                      className={
-                        word === "&" || word === "*" || word === "-"
-                          ? "text-green-600"
-                          : ""
-                      }
-                    >
-                      {word}{" "}
-                    </span>
-                  ))}
-                </h4>
-                {/* Gemini Added: Stylish underline */}
-                <span
-                  className="block h-2 w-24 bg-green-500 rounded-full mt-4"
-                  title="Added by Gemini"
-                ></span>
+            Our <span className="text-green-600">Operations</span>
+          </motion.h2>
+          <div className="w-24 h-1.5 bg-green-500 mx-auto rounded-full"></div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+          {teamSupportItems.map((item, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.2, duration: 0.5 }}
+              viewport={{ once: true }}
+              className="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 flex flex-col h-full"
+            >
+              {/* Image Container */}
+              <div className="relative h-56 w-full overflow-hidden bg-white border-b border-gray-50">
+                <Image
+                  src={item.imageSrc}
+                  alt={item.imageAlt}
+                  fill
+                  className="object-contain p-4 transition-transform duration-700 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
               </div>
 
-              <p className="text-xl text-gray-600 leading-relaxed text-justify lg:text-left font-light">
-                {item.description}
-              </p>
-            </div>
-
-            {/* Image Content */}
-            <div className="w-full md:w-1/2">
-              <div className="relative group perspective-1000">
-                {/* Gemini Added: Decorative backdrop for image */}
-                <div
-                  className={`absolute top-0 ${item.reverse ? "-left-6" : "-right-6"} w-full h-full bg-green-50 rounded-[2.5rem] -z-10 transition-transform duration-700 group-hover:scale-105`}
-                  title="Added by Gemini"
-                ></div>
-
-                <div className="relative overflow-hidden rounded-[2rem] shadow-2xl transition-all duration-700 transform group-hover:-translate-y-4 bg-white border-4 border-white">
-                  <Image
-                    src={item.imageSrc}
-                    alt={item.imageAlt}
-                    width={800}
-                    height={600}
-                    quality={95}
-                    style={{ width: "100%", height: "auto" }}
-                    className="w-full object-cover transition-transform duration-1000 group-hover:scale-110"
-                  />
-                  {/* Gemini Added: Shine effect on hover */}
-                  <div
-                    className="absolute inset-0 bg-gradient-to-tr from-white/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
-                    title="Added by Gemini"
-                  ></div>
+              {/* Content Container */}
+              <div className="p-8 flex-1 flex flex-col">
+                <div className="mb-4">
+                  <h4 className="text-2xl font-bold text-gray-900 font-josefin-sans uppercase border-l-4 border-green-500 pl-4">
+                    {item.title}
+                  </h4>
                 </div>
+
+                <p className="text-gray-600 leading-relaxed font-light text-justify flex-1">
+                  {item.description}
+                </p>
+
+                {/* Decorative Bottom Bar */}
+                <div className="mt-6 w-full h-1 bg-gradient-to-r from-green-500 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
               </div>
-            </div>
-          </motion.div>
-        ))}
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
