@@ -59,7 +59,10 @@ const services = [
 
 const ServiceGrid = () => {
   return (
-    <SectionWrapper id="services" className="bg-amber-50/30 border-y border-amber-100/50">
+    <SectionWrapper
+      id="services"
+      className="bg-amber-50/30 border-y border-amber-100/50"
+    >
       <div className="flex flex-col items-center text-center mb-16 md:mb-24">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -83,15 +86,16 @@ const ServiceGrid = () => {
         </motion.div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
         {services.map((service, index) => (
           <motion.div
             key={index}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
+            whileTap={{ scale: 0.98 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
             viewport={{ once: true }}
-            className="group"
+            className="group h-full"
           >
             <Link
               href={service.link}
@@ -113,11 +117,11 @@ const ServiceGrid = () => {
                 </div>
               </div>
 
-              <div className="p-4 flex flex-col">
-                <h3 className="text-xl md:text-2xl font-semibold mb-3 text-neutral-900 font-primary line-clamp-1 group-hover:text-[#127749] transition-colors">
+              <div className="p-3 flex flex-col flex-grow">
+                <h3 className="text-lg md:text-xl font-semibold mb-2 text-neutral-900 font-primary line-clamp-1 group-hover:text-[#127749] transition-colors">
                   {service.title}
                 </h3>
-                <p className="text-neutral-600 text-sm md:text-base leading-relaxed line-clamp-3 mb-2 font-secondary">
+                <p className="text-neutral-600 text-sm leading-relaxed line-clamp-3 mb-1 font-secondary flex-grow">
                   {service.desc}
                 </p>
                 <div className="w-full h-px bg-neutral-200 mt-2" />

@@ -59,7 +59,7 @@ const ScrapBuyingProcess = () => {
         </motion.div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 relative">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 relative">
         {/* Connection Line (Desktop) */}
         <div className="hidden lg:block absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-amber-200 to-transparent -translate-y-1/2 z-0" />
 
@@ -68,27 +68,28 @@ const ScrapBuyingProcess = () => {
             key={index}
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
+            whileTap={{ scale: 0.98 }}
             transition={{ duration: 0.5, delay: index * 0.15 }}
             viewport={{ once: true }}
             className="relative z-10"
           >
-            <div className="group bg-white p-10 rounded-[40px] shadow-sm hover:shadow-2xl transition-all duration-500 border border-neutral-100 flex flex-col items-center text-center h-full hover:-translate-y-4">
-              <div className="absolute -top-4 -left-4 w-12 h-12 bg-neutral-900 text-white rounded-2xl flex items-center justify-center font-bold text-lg shadow-lg group-hover:bg-[#127749] transition-colors duration-500">
+            <div className="group bg-white p-5 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-500 border border-neutral-100 flex flex-col items-center text-center h-full hover:-translate-y-2">
+              <div className="absolute -top-3 -left-3 w-10 h-10 bg-neutral-900 text-white rounded-xl flex items-center justify-center font-bold text-sm shadow-lg group-hover:bg-[#127749] transition-colors duration-500">
                 0{item.step}
               </div>
 
-              <div className="w-24 h-24 rounded-[30px] bg-amber-100/50 flex items-center justify-center mb-8 group-hover:bg-[#127749] transition-all duration-500 group-hover:rotate-[10deg] shadow-inner">
-                <item.icon className="w-12 h-12 text-[#127749] group-hover:text-white transition-colors duration-500" />
+              <div className="w-14 h-14 rounded-xl bg-amber-100/50 flex items-center justify-center mb-4 group-hover:bg-[#127749] transition-all duration-500 group-hover:rotate-[10deg] shadow-inner">
+                <item.icon className="w-7 h-7 text-[#127749] group-hover:text-white transition-colors duration-500" />
               </div>
 
-              <h3 className="text-2xl font-bold mb-4 text-neutral-900 font-primary group-hover:text-[#127749] transition-colors">
+              <h3 className="text-lg md:text-xl font-bold mb-3 text-neutral-900 font-primary group-hover:text-[#127749] transition-colors">
                 {item.title}
               </h3>
-              <p className="text-neutral-500 leading-relaxed font-secondary font-medium">
+              <p className="text-neutral-600 text-sm md:text-base leading-relaxed font-secondary font-medium flex-grow">
                 {item.desc}
               </p>
 
-              <div className="mt-8 overflow-hidden h-1 w-0 group-hover:w-full bg-[#127749]/20 transition-all duration-700 rounded-full">
+              <div className="mt-4 overflow-hidden h-1 w-0 group-hover:w-full bg-[#127749]/20 transition-all duration-700 rounded-full">
                 <div className="h-full w-1/3 bg-[#127749] animate-marquee" />
               </div>
             </div>
