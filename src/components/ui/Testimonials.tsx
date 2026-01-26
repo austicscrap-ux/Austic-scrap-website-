@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { Quote } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import SectionWrapper from "@/components/common/SectionWrapper";
 
 const testimonials = [
@@ -69,26 +69,26 @@ const Testimonials = () => {
         </motion.div>
       </div>
 
-      <div className="max-w-5xl mx-auto relative px-4 md:px-10">
-        <div className="relative min-h-[480px] sm:min-h-[400px] md:min-h-[350px]">
-          {testimonials.map((t, i) => (
-            <div
-              key={i}
-              className={`absolute top-0 left-0 w-full transition-all duration-1000 ease-in-out transform ${
-                i === currentIndex
-                  ? "opacity-100 translate-x-0 scale-100 z-10"
-                  : "opacity-0 translate-x-12 scale-95 z-0"
-              }`}
+      <div className="max-w-4xl mx-auto relative px-4 md:px-10">
+        <div className="relative overflow-hidden">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentIndex}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.5 }}
+              className="w-full"
             >
-              <div className="bg-white p-6 md:p-10 lg:p-12 rounded-3xl md:rounded-[40px] shadow-2xl relative border border-neutral-100/50">
+              <div className="bg-white p-5 md:p-8 rounded-3xl md:rounded-[40px] shadow-2xl relative border border-neutral-100/50">
                 <Quote className="text-6xl md:text-8xl text-[#127749]/5 absolute -top-2 -left-2 md:-top-4 md:-left-4 transform -rotate-12" />
 
-                <div className="flex flex-col md:flex-row items-center gap-10">
+                <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8">
                   <div className="relative flex-shrink-0">
                     <div className="relative w-24 h-24 md:w-32 md:h-32 rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl border-4 border-white transform -rotate-3 transition-transform duration-500 hover:rotate-0">
                       <Image
-                        src={t.img}
-                        alt={t.name}
+                        src={testimonials[currentIndex].img}
+                        alt={testimonials[currentIndex].name}
                         fill
                         className="object-cover"
                       />
@@ -103,25 +103,25 @@ const Testimonials = () => {
                     </div>
 
                     <p className="text-neutral-600 italic text-base sm:text-lg md:text-xl mb-6 md:mb-8 leading-relaxed font-secondary">
-                      "{t.review}"
+                      "{testimonials[currentIndex].review}"
                     </p>
 
                     <div>
                       <h4 className="text-xl md:text-2xl font-bold text-neutral-900 font-primary">
-                        {t.name}
+                        {testimonials[currentIndex].name}
                       </h4>
                       <span className="text-xs md:text-sm text-[#127749] font-bold uppercase tracking-widest">
-                        {t.role}
+                        {testimonials[currentIndex].role}
                       </span>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            </motion.div>
+          </AnimatePresence>
         </div>
 
-        <div className="flex justify-center mt-12 space-x-3">
+        <div className="flex justify-center mt-8 space-x-3">
           {testimonials.map((_, i) => (
             <button
               key={i}
