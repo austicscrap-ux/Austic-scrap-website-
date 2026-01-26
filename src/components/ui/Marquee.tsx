@@ -25,15 +25,15 @@ const items = [
 
 const Marquee = () => {
   return (
-    <div className="w-full h-[50px] overflow-hidden bg-primary-dark/5 flex items-center border-y border-primary-dark/10 relative z-20 backdrop-blur-sm">
-      <div className="flex whitespace-nowrap animate-marquee py-2">
+    <div className="w-full h-[50px] overflow-hidden bg-primary-dark/5 flex items-center relative z-20 backdrop-blur-sm">
+      <div className="flex whitespace-nowrap animate-marquee-infinite py-2">
         {/* Render items twice to ensure seamless looping */}
         {[...items, ...items, ...items].map((item, index) => (
           <p
             key={index}
-            className="inline-flex items-center text-wheat mx-5 leading-[40px]"
+            className="inline-flex items-center text-neutral-700 mx-5 leading-[40px] font-medium"
           >
-            <item.icon className="mr-2" /> {item.text}
+            <item.icon className="mr-2 text-[#127749]" /> {item.text}
           </p>
         ))}
       </div>

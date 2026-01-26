@@ -6,3 +6,59 @@
     color: #111827;
   }
 }
+
+@layer utilities {
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-33.333%);
+    }
+  }
+
+  .animate-marquee-infinite {
+    animation: marquee 30s linear infinite;
+  }
+
+  .section-padding {
+    padding-top: 0.625rem;
+    padding-bottom: 4rem;
+  }
+
+  @media (min-width: 768px) {
+    .section-padding {
+      padding-top: 0.625rem;
+      padding-bottom: 5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .section-padding {
+      padding-top: 0.625rem;
+      padding-bottom: 6rem;
+    }
+  }
+
+  /* 3D Card Flip Animation Utilities */
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .transform-style-3d {
+    transform-style: preserve-3d;
+  }
+
+  .backface-hidden {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+
+  .group:hover .group-hover\:rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+}
