@@ -7,11 +7,12 @@ import {
   Landmark,
   Waves,
   Building,
-  Buildings,
+  Building,
   Monitor,
   Building2,
   MapPin,
   Leaf,
+  Factory,
 } from "lucide-react";
 
 interface LocationItemProps {
@@ -22,9 +23,9 @@ interface LocationItemProps {
 
 const locationItems: LocationItemProps[] = [
   { href: "/delhi-e-waste", icon: <Landmark />, title: "Delhi" },
-  { href: "/kolkata-e-waste", icon: <Waves />, title: "Kolkata" },
+  { href: "/ewaste-recycling-kolkata", icon: <Waves />, title: "Kolkata" },
   { href: "/hyderabad-e-waste", icon: <Building />, title: "Hyderabad" },
-  { href: "/bengaluru-e-waste", icon: <Buildings />, title: "Bengaluru" },
+  { href: "/bengaluru-e-waste", icon: <Factory />, title: "Bengaluru" },
   { href: "/pune-e-waste", icon: <Monitor />, title: "Pune" },
   { href: "/mumbai-e-waste", icon: <Building2 />, title: "Mumbai" },
   { href: "/chennai-e-waste", icon: <MapPin />, title: "Chennai" },

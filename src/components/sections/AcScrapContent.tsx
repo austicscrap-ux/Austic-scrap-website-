@@ -54,8 +54,8 @@ const AcScrapContent: React.FC = () => {
               Professional Cooling Disposal
             </div>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 font-primary text-white leading-tight max-w-5xl mx-auto">
-              Air Conditioner{" "}
-              <span className="text-secondary">Scrap Buyer</span> in Kolkata
+              Old AC Buyer &{" "}
+              <span className="text-secondary">Second AC Buyer</span> in Kolkata
             </h1>
             <p className="text-neutral-200 text-lg md:text-xl mb-10 max-w-3xl mx-auto font-secondary leading-relaxed">
               Leading the way in responsible AC disposal. We offer premium rates

@@ -11,7 +11,7 @@ const services = [
     title: "Air Conditioner",
     desc: "Specializing in buying used AC units from commercial buildings, we ensure hassle-free pickup and responsible recycling.",
     img: "/images/Air con-compressed.jpg",
-    link: "/ac",
+    link: "/old-ac-buyer",
   },
   {
     title: "Electrical Scrap",
@@ -29,13 +29,13 @@ const services = [
     title: "Battery Recycling",
     desc: "We specialize in purchasing workstations and office furniture from corporate, institution, and banking sector",
     img: "/images/bettery recycling.jpeg",
-    link: "/battery",
+    link: "/battery-recycling",
   },
   {
     title: "Corporate Scrap",
     desc: "Our Kolkata-based scrap company buy corporate office scrap, ensuring eco-friendly disposal and top prices.",
     img: "/images/office furniture scrap.jpeg",
-    link: "/corporate",
+    link: "/corporate-office-scrap",
   },
   {
     title: "Old DG Generator",
@@ -53,7 +53,7 @@ const services = [
     title: "E-waste Recycling",
     desc: "Buy corporate Office E-waste item such as computers and Laptop for recycling ensuring data security and environmental protection",
     img: "/images/e-waste-recycling-kolkata.jpeg",
-    link: "/kolkata-e-waste",
+    link: "/ewaste-recycling-kolkata",
   },
 ];
 
