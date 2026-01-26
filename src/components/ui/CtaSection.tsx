@@ -19,11 +19,12 @@ const CtaSection: React.FC<CtaSectionProps> = ({
   buttonLink = "/contact",
 }) => {
   return (
-    <section className="py-20 relative overflow-hidden">
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0 bg-green-900 z-0">
-        <div className="absolute inset-0 bg-[url('/images/pattern.svg')] opacity-10"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-green-900 to-green-800 opacity-90"></div>
+    <section className="py-20 relative overflow-hidden bg-amber-50/30 border-y border-amber-100/50">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <div className="absolute inset-0 bg-[url('/images/pattern.svg')] opacity-5"></div>
+        {/* Subtle warm gradient */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-amber-100/20"></div>
       </div>
 
       <div className="container mx-auto px-4 md:px-8 lg:px-[86px] max-w-7xl relative z-10 text-center">
@@ -33,16 +34,16 @@ const CtaSection: React.FC<CtaSectionProps> = ({
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold font-josefin-sans text-white mb-6 leading-tight">
+          <h2 className="text-4xl md:text-5xl font-bold font-primary text-neutral-900 mb-6 leading-tight">
             {title}
           </h2>
-          <p className="text-xl text-green-100 max-w-2xl mx-auto mb-10 font-light">
+          <p className="text-xl text-neutral-600 max-w-2xl mx-auto mb-10 font-secondary font-medium">
             {description}
           </p>
 
           <Link
             href={buttonLink}
-            className="inline-flex items-center gap-2 bg-white text-green-800 px-8 py-4 rounded-full font-bold text-lg hover:bg-green-50 transition-all duration-300 transform hover:-translate-y-1 shadow-xl hover:shadow-2xl"
+            className="inline-flex items-center gap-2 bg-[#127749] text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-[#0e512e] transition-all duration-300 transform hover:-translate-y-1 shadow-xl hover:shadow-[#127749]/30 font-secondary"
           >
             {buttonText}
             <ArrowRight size={20} />

@@ -15,7 +15,7 @@ const stats = [
 
 const AboutContent: React.FC = () => {
   return (
-    <section className="about-section py-20 bg-white overflow-hidden">
+    <section className="about-section py-20 bg-amber-50/30 border-y border-amber-100/50 overflow-hidden">
       <div className="container mx-auto px-4 md:px-8 lg:px-[86px] max-w-7xl">
         {/* Top Section: Story & Image */}
         <div className="flex flex-col lg:flex-row items-center gap-16 mb-24">
@@ -27,18 +27,18 @@ const AboutContent: React.FC = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h5 className="text-green-600 font-bold tracking-widest uppercase mb-4 text-sm font-secondary">
+              <h5 className="text-[#127749] font-bold tracking-widest uppercase mb-4 text-sm font-secondary">
                 Our Story
               </h5>
-              <h2 className="text-4xl lg:text-5xl font-bold font-josefin-sans text-gray-900 leading-tight mb-6">
-                Transforming <span className="text-green-600">Scrap</span> into
+              <h2 className="text-4xl lg:text-5xl font-bold font-primary text-neutral-900 leading-tight mb-6">
+                Transforming <span className="text-[#127749]">Scrap</span> into
                 Value Since 2003
               </h2>
-              <div className="w-20 h-1.5 bg-green-500 rounded-full mb-8"></div>
+              <div className="w-20 h-1.5 bg-[#127749] rounded-full mb-8"></div>
 
-              <div className="text-gray-600 text-lg leading-relaxed text-justify space-y-6 font-light">
+              <div className="text-neutral-600 text-lg leading-relaxed text-justify space-y-6 font-secondary font-medium">
                 <p>
-                  <span className="font-bold text-gray-900">Austic</span>{" "}
+                  <span className="font-bold text-neutral-900">Austic</span>{" "}
                   Founded by Mr. Sam Jhon in 2003, Austic Scrap began as a local
                   enterprise in Kolkata with a vision of providing excellent
                   scrap-buying services. Over the years, this vision has
@@ -65,7 +65,7 @@ const AboutContent: React.FC = () => {
               transition={{ duration: 0.8 }}
               className="relative z-10"
             >
-              <div className="absolute inset-0 bg-green-600 rounded-3xl rotate-3 opacity-20 transform translate-x-4 translate-y-4 -z-10"></div>
+              <div className="absolute inset-0 bg-[#127749] rounded-3xl rotate-3 opacity-20 transform translate-x-4 translate-y-4 -z-10"></div>
               <Image
                 src="/images/e-waste-kolkata.webp"
                 alt="Austic Scrap Facility"
@@ -78,14 +78,14 @@ const AboutContent: React.FC = () => {
               {/* Floating Badge */}
               <div className="absolute -bottom-10 -left-10 bg-white p-6 rounded-2xl shadow-xl hidden md:block animate-bounce-slow">
                 <div className="flex items-center gap-4">
-                  <div className="bg-green-100 p-3 rounded-full text-green-600">
+                  <div className="bg-[#127749]/10 p-3 rounded-full text-[#127749]">
                     <Calendar size={32} />
                   </div>
                   <div>
-                    <p className="text-sm text-gray-500 font-bold uppercase">
+                    <p className="text-sm text-neutral-500 font-bold uppercase">
                       Experience
                     </p>
-                    <p className="text-2xl font-bold text-gray-900">
+                    <p className="text-2xl font-bold text-neutral-900">
                       20+ Years
                     </p>
                   </div>
@@ -104,15 +104,15 @@ const AboutContent: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
-              className="bg-gray-50 p-8 rounded-2xl text-center hover:bg-green-50 transition-colors duration-300 group border border-gray-100"
+              className="bg-white/80 backdrop-blur-sm p-8 rounded-2xl text-center hover:bg-amber-50 transition-colors duration-300 group border border-amber-100/50"
             >
-              <div className="bg-white mx-auto w-16 h-16 rounded-full flex items-center justify-center text-green-600 mb-4 shadow-md group-hover:bg-green-600 group-hover:text-white transition-all duration-300">
+              <div className="bg-white mx-auto w-16 h-16 rounded-full flex items-center justify-center text-[#127749] mb-4 shadow-md group-hover:bg-[#127749] group-hover:text-white transition-all duration-300">
                 <stat.icon size={28} />
               </div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-2 font-josefin-sans">
+              <h3 className="text-3xl font-bold text-neutral-900 mb-2 font-primary">
                 {stat.value}
               </h3>
-              <p className="text-gray-500 font-medium uppercase tracking-wider text-sm">
+              <p className="text-neutral-500 font-medium uppercase tracking-wider text-sm">
                 {stat.label}
               </p>
             </motion.div>
@@ -120,16 +120,16 @@ const AboutContent: React.FC = () => {
         </div>
 
         {/* Bottom Section: Commitment & Sustainability */}
-        <div className="bg-gray-900 rounded-[3rem] p-8 md:p-16 relative overflow-hidden">
+        <div className="bg-neutral-900 rounded-[3rem] p-8 md:p-16 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-full h-full bg-[url('/images/pattern.svg')] opacity-5"></div>
 
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             {/* Commitment */}
             <div className="space-y-6">
-              <h3 className="text-3xl font-bold text-white font-josefin-sans border-l-4 border-green-500 pl-6">
+              <h3 className="text-3xl font-bold text-white font-primary border-l-4 border-[#127749] pl-6">
                 Our Commitment
               </h3>
-              <p className="text-gray-300 text-lg leading-relaxed text-justify">
+              <p className="text-neutral-300 text-lg leading-relaxed text-justify font-secondary">
                 Austic Scrap&apos;s success lies in its unwavering commitment to
                 customer satisfaction and environmental responsibility. The
                 company offers a wide array of scrap management services,
@@ -148,10 +148,10 @@ const AboutContent: React.FC = () => {
 
             {/* Sustainability */}
             <div className="space-y-6">
-              <h3 className="text-3xl font-bold text-white font-josefin-sans border-l-4 border-green-500 pl-6">
+              <h3 className="text-3xl font-bold text-white font-primary border-l-4 border-[#127749] pl-6">
                 Sustainability Focus
               </h3>
-              <p className="text-gray-300 text-lg leading-relaxed text-justify">
+              <p className="text-neutral-300 text-lg leading-relaxed text-justify font-secondary">
                 Austic Scrap sets itself apart with exceptional service and a
                 strong focus on sustainability. Every interaction is handled
                 professionally and courteously, ensuring high customer
