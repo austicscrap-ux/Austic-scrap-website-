@@ -1,6 +1,6 @@
 // src/app/blog/page.tsx
 import { BlogListSection } from "@/components/Blogs/BlogListSection";
-import PageHeader from "@/components/ui/PageHeader";
+import HeroSection from "@/components/ui/HeroSection";
 import { Suspense } from "react";
 import { Metadata } from "next";
 import { getBlogs } from "@/functions/blog";
@@ -23,10 +23,9 @@ const Blog = async ({
 
   return (
     <main className="min-h-screen bg-gray-50">
-      <PageHeader
+      <HeroSection
         title="Insights & Updates"
         subtitle="Exploring the future of sustainable waste management, one article at a time."
-        backgroundImage="/images/home page.jpg"
       />
 
       <div className="relative">

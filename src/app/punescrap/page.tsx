@@ -1,5 +1,5 @@
 // src/app/punescrap/page.tsx
-import PuneScrapHero from "@/components/sections/PuneScrapHero";
+import HeroSection from "@/components/ui/HeroSection";
 import PuneScrapMainContent from "@/components/sections/PuneScrapMainContent";
 import PuneWhyChooseUs from "@/components/sections/PuneWhyChooseUs";
 
@@ -12,7 +12,15 @@ export const metadata = {
 export default function PuneScrapPage() {
   return (
     <main>
-      <PuneScrapHero />
+      <HeroSection
+        title={
+          <>
+            Efficient Scrap Buying and{" "}
+            <span className="text-[#4CAF50]">Disposal in Pune</span>
+          </>
+        }
+        subtitle="Reliable scrap management for Pune's tech corridors and industrial zones. Get fair market value and hassle-free pickup for your office and factory assets."
+      />
       <PuneScrapMainContent />
       <PuneWhyChooseUs />
     </main>

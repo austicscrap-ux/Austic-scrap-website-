@@ -1,5 +1,5 @@
 // src/app/kolkatascrap/page.tsx
-import KolkataScrapHero from "@/components/sections/KolkataScrapHero";
+import HeroSection from "@/components/ui/HeroSection";
 import KolkataScrapMainContent from "@/components/sections/KolkataScrapMainContent";
 import KolkataWhyChooseUs from "@/components/sections/KolkataWhyChooseUs";
 
@@ -13,7 +13,15 @@ export const metadata = {
 export default function KolkataScrapPage() {
   return (
     <main>
-      <KolkataScrapHero />
+      <HeroSection
+        title={
+          <>
+            Professional Office Scrap Buyers &{" "}
+            <span className="text-[#4CAF50]">Recycling in Kolkata</span>
+          </>
+        }
+        subtitle="Premium scrap management for corporate offices, banks, and IT parks across Kolkata. Fair prices, instant quotes, and responsible disposal."
+      />
       <KolkataScrapMainContent />
       <KolkataWhyChooseUs />
     </main>

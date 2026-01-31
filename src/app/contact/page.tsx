@@ -2,7 +2,7 @@
 import React from "react";
 import ContactDetails from "@/components/sections/ContactDetails";
 import ContactForm from "@/components/common/ContactForm";
-import PageHeader from "@/components/ui/PageHeader";
+import HeroSection from "@/components/ui/HeroSection";
 
 export const metadata = {
   title: "Contact Us | Austic Scrap Solutions",
@@ -46,10 +46,9 @@ const contactPageFormFields: Array<{
 export default function ContactPage() {
   return (
     <main>
-      <PageHeader
+      <HeroSection
         title="Contact Us"
         subtitle="Reach out to our dedicated team for all your recycling and scrap management needs."
-        backgroundImage="/images/home page.jpg"
       />
 
       <section className="py-20 bg-amber-50/30">

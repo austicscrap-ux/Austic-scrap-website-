@@ -1,5 +1,5 @@
 // src/app/service/page.tsx
-import EwasteHero from "@/components/sections/EwasteHero";
+import HeroSection from "@/components/ui/HeroSection";
 import ServiceCardsSection from "@/components/sections/ServiceCardsSection";
 import CtaSection from "@/components/ui/CtaSection";
 import {
@@ -17,7 +17,15 @@ export const metadata = {
 export default function EwastePage() {
   return (
     <main className="bg-amber-50/30 min-h-screen">
-      <EwasteHero />
+      <HeroSection
+        title={
+          <>
+            Responsible E-Waste{" "}
+            <span className="text-[#4CAF50]">Recycling & Disposal</span>
+          </>
+        }
+        subtitle="Leading the way in secure and environmentally friendly electronic waste management. Certified data destruction and sustainable material recovery for a cleaner future."
+      />
 
       <div className="py-20 space-y-10">
         <ServiceCardsSection

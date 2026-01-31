@@ -1,5 +1,5 @@
 // src/app/delhiscrap/page.tsx
-import DelhiScrapHero from "@/components/sections/DelhiScrapHero";
+import HeroSection from "@/components/ui/HeroSection";
 import DelhiScrapMainContent from "@/components/sections/DelhiScrapMainContent";
 import DelhiWhyChooseUs from "@/components/sections/DelhiWhyChooseUs";
 
@@ -12,7 +12,15 @@ export const metadata = {
 export default function DelhiScrapPage() {
   return (
     <main>
-      <DelhiScrapHero />
+      <HeroSection
+        title={
+          <>
+            Reliable Office Scrap Buyers &{" "}
+            <span className="text-[#4CAF50]">Vendors in Delhi</span>
+          </>
+        }
+        subtitle="Quick and hassle-free removal of office assets, IT equipment, and electronic waste. Professional scrap management for Delhi's leading corporate sectors."
+      />
       <DelhiScrapMainContent />
       <DelhiWhyChooseUs />
     </main>
