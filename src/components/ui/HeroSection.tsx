@@ -11,7 +11,7 @@ interface HeroSectionProps {
 
 const HeroSection: React.FC<HeroSectionProps> = ({ title, subtitle }) => {
   return (
-    <div className="relative w-full h-[55vh] min-h-[450px] md:min-h-[550px] flex items-center justify-center pt-28 md:pt-40 pb-12 overflow-hidden bg-gray-900">
+    <div className="relative w-full h-[50vh] min-h-[400px] md:h-[35vh] md:min-h-[350px] flex items-center justify-center pt-28 md:pt-28 pb-12 overflow-hidden bg-gray-900">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
