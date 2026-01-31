@@ -59,25 +59,33 @@ const MissionVisionGoal: React.FC = () => {
           </motion.div>
         </div>
 
-        {/* Mobile: Marquee Layout with Pagination */}
+        {/* Mobile: Horizontal Scroll Layout */}
         <div className="md:hidden flex flex-col items-center w-full">
-          {/* Marquee Container */}
-          <div className="flex w-full relative mb-8 overflow-hidden">
-            <div className="flex animate-marquee-infinite whitespace-nowrap py-4">
-              {/* Duplicated 4 times for seamless infinite loop (3 items * 4 = 12 items, plenty for smooth scroll) */}
-              {[...goalItems, ...goalItems, ...goalItems, ...goalItems].map(
-                (item, index) => {
-                  const originalIndex = index % goalItems.length;
-                  return (
-                    <MobileGoalCard
-                      key={`mobile-${index}`}
-                      item={item}
-                      index={originalIndex}
-                      setActiveIndex={setActiveIndex}
-                    />
-                  );
-                },
-              )}
+          {/* Scroll Container */}
+          <div
+            className="flex w-full relative mb-8 overflow-x-auto no-scrollbar pb-4 snap-x snap-mandatory"
+            // Ensure first item can be centered.
+            // 85vw width. Remaining space is 15vw. Half is 7.5vw.
+            // We can approximate or use Calc.
+            // Let's use padding-inline to create the center snap offset.
+            // Or simpler: px-[50%] - half card width.
+            // Tailwind doesn't have calc(50% - 42.5vw) built-in easily.
+            // We can just use a safe generous padding like px-6 or px-8 (approx 7.5vw on 375px is 28px).
+            // Let's use standard spacing.
+            style={{
+              paddingLeft: "calc(50% - 42.5vw)",
+              paddingRight: "calc(50% - 42.5vw)",
+            }}
+          >
+            <div className="flex whitespace-nowrap gap-6">
+              {goalItems.map((item, index) => (
+                <MobileGoalCard
+                  key={`mobile-${index}`}
+                  item={item}
+                  index={index}
+                  setActiveIndex={setActiveIndex}
+                />
+              ))}
             </div>
           </div>
 
@@ -156,12 +164,21 @@ const MobileGoalCard = ({
   return (
     <div
       ref={ref}
-      className={`inline-flex flex-col mx-3 w-[85vw] sm:w-[50vw] p-5 rounded-xl shadow-sm border transition-all duration-500 relative overflow-hidden whitespace-normal ${
+      className={`inline-flex flex-col w-[85vw] sm:w-[50vw] px-5 pb-5 pt-9 rounded-xl shadow-sm border transition-all duration-500 relative overflow-hidden whitespace-normal ${
         isInView
           ? "bg-[#127749] border-[#127749] scale-100 shadow-xl"
           : "bg-white border-amber-100/50 scale-95"
       }`}
     >
+      {/* Serial Number */}
+      <div
+        className={`absolute top-3 left-3 text-[10px] font-bold tracking-widest font-secondary opacity-60 ${
+          isInView ? "text-neutral-200" : "text-neutral-400"
+        }`}
+      >
+        0{index + 1}
+      </div>
+
       <div className="relative z-10 flex flex-col flex-grow text-left">
         <div className="flex items-center gap-3 mb-3">
           <div
