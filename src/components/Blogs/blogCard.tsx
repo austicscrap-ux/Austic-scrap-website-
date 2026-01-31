@@ -33,27 +33,27 @@ export const BlogCard = ({ post, index }: BlogCardProps) => {
           </div>
           <div className="sm:mt-0 sm:ml-4 md:ml-6 lg:ml-8 flex flex-col">
             <div
-              className="font-sans font-semibold text-gray-800 text-lg sm:text-xl leading-relaxed sm:leading-7 line-clamp-2 hover:text-[#03C5CE] transition-colors duration-200"
+              className="font-sans font-semibold text-gray-800 text-lg sm:text-xl leading-relaxed sm:leading-7 line-clamp-2 hover:text-[#127749] transition-colors duration-200"
               aria-label={post.title}
             >
               {post.title}
             </div>
             <div className="flex flex-wrap gap-3 sm:gap-6 mt-3 sm:mt-4">
               <div className="flex items-center">
-                <Calendar className="w-3.5 h-3.5 sm:w-[15px] sm:h-[15px] text-[#03C5CE] flex-shrink-0" />
+                <Calendar className="w-3.5 h-3.5 sm:w-[15px] sm:h-[15px] text-[#127749] flex-shrink-0" />
                 <span className="ml-1.5 sm:ml-2 font-sans font-semibold text-gray-500 text-sm sm:text-base">
                   {moment(post.createdAt).format("DD MMM YYYY")}
                 </span>
               </div>
               <div className="flex items-center">
-                <Clock className="w-3.5 h-3.5 sm:w-[15px] sm:h-[15px] text-[#03C5CE] flex-shrink-0" />
+                <Clock className="w-3.5 h-3.5 sm:w-[15px] sm:h-[15px] text-[#127749] flex-shrink-0" />
                 <span className="ml-1.5 sm:ml-2 font-sans font-semibold text-gray-500 text-sm sm:text-base">
                   {post.readTime}
                 </span>
               </div>
               <div className="flex items-center cursor-pointer group">
-                <Share2 className="w-3.5 h-3.5 sm:w-[15px] sm:h-[15px] text-[#03C5CE] flex-shrink-0 group-hover:opacity-80 transition-opacity" />
-                <span className="ml-1.5 sm:ml-2 font-sans font-semibold text-gray-500 text-sm sm:text-base group-hover:text-[#03C5CE] transition-colors">
+                <Share2 className="w-3.5 h-3.5 sm:w-[15px] sm:h-[15px] text-[#127749] flex-shrink-0 group-hover:opacity-80 transition-opacity" />
+                <span className="ml-1.5 sm:ml-2 font-sans font-semibold text-gray-500 text-sm sm:text-base group-hover:text-[#127749] transition-colors">
                   Share
                 </span>
               </div>
