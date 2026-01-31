@@ -3,6 +3,7 @@
 
 import React from "react";
 import Link from "next/link";
+import { useInView } from "framer-motion";
 import {
   Landmark,
   Waves,
@@ -14,26 +15,21 @@ import {
   Factory,
 } from "lucide-react";
 
-interface LocationItemProps {
-  href: string;
-  icon: React.ReactNode;
-  title: string;
-}
-
-const locationItems: LocationItemProps[] = [
-  { href: "/delhi-e-waste", icon: <Landmark />, title: "Delhi" },
-  { href: "/ewaste-recycling-kolkata", icon: <Waves />, title: "Kolkata" },
-  { href: "/hyderabad-e-waste", icon: <Building />, title: "Hyderabad" },
-  { href: "/bengaluru-e-waste", icon: <Factory />, title: "Bengaluru" },
-  { href: "/pune-e-waste", icon: <Monitor />, title: "Pune" },
-  { href: "/mumbai-e-waste", icon: <Building2 />, title: "Mumbai" },
-  { href: "/chennai-e-waste", icon: <MapPin />, title: "Chennai" },
-  { href: "#", icon: <Leaf />, title: "Haryana" }, // Haryana has no specific link in original
+// Store the component itself, NOT the element, to fix the lint error and allow cleaner usage
+const locationItems = [
+  { href: "/delhi-e-waste", icon: Landmark, title: "Delhi" },
+  { href: "/ewaste-recycling-kolkata", icon: Waves, title: "Kolkata" },
+  { href: "/hyderabad-e-waste", icon: Building, title: "Hyderabad" },
+  { href: "/bengaluru-e-waste", icon: Factory, title: "Bengaluru" },
+  { href: "/pune-e-waste", icon: Monitor, title: "Pune" },
+  { href: "/mumbai-e-waste", icon: Building2, title: "Mumbai" },
+  { href: "/chennai-e-waste", icon: MapPin, title: "Chennai" },
+  { href: "#", icon: Leaf, title: "Haryana" },
 ];
 
 const Locations: React.FC = () => {
   return (
-    <section className="heritage-section py-16 bg-amber-50/30 border-y border-amber-100/50">
+    <section className="heritage-section py-16 bg-amber-50/30 border-y border-amber-100/50 overflow-hidden">
       <div className="container mx-auto px-4 lg:px-[86px]">
         {/* Section Header */}
         <div className="text-center mb-12">
@@ -46,21 +42,28 @@ const Locations: React.FC = () => {
           <div className="w-24 h-1.5 bg-[#127749] mx-auto rounded-full" />
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+        {/* Mobile: Marquee Layout */}
+        <div className="md:hidden flex w-full relative">
+          <div className="flex animate-marquee-infinite whitespace-nowrap py-4">
+            {/* Duplicated 3 times for seamless infinite loop */}
+            {[...locationItems, ...locationItems, ...locationItems].map(
+              (item, index) => (
+                <MobileLocationCard key={`mobile-${index}`} item={item} />
+              ),
+            )}
+          </div>
+        </div>
+
+        {/* Desktop: Grid Layout */}
+        <div className="hidden md:grid md:grid-cols-4 gap-6">
           {locationItems.map((item, index) => (
             <Link
-              key={index}
+              key={`desktop-${index}`}
               href={item.href}
               className="group relative bg-[#127749]/5 hover:bg-[#127749] border border-[#127749]/10 rounded-2xl p-6 flex flex-col items-center text-center transition-all duration-500 hover:-translate-y-2"
             >
               <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-[#127749]/20 text-[#127749] group-hover:bg-white/20 group-hover:text-white flex items-center justify-center mb-4 transition-all duration-500">
-                {/* Clone element to pass className if icon is standard element, otherwise wrap */}
-                <div className="w-8 h-8">
-                  {React.cloneElement(item.icon as React.ReactElement, {
-                    size: 32,
-                    strokeWidth: 2,
-                  })}
-                </div>
+                <item.icon className="w-8 h-8" strokeWidth={2} />
               </div>
               <h5 className="text-lg md:text-xl font-bold font-primary text-neutral-900 group-hover:text-white transition-colors duration-500">
                 {item.title}
@@ -70,6 +73,42 @@ const Locations: React.FC = () => {
         </div>
       </div>
     </section>
+  );
+};
+
+// Extracted component to handle individual InView state
+const MobileLocationCard = ({ item }: { item: (typeof locationItems)[0] }) => {
+  const ref = React.useRef(null);
+  // Active when element is in the horizontal center of the viewport
+  const isInView = useInView(ref, {
+    margin: "0px -40% 0px -40%", // Narrow active zone to simulate "selection"
+  });
+
+  return (
+    <Link
+      ref={ref}
+      href={item.href}
+      className={`inline-flex flex-col items-center justify-center mx-3 border rounded-2xl p-6 w-[160px] flex-shrink-0 transition-all duration-500 ${
+        isInView
+          ? "bg-[#127749] border-[#127749] scale-105 shadow-xl"
+          : "bg-white border-[#127749]/10 scale-100"
+      }`}
+    >
+      <div
+        className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-3 transition-colors duration-500 ${
+          isInView ? "bg-white/20 text-white" : "bg-[#127749]/10 text-[#127749]"
+        }`}
+      >
+        <item.icon className="w-7 h-7" strokeWidth={2} />
+      </div>
+      <h5
+        className={`text-lg font-bold font-primary transition-colors duration-500 ${
+          isInView ? "text-white" : "text-neutral-900"
+        }`}
+      >
+        {item.title}
+      </h5>
+    </Link>
   );
 };
 
