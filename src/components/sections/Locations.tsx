@@ -54,29 +54,26 @@ const Locations: React.FC = () => {
           </div>
         </div>
 
-        {/* Desktop: Grid Layout */}
-        <div className="hidden md:grid md:grid-cols-4 gap-6">
-          {locationItems.map((item, index) => (
-            <Link
-              key={`desktop-${index}`}
-              href={item.href}
-              className="group relative bg-[#127749]/5 hover:bg-[#127749] border border-[#127749]/10 rounded-2xl p-6 flex flex-col items-center text-center transition-all duration-500 hover:-translate-y-2"
-            >
-              <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-[#127749]/20 text-[#127749] group-hover:bg-white/20 group-hover:text-white flex items-center justify-center mb-4 transition-all duration-500">
-                <item.icon className="w-8 h-8" strokeWidth={2} />
-              </div>
-              <h5 className="text-lg md:text-xl font-bold font-primary text-neutral-900 group-hover:text-white transition-colors duration-500">
-                {item.title}
-              </h5>
-            </Link>
-          ))}
+        {/* Desktop: Horizontal Scroll (Marquee) Layout */}
+        <div className="hidden md:flex w-full relative overflow-hidden">
+          <div className="flex animate-marquee-infinite whitespace-nowrap py-6">
+            {/* Duplicated 3 times for seamless infinite loop */}
+            {[...locationItems, ...locationItems, ...locationItems].map(
+              (item, index) => (
+                <DesktopLocationCard
+                  key={`desktop-scroll-${index}`}
+                  item={item}
+                />
+              ),
+            )}
+          </div>
         </div>
       </div>
     </section>
   );
 };
 
-// Extracted component to handle individual InView state
+// Extracted component to handle individual InView state for Mobile
 const MobileLocationCard = ({ item }: { item: (typeof locationItems)[0] }) => {
   const ref = React.useRef(null);
   // Active when element is in the horizontal center of the viewport
@@ -104,6 +101,44 @@ const MobileLocationCard = ({ item }: { item: (typeof locationItems)[0] }) => {
       <h5
         className={`text-lg font-bold font-primary transition-colors duration-500 ${
           isInView ? "text-white" : "text-neutral-900"
+        }`}
+      >
+        {item.title}
+      </h5>
+    </Link>
+  );
+};
+
+// Extracted component to handle individual InView state for Desktop
+const DesktopLocationCard = ({ item }: { item: (typeof locationItems)[0] }) => {
+  const ref = React.useRef(null);
+  // Broader active zone for desktop since it's wider
+  const isInView = useInView(ref, {
+    margin: "0px -35% 0px -35%",
+  });
+
+  return (
+    <Link
+      ref={ref}
+      href={item.href}
+      className={`group relative border rounded-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-500 hover:-translate-y-2 mx-4 w-72 flex-shrink-0 ${
+        isInView
+          ? "bg-[#127749] border-[#127749] shadow-xl scale-105"
+          : "bg-[#127749]/5 border-[#127749]/10 hover:bg-[#127749] scale-100"
+      }`}
+    >
+      <div
+        className={`flex-shrink-0 w-16 h-16 rounded-2xl flex items-center justify-center mb-4 transition-all duration-500 ${
+          isInView
+            ? "bg-white/20 text-white"
+            : "bg-[#127749]/20 text-[#127749] group-hover:bg-white/20 group-hover:text-white"
+        }`}
+      >
+        <item.icon className="w-8 h-8" strokeWidth={2} />
+      </div>
+      <h5
+        className={`text-xl font-bold font-primary transition-colors duration-500 whitespace-normal ${
+          isInView ? "text-white" : "text-neutral-900 group-hover:text-white"
         }`}
       >
         {item.title}
