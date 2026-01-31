@@ -16,7 +16,7 @@ const goalItems: GoalItemProps[] = [
     icon: <Target className="w-10 h-10" />,
     title: "Mission",
     description:
-      "At Austic Scrap, our mission is to transform the scrap recycling industry through high-quality, eco-friendly services. We assist businesses in effectively managing electronic waste and excess materials, promoting sustainability and conservation. With a commitment to quality and ethics, we strive to create a cleaner, greener future.",
+      "At Austic Scrap, our mission is to transform the scrap recycling industry through high-quality, eco-friendly services. We assist businesses in effectively managing electronic waste and excess materials, promoting sustainability and conservation. With a commitment to quality and ethics, we strive to create greener future.",
   },
   {
     icon: <Eye className="w-10 h-10" />,
@@ -57,7 +57,7 @@ const MissionVisionGoal: React.FC = () => {
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+        <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-8 md:pb-0 px-4 md:px-0 -mx-4 md:mx-0 items-stretch">
           {goalItems.map((item, index) => (
             <motion.div
               key={index}
@@ -65,21 +65,26 @@ const MissionVisionGoal: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.2, duration: 0.6 }}
-              className="group bg-white p-10 rounded-[2rem] shadow-sm hover:shadow-2xl transition-all duration-300 border border-amber-100/50 relative overflow-hidden"
+              className="min-w-[85vw] sm:min-w-[45vw] md:min-w-0 snap-center group bg-white p-5 md:p-6 rounded-xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-amber-100/50 relative overflow-hidden flex flex-col h-full"
             >
               {/* Card Hover Gradient */}
               <div className="absolute inset-0 bg-gradient-to-br from-amber-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-              <div className="relative z-10">
-                <div className="mb-8 inline-flex p-4 rounded-2xl bg-[#127749]/10 text-[#127749] group-hover:bg-[#127749] group-hover:text-white transition-all duration-300 transform group-hover:rotate-6">
-                  {item.icon}
+              <div className="relative z-10 flex flex-col flex-grow">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="inline-flex p-2.5 rounded-lg bg-[#127749]/10 text-[#127749] group-hover:bg-[#127749] group-hover:text-white transition-all duration-300 transform group-hover:rotate-3 flex-shrink-0">
+                    <div className="w-7 h-7 flex items-center justify-center">
+                      {/* Directly render icon */}
+                      {item.icon}
+                    </div>
+                  </div>
+
+                  <h4 className="text-xl md:text-2xl font-bold text-neutral-900 font-primary group-hover:text-[#127749] transition-colors m-0">
+                    {item.title}
+                  </h4>
                 </div>
 
-                <h4 className="text-2xl font-bold text-neutral-900 mb-6 font-primary group-hover:text-[#127749] transition-colors">
-                  {item.title}
-                </h4>
-
-                <p className="text-neutral-600 leading-relaxed font-secondary font-medium text-lg">
+                <p className="text-neutral-600 leading-relaxed font-secondary font-medium text-base md:text-lg flex-grow">
                   {item.description}
                 </p>
               </div>
