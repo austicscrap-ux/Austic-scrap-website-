@@ -23,7 +23,7 @@ const Hero: React.FC<HeroProps> = ({
         <div className="absolute inset-0 bg-gradient-to-r from-neutral-900/90 via-neutral-900/60 to-transparent z-0"></div>
       </div>
 
-      <div className="container mx-auto px-4 lg:px-[86px] relative z-10 py-8 lg:py-12">
+      <div className="container mx-auto px-4 lg:px-[86px] relative z-10 pt-28 pb-12 lg:py-12">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
           {/* Left Content */}
           <motion.div
@@ -32,13 +32,13 @@ const Hero: React.FC<HeroProps> = ({
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="w-full lg:w-3/5 text-center lg:text-left"
           >
-            <div className="inline-block px-4 py-1.5 mb-4 text-sm font-bold tracking-widest text-accent uppercase bg-accent/10 rounded-full font-secondary">
+            <div className="inline-block px-3 py-1 mb-3 text-xs sm:text-sm sm:px-4 sm:py-1.5 sm:mb-4 font-bold tracking-widest text-accent uppercase bg-accent/10 rounded-full font-secondary">
               Premium Scrap Solutions
             </div>
-            <h1 className="font-primary font-bold text-3xl md:text-4xl lg:text-5xl mb-4 lg:mb-6 leading-tight text-white">
+            <h1 className="font-primary font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-3 sm:mb-4 lg:mb-6 leading-tight text-white">
               {title}
             </h1>
-            <p className="text-lg md:text-xl text-neutral-200 mb-6 lg:mb-8 max-w-2xl mx-auto lg:mx-0 font-secondary leading-relaxed font-medium">
+            <p className="text-base sm:text-lg md:text-xl text-neutral-200 mb-5 sm:mb-6 lg:mb-8 max-w-2xl mx-auto lg:mx-0 font-secondary leading-relaxed font-medium">
               Leading the way in professional scrap management. We offer{" "}
               <span className="text-accent">fair market value</span> and{" "}
               <span className="text-secondary">fast pickup</span> for all
