@@ -16,7 +16,31 @@ interface ServiceCardProps {
 
 const servicesData: ServiceCardProps[] = [
   {
-    href: "/ac", // Adjusted path
+    href: "/corporate-office-scrap", // Adjusted path
+    imageSrc: "/images/office furniture scrap.jpeg",
+    imageAlt: "Corporate Scrap",
+    title: "Corporate Scrap",
+    description:
+      "Our Kolkata-based scrap company buy corporate office scrap, ensuring eco-friendly disposal and top prices.",
+  },
+  {
+    href: "/asset-disposition", // Fixed path
+    imageSrc: "/images/IT Asset Disposition Buyer.jpeg",
+    imageAlt: "IT Asset Disposition",
+    title: "IT Asset Disposition",
+    description:
+      "IT Asset Disposition services prioritize security for IT disposal, ensuring the best price and offering the best service in Kolkata",
+  },
+  {
+    href: "/ewaste-recycling-kolkata", // Adjusted path
+    imageSrc: "/images/e-waste-recycling-kolkata.jpeg",
+    imageAlt: "E-waste Recycling",
+    title: "E-waste Recycling",
+    description:
+      "Buy corporate Office E-waste item such as computers and Laptop for recycling ensuring data security and environmental protection",
+  },
+  {
+    href: "/old-ac-buyer", // Fixed path
     imageSrc: "/images/Air con-compressed.jpg",
     imageAlt: "Air Conditioner",
     title: "Air Conditioner",
@@ -48,14 +72,6 @@ const servicesData: ServiceCardProps[] = [
       "We specialize in purchasing workstations and office furniture from corporate, institution, and banking sector",
   },
   {
-    href: "/corporate-office-scrap", // Adjusted path
-    imageSrc: "/images/office furniture scrap.jpeg",
-    imageAlt: "Corporate Scrap",
-    title: "Corporate Scrap",
-    description:
-      "Our Kolkata-based scrap company buy corporate office scrap, ensuring eco-friendly disposal and top prices.",
-  },
-  {
     href: "/old-dg-generator", // Adjusted path
     imageSrc: "/images/dg set crop.jpg",
     imageAlt: "Old DG Generator",
@@ -63,25 +79,11 @@ const servicesData: ServiceCardProps[] = [
     description:
       "We buy old office furniture like outdated desk, Office Scrap, cabinets, office chair to minimize office waste effectively",
   },
-  {
-    href: "/it-asset-disposition", // Adjusted path
-    imageSrc: "/images/IT Asset Disposition Buyer.jpeg",
-    imageAlt: "IT Asset Disposition",
-    title: "IT Asset Disposition",
-    description:
-      "IT Asset Disposition services prioritize security for IT disposal, ensuring the best price and offering the best service in Kolkata",
-  },
-  {
-    href: "/ewaste-recycling-kolkata", // Adjusted path
-    imageSrc: "/images/e-waste-recycling-kolkata.jpeg",
-    imageAlt: "E-waste Recycling",
-    title: "E-waste Recycling",
-    description:
-      "Buy corporate Office E-waste item such as computers and Laptop for recycling ensuring data security and environmental protection",
-  },
 ];
 
 const ProcurementServices: React.FC = () => {
+  const [isExpanded, setIsExpanded] = React.useState(false);
+
   return (
     <section className="bg-procurement-yellow py-12">
       <div className="container mx-auto px-4 lg:px-[86px]">
@@ -92,7 +94,12 @@ const ProcurementServices: React.FC = () => {
         </div>
         <div className="flex flex-wrap -mx-2">
           {servicesData.map((service, index) => (
-            <div key={index} className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-2">
+            <div
+              key={index}
+              className={`w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-2 ${
+                index >= 4 && !isExpanded ? "hidden lg:block" : "block"
+              }`}
+            >
               <Link
                 href={service.href}
                 className="block bg-white rounded-lg overflow-hidden shadow-md transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg h-full"
@@ -120,15 +127,31 @@ const ProcurementServices: React.FC = () => {
         </div>
       </div>
 
-      {/* View More Services Button */}
-      <div className="flex items-center justify-center text-center my-8">
+      {!isExpanded && (
+        <div className="flex items-center justify-center text-center my-8 lg:hidden">
+          <div className="flex-grow h-px bg-gray-300 mx-4"></div>
+          <Button
+            variant="default"
+            className="bg-btn-blue text-white hover:bg-btn-dark-green"
+            onClick={() => setIsExpanded(true)}
+          >
+            Explore All Services
+          </Button>
+          <div className="flex-grow h-px bg-gray-300 mx-4"></div>
+        </div>
+      )}
+
+      {/* View More Services Button (Desktop Only) */}
+      <div className="hidden lg:flex items-center justify-center text-center my-8">
         <div className="flex-grow h-px bg-gray-300 mx-4"></div>
-        <Button
-          variant="default"
-          className="bg-btn-blue text-white hover:bg-btn-dark-green"
-        >
-          View More Services
-        </Button>
+        <Link href="/service">
+          <Button
+            variant="default"
+            className="bg-btn-blue text-white hover:bg-btn-dark-green"
+          >
+            Explore All Services
+          </Button>
+        </Link>
         <div className="flex-grow h-px bg-gray-300 mx-4"></div>
       </div>
     </section>

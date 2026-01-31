@@ -58,6 +58,61 @@ const services = [
 ];
 
 const ServiceGrid = () => {
+  const [isExpanded, setIsExpanded] = React.useState(false);
+
+  // Corrected links and ordering as per request (First 4: Corporate, ITAD, E-waste, AC)
+  // Reordering array to match the requested priority for mobile initial view
+  const orderedServices = [
+    {
+      title: "Corporate Scrap",
+      desc: "Our Kolkata-based scrap company buy corporate office scrap, ensuring eco-friendly disposal and top prices.",
+      img: "/images/office furniture scrap.jpeg",
+      link: "/corporate-office-scrap",
+    },
+    {
+      title: "IT Asset Disposition",
+      desc: "IT Asset Disposition services prioritize security for IT disposal, ensuring the best price and offering the best service in Kolkata",
+      img: "/images/IT Asset Disposition Buyer.jpeg",
+      link: "/asset-disposition",
+    },
+    {
+      title: "E-waste Recycling",
+      desc: "Buy corporate Office E-waste item such as computers and Laptop for recycling ensuring data security and environmental protection",
+      img: "/images/e-waste-recycling-kolkata.jpeg",
+      link: "/ewaste-recycling-kolkata",
+    },
+    {
+      title: "Air Conditioner",
+      desc: "Specializing in buying used AC units from commercial buildings, we ensure hassle-free pickup and responsible recycling.",
+      img: "/images/Air con-compressed.jpg",
+      link: "/old-ac-buyer",
+    },
+    {
+      title: "Electrical Scrap",
+      desc: "Purchase old office electric scrap such as wires cables and used electronic device from caproate office",
+      img: "/images/electrical scrap-compressed.jpg",
+      link: "/electrical",
+    },
+    {
+      title: "Metal Scrap",
+      desc: "We specialize in purchasing and recycling various types of metal scrap, including aluminum, copper, and steel in Kolkata",
+      img: "/images/coppper crop.jpg",
+      link: "/metal",
+    },
+    {
+      title: "Battery Recycling",
+      desc: "We specialize in purchasing workstations and office furniture from corporate, institution, and banking sector",
+      img: "/images/bettery recycling.jpeg",
+      link: "/battery-recycling",
+    },
+    {
+      title: "Old DG Generator",
+      desc: "We buy old office furniture like outdated desk, Office Scrap, cabinets, office chair to minimize office waste effectively",
+      img: "/images/dg set crop.jpg",
+      link: "/old-dg-generator",
+    },
+  ];
+
   return (
     <SectionWrapper
       id="services"
@@ -87,7 +142,7 @@ const ServiceGrid = () => {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-        {services.map((service, index) => (
+        {orderedServices.map((service, index) => (
           <motion.div
             key={index}
             initial={{ opacity: 0, y: 30 }}
@@ -95,7 +150,9 @@ const ServiceGrid = () => {
             whileTap={{ scale: 0.98 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
             viewport={{ once: true }}
-            className="group h-full"
+            className={`group h-full ${
+              index >= 4 && !isExpanded ? "hidden lg:block" : "block"
+            }`}
           >
             <Link
               href={service.link}
@@ -131,9 +188,22 @@ const ServiceGrid = () => {
         ))}
       </div>
 
-      <div className="text-center mt-8 md:mt-12 mb-8 relative z-10">
+      {/* Button: Mobile (Expand) */}
+      {!isExpanded && (
+        <div className="text-center mt-8 md:mt-12 mb-8 relative z-10 lg:hidden">
+          <button
+            onClick={() => setIsExpanded(true)}
+            className="inline-flex items-center justify-center px-8 py-3 text-base md:text-lg font-semibold text-white bg-[#127749] rounded-md hover:bg-[#0e512e] transition-shadow duration-150 shadow-md hover:shadow-lg"
+          >
+            Explore All Services
+          </button>
+        </div>
+      )}
+
+      {/* Button: Desktop (Link to /service) */}
+      <div className="hidden lg:block text-center mt-8 md:mt-12 mb-8 relative z-10">
         <Link
-          href="/ewaste"
+          href="/service"
           className="inline-flex items-center justify-center px-8 py-3 text-base md:text-lg font-semibold text-white bg-[#127749] rounded-md hover:bg-[#0e512e] transition-shadow duration-150 shadow-md hover:shadow-lg"
         >
           Explore All Services
