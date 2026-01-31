@@ -7,15 +7,20 @@ import { motion } from "framer-motion";
 interface HeroSectionProps {
   title: string | React.ReactNode;
   subtitle?: string | React.ReactNode;
+  backgroundImage?: string;
 }
 
-const HeroSection: React.FC<HeroSectionProps> = ({ title, subtitle }) => {
+const HeroSection: React.FC<HeroSectionProps> = ({
+  title,
+  subtitle,
+  backgroundImage = "/images/home page.jpg",
+}) => {
   return (
     <div className="relative w-full h-[50vh] min-h-[400px] md:h-[35vh] md:min-h-[350px] flex items-center justify-center pt-28 md:pt-28 pb-12 overflow-hidden bg-gray-900">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/home page.jpg"
+          src={backgroundImage}
           alt="Hero Section Background"
           fill
           className="object-cover opacity-40"

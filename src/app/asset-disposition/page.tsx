@@ -1,3 +1,4 @@
+import HeroSection from "@/components/ui/HeroSection";
 import AssetDispositionContent from "@/components/sections/AssetDispositionContent";
 
 export const metadata = {
@@ -9,6 +10,16 @@ export const metadata = {
 export default function AssetDispositionPage() {
   return (
     <main>
+      <HeroSection
+        title={
+          <>
+            Secure IT Asset <span className="text-[#4CAF50]">Disposition</span>{" "}
+            in Kolkata
+          </>
+        }
+        subtitle="Certified data destruction and eco-friendly IT disposal. We provide Kolkata businesses with reliable, professional management of outdated technology assets."
+        backgroundImage="/images/IT Asset Disposition Buyer.jpeg"
+      />
       <AssetDispositionContent />
     </main>
   );

@@ -1,3 +1,4 @@
+import HeroSection from "@/components/ui/HeroSection";
 import AcScrapContent from "@/components/sections/AcScrapContent";
 
 export const metadata = {
@@ -9,6 +10,16 @@ export const metadata = {
 export default function ACPage() {
   return (
     <main>
+      <HeroSection
+        title={
+          <>
+            Old AC Buyer &{" "}
+            <span className="text-[#4CAF50]">Second AC Buyer</span> in Kolkata
+          </>
+        }
+        subtitle="Leading the way in responsible AC disposal. We offer premium rates for old office cooling systems, ensuring eco-friendly recycling and fast pickup."
+        backgroundImage="/images/Air con-compressed.jpg"
+      />
       <AcScrapContent />
     </main>
   );

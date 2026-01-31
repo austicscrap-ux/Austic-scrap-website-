@@ -1,3 +1,4 @@
+import HeroSection from "@/components/ui/HeroSection";
 import OldDgGeneratorContent from "@/components/sections/OldDgGeneratorContent";
 
 export const metadata = {
@@ -9,6 +10,16 @@ export const metadata = {
 export default function OldDgGeneratorPage() {
   return (
     <main>
+      <HeroSection
+        title={
+          <>
+            Old DG Generator <span className="text-[#4CAF50]">Scrap Buyer</span>{" "}
+            in Kolkata
+          </>
+        }
+        subtitle="Premium valuation for used, damaged, and obsolete Diesel Generator sets. We provide professional dismantling and eco-friendly resource recovery."
+        backgroundImage="/images/dg set crop.jpg"
+      />
       <OldDgGeneratorContent />
     </main>
   );

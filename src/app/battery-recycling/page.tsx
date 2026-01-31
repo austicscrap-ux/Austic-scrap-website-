@@ -1,3 +1,4 @@
+import HeroSection from "@/components/ui/HeroSection";
 import BatteryRecyclingContent from "@/components/sections/BatteryRecyclingContent";
 
 export const metadata = {
@@ -10,6 +11,16 @@ export const metadata = {
 export default function BatteryPage() {
   return (
     <main>
+      <HeroSection
+        title={
+          <>
+            Professional{" "}
+            <span className="text-[#4CAF50]">Battery Recycling</span> in Kolkata
+          </>
+        }
+        subtitle="Safe, efficient, and eco-friendly disposal for corporate and industrial battery assets. Join us in protecting our environment through responsible recycling."
+        backgroundImage="/images/bettery recycling.jpeg"
+      />
       <BatteryRecyclingContent />
     </main>
   );

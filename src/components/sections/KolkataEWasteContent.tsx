@@ -34,49 +34,6 @@ const KolkataEWasteContent: React.FC = () => {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="relative w-full h-[40vh] min-h-[300px] mt-20 flex items-center justify-center overflow-hidden bg-gray-900">
-        <Image
-          src="/images/e-waste-recycling-kolkata.jpeg"
-          alt="Expert E-Waste Management Kolkata"
-          fill
-          className="object-cover opacity-40"
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
-
-        <div className="container mx-auto px-4 relative z-10 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-widest text-accent uppercase bg-accent/10 rounded-full font-secondary">
-              Kolkata's Primary E-Waste Solution
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 font-primary text-white leading-tight max-w-5xl mx-auto">
-              Expert E-Waste <span className="text-secondary">Management</span>{" "}
-              for Kolkata
-            </h1>
-            <p className="text-neutral-200 text-lg md:text-xl mb-10 max-w-3xl mx-auto font-secondary leading-relaxed">
-              Leading the way in responsible technology disposal for corporate
-              and industrial sectors. We provide certified recycling and high
-              market value for your assets.
-            </p>
-            <div className="flex flex-wrap justify-center gap-6 mt-10">
-              <Link href="/">
-                <Button className="px-10 py-4 bg-white text-primary font-bold rounded-full hover:bg-secondary hover:text-white transition-all shadow-xl text-lg">
-                  Home
-                </Button>
-              </Link>
-              <Link href="/contact">
-                <Button className="px-10 py-4 bg-secondary text-white font-bold rounded-full hover:bg-white hover:text-primary transition-all shadow-xl text-lg">
-                  Sale Now
-                </Button>
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-      </section>
 
       {/* Main Content */}
       <SectionWrapper id="about-kolkata-ewaste" className="bg-white">

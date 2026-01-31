@@ -34,49 +34,6 @@ const AssetDispositionContent: React.FC = () => {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="relative w-full min-h-[500px] md:min-h-[600px] flex items-center justify-center overflow-hidden">
-        <Image
-          src="/images/IT Asset Disposition Buyer.jpeg"
-          alt="IT Asset Disposition Services"
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-neutral-900/60 backdrop-blur-[2px]"></div>
-
-        <div className="container mx-auto px-4 relative z-10 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-widest text-accent uppercase bg-accent/10 rounded-full font-secondary">
-              Strategic ITAD Solutions
-            </div>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 font-primary text-white leading-tight max-w-5xl mx-auto">
-              Secure IT Asset{" "}
-              <span className="text-secondary">Disposition</span> in Kolkata
-            </h1>
-            <p className="text-neutral-200 text-lg md:text-xl mb-10 max-w-3xl mx-auto font-secondary leading-relaxed">
-              Certified data destruction and eco-friendly IT disposal. We
-              provide Kolkata businesses with reliable, professional management
-              of outdated technology assets.
-            </p>
-            <div className="flex flex-wrap justify-center gap-6 mt-10">
-              <Link href="/">
-                <Button className="px-10 py-4 bg-white text-primary font-bold rounded-full hover:bg-secondary hover:text-white transition-all shadow-xl text-lg">
-                  Home
-                </Button>
-              </Link>
-              <Link href="/contact">
-                <Button className="px-10 py-4 bg-secondary text-white font-bold rounded-full hover:bg-white hover:text-primary transition-all shadow-xl text-lg">
-                  Sale Now
-                </Button>
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-      </section>
 
       {/* Main Content */}
       <SectionWrapper id="about-itad" className="bg-white">

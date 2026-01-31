@@ -34,55 +34,6 @@ const MetalScrapContent: React.FC = () => {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="relative w-full min-h-[500px] md:min-h-[600px] flex items-center justify-center overflow-hidden">
-        <Image
-          src="/images/coppper crop.jpg"
-          alt="Metal Scrap Recycling Services"
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-neutral-900/60 backdrop-blur-[2px]"></div>
-
-        <div className="container mx-auto px-4 relative z-10 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-widest text-accent uppercase bg-accent/10 rounded-full font-secondary">
-              Resource Conservation
-            </div>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 font-primary text-white leading-tight max-w-5xl mx-auto">
-              Expert Metal Scrap{" "}
-              <span className="text-secondary">Recycling Services</span>
-            </h1>
-            <p className="text-neutral-200 text-lg md:text-xl mb-10 max-w-3xl mx-auto font-secondary leading-relaxed">
-              Leading collector and recycler of ferrous and non-ferrous metals
-              in Kolkata. We provide industrial-grade scrap management to
-              conserve resources and reduce environmental impact.
-            </p>
-            <div className="flex flex-wrap justify-center gap-6 mt-10">
-              <Link href="/">
-                <Button className="px-10 py-4 bg-white text-primary font-bold rounded-full hover:bg-secondary hover:text-white transition-all shadow-xl text-lg">
-                  Home
-                </Button>
-              </Link>
-              <Link href="/contact">
-                <Button className="px-10 py-4 bg-secondary text-white font-bold rounded-full hover:bg-white hover:text-primary transition-all shadow-xl text-lg">
-                  Sale Now
-                </Button>
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-
-        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 rounded-full border-2 border-white/30 flex justify-center p-1">
-            <div className="w-1.5 h-1.5 bg-white rounded-full" />
-          </div>
-        </div>
-      </section>
 
       {/* Main Content */}
       <SectionWrapper id="about-metal-scrap" className="bg-white">
