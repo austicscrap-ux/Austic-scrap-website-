@@ -21,7 +21,7 @@ export const BlogListSection = ({
       <div className="container mx-auto px-4 lg:px-[86px]">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_350px] gap-12 text-left">
           {/* Main Content Area */}
-          <div className="order-2 lg:order-1">
+          <div>
             <div className="space-y-8">
               {blogPosts.map((post: Blog, index: number) => (
                 <BlogCard key={post?.slug} post={post} index={index} />
@@ -38,7 +38,7 @@ export const BlogListSection = ({
           </div>
 
           {/* Sidebar / Recommended */}
-          <div className="order-1 lg:order-2">
+          <div>
             <div className="sticky top-24">
               <RecommendedBlogsSection blogPosts={recommendedBlogs} />
             </div>
