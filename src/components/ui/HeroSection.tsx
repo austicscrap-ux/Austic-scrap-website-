@@ -11,7 +11,7 @@ interface HeroSectionProps {
 
 const HeroSection: React.FC<HeroSectionProps> = ({ title, subtitle }) => {
   return (
-    <div className="relative w-full h-[40vh] min-h-[300px] flex items-center justify-center pt-32 overflow-hidden bg-gray-900">
+    <div className="relative w-full h-[55vh] min-h-[450px] md:min-h-[550px] flex items-center justify-center pt-28 md:pt-40 pb-12 overflow-hidden bg-gray-900">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -31,12 +31,12 @@ const HeroSection: React.FC<HeroSectionProps> = ({ title, subtitle }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 font-josefin-sans tracking-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold text-white mb-6 font-josefin-sans tracking-tight leading-tight px-2">
             {title}
           </h1>
 
           {subtitle && (
-            <p className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto font-light leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-gray-200 max-w-3xl mx-auto font-light leading-relaxed px-4">
               {subtitle}
             </p>
           )}
