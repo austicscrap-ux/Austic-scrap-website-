@@ -3,7 +3,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 
 interface TeamSupportItemProps {
   title: string;
@@ -41,6 +41,8 @@ const teamSupportItems: TeamSupportItemProps[] = [
 ];
 
 const TeamSupport: React.FC = () => {
+  const [activeIndex, setActiveIndex] = React.useState(0);
+
   return (
     <section className="bg-amber-50/30 py-16 lg:py-20 relative overflow-hidden border-y border-amber-100/50">
       <div className="container mx-auto px-4 lg:px-[86px] max-w-7xl relative z-10">
@@ -56,7 +58,42 @@ const TeamSupport: React.FC = () => {
           <div className="w-20 h-1 bg-[#127749] mx-auto rounded-full"></div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        {/* Mobile View: Horizontal Scroll */}
+        <div className="md:hidden flex flex-col gap-6">
+          <div
+            className="flex overflow-x-auto snap-x snap-mandatory no-scrollbar pb-4 gap-6"
+            style={{
+              paddingLeft: "calc(50% - 42.5vw)",
+              paddingRight: "calc(50% - 42.5vw)",
+            }}
+          >
+            {teamSupportItems.map((item, index) => (
+              <MobileTeamCard
+                key={`mobile-${index}`}
+                item={item}
+                index={index}
+                setActiveIndex={setActiveIndex}
+              />
+            ))}
+          </div>
+
+          {/* Pagination Dots */}
+          <div className="flex justify-center space-x-2">
+            {teamSupportItems.map((_, i) => (
+              <div
+                key={i}
+                className={`h-2 rounded-full transition-all duration-500 ease-out ${
+                  i === activeIndex
+                    ? "bg-[#127749] w-8 translate-x-0"
+                    : "bg-neutral-300 w-2"
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop View: Grid */}
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {teamSupportItems.map((item, index) => (
             <motion.div
               key={index}
@@ -97,6 +134,66 @@ const TeamSupport: React.FC = () => {
         </div>
       </div>
     </section>
+  );
+};
+
+// Extracted Component for Mobile Logic
+interface MobileTeamCardProps {
+  item: TeamSupportItemProps;
+  index: number;
+  setActiveIndex: (index: number) => void;
+}
+
+const MobileTeamCard = ({
+  item,
+  index,
+  setActiveIndex,
+}: MobileTeamCardProps) => {
+  const ref = React.useRef(null);
+  const inView = useInView(ref, { margin: "0px -40% 0px -40%" });
+
+  React.useEffect(() => {
+    if (inView) {
+      setActiveIndex(index);
+    }
+  }, [inView, index, setActiveIndex]);
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ delay: index * 0.1, duration: 0.5 }}
+      viewport={{ once: true }}
+      className="group bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-md border border-amber-100/50 flex flex-col h-full min-w-[85vw] w-[85vw] snap-center"
+    >
+      {/* Image Container */}
+      <div className="relative h-48 w-full overflow-hidden bg-white border-b border-amber-100/30">
+        <Image
+          src={item.imageSrc}
+          alt={item.imageAlt}
+          fill
+          className="object-contain p-3"
+          sizes="85vw"
+        />
+      </div>
+
+      {/* Content Container */}
+      <div className="p-5 flex-1 flex flex-col">
+        <div className="mb-2">
+          <h4 className="text-xl font-bold text-neutral-900 font-primary uppercase border-l-4 border-[#127749] pl-3">
+            {item.title}
+          </h4>
+        </div>
+
+        <p className="text-neutral-600 text-sm leading-relaxed font-secondary font-medium text-justify flex-1">
+          {item.description}
+        </p>
+
+        {/* Decorative Bottom Bar */}
+        <div className="mt-4 w-full h-1 bg-gradient-to-r from-[#127749] to-transparent"></div>
+      </div>
+    </motion.div>
   );
 };
 
