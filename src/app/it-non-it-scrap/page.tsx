@@ -1,5 +1,7 @@
+"use client";
+
 import React from "react";
-import Hero from "@/components/ui/Hero";
+import HeroSection from "@/components/ui/HeroSection";
 import ServiceGrid from "@/components/ui/ServiceGrid";
 import WhyChooseUs from "@/components/ui/WhyChooseUs";
 import SectionWrapper from "@/components/common/SectionWrapper";
@@ -8,9 +10,9 @@ import { motion } from "framer-motion";
 const ItNonItScrapPage = () => {
   return (
     <main>
-      <Hero
+      <HeroSection
         title="IT & Non-IT Scrap Buyers"
-        backgroundImage="/images/IT Asset Disposition Buyer.jpeg"
+        subtitle="Comprehensive solutions for the disposal and recycling of both IT and Non-IT scrap materials. Competitive prices and eco-friendly services."
       />
 
       <SectionWrapper id="about-it-non-it-scrap" className="bg-white">

@@ -1,7 +1,6 @@
 "use client";
 
-import React from "react";
-import Hero from "@/components/ui/Hero";
+import HeroSection from "@/components/ui/HeroSection";
 import ServiceGrid from "@/components/ui/ServiceGrid";
 import WhyChooseUs from "@/components/ui/WhyChooseUs";
 import SectionWrapper from "@/components/common/SectionWrapper";
@@ -13,9 +12,9 @@ import Link from "next/link";
 const OfficeWorkstationPage = () => {
   return (
     <main>
-      <Hero
+      <HeroSection
         title="Office Workstation Buyers"
-        backgroundImage="/images/office furniture scrap.jpeg"
+        subtitle="Specialize in dismantling and buying old office workstations, cubicles, and partitions. Austic Scrap ensures safe and efficient removal."
       />
 
       <SectionWrapper id="office-workstation-details" className="bg-white">

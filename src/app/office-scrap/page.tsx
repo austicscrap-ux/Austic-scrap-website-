@@ -1,5 +1,7 @@
+"use client";
+
 import React from "react";
-import Hero from "@/components/ui/Hero";
+import HeroSection from "@/components/ui/HeroSection";
 import ServiceGrid from "@/components/ui/ServiceGrid";
 import WhyChooseUs from "@/components/ui/WhyChooseUs";
 import SectionWrapper from "@/components/common/SectionWrapper";
@@ -8,9 +10,9 @@ import { motion } from "framer-motion";
 const OfficeScrapPage = () => {
   return (
     <main>
-      <Hero
+      <HeroSection
         title="Office Scrap Buyers"
-        backgroundImage="/images/office furniture scrap.jpeg"
+        subtitle="Your trusted partner for buying all kinds of office scrap. Best market rates and hassle-free pickup."
       />
 
       <SectionWrapper id="about-office-scrap" className="bg-white">

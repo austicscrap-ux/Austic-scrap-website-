@@ -1,5 +1,7 @@
+"use client";
+
 import React from "react";
-import Hero from "@/components/ui/Hero";
+import HeroSection from "@/components/ui/HeroSection";
 import ServiceGrid from "@/components/ui/ServiceGrid";
 import WhyChooseUs from "@/components/ui/WhyChooseUs";
 import SectionWrapper from "@/components/common/SectionWrapper";
@@ -8,9 +10,9 @@ import { motion } from "framer-motion";
 const MetalRecyclingPage = () => {
   return (
     <main>
-      <Hero
+      <HeroSection
         title="Metal Recycling Services"
-        backgroundImage="/images/coppper crop.jpg"
+        subtitle="Austic Scrap is a leader in metal recycling, handling ferrous and non-ferrous metals like copper, aluminum, brass, steel, and iron."
       />
 
       <SectionWrapper id="metal-recycling-about" className="bg-white">

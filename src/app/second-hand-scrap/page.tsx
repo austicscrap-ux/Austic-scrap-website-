@@ -1,7 +1,6 @@
 "use client";
 
-import React from "react";
-import Hero from "@/components/ui/Hero";
+import HeroSection from "@/components/ui/HeroSection";
 import ServiceGrid from "@/components/ui/ServiceGrid";
 import WhyChooseUs from "@/components/ui/WhyChooseUs";
 import SectionWrapper from "@/components/common/SectionWrapper";
@@ -13,9 +12,9 @@ import Link from "next/link";
 const SecondHandScrapPage = () => {
   return (
     <main>
-      <Hero
+      <HeroSection
         title="Second Hand Scrap Buyers"
-        backgroundImage="/images/home page.jpg"
+        subtitle="Turn your second-hand scrap into cash with Austic Scrap. We buy a wide range of second-hand materials including machinery, industrial equipment, and furniture."
       />
 
       <SectionWrapper id="second-hand-scrap-details" className="bg-white">
