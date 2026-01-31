@@ -114,30 +114,30 @@ const DesktopLocationCard = ({ item }: { item: (typeof locationItems)[0] }) => {
   const ref = React.useRef(null);
   // Broader active zone for desktop since it's wider
   const isInView = useInView(ref, {
-    margin: "0px -35% 0px -35%",
+    margin: "0px -40% 0px -40%",
   });
 
   return (
     <Link
       ref={ref}
       href={item.href}
-      className={`group relative border rounded-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-500 hover:-translate-y-2 mx-4 w-72 flex-shrink-0 ${
+      className={`group relative border rounded-xl p-4 flex flex-col items-center justify-center text-center transition-all duration-500 hover:-translate-y-1 mx-3 w-48 flex-shrink-0 ${
         isInView
-          ? "bg-[#127749] border-[#127749] shadow-xl scale-105"
+          ? "bg-[#127749] border-[#127749] shadow-lg scale-105"
           : "bg-[#127749]/5 border-[#127749]/10 hover:bg-[#127749] scale-100"
       }`}
     >
       <div
-        className={`flex-shrink-0 w-16 h-16 rounded-2xl flex items-center justify-center mb-4 transition-all duration-500 ${
+        className={`flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center mb-3 transition-all duration-500 ${
           isInView
             ? "bg-white/20 text-white"
             : "bg-[#127749]/20 text-[#127749] group-hover:bg-white/20 group-hover:text-white"
         }`}
       >
-        <item.icon className="w-8 h-8" strokeWidth={2} />
+        <item.icon className="w-6 h-6" strokeWidth={2} />
       </div>
       <h5
-        className={`text-xl font-bold font-primary transition-colors duration-500 whitespace-normal ${
+        className={`text-base font-bold font-primary transition-colors duration-500 whitespace-normal ${
           isInView ? "text-white" : "text-neutral-900 group-hover:text-white"
         }`}
       >
