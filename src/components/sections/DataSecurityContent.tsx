@@ -49,7 +49,7 @@ const DataSecurityContent: React.FC = () => {
           src="/images/austic_data_security_hero.png"
           alt="Data Security and Integrity Hero"
           fill
-          className="object-cover opacity-70"
+          className="object-cover opacity-40"
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
