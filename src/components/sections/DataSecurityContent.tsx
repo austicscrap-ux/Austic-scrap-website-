@@ -44,12 +44,12 @@ const DataSecurityContent: React.FC = () => {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="relative w-full h-[30vh] min-h-[300px] md:h-auto md:min-h-[350px] flex items-center justify-center pt-32 md:pt-36 pb-12 overflow-hidden bg-gray-900">
+      <section className="relative w-full h-[15vh] min-h-[200px] md:h-auto md:min-h-[250px] flex items-center justify-center pt-24 md:pt-28 pb-6 overflow-hidden bg-gray-900">
         <Image
           src="/images/austic_data_security_hero.png"
           alt="Data Security and Integrity Hero"
           fill
-          className="object-cover opacity-40"
+          className="object-cover object-center opacity-40"
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
