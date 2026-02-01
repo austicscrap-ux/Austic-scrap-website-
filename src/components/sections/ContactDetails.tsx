@@ -9,7 +9,7 @@ const ContactDetails: React.FC = () => {
     <div className="grid grid-cols-1 gap-6">
       {/* Phone Card */}
       <Link
-        href="tel:+919831027550"
+        href="tel:+916205518929"
         className="group flex items-center p-6 bg-white rounded-xl shadow-sm border border-neutral-100/50 hover:shadow-md hover:-translate-y-1 transition-all duration-300"
       >
         <div className="w-12 h-12 bg-amber-50 rounded-full flex items-center justify-center text-[#127749] group-hover:bg-[#127749] group-hover:text-white transition-colors duration-300 mr-5">
@@ -20,14 +20,14 @@ const ContactDetails: React.FC = () => {
             Call Us
           </h4>
           <p className="text-neutral-600 font-secondary font-medium">
-            +91 98310 27550
+            +91 62055 18929
           </p>
         </div>
       </Link>
 
       {/* WhatsApp Card */}
       <Link
-        href="https://wa.me/+919831027550"
+        href="https://wa.me/+916205518929"
         target="_blank"
         rel="noopener noreferrer"
         className="group flex items-center p-6 bg-white rounded-xl shadow-sm border border-neutral-100/50 hover:shadow-md hover:-translate-y-1 transition-all duration-300"
@@ -47,7 +47,7 @@ const ContactDetails: React.FC = () => {
 
       {/* Email Card */}
       <Link
-        href="mailto:fexmonscrap98@gmail.com"
+        href="mailto:austicscrap@gmail.com"
         className="group flex items-center p-6 bg-white rounded-xl shadow-sm border border-neutral-100/50 hover:shadow-md hover:-translate-y-1 transition-all duration-300"
       >
         <div className="w-12 h-12 bg-amber-50 rounded-full flex items-center justify-center text-[#127749] group-hover:bg-[#127749] group-hover:text-white transition-colors duration-300 mr-5">
@@ -58,7 +58,7 @@ const ContactDetails: React.FC = () => {
             Email Us
           </h4>
           <p className="text-neutral-600 font-secondary font-medium">
-            fexmonscrap98@gmail.com
+            austicscrap@gmail.com
           </p>
         </div>
       </Link>

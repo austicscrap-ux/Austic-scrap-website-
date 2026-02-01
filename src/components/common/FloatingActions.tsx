@@ -15,7 +15,7 @@ const FloatingActions = () => {
         }}
       >
         <a
-          href="tel:+919831027550"
+          href="tel:+916205518929"
           className="block text-white"
           target="_blank"
           rel="noreferrer"
@@ -33,7 +33,7 @@ const FloatingActions = () => {
         }}
       >
         <a
-          href="https://wa.me/+919831027550"
+          href="https://wa.me/+916205518929"
           className="block text-black"
           target="_blank"
           rel="noreferrer"
