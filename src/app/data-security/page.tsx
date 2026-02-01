@@ -1,9 +1,9 @@
 import DataSecurityContent from "@/components/sections/DataSecurityContent";
 
 export const metadata = {
-  title: "E-Waste Recycling in Kolkata |Secure E-Waste Disposal | Austic",
+  title: "Data Integrity & Data Protection Services in Kolkata | Austic",
   description:
-    "Secure e-waste recycling in Kolkata? We offer responsible disposal and recovery with eco-friendly practices. Trust us for safe and compliant e-waste management",
+    "Ensure your sensitive information remains uncompromised with Austic's certified data destruction and integrity protection services. Secure, compliant, and reliable.",
 };
 
 export default function DataSecurityPage() {

@@ -25,6 +25,16 @@ const DataSecurityContent: React.FC = () => {
         "A powerful electromagnetic field is applied to disrupt magnetic storage media, rendering hard drives and tapes permanently unreadable.",
     },
     {
+      title: "Advanced Encryption",
+      description:
+        "We employ advanced encryption technologies during transit and temporary storage, ensuring your information remains confidential until destruction.",
+    },
+    {
+      title: "End-to-End Security",
+      description:
+        "Comprehensive security measures covering the entire lifecycle from collection to final destruction, with strict chain-of-custody protocols.",
+    },
+    {
       title: "Legal Compliance",
       description:
         "Strict adherence to the IT Act 2000 and the 2011 Privacy Rules, ensuring your organization remains fully compliant with national data laws.",
@@ -34,15 +44,15 @@ const DataSecurityContent: React.FC = () => {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="relative w-full min-h-[500px] md:min-h-[600px] flex items-center justify-center overflow-hidden">
+      <section className="relative w-full h-[30vh] min-h-[300px] md:h-auto md:min-h-[350px] flex items-center justify-center pt-32 md:pt-36 pb-12 overflow-hidden bg-gray-900">
         <Image
-          src="/images/IT Asset Disposition Buyer.jpeg"
-          alt="Data Security and Destruction"
+          src="/images/austic_data_security_hero.png"
+          alt="Data Security and Integrity Hero"
           fill
-          className="object-cover"
+          className="object-cover opacity-70"
           priority
         />
-        <div className="absolute inset-0 bg-neutral-900/60 backdrop-blur-[2px]"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
 
         <div className="container mx-auto px-4 relative z-10 text-center">
           <motion.div
@@ -50,17 +60,17 @@ const DataSecurityContent: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-widest text-accent uppercase bg-accent/10 rounded-full font-secondary">
-              Uncompromising Information Security
+            <div className="inline-block px-4 py-1.5 mb-3 text-sm font-bold tracking-widest text-accent uppercase bg-accent/10 rounded-full font-secondary">
+              Data Integrity & Protection
             </div>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 font-primary text-white leading-tight max-w-5xl mx-auto">
-              Data Security &{" "}
-              <span className="text-secondary">Destruction</span> in Kolkata
+            <h1 className="text-3xl md:text-5xl lg:text-5xl font-bold mb-4 font-primary text-white leading-tight max-w-7xl mx-auto whitespace-nowrap">
+              Data Integrity &{" "}
+              <span className="text-secondary">Data Protection</span>
             </h1>
-            <p className="text-neutral-200 text-lg md:text-xl mb-10 max-w-3xl mx-auto font-secondary leading-relaxed">
-              Certified destruction and specialized security protocols for your
-              sensitive digital assets. We ensure absolute privacy and total
-              compliance with international standards.
+            <p className="text-neutral-200 text-lg md:text-xl mb-8 max-w-3xl mx-auto font-secondary leading-relaxed">
+              We define data integrity as the assurance that your sensitive
+              information remains uncompromised and is handled with the highest
+              level of protection throughout its lifecycle.
             </p>
             <div className="flex flex-wrap justify-center gap-6 mt-10">
               <Link href="/">
@@ -70,7 +80,7 @@ const DataSecurityContent: React.FC = () => {
               </Link>
               <Link href="/contact">
                 <Button className="px-10 py-4 bg-secondary text-white font-bold rounded-full hover:bg-white hover:text-primary transition-all shadow-xl text-lg">
-                  Sale Now
+                  Protect Your Data
                 </Button>
               </Link>
             </div>
@@ -89,13 +99,11 @@ const DataSecurityContent: React.FC = () => {
             viewport={{ once: true }}
           >
             <div className="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-widest text-[#127749] uppercase bg-[#127749]/10 rounded-full font-secondary">
-              Absolute Protection
+              Absolute Integrity
             </div>
             <h2 className="text-4xl md:text-5xl font-bold font-primary mb-8 text-neutral-900 leading-tight">
-              Kolkata's Partner for{" "}
-              <span className="text-[#127749]">
-                Secure Information Disposal
-              </span>
+              Guardians of Your{" "}
+              <span className="text-[#127749]">Data Integrity</span>
             </h2>
             <div className="space-y-6">
               <p className="text-neutral-600 text-lg leading-relaxed font-secondary">
@@ -141,7 +149,7 @@ const DataSecurityContent: React.FC = () => {
             <div className="w-20 h-1.5 bg-secondary mx-auto rounded-full" />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {securityFeatures.map((type, index) => (
               <motion.div
                 key={index}
@@ -196,10 +204,13 @@ const DataSecurityContent: React.FC = () => {
               Legal & Ethical Compliance
             </h3>
             <p className="text-white/70 text-lg mb-8 font-secondary leading-relaxed relative z-10">
-              We strictly adhere to India’s E-Waste Rules 2016 and IT Act 2000.
-              Our commitment to compliance ensures that your data is handled in
-              accordance with the most stringent legal requirements, protecting
-              your organization from liability and reputational risk.
+              We strictly adhere to India’s{" "}
+              <span className="font-bold text-white">
+                E-Waste (Management) Rules, 2016
+              </span>{" "}
+              and IT Act 2000. Our commitment ensures your electronic waste is
+              recycled responsibly, protecting your organization from liability
+              and contributing to a greener future.
             </p>
           </motion.div>
         </div>
