@@ -161,6 +161,7 @@ const Footer: React.FC = () => {
                 placeholder="Your Email"
                 aria-label="Email for newsletter"
                 required
+                suppressHydrationWarning
               />
               <Button type="submit" variant="default" size="default">
                 Go

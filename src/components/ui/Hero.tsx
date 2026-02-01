@@ -119,6 +119,7 @@ const Hero: React.FC<HeroProps> = ({
                     name="email"
                     placeholder="Enter your email"
                     required
+                    suppressHydrationWarning
                   />
                 </div>
                 <Button
