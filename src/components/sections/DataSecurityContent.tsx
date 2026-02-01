@@ -73,11 +73,6 @@ const DataSecurityContent: React.FC = () => {
               level of protection throughout its lifecycle.
             </p>
             <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-6 mt-8 md:mt-10">
-              <Link href="/">
-                <Button className="w-full sm:w-auto px-8 md:px-10 py-3 md:py-4 bg-white text-primary font-bold rounded-full hover:bg-secondary hover:text-white transition-all shadow-xl text-base md:text-lg">
-                  Home
-                </Button>
-              </Link>
               <Link href="/contact">
                 <Button className="w-full sm:w-auto px-8 md:px-10 py-3 md:py-4 bg-secondary text-white font-bold rounded-full hover:bg-white hover:text-primary transition-all shadow-xl text-base md:text-lg">
                   Protect Your Data

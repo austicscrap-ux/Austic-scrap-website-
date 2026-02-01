@@ -152,7 +152,10 @@ const Footer: React.FC = () => {
             <p className="text-sm mb-3">
               Subscribe to our newsletter for the latest updates.
             </p>
-            <form onSubmit={handleNewsletterSubmit} className="flex gap-2 mb-6">
+            <form
+              onSubmit={handleNewsletterSubmit}
+              className="flex flex-col gap-3 mb-6"
+            >
               <input
                 type="email"
                 value={email}
@@ -163,8 +166,13 @@ const Footer: React.FC = () => {
                 required
                 suppressHydrationWarning
               />
-              <Button type="submit" variant="default" size="default">
-                Go
+              <Button
+                type="submit"
+                variant="default"
+                size="default"
+                className="w-full bg-[#127749] hover:bg-black text-white font-bold transition-all"
+              >
+                Subscribe
               </Button>
             </form>
             <h3 className="font-primary text-xl font-bold text-white mb-4">
