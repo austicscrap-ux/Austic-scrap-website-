@@ -144,53 +144,56 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Newsletter & Social */}
-          <div>
-            <h3 className="font-primary text-xl font-bold text-white mb-4">
-              Stay Updated
-            </h3>
-            <p className="text-sm mb-3">
-              Subscribe to our newsletter for the latest updates.
-            </p>
-            <form
-              onSubmit={handleNewsletterSubmit}
-              className="flex flex-col gap-3 mb-6"
-            >
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="bg-neutral-800 border border-neutral-700 rounded-md px-3 py-2 text-sm text-white w-full focus:outline-none focus:ring-2 focus:ring-primary-light transition-all"
-                placeholder="Your Email"
-                aria-label="Email for newsletter"
-                required
-                suppressHydrationWarning
-              />
-              <Button
-                type="submit"
-                variant="default"
-                size="default"
-                className="w-full bg-[#127749] hover:bg-black text-white font-bold transition-all"
+          <div className="flex flex-col gap-3">
+            <div>
+              <h3 className="font-primary text-xl font-bold text-white mb-4">
+                Stay Updated
+              </h3>
+              <p className="text-sm mb-3">
+                Subscribe to our newsletter for the latest updates.
+              </p>
+              <form
+                onSubmit={handleNewsletterSubmit}
+                className="flex flex-col gap-3"
               >
-                Subscribe
-              </Button>
-            </form>
-            <h3 className="font-primary text-xl font-bold text-white mb-4">
-              Follow Us
-            </h3>
-            <div className="flex items-center space-x-4">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  className="text-neutral-400 hover:text-primary-light transition-colors"
-                  aria-label={`Follow us on ${social.label}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="bg-neutral-800 border border-neutral-700 rounded-lg px-4 h-10 text-sm text-white w-full focus:outline-none focus:ring-2 focus:ring-primary-light transition-all placeholder-neutral-500"
+                  placeholder="Your Email"
+                  aria-label="Email for newsletter"
+                  required
+                  suppressHydrationWarning
+                />
+                <Button
+                  type="submit"
+                  variant="default"
+                  size="default"
+                  className="w-full h-10 bg-[#127749] hover:bg-black text-white font-bold transition-all rounded-lg"
                 >
-                  <social.icon size={20} />
-                </a>
-              ))}
+                  Subscribe
+                </Button>
+              </form>
+            </div>
+            <div>
+              <h3 className="font-primary text-xl font-bold text-white mb-4">
+                Follow Us
+              </h3>
+              <div className="flex items-center space-x-4">
+                {socialLinks.map((social) => (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    className="text-neutral-400 hover:text-primary-light transition-colors"
+                    aria-label={`Follow us on ${social.label}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <social.icon size={20} />
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
         </div>
