@@ -49,7 +49,7 @@ const DataSecurityContent: React.FC = () => {
           src="/images/austic_data_security_hero.png"
           alt="Data Security and Integrity Hero"
           fill
-          className="object-cover object-[50%_25%] opacity-40"
+          className="object-cover object-[50%_25%] opacity-26"
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
@@ -60,12 +60,12 @@ const DataSecurityContent: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-block px-4 py-1.5 mb-3 text-sm font-bold tracking-widest text-accent uppercase bg-accent/10 rounded-full font-secondary">
+            <div className="inline-block px-4 py-1.5 mb-3 text-sm font-bold tracking-widest text-white uppercase bg-white/10 rounded-full font-secondary">
               Data Integrity & Protection
             </div>
             <h1 className="text-3xl md:text-5xl lg:text-5xl font-bold mb-4 font-primary text-white leading-tight max-w-7xl mx-auto whitespace-nowrap">
-              Data Integrity &{" "}
-              <span className="text-secondary">Data Protection</span>
+              <span className="text-primary">Data Integrity</span> &{" "}
+              <span className="text-primary">Data Protection</span>
             </h1>
             <p className="text-neutral-200 text-lg md:text-xl mb-8 max-w-3xl mx-auto font-secondary leading-relaxed">
               We define data integrity as the assurance that your sensitive
