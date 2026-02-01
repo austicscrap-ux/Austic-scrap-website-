@@ -44,7 +44,7 @@ const DataSecurityContent: React.FC = () => {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="relative w-full h-[15vh] min-h-[200px] md:h-auto md:min-h-[250px] flex items-center justify-center pt-24 md:pt-28 pb-6 overflow-hidden bg-gray-900">
+      <section className="relative w-full h-[55vh] min-h-[500px] md:h-auto md:min-h-[250px] flex items-center justify-center pt-40 md:pt-28 pb-12 md:pb-6 overflow-hidden bg-gray-900">
         <Image
           src="/images/austic_data_security_hero.png"
           alt="Data Security and Integrity Hero"
@@ -63,7 +63,7 @@ const DataSecurityContent: React.FC = () => {
             <div className="inline-block px-4 py-1.5 mb-3 text-sm font-bold tracking-widest text-white uppercase bg-white/10 rounded-full font-secondary">
               Data Integrity & Protection
             </div>
-            <h1 className="text-3xl md:text-5xl lg:text-5xl font-bold mb-4 font-primary text-white leading-tight max-w-7xl mx-auto whitespace-nowrap">
+            <h1 className="text-3xl md:text-5xl lg:text-5xl font-bold mb-4 font-primary text-white leading-tight max-w-7xl mx-auto whitespace-normal md:whitespace-nowrap">
               <span className="text-primary">Data Integrity</span> &{" "}
               <span className="text-primary">Data Protection</span>
             </h1>
@@ -72,14 +72,14 @@ const DataSecurityContent: React.FC = () => {
               information remains uncompromised and is handled with the highest
               level of protection throughout its lifecycle.
             </p>
-            <div className="flex flex-wrap justify-center gap-6 mt-10">
+            <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-6 mt-8 md:mt-10">
               <Link href="/">
-                <Button className="px-10 py-4 bg-white text-primary font-bold rounded-full hover:bg-secondary hover:text-white transition-all shadow-xl text-lg">
+                <Button className="w-full sm:w-auto px-8 md:px-10 py-3 md:py-4 bg-white text-primary font-bold rounded-full hover:bg-secondary hover:text-white transition-all shadow-xl text-base md:text-lg">
                   Home
                 </Button>
               </Link>
               <Link href="/contact">
-                <Button className="px-10 py-4 bg-secondary text-white font-bold rounded-full hover:bg-white hover:text-primary transition-all shadow-xl text-lg">
+                <Button className="w-full sm:w-auto px-8 md:px-10 py-3 md:py-4 bg-secondary text-white font-bold rounded-full hover:bg-white hover:text-primary transition-all shadow-xl text-base md:text-lg">
                   Protect Your Data
                 </Button>
               </Link>
@@ -90,7 +90,7 @@ const DataSecurityContent: React.FC = () => {
 
       {/* Main Content */}
       <SectionWrapper id="about-data-security" className="bg-white">
-        <div className="flex flex-col lg:flex-row items-center gap-16 mb-24">
+        <div className="flex flex-col lg:flex-row items-center gap-10 md:gap-16 mb-12 md:mb-24">
           <motion.div
             className="w-full lg:w-1/2"
             initial={{ opacity: 0, x: -50 }}
@@ -140,8 +140,8 @@ const DataSecurityContent: React.FC = () => {
           </motion.div>
         </div>
 
-        <div className="mt-32">
-          <div className="text-center mb-16">
+        <div className="mt-16 md:mt-32">
+          <div className="text-center mb-10 md:mb-16">
             <h3 className="text-3xl md:text-4xl font-bold font-primary mb-4 text-neutral-900">
               Certified{" "}
               <span className="text-[#127749]">Destruction Methods</span>
@@ -153,7 +153,7 @@ const DataSecurityContent: React.FC = () => {
             {securityFeatures.map((type, index) => (
               <motion.div
                 key={index}
-                className="group bg-white p-10 rounded-3xl border border-neutral-100 shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden"
+                className="group bg-white p-6 md:p-10 rounded-3xl border border-neutral-100 shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -172,9 +172,9 @@ const DataSecurityContent: React.FC = () => {
           </div>
         </div>
 
-        <div className="mt-32 grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div className="mt-16 md:mt-32 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12">
           <motion.div
-            className="bg-[#127749] rounded-[40px] p-12 text-white relative overflow-hidden shadow-2xl"
+            className="bg-[#127749] rounded-[40px] p-8 md:p-12 text-white relative overflow-hidden shadow-2xl"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
@@ -193,7 +193,7 @@ const DataSecurityContent: React.FC = () => {
           </motion.div>
 
           <motion.div
-            className="bg-neutral-900 rounded-[40px] p-12 text-white relative overflow-hidden shadow-2xl"
+            className="bg-neutral-900 rounded-[40px] p-8 md:p-12 text-white relative overflow-hidden shadow-2xl"
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
@@ -215,9 +215,9 @@ const DataSecurityContent: React.FC = () => {
           </motion.div>
         </div>
 
-        <div className="mt-24 text-center">
+        <div className="mt-12 md:mt-24 text-center">
           <Link href="/contact">
-            <Button className="px-12 py-5 bg-secondary text-white font-bold rounded-full hover:bg-neutral-900 transition-all shadow-xl text-lg">
+            <Button className="px-8 md:px-12 py-4 md:py-5 bg-secondary text-white font-bold rounded-full hover:bg-neutral-900 transition-all shadow-xl text-base md:text-lg w-full sm:w-auto">
               Secure Your Data Now →
             </Button>
           </Link>
