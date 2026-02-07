@@ -94,13 +94,13 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         className="relative flex flex-col h-full bg-white border border-neutral-200 shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden"
         aria-label={`Learn more about ${title}`}
       >
-        {/* Rectangular Header with Image */}
-        <div className="relative h-48 w-full overflow-hidden bg-neutral-100">
+        {/* Rectangular Header with Image - Mobile Responsive */}
+        <div className="relative h-40 sm:h-48 md:h-52 w-full overflow-hidden bg-neutral-100">
           <Image
             src={img}
             alt={title}
             fill
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1536px) 25vw, 25vw"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1536px) 33vw, 25vw"
             className="object-cover transition-transform duration-500 group-hover:scale-105"
             quality={85}
             priority={index < 4}
@@ -150,34 +150,21 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           </div>
         </div>
 
-        {/* Rectangular Content Container */}
-        <div className="flex flex-col flex-grow p-4 bg-white">
+        {/* Rectangular Content Container - Mobile Responsive */}
+        <div className="flex flex-col flex-grow p-3 sm:p-4 bg-white">
           {/* Title Section */}
           <header className="mb-3">
             <h3 
               id={`service-${index}`}
-              className="text-lg font-bold text-neutral-900 leading-tight mb-2 group-hover:text-[#127749] transition-colors duration-300"
+              className="text-base sm:text-lg font-bold text-neutral-900 leading-tight mb-2 group-hover:text-[#127749] transition-colors duration-300"
             >
               {title}
             </h3>
-            
-            {/* Certification Badges */}
-            <div className="flex flex-wrap gap-1 mb-2">
-              {certification.slice(0, 2).map((cert, certIndex) => (
-                <div 
-                  key={certIndex} 
-                  className="inline-flex items-center gap-1 px-2 py-1 bg-emerald-50 border border-emerald-200"
-                >
-                  <Award className="w-3 h-3 text-emerald-600" />
-                  <span className="text-xs font-medium text-emerald-700">{cert}</span>
-                </div>
-              ))}
-            </div>
           </header>
 
           {/* Description */}
           <div className="mb-3 flex-grow">
-            <p className="text-sm text-neutral-600 leading-relaxed mb-3 line-clamp-3">
+            <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed mb-3 line-clamp-3">
               {desc}
             </p>
             
@@ -190,7 +177,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
                     className="flex items-start gap-2"
                   >
                     <div className="w-1.5 h-1.5 bg-[#127749] rounded-full mt-1.5 flex-shrink-0" />
-                    <span className="text-xs text-neutral-600 leading-relaxed">
+                    <span className="text-xs sm:text-sm text-neutral-600 leading-relaxed">
                       {feature}
                     </span>
                   </div>
@@ -199,27 +186,27 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
             )}
           </div>
 
-          {/* Simple Metrics Dashboard */}
-          <div className="mb-3 p-3 bg-neutral-50 border border-neutral-200">
-            <div className="grid grid-cols-3 gap-2">
+          {/* Simple Metrics Dashboard - Mobile Responsive */}
+          <div className="mb-3 p-3 sm:p-4 bg-neutral-50 border border-neutral-200">
+            <div className="grid grid-cols-3 gap-2 sm:gap-3">
               <div className="text-center">
                 <div className="flex items-center justify-center gap-1 mb-1">
-                  <BarChart3 className="w-3 h-3 text-blue-600" />
-                  <span className="text-sm font-bold text-neutral-900">{metrics.projectsCompleted}</span>
+                  <BarChart3 className="w-3 h-3 sm:w-4 sm:h-4 text-blue-600" />
+                  <span className="text-xs sm:text-sm font-bold text-neutral-900">{metrics.projectsCompleted}</span>
                 </div>
                 <span className="text-xs text-neutral-500">Projects</span>
               </div>
               <div className="text-center border-x border-neutral-200">
                 <div className="flex items-center justify-center gap-1 mb-1">
-                  <TrendingUp className="w-3 h-3 text-emerald-600" />
-                  <span className="text-sm font-bold text-neutral-900">{metrics.satisfactionRate}%</span>
+                  <TrendingUp className="w-3 h-3 sm:w-4 sm:h-4 text-emerald-600" />
+                  <span className="text-xs sm:text-sm font-bold text-neutral-900">{metrics.satisfactionRate}%</span>
                 </div>
                 <span className="text-xs text-neutral-500">Satisfaction</span>
               </div>
               <div className="text-center">
                 <div className="flex items-center justify-center gap-1 mb-1">
-                  <Clock className="w-3 h-3 text-amber-600" />
-                  <span className="text-xs font-bold text-neutral-900">{metrics.avgResponseTime}</span>
+                  <Clock className="w-3 h-3 sm:w-4 sm:h-4 text-amber-600" />
+                  <span className="text-xs sm:text-sm font-bold text-neutral-900">{metrics.avgResponseTime}</span>
                 </div>
                 <span className="text-xs text-neutral-500">Response</span>
               </div>

@@ -82,19 +82,99 @@ const ServiceCardsSection: React.FC<ServiceCardsSectionProps> = ({
 
       {/* Enterprise Grid Container - Exactly 4 cards per row - Aligned with main content */}
       <div className="container mx-auto px-4">
-        <div 
-          className="grid grid-cols-4 gap-5 mb-5 service-grid-4"
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(4, 1fr)',
-            gap: '20px',
-            marginBottom: '20px'
-          }}
-        >
+        {/* Mobile Horizontal Scroll Container */}
+        <div className="md:hidden">
+          <div className="overflow-x-auto pb-4">
+            <div className="flex gap-5 mb-5 service-grid-4 min-w-max">
+              {cards.map((card, index) => (
+                <motion.article
+                  key={index}
+                  className="group relative bg-white border border-neutral-200 p-3 sm:p-4 cursor-pointer hover:border-[#127749] hover:shadow-lg transition-all duration-300 h-full flex flex-col justify-between"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  onClick={() => handleOpenModal(card)}
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`Learn more about ${card.title}`}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      handleOpenModal(card);
+                    }
+                  }}
+                >
+                  {/* Card Header */}
+                  <header className="relative z-10 flex flex-col h-full">
+                    <div className="mb-3 flex justify-between items-start gap-2">
+                      <div className="flex-1">
+                        {card.category && (
+                          <span className="inline-block text-xs font-bold uppercase text-[#127749] mb-2">
+                            {card.category}
+                          </span>
+                        )}
+                        <h3 className="text-base sm:text-lg font-bold text-neutral-900 leading-tight group-hover:text-[#127749] transition-colors duration-300">
+                          {card.title}
+                        </h3>
+                      </div>
+                      <div className="w-6 h-6 flex items-center justify-center bg-neutral-50 group-hover:bg-[#127749] flex-shrink-0">
+                        <ArrowUpRight className="w-3 h-3 text-neutral-400 group-hover:text-white transition-colors duration-300" />
+                      </div>
+                    </div>
+
+                    {/* Description */}
+                    <div className="mb-3 flex-grow">
+                      <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed mb-3 line-clamp-3">
+                        {card.shortDescription}
+                      </p>
+                      
+                      {/* Features Preview */}
+                      {card.features && card.features.length > 0 && (
+                        <div className="space-y-1">
+                          {card.features.slice(0, 2).map((feature, featureIndex) => (
+                            <div key={featureIndex} className="flex items-start gap-2">
+                              <div className="w-1 h-1 bg-[#127749] rounded-full mt-1.5 flex-shrink-0" />
+                              <span className="text-xs sm:text-sm text-neutral-600 leading-relaxed line-clamp-1">
+                                {feature}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Card Footer */}
+                    <footer className="mt-auto pt-3 border-t border-neutral-200">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-1">
+                          <Shield className="w-3 h-3 text-neutral-400" />
+                          <span className="text-xs font-bold uppercase text-neutral-400 group-hover:text-[#127749] transition-colors duration-300">
+                            Certified
+                          </span>
+                        </div>
+                        <span className="text-xs font-bold uppercase text-neutral-400 group-hover:text-[#127749] transition-colors duration-300">
+                          View Details →
+                        </span>
+                      </div>
+                    </footer>
+                  </header>
+
+                  {/* Simple Border Effect */}
+                  <div className="absolute inset-0 border border-transparent group-hover:border-[#127749]/30 transition-all duration-300 pointer-events-none" />
+                </motion.article>
+              ))}
+            </div>
+          </div>
+        </div>
+        
+        {/* Desktop Grid */}
+        <div className="hidden md:block">
+          <div className="grid grid-cols-4 gap-5 mb-5 service-grid-4">
           {cards.map((card, index) => (
             <motion.article
               key={index}
-              className="group relative bg-white border border-neutral-200 p-4 cursor-pointer hover:border-[#127749] hover:shadow-lg transition-all duration-300 h-full flex flex-col justify-between"
+              className="group relative bg-white border border-neutral-200 p-3 sm:p-4 cursor-pointer hover:border-[#127749] hover:shadow-lg transition-all duration-300 h-full flex flex-col justify-between"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
@@ -119,7 +199,7 @@ const ServiceCardsSection: React.FC<ServiceCardsSectionProps> = ({
                         {card.category}
                       </span>
                     )}
-                    <h3 className="text-base font-bold text-neutral-900 leading-tight group-hover:text-[#127749] transition-colors duration-300">
+                    <h3 className="text-base sm:text-lg font-bold text-neutral-900 leading-tight group-hover:text-[#127749] transition-colors duration-300">
                       {card.title}
                     </h3>
                   </div>
@@ -128,21 +208,9 @@ const ServiceCardsSection: React.FC<ServiceCardsSectionProps> = ({
                   </div>
                 </div>
 
-                {/* Certification Badges */}
-                {card.certification && card.certification.length > 0 && (
-                  <div className="flex flex-wrap gap-1 mb-3">
-                    {card.certification.slice(0, 2).map((cert, certIndex) => (
-                      <div key={certIndex} className="inline-flex items-center gap-1 px-2 py-1 bg-emerald-50 border border-emerald-200">
-                        <Award className="w-3 h-3 text-emerald-600" />
-                        <span className="text-xs font-medium text-emerald-700">{cert}</span>
-                      </div>
-                    ))}
-                  </div>
-                )}
-
                 {/* Description */}
                 <div className="mb-3 flex-grow">
-                  <p className="text-xs text-neutral-600 leading-relaxed mb-3 line-clamp-3">
+                  <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed mb-3 line-clamp-3">
                     {card.shortDescription}
                   </p>
                   
@@ -152,7 +220,7 @@ const ServiceCardsSection: React.FC<ServiceCardsSectionProps> = ({
                       {card.features.slice(0, 2).map((feature, featureIndex) => (
                         <div key={featureIndex} className="flex items-start gap-2">
                           <div className="w-1 h-1 bg-[#127749] rounded-full mt-1.5 flex-shrink-0" />
-                          <span className="text-xs text-neutral-500 leading-relaxed line-clamp-1">
+                          <span className="text-xs sm:text-sm text-neutral-600 leading-relaxed line-clamp-1">
                             {feature}
                           </span>
                         </div>
@@ -181,6 +249,7 @@ const ServiceCardsSection: React.FC<ServiceCardsSectionProps> = ({
               <div className="absolute inset-0 border border-transparent group-hover:border-[#127749]/30 transition-all duration-300 pointer-events-none" />
             </motion.article>
           ))}
+        </div>
         </div>
         
         {/* View All CTA */}
