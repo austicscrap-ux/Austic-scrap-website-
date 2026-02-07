@@ -99,7 +99,7 @@ const IndustriesSection = () => {
 
         {/* Right Column: Industries Grid */}
         <div className="lg:col-span-2">
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-4 gap-2 md:gap-4">
             {industries.map((industry, index) => (
               <motion.div
                 key={index}
@@ -107,13 +107,13 @@ const IndustriesSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="group bg-white p-2 rounded-lg border border-neutral-200 hover:border-[#127749]/30 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center aspect-[16/10] justify-center max-w-[160px] mx-auto w-full"
+                className="group bg-white p-2 rounded-lg border border-neutral-200 hover:border-[#127749]/30 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center h-[100px] justify-center max-w-[160px] mx-auto w-full"
               >
                 <div className="mb-2 inline-flex items-center justify-center w-7 h-7 rounded-md bg-[#127749]/5 text-[#127749] group-hover:bg-[#127749] group-hover:text-white transition-colors duration-300">
                   <industry.icon className="w-3.5 h-3.5" />
                 </div>
 
-                <h3 className="text-[10px] font-bold text-neutral-900 font-primary group-hover:text-[#127749] transition-colors duration-300 uppercase tracking-wide leading-tight px-1">
+                <h3 className="text-[9px] font-bold text-neutral-900 font-primary group-hover:text-[#127749] transition-colors duration-300 uppercase tracking-wide leading-tight px-1">
                   {industry.title}
                 </h3>
               </motion.div>
