@@ -16,7 +16,7 @@ export const metadata = {
 
 export default function EwastePage() {
   return (
-    <main className="bg-amber-50/30 min-h-screen">
+    <main className="bg-gradient-to-br from-amber-50/30 via-white to-emerald-50/20 min-h-screen">
       <HeroSection
         title={
           <>
@@ -27,33 +27,36 @@ export default function EwastePage() {
         subtitle="Leading the way in secure and environmentally friendly electronic waste management. Certified data destruction and sustainable material recovery for a cleaner future."
       />
 
-      <div className="py-20 space-y-10">
+      <div className="py-20 space-y-5">
         <ServiceCardsSection
           sectionTitle="E-WASTE RECYCLING & DISPOSAL"
           cards={ewasteRecyclingCards}
           titleColorClass="text-neutral-900"
+          id="e-waste-services"
         />
 
-        {/* Divider */}
-        <div className="container mx-auto px-4 lg:px-[86px]">
-          <div className="h-px bg-gradient-to-r from-transparent via-amber-200 to-transparent opacity-50"></div>
+        {/* Simple Divider */}
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+          <div className="h-px bg-gradient-to-r from-transparent via-amber-300 to-transparent"></div>
         </div>
 
         <ServiceCardsSection
           sectionTitle="Office Furniture Recycling"
           cards={officeFurnitureCards}
           titleColorClass="text-neutral-900"
+          id="office-services"
         />
 
-        {/* Divider */}
-        <div className="container mx-auto px-4 lg:px-[86px]">
-          <div className="h-px bg-gradient-to-r from-transparent via-amber-200 to-transparent opacity-50"></div>
+        {/* Simple Divider */}
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+          <div className="h-px bg-gradient-to-r from-transparent via-amber-300 to-transparent"></div>
         </div>
 
         <ServiceCardsSection
           sectionTitle="Metal Scrap Recycling"
           cards={metalScrapCards}
           titleColorClass="text-neutral-900"
+          id="metal-services"
         />
       </div>
 
