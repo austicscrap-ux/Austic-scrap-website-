@@ -9,6 +9,7 @@ import WhyChooseUs from "@/components/ui/WhyChooseUs";
 import Testimonials from "@/components/ui/Testimonials";
 import ClientMarquee from "@/components/ui/ClientMarquee";
 import Locations from "@/components/sections/Locations";
+import IndustriesSection from "@/components/sections/IndustriesSection";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <Features />
       <ClientMarquee />
       <ServiceGrid />
+      <IndustriesSection />
       <Appointment />
       <WorkingProcess />
       <ScrapBuyingProcess />
