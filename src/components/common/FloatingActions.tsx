@@ -1,7 +1,8 @@
 "use client";
 
 import React from "react";
-import { Phone, MessageCircle } from "lucide-react";
+import { Phone } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 
 const FloatingActions = () => {
   return (
@@ -38,7 +39,7 @@ const FloatingActions = () => {
           target="_blank"
           rel="noreferrer"
         >
-          <MessageCircle size={24} />
+          <FaWhatsapp size={24} />
         </a>
       </div>
     </>

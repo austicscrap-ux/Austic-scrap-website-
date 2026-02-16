@@ -2,7 +2,8 @@
 
 import React from "react";
 import Link from "next/link";
-import { Phone, MessageCircle, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 
 const ContactDetails: React.FC = () => {
   return (
@@ -33,7 +34,7 @@ const ContactDetails: React.FC = () => {
         className="group flex items-center p-6 bg-white rounded-xl shadow-sm border border-neutral-100/50 hover:shadow-md hover:-translate-y-1 transition-all duration-300"
       >
         <div className="w-12 h-12 bg-amber-50 rounded-full flex items-center justify-center text-[#127749] group-hover:bg-[#127749] group-hover:text-white transition-colors duration-300 mr-5">
-          <MessageCircle size={24} />
+          <FaWhatsapp size={24} />
         </div>
         <div>
           <h4 className="text-lg font-bold font-primary text-neutral-900 mb-1">
