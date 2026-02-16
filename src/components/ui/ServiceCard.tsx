@@ -4,20 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import {
-  ArrowUpRight,
-  Shield,
-  Award,
-  TrendingUp,
-  Users,
-  Clock,
-  CheckCircle,
-  BarChart3,
-  Star,
-  Globe,
-  Lock,
-  ChevronRight,
-} from "lucide-react";
+import { ArrowUpRight, Shield, Users, Globe, ChevronRight } from "lucide-react";
 
 interface ServiceCardProps {
   title: string;
@@ -48,33 +35,10 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   link,
   index = 0,
   category = "Service",
-  certification = [],
   features = [],
-  rating = 4.8,
-  clients = 150,
-  completionRate = 98,
-  responseTime = "2 hours",
-  status = "active",
-  metrics = {
-    projectsCompleted: 500,
-    satisfactionRate: 96,
-    avgResponseTime: "2 hours",
-  },
   onClick,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
-
-  const statusColors = {
-    active: "bg-emerald-500/10 text-emerald-700 border-emerald-200",
-    premium: "bg-amber-500/10 text-amber-700 border-amber-200",
-    enterprise: "bg-indigo-500/10 text-indigo-700 border-indigo-200",
-  };
-
-  const statusIcons = {
-    active: <CheckCircle className="w-3 h-3" />,
-    premium: <Star className="w-3 h-3" />,
-    enterprise: <Award className="w-3 h-3" />,
-  };
 
   // Content wrapper component to handle Link vs div (for onClick)
   const Wrapper = ({
@@ -128,17 +92,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           {/* Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90" />
 
-          {/* Status Badge */}
-          <div className="absolute top-4 left-4">
-            <div
-              className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border backdrop-blur-sm ${statusColors[status] || statusColors.active}`}
-            >
-              {statusIcons[status] || statusIcons.active}
-              <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider">
-                {status}
-              </span>
-            </div>
-          </div>
+          {/* Status Badge - Removed as per request */}
 
           {/* Category Badge */}
           <div className="absolute top-4 right-4">
@@ -150,19 +104,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
             </div>
           </div>
 
-          {/* Floating Metrics (On Image) */}
-          <div className="absolute bottom-4 left-4 right-4">
-            <div className="flex items-center justify-between text-white/90">
-              <div className="flex items-center gap-2 text-xs font-medium">
-                <Star className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
-                <span>{rating} Rating</span>
-              </div>
-              <div className="flex items-center gap-2 text-xs font-medium">
-                <Users className="w-3.5 h-3.5 text-emerald-400" />
-                <span>{clients}+ Clients</span>
-              </div>
-            </div>
-          </div>
+          {/* Floating Metrics (On Image) - Removed as per request */}
         </div>
 
         {/* Content Section */}
@@ -190,32 +132,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
             </div>
           )}
 
-          <div className="mt-auto pt-5 border-t border-neutral-100">
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <span className="text-[10px] uppercase tracking-wider text-neutral-400 font-bold block mb-1">
-                  Success Rate
-                </span>
-                <div className="flex items-baseline gap-1">
-                  <span className="text-lg font-bold text-neutral-900">
-                    {completionRate}%
-                  </span>
-                  <TrendingUp className="w-3 h-3 text-emerald-500" />
-                </div>
-              </div>
-              <div>
-                <span className="text-[10px] uppercase tracking-wider text-neutral-400 font-bold block mb-1">
-                  Response
-                </span>
-                <div className="flex items-baseline gap-1">
-                  <span className="text-lg font-bold text-neutral-900">
-                    {responseTime}
-                  </span>
-                  <Clock className="w-3 h-3 text-amber-500" />
-                </div>
-              </div>
-            </div>
-          </div>
+          {/* Metrics Grid Removed */}
         </div>
 
         {/* Action Footer */}
