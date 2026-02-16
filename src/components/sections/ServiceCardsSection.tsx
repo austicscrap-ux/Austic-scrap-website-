@@ -4,12 +4,10 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import ServiceModal from "@/components/ui/ServiceModal";
 import SectionWrapper from "@/components/common/SectionWrapper";
-import { ArrowUpRight, Shield, Award } from "lucide-react";
-import "@/styles/service-cards-responsive.css";
-import "@/styles/enterprise-typography.css";
-import "@/styles/premium-enterprise.css";
-import "@/styles/exact-grid-layout.css";
+import ServiceCard from "@/components/ui/ServiceCard"; // Import the designated component
+import { Shield } from "lucide-react";
 
+// Keeping the interface compatible
 interface ServiceCardData {
   title: string;
   shortDescription: string;
@@ -17,6 +15,17 @@ interface ServiceCardData {
   category?: string;
   certification?: string[];
   features?: string[];
+  // Additional props that might be in the data but not strictly typed in the old interface
+  rating?: number;
+  clients?: number;
+  completionRate?: number;
+  responseTime?: string;
+  status?: "active" | "premium" | "enterprise";
+  metrics?: {
+    projectsCompleted?: number;
+    satisfactionRate?: number;
+    avgResponseTime?: string;
+  };
 }
 
 interface ServiceCardsSectionProps {
@@ -34,7 +43,9 @@ const ServiceCardsSection: React.FC<ServiceCardsSectionProps> = ({
   id,
   showViewAll = true,
 }) => {
-  const [selectedCard, setSelectedCard] = useState<ServiceCardData | null>(null);
+  const [selectedCard, setSelectedCard] = useState<ServiceCardData | null>(
+    null,
+  );
 
   const handleOpenModal = (card: ServiceCardData) => {
     setSelectedCard(card);
@@ -45,225 +56,84 @@ const ServiceCardsSection: React.FC<ServiceCardsSectionProps> = ({
   };
 
   return (
-    <SectionWrapper 
-      id={id || "service-cards"} 
-      className="bg-transparent py-20 lg:py-32"
+    <SectionWrapper
+      id={id || "service-cards"}
+      className="bg-transparent py-16 lg:py-24" // Adjusted vertical spacing
     >
       {/* Enterprise Header */}
-      <header className="text-center mb-16 lg:mb-24">
+      <header className="text-center mb-12 lg:mb-16 px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="relative inline-block"
+          className="relative inline-block max-w-4xl mx-auto"
         >
-          <div className="flex items-center justify-center gap-4 mb-6">
-            <div className="w-16 h-px bg-gradient-to-r from-transparent to-[#127749]" />
-            <div className="w-3 h-3 bg-[#127749] rounded-full" />
-            <div className="w-16 h-px bg-gradient-to-l from-transparent to-[#127749]" />
+          <div className="flex items-center justify-center gap-4 mb-4">
+            <div className="w-12 sm:w-16 h-px bg-gradient-to-r from-transparent to-[#127749]" />
+            <div className="w-2.5 h-2.5 bg-[#127749] rounded-full" />
+            <div className="w-12 sm:w-16 h-px bg-gradient-to-l from-transparent to-[#127749]" />
           </div>
-          
-          <h2 className={`section-header ${titleColorClass}`}>
+
+          <h2
+            className={`text-3xl sm:text-4xl md:text-5xl font-bold mb-4 ${titleColorClass} tracking-tight`}
+          >
             {sectionTitle}
           </h2>
-          
-          <div className="flex items-center justify-center gap-3 mb-8">
+
+          <div className="flex items-center justify-center gap-3 mb-6">
             <Shield className="w-5 h-5 text-[#127749]" />
-            <p className="section-subtitle">
+            <p className="text-sm sm:text-base text-neutral-600 font-medium max-w-xl mx-auto">
               Certified enterprise solutions with industry-leading standards
             </p>
             <Shield className="w-5 h-5 text-[#127749]" />
           </div>
-          
-          <div className="w-32 h-1 bg-[#127749] mx-auto rounded-full" />
+
+          <div className="w-24 h-1.5 bg-[#127749] mx-auto rounded-full opacity-80" />
         </motion.div>
       </header>
 
-      {/* Enterprise Grid Container - Exactly 4 cards per row - Aligned with main content */}
-      <div className="container mx-auto px-4">
-        {/* Mobile Horizontal Scroll Container */}
-        <div className="md:hidden">
-          <div className="overflow-x-auto pb-4">
-            <div className="flex gap-5 mb-5 service-grid-4 min-w-max">
-              {cards.map((card, index) => (
-                <motion.article
-                  key={index}
-                  className="group relative bg-white border border-neutral-200 p-3 sm:p-4 cursor-pointer hover:border-[#127749] hover:shadow-lg transition-all duration-300 h-full flex flex-col justify-between"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  onClick={() => handleOpenModal(card)}
-                  role="button"
-                  tabIndex={0}
-                  aria-label={`Learn more about ${card.title}`}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                      e.preventDefault();
-                      handleOpenModal(card);
-                    }
-                  }}
-                >
-                  {/* Card Header */}
-                  <header className="relative z-10 flex flex-col h-full">
-                    <div className="mb-3 flex justify-between items-start gap-2">
-                      <div className="flex-1">
-                        {card.category && (
-                          <span className="inline-block text-xs font-bold uppercase text-[#127749] mb-2">
-                            {card.category}
-                          </span>
-                        )}
-                        <h3 className="text-base sm:text-lg font-bold text-neutral-900 leading-tight group-hover:text-[#127749] transition-colors duration-300">
-                          {card.title}
-                        </h3>
-                      </div>
-                      <div className="w-6 h-6 flex items-center justify-center bg-neutral-50 group-hover:bg-[#127749] flex-shrink-0">
-                        <ArrowUpRight className="w-3 h-3 text-neutral-400 group-hover:text-white transition-colors duration-300" />
-                      </div>
-                    </div>
-
-                    {/* Description */}
-                    <div className="mb-3 flex-grow">
-                      <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed mb-3 line-clamp-3">
-                        {card.shortDescription}
-                      </p>
-                      
-                      {/* Features Preview */}
-                      {card.features && card.features.length > 0 && (
-                        <div className="space-y-1">
-                          {card.features.slice(0, 2).map((feature, featureIndex) => (
-                            <div key={featureIndex} className="flex items-start gap-2">
-                              <div className="w-1 h-1 bg-[#127749] rounded-full mt-1.5 flex-shrink-0" />
-                              <span className="text-xs sm:text-sm text-neutral-600 leading-relaxed line-clamp-1">
-                                {feature}
-                              </span>
-                            </div>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-
-                    {/* Card Footer */}
-                    <footer className="mt-auto pt-3 border-t border-neutral-200">
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-1">
-                          <Shield className="w-3 h-3 text-neutral-400" />
-                          <span className="text-xs font-bold uppercase text-neutral-400 group-hover:text-[#127749] transition-colors duration-300">
-                            Certified
-                          </span>
-                        </div>
-                        <span className="text-xs font-bold uppercase text-neutral-400 group-hover:text-[#127749] transition-colors duration-300">
-                          View Details →
-                        </span>
-                      </div>
-                    </footer>
-                  </header>
-
-                  {/* Simple Border Effect */}
-                  <div className="absolute inset-0 border border-transparent group-hover:border-[#127749]/30 transition-all duration-300 pointer-events-none" />
-                </motion.article>
-              ))}
-            </div>
-          </div>
-        </div>
-        
-        {/* Desktop Grid */}
-        <div className="hidden md:block">
-          <div className="grid grid-cols-4 gap-5 mb-5 service-grid-4">
+      {/* Responsive Grid Container */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
           {cards.map((card, index) => (
-            <motion.article
-              key={index}
-              className="group relative bg-white border border-neutral-200 p-3 sm:p-4 cursor-pointer hover:border-[#127749] hover:shadow-lg transition-all duration-300 h-full flex flex-col justify-between"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
-              viewport={{ once: true, margin: "-50px" }}
-              onClick={() => handleOpenModal(card)}
-              role="button"
-              tabIndex={0}
-              aria-label={`Learn more about ${card.title}`}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  e.preventDefault();
-                  handleOpenModal(card);
-                }
-              }}
-            >
-              {/* Card Header */}
-              <header className="relative z-10 flex flex-col h-full">
-                <div className="mb-3 flex justify-between items-start gap-2">
-                  <div className="flex-1">
-                    {card.category && (
-                      <span className="inline-block text-xs font-bold uppercase text-[#127749] mb-2">
-                        {card.category}
-                      </span>
-                    )}
-                    <h3 className="text-base sm:text-lg font-bold text-neutral-900 leading-tight group-hover:text-[#127749] transition-colors duration-300">
-                      {card.title}
-                    </h3>
-                  </div>
-                  <div className="w-6 h-6 flex items-center justify-center bg-neutral-50 group-hover:bg-[#127749] flex-shrink-0">
-                    <ArrowUpRight className="w-3 h-3 text-neutral-400 group-hover:text-white transition-colors duration-300" />
-                  </div>
-                </div>
-
-                {/* Description */}
-                <div className="mb-3 flex-grow">
-                  <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed mb-3 line-clamp-3">
-                    {card.shortDescription}
-                  </p>
-                  
-                  {/* Features Preview */}
-                  {card.features && card.features.length > 0 && (
-                    <div className="space-y-1">
-                      {card.features.slice(0, 2).map((feature, featureIndex) => (
-                        <div key={featureIndex} className="flex items-start gap-2">
-                          <div className="w-1 h-1 bg-[#127749] rounded-full mt-1.5 flex-shrink-0" />
-                          <span className="text-xs sm:text-sm text-neutral-600 leading-relaxed line-clamp-1">
-                            {feature}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
-
-                {/* Card Footer */}
-                <footer className="mt-auto pt-3 border-t border-neutral-200">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-1">
-                      <Shield className="w-3 h-3 text-neutral-400" />
-                      <span className="text-xs font-bold uppercase text-neutral-400 group-hover:text-[#127749] transition-colors duration-300">
-                        Certified
-                      </span>
-                    </div>
-                    <span className="text-xs font-bold uppercase text-neutral-400 group-hover:text-[#127749] transition-colors duration-300">
-                      View Details →
-                    </span>
-                  </div>
-                </footer>
-              </header>
-
-              {/* Simple Border Effect */}
-              <div className="absolute inset-0 border border-transparent group-hover:border-[#127749]/30 transition-all duration-300 pointer-events-none" />
-            </motion.article>
+            <div key={index} className="h-full">
+              <ServiceCard
+                title={card.title}
+                desc={card.shortDescription}
+                // Mapping data props to ServiceCard props.
+                // Note: 'img' is missing in ServiceCardData interface locally defined here but might exist in actual data.
+                // The component has a fallback image.
+                // To support images if they exist in `card`, we can cast or spread:
+                img={(card as any).img} // Assuming data sources have 'img' or similar
+                link={(card as any).link || "#"}
+                index={index}
+                category={card.category}
+                certification={card.certification}
+                features={card.features}
+                rating={card.rating}
+                clients={card.clients}
+                completionRate={card.completionRate}
+                responseTime={card.responseTime}
+                status={card.status}
+                metrics={card.metrics}
+                onClick={() => handleOpenModal(card)}
+              />
+            </div>
           ))}
         </div>
-        </div>
-        
-        {/* View All CTA */}
-        {showViewAll && cards.length > 4 && (
+
+        {/* View All CTA - Optional based on prop */}
+        {showViewAll && cards.length > 8 && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-center mt-16"
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-center mt-12 sm:mt-16"
           >
-            <button className="inline-flex items-center gap-3 px-8 py-4 bg-[#127749] text-white font-semibold rounded-xl hover:bg-[#0f5f3a] enterprise-transition-normal hover:enterprise-shadow-xl hover:-translate-y-1">
-              <span className="enterprise-body-medium">View All Services</span>
-              <ArrowUpRight className="w-5 h-5" />
+            <button className="inline-flex items-center gap-2 px-8 py-3 bg-[#127749] text-white font-semibold rounded-full hover:bg-[#0f5f3a] transition-all shadow-md hover:shadow-lg hover:-translate-y-1">
+              <span>View All Services</span>
             </button>
           </motion.div>
         )}

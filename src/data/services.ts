@@ -17,7 +17,8 @@ export const ewasteRecyclingCards = [
       projectsCompleted: 1200,
       satisfactionRate: 98,
       avgResponseTime: "1 hour"
-    }
+    },
+    img: "/images/e-waste-recycling-kolkata.jpeg"
   },
   {
     title: "E-Waste Disposal",
@@ -37,7 +38,8 @@ export const ewasteRecyclingCards = [
       projectsCompleted: 850,
       satisfactionRate: 96,
       avgResponseTime: "2 hours"
-    }
+    },
+    img: "/images/IT Asset Disposition Buyer.jpeg" 
   },
   {
     title: "Computer Recycling",
@@ -57,7 +59,8 @@ export const ewasteRecyclingCards = [
       projectsCompleted: 650,
       satisfactionRate: 94,
       avgResponseTime: "3 hours"
-    }
+    },
+    img: "/images/electrical scrap-compressed.jpg"
   },
   {
     title: "Laptop Recycling",
@@ -77,7 +80,8 @@ export const ewasteRecyclingCards = [
       projectsCompleted: 420,
       satisfactionRate: 92,
       avgResponseTime: "4 hours"
-    }
+    },
+    img: "/images/e-waste-recycling-kolkata.jpeg"
   },
 ];
 
@@ -100,7 +104,8 @@ export const officeFurnitureCards = [
       projectsCompleted: 900,
       satisfactionRate: 97,
       avgResponseTime: "2 hours"
-    }
+    },
+    img: "/images/office furniture scrap.jpeg"
   },
   {
     title: "Office Chair Disposal",
@@ -120,7 +125,8 @@ export const officeFurnitureCards = [
       projectsCompleted: 520,
       satisfactionRate: 93,
       avgResponseTime: "3 hours"
-    }
+    },
+    img: "/images/dg set crop.jpg"
   },
   {
     title: "WorkStation Removal",
@@ -140,7 +146,8 @@ export const officeFurnitureCards = [
       projectsCompleted: 750,
       satisfactionRate: 98,
       avgResponseTime: "1 hour"
-    }
+    },
+    img: "/images/bettery recycling.jpeg"
   },
   {
     title: "Office Cabinet",
@@ -160,7 +167,8 @@ export const officeFurnitureCards = [
       projectsCompleted: 380,
       satisfactionRate: 91,
       avgResponseTime: "4 hours"
-    }
+    },
+    img: "/images/office furniture scrap.jpeg"
   },
 ];
 
@@ -183,7 +191,8 @@ export const metalScrapCards = [
       projectsCompleted: 680,
       satisfactionRate: 95,
       avgResponseTime: "2 hours"
-    }
+    },
+    img: "/images/coppper crop.jpg"
   },
   {
     title: "Steel Scrap Buyer",
@@ -203,7 +212,8 @@ export const metalScrapCards = [
       projectsCompleted: 920,
       satisfactionRate: 96,
       avgResponseTime: "1.5 hours"
-    }
+    },
+    img: "/images/Air con-compressed.jpg"
   },
   {
     title: "Aluminum Scrap Buyer",
@@ -223,7 +233,8 @@ export const metalScrapCards = [
       projectsCompleted: 540,
       satisfactionRate: 93,
       avgResponseTime: "3 hours"
-    }
+    },
+    img: "/images/coppper crop.jpg"
   },
   {
     title: "Copper Scrap Buyer",
@@ -243,6 +254,7 @@ export const metalScrapCards = [
       projectsCompleted: 810,
       satisfactionRate: 97,
       avgResponseTime: "1 hour"
-    }
+    },
+    img: "/images/electrical scrap-compressed.jpg"
   },
 ];

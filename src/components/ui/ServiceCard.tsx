@@ -4,10 +4,10 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { 
-  ArrowUpRight, 
-  Shield, 
-  Award, 
+import {
+  ArrowUpRight,
+  Shield,
+  Award,
   TrendingUp,
   Users,
   Clock,
@@ -15,15 +15,16 @@ import {
   BarChart3,
   Star,
   Globe,
-  Lock
+  Lock,
+  ChevronRight,
 } from "lucide-react";
 
 interface ServiceCardProps {
   title: string;
   desc: string;
-  img: string;
-  link: string;
-  index: number;
+  img?: string; // Made optional as some data might not have it, though fallback is used
+  link?: string;
+  index?: number;
   category?: string;
   certification?: string[];
   features?: string[];
@@ -31,20 +32,21 @@ interface ServiceCardProps {
   clients?: number;
   completionRate?: number;
   responseTime?: string;
-  status?: 'active' | 'premium' | 'enterprise';
+  status?: "active" | "premium" | "enterprise";
   metrics?: {
     projectsCompleted?: number;
     satisfactionRate?: number;
     avgResponseTime?: string;
   };
+  onClick?: () => void;
 }
 
 const ServiceCard: React.FC<ServiceCardProps> = ({
   title,
   desc,
-  img,
+  img = "/images/placeholder.jpg", // Fallback image
   link,
-  index,
+  index = 0,
   category = "Service",
   certification = [],
   features = [],
@@ -52,193 +54,183 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   clients = 150,
   completionRate = 98,
   responseTime = "2 hours",
-  status = 'active',
+  status = "active",
   metrics = {
     projectsCompleted: 500,
     satisfactionRate: 96,
-    avgResponseTime: "2 hours"
-  }
+    avgResponseTime: "2 hours",
+  },
+  onClick,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const statusColors = {
-    active: 'bg-emerald-500/10 text-emerald-600 border-emerald-200',
-    premium: 'bg-amber-500/10 text-amber-600 border-amber-200',
-    enterprise: 'bg-purple-500/10 text-purple-600 border-purple-200'
+    active: "bg-emerald-500/10 text-emerald-700 border-emerald-200",
+    premium: "bg-amber-500/10 text-amber-700 border-amber-200",
+    enterprise: "bg-indigo-500/10 text-indigo-700 border-indigo-200",
   };
 
   const statusIcons = {
     active: <CheckCircle className="w-3 h-3" />,
     premium: <Star className="w-3 h-3" />,
-    enterprise: <Award className="w-3 h-3" />
+    enterprise: <Award className="w-3 h-3" />,
+  };
+
+  // Content wrapper component to handle Link vs div (for onClick)
+  const Wrapper = ({
+    children,
+    className,
+  }: {
+    children: React.ReactNode;
+    className: string;
+  }) => {
+    if (onClick) {
+      return (
+        <div onClick={onClick} className={`${className} cursor-pointer`}>
+          {children}
+        </div>
+      );
+    }
+    return (
+      <Link href={link || "#"} className={className}>
+        {children}
+      </Link>
+    );
   };
 
   return (
     <motion.article
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ 
-        duration: 0.5, 
-        delay: index * 0.1, 
-        ease: "easeOut"
+      transition={{
+        duration: 0.5,
+        delay: index * 0.1,
+        ease: "easeOut",
       }}
       viewport={{ once: true, margin: "-50px" }}
       className="h-full group"
       role="article"
-      aria-labelledby={`service-${index}`}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
     >
-      <Link
-        href={link}
-        className="relative flex flex-col h-full bg-white border border-neutral-200 shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden"
-        aria-label={`Learn more about ${title}`}
-      >
-        {/* Rectangular Header with Image - Mobile Responsive */}
-        <div className="relative h-40 sm:h-48 md:h-52 w-full overflow-hidden bg-neutral-100">
+      <Wrapper className="relative flex flex-col h-full bg-white border border-neutral-200 rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:border-emerald-500/30 transition-all duration-300">
+        {/* Image Section */}
+        <div className="relative h-48 sm:h-52 w-full overflow-hidden bg-neutral-100">
           <Image
             src={img}
             alt={title}
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1536px) 33vw, 25vw"
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            className="object-cover transition-transform duration-700 group-hover:scale-110"
             quality={85}
-            priority={index < 4}
           />
-          
-          {/* Simple Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-          
+
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90" />
+
           {/* Status Badge */}
-          <div className="absolute top-3 left-3">
-            <div className={`inline-flex items-center gap-1 px-2 py-1 border ${statusColors[status]}`}>
-              {statusIcons[status]}
-              <span className="text-xs font-semibold uppercase">
+          <div className="absolute top-4 left-4">
+            <div
+              className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border backdrop-blur-sm ${statusColors[status] || statusColors.active}`}
+            >
+              {statusIcons[status] || statusIcons.active}
+              <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider">
                 {status}
               </span>
             </div>
           </div>
-          
+
           {/* Category Badge */}
-          <div className="absolute top-3 right-3">
-            <div className="inline-flex items-center px-2 py-1 bg-white/90 border border-neutral-200">
-              <Globe className="w-3 h-3 mr-1 text-blue-600" />
-              <span className="text-xs font-semibold text-neutral-700 uppercase">
+          <div className="absolute top-4 right-4">
+            <div className="inline-flex items-center px-2.5 py-1 bg-white/95 backdrop-blur-md rounded-full border border-white/20 shadow-sm">
+              <Globe className="w-3 h-3 mr-1.5 text-emerald-600" />
+              <span className="text-[10px] sm:text-xs font-bold text-neutral-800 uppercase tracking-widest">
                 {category}
               </span>
             </div>
           </div>
-          
-          {/* Simple Metrics */}
-          <div className="absolute bottom-3 left-3 right-3">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <div className="flex items-center gap-1 bg-black/50 px-2 py-1">
-                  <Star className="w-3 h-3 text-yellow-400 fill-yellow-400" />
-                  <span className="text-xs font-semibold text-white">{rating}</span>
-                </div>
-                <div className="flex items-center gap-1 bg-black/50 px-2 py-1">
-                  <Users className="w-3 h-3 text-white" />
-                  <span className="text-xs font-semibold text-white">{clients}+</span>
-                </div>
+
+          {/* Floating Metrics (On Image) */}
+          <div className="absolute bottom-4 left-4 right-4">
+            <div className="flex items-center justify-between text-white/90">
+              <div className="flex items-center gap-2 text-xs font-medium">
+                <Star className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
+                <span>{rating} Rating</span>
               </div>
-              <div className="flex items-center gap-1 bg-black/50 px-2 py-1">
-                <TrendingUp className="w-3 h-3 text-emerald-400" />
-                <span className="text-xs font-semibold text-white">{completionRate}%</span>
+              <div className="flex items-center gap-2 text-xs font-medium">
+                <Users className="w-3.5 h-3.5 text-emerald-400" />
+                <span>{clients}+ Clients</span>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Rectangular Content Container - Mobile Responsive */}
-        <div className="flex flex-col flex-grow p-3 sm:p-4 bg-white">
-          {/* Title Section */}
-          <header className="mb-3">
-            <h3 
-              id={`service-${index}`}
-              className="text-base sm:text-lg font-bold text-neutral-900 leading-tight mb-2 group-hover:text-[#127749] transition-colors duration-300"
-            >
+        {/* Content Section */}
+        <div className="flex flex-col flex-grow p-5 sm:p-6 bg-white">
+          <div className="mb-4">
+            <h3 className="text-lg sm:text-xl font-bold text-neutral-900 leading-snug mb-2 group-hover:text-emerald-700 transition-colors duration-300 line-clamp-2">
               {title}
             </h3>
-          </header>
-
-          {/* Description */}
-          <div className="mb-3 flex-grow">
-            <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed mb-3 line-clamp-3">
+            <p className="text-sm text-neutral-600 leading-relaxed line-clamp-3">
               {desc}
             </p>
-            
-            {/* Features List */}
-            {features.length > 0 && (
-              <div className="space-y-1">
-                {features.slice(0, 2).map((feature, featureIndex) => (
-                  <div 
-                    key={featureIndex} 
-                    className="flex items-start gap-2"
-                  >
-                    <div className="w-1.5 h-1.5 bg-[#127749] rounded-full mt-1.5 flex-shrink-0" />
-                    <span className="text-xs sm:text-sm text-neutral-600 leading-relaxed">
-                      {feature}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            )}
           </div>
 
-          {/* Simple Metrics Dashboard - Mobile Responsive */}
-          <div className="mb-3 p-3 sm:p-4 bg-neutral-50 border border-neutral-200">
-            <div className="grid grid-cols-3 gap-2 sm:gap-3">
-              <div className="text-center">
-                <div className="flex items-center justify-center gap-1 mb-1">
-                  <BarChart3 className="w-3 h-3 sm:w-4 sm:h-4 text-blue-600" />
-                  <span className="text-xs sm:text-sm font-bold text-neutral-900">{metrics.projectsCompleted}</span>
+          {/* Features */}
+          {features.length > 0 && (
+            <div className="mb-5 space-y-2">
+              {features.slice(0, 3).map((feature, i) => (
+                <div key={i} className="flex items-start gap-2.5">
+                  <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
+                  <span className="text-xs sm:text-sm text-neutral-600 font-medium line-clamp-1">
+                    {feature}
+                  </span>
                 </div>
-                <span className="text-xs text-neutral-500">Projects</span>
+              ))}
+            </div>
+          )}
+
+          <div className="mt-auto pt-5 border-t border-neutral-100">
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <span className="text-[10px] uppercase tracking-wider text-neutral-400 font-bold block mb-1">
+                  Success Rate
+                </span>
+                <div className="flex items-baseline gap-1">
+                  <span className="text-lg font-bold text-neutral-900">
+                    {completionRate}%
+                  </span>
+                  <TrendingUp className="w-3 h-3 text-emerald-500" />
+                </div>
               </div>
-              <div className="text-center border-x border-neutral-200">
-                <div className="flex items-center justify-center gap-1 mb-1">
-                  <TrendingUp className="w-3 h-3 sm:w-4 sm:h-4 text-emerald-600" />
-                  <span className="text-xs sm:text-sm font-bold text-neutral-900">{metrics.satisfactionRate}%</span>
+              <div>
+                <span className="text-[10px] uppercase tracking-wider text-neutral-400 font-bold block mb-1">
+                  Response
+                </span>
+                <div className="flex items-baseline gap-1">
+                  <span className="text-lg font-bold text-neutral-900">
+                    {responseTime}
+                  </span>
+                  <Clock className="w-3 h-3 text-amber-500" />
                 </div>
-                <span className="text-xs text-neutral-500">Satisfaction</span>
-              </div>
-              <div className="text-center">
-                <div className="flex items-center justify-center gap-1 mb-1">
-                  <Clock className="w-3 h-3 sm:w-4 sm:h-4 text-amber-600" />
-                  <span className="text-xs sm:text-sm font-bold text-neutral-900">{metrics.avgResponseTime}</span>
-                </div>
-                <span className="text-xs text-neutral-500">Response</span>
               </div>
             </div>
           </div>
-
-          {/* Footer */}
-          <footer className="mt-auto pt-3 border-t border-neutral-200">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <Shield className="w-3 h-3 text-[#127749]" />
-                <Lock className="w-3 h-3 text-neutral-400" />
-                <span className="text-xs font-semibold uppercase text-neutral-600 group-hover:text-[#127749] transition-colors duration-300">
-                  Certified
-                </span>
-              </div>
-              
-              <div className="flex items-center gap-2">
-                <span className="text-xs font-semibold text-neutral-600 group-hover:text-[#127749] transition-colors duration-300">
-                  Explore
-                </span>
-                <div className="w-6 h-6 border border-neutral-300 flex items-center justify-center group-hover:bg-[#127749] group-hover:border-[#127749] transition-all duration-300">
-                  <ArrowUpRight className="w-3 h-3 text-neutral-400 group-hover:text-white transition-colors duration-300" />
-                </div>
-              </div>
-            </div>
-          </footer>
         </div>
-        
-        {/* Simple Border Effect */}
-        <div className="absolute inset-0 border border-transparent group-hover:border-[#127749]/50 transition-all duration-300 pointer-events-none" />
-      </Link>
+
+        {/* Action Footer */}
+        <div className="bg-neutral-50 p-4 border-t border-neutral-100 flex items-center justify-between group-hover:bg-emerald-50/50 transition-colors duration-300">
+          <div className="flex items-center gap-1.5 text-neutral-500">
+            <Shield className="w-3.5 h-3.5" />
+            <span className="text-xs font-semibold uppercase tracking-wider">
+              Certified
+            </span>
+          </div>
+          <span className="flex items-center gap-1 text-sm font-bold text-emerald-700 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
+            View Details <ChevronRight className="w-4 h-4" />
+          </span>
+        </div>
+      </Wrapper>
     </motion.article>
   );
 };
