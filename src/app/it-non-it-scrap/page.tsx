@@ -2,6 +2,7 @@
 
 import React from "react";
 import HeroSection from "@/components/ui/HeroSection";
+import Image from "next/image";
 import ServiceGrid from "@/components/ui/ServiceGrid";
 import WhyChooseUs from "@/components/ui/WhyChooseUs";
 import SectionWrapper from "@/components/common/SectionWrapper";
@@ -39,12 +40,20 @@ const ItNonItScrapPage = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
-                className="bg-neutral-50 p-8 rounded-3xl border border-neutral-100 shadow-sm"
+                className="bg-neutral-50 p-8 rounded-3xl border border-neutral-100 shadow-sm flex flex-col h-full"
               >
+                <div className="relative w-full h-64 mb-6 rounded-2xl overflow-hidden">
+                  <Image
+                    src="/images/workstation-scrap.jpg"
+                    alt="IT Scrap Workstations"
+                    fill
+                    className="object-cover hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
                 <h3 className="text-2xl font-bold font-primary mb-4 text-[#127749]">
                   IT Scrap
                 </h3>
-                <p className="text-neutral-600 leading-relaxed font-secondary">
+                <p className="text-neutral-600 leading-relaxed font-secondary flex-grow">
                   We buy old computers, laptops, servers, printers, networking
                   equipment, and other electronic waste. We ensure data security
                   and proper e-waste management compliance.
@@ -56,12 +65,20 @@ const ItNonItScrapPage = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
                 viewport={{ once: true }}
-                className="bg-neutral-50 p-8 rounded-3xl border border-neutral-100 shadow-sm"
+                className="bg-neutral-50 p-8 rounded-3xl border border-neutral-100 shadow-sm flex flex-col h-full"
               >
+                <div className="relative w-full h-64 mb-6 rounded-2xl overflow-hidden">
+                  <Image
+                    src="/images/office-furniture-scrap.jpg"
+                    alt="Non-IT Scrap Office Furniture"
+                    fill
+                    className="object-cover hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
                 <h3 className="text-2xl font-bold font-primary mb-4 text-secondary">
                   Non-IT Scrap
                 </h3>
-                <p className="text-neutral-600 leading-relaxed font-secondary">
+                <p className="text-neutral-600 leading-relaxed font-secondary flex-grow">
                   We also purchase office furniture, old AC units, scrap metal,
                   electrical wiring, generator sets, and dismantling scrap from
                   corporate offices and industrial sites.
