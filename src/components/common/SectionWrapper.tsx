@@ -18,7 +18,7 @@ const SectionWrapper: React.FC<SectionWrapperProps> = ({
       id={id} 
       className={`relative w-full overflow-hidden section-padding ${className}`}
     >
-      <div className={`container mx-auto px-4 md:px-6 z-10 relative ${containerClassName}`}>
+      <div className={`container mx-auto px-4 lg:px-[86px] z-10 relative ${containerClassName}`}>
         {children}
       </div>
     </section>

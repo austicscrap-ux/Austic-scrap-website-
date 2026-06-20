@@ -1,7 +1,8 @@
 "use client";
 
 import React from "react";
-import { Phone, MessageCircle } from "lucide-react";
+import { Phone } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 
 const FloatingActions = () => {
   return (
@@ -15,7 +16,7 @@ const FloatingActions = () => {
         }}
       >
         <a
-          href="tel:+919831027550"
+          href="tel:+916205518929"
           className="block text-white"
           target="_blank"
           rel="noreferrer"
@@ -33,12 +34,12 @@ const FloatingActions = () => {
         }}
       >
         <a
-          href="https://wa.me/+919831027550"
+          href="https://wa.me/+916205518929"
           className="block text-black"
           target="_blank"
           rel="noreferrer"
         >
-          <MessageCircle size={24} />
+          <FaWhatsapp size={24} />
         </a>
       </div>
     </>

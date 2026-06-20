@@ -1,8 +1,9 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Recycle, Wrench, Building2, Truck } from "lucide-react";
 import { motion } from "framer-motion";
+import SectionWrapper from "@/components/common/SectionWrapper";
 
 const features = [
   {
@@ -32,79 +33,150 @@ const features = [
 ];
 
 const Features = () => {
+  const [activeCard, setActiveCard] = useState<number>(-1);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+
+  useEffect(() => {
+    // Detect mobile device
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  useEffect(() => {
+    if (!isMobile) return;
+
+    // Auto-rotate cards on mobile
+    const interval = setInterval(() => {
+      setActiveCard((prev) => (prev + 1) % features.length);
+    }, 3000); // Rotate every 3 seconds
+
+    return () => clearInterval(interval);
+  }, [isMobile]);
+
   return (
-    <section id="feature" className="feature_wrapper wrapper bg-white">
-      <div className="container mx-auto px-4">
+    <SectionWrapper
+      id="feature"
+      className="bg-amber-50/30 border-y border-amber-100/50"
+    >
+      <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="flex flex-wrap items-center"
+          className="w-full lg:w-1/2 text-center lg:text-left order-1 lg:order-1"
         >
-          {/* Left Content */}
-          <div className="w-full md:w-1/2 text-center md:text-left order-2 md:order-1 mt-10 md:mt-0">
-            <h5 className="text-secondary text-2xl font-medium mb-4 font-secondary">
-              Welcome to Our Service
-            </h5>
-            <p className="text-justify text-text-gray mb-4">
-              AUSTIC SCRAP is a scrap service provider based in Kolkata that was
-              founded in 2003 with a mission to transform electronic waste
-              management in Kolkata. We have been recognized as the leaders in
-              the scrap buying and recycling industry over the past 20 years. We
-              manage to get scrap for sourcing and recycling from corporate
-              offices, luxury hotels, institutions, banking sector
-              organizations, etc. e-waste management and recycling, buying used
-              office scrap from corporations, disposal of IT assets, and
-              purchasing all sorts of scrap from prestigious companies all over
-              Kolkata and India are other similar services that we offer.
-              Furthermore, our office and showroom dismantling services for
-              green disposal of electronic waste have earned us praise. Our goal
-              is to give the best price for scrap around Kolkata while rendering
-              top-notch service to our clients. Autistic Scrap Company has a
-              well-qualified expert team that can work around the clock to
-              ensure rapid response time to guarantee a smooth operation with
-              customer satisfaction at its best.
+          <div className="inline-block px-4 py-1.5 mb-4 text-sm font-bold tracking-widest text-[#127749] uppercase bg-[#127749]/10 rounded-full font-secondary">
+            Since 2003
+          </div>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-primary font-bold text-neutral-900 mb-6 leading-tight">
+            Leading the Way in{" "}
+            <span className="text-[#127749]">Eco-Friendly</span> Recycling
+          </h2>
+          <div className="space-y-4">
+            <p className="text-neutral-600 text-base md:text-lg leading-relaxed font-secondary">
+              AUSTIC SCRAP is a premier scrap service provider founded with a
+              mission to transform electronic waste management. For over 20
+              years, we have been recognized as leaders in the recycling
+              industry, committed to sustainable disposal and recovery.
+            </p>
+            <p className="text-neutral-600 text-base md:text-lg leading-relaxed font-secondary">
+              We specialize in sourcing and recycling from corporate offices,
+              luxury hotels, institutions, and the banking sector. Our expert
+              team works around the clock to guarantee rapid response times and
+              smooth operations, ensuring maximum value for our clients.
             </p>
           </div>
-
-          {/* Right Content - 4 Squares */}
-          <div className="w-full md:w-1/2 flex justify-center items-center order-1 md:order-2">
-            <div className="grid grid-cols-2 gap-2 max-w-[500px] w-full aspect-square">
-              {features.map((item, index) => (
-                <div
-                  key={index}
-                  className="group relative w-full h-full perspective-1000"
-                >
-                  <div
-                    className="relative w-full h-full transition-all duration-600 transform-style-3d group-hover:rotate-y-180 rounded-[10px]"
-                    //  Using specific gradient from style.css for all items
-                    style={{
-                      background: "linear-gradient(125deg, #127749, #55bc8e)",
-                    }}
-                  >
-                    {/* Front */}
-                    <div className="absolute inset-0 backface-hidden flex flex-col justify-center items-center text-white p-2">
-                      <item.icon className="text-4xl mb-4 text-wheat" />
-                      <h3 className="text-xl font-semibold text-center text-wheat font-secondary">
-                        {item.title}
-                      </h3>
-                    </div>
-
-                    {/* Back */}
-                    <div className="absolute inset-0 backface-hidden rotate-y-180 bg-white rounded-[10px] flex justify-center items-center p-4 text-center">
-                      <p className="text-text-gray text-sm md:text-base font-medium">
-                        {item.desc}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              ))}
+          <div className="mt-6 flex flex-wrap gap-4 justify-center lg:justify-start">
+            <div className="flex items-center gap-2 text-primary font-bold">
+              <div className="w-10 h-10 rounded-full bg-[#127749]/10 flex items-center justify-center">
+                <span className="text-[#127749]">✓</span>
+              </div>
+              <span>Certified Recycling</span>
+            </div>
+            <div className="flex items-center gap-2 text-primary font-bold">
+              <div className="w-10 h-10 rounded-full bg-[#127749]/10 flex items-center justify-center">
+                <span className="text-[#127749]">✓</span>
+              </div>
+              <span>Instant Quotation</span>
             </div>
           </div>
         </motion.div>
+
+        {/* Right Content - 4 Squares */}
+        <div className="w-full lg:w-1/2 flex justify-center items-center order-2 lg:order-2">
+          <div className="grid grid-cols-2 gap-3 md:gap-4 max-w-[500px] w-full aspect-square">
+            {features.map((item, index) => {
+              const isActive = isMobile && activeCard === index;
+
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  whileHover={!isMobile ? { scale: 1.05 } : {}}
+                  whileTap={{ scale: 0.98 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="group relative w-full h-full perspective-1000"
+                >
+                  <div
+                    className={`relative w-full h-full transform-style-3d transition-all duration-700 rounded-2xl shadow-xl hover:shadow-2xl ${
+                      isActive ? "rotate-y-180" : ""
+                    } ${!isMobile ? "group-hover:rotate-y-180" : ""}`}
+                  >
+                    {/* Front */}
+                    <div
+                      className="absolute inset-0 backface-hidden flex flex-col justify-center items-center text-white p-4 md:p-6 rounded-2xl overflow-hidden"
+                      style={{
+                        background:
+                          "linear-gradient(135deg, #127749 0%, #0e512e 100%)",
+                      }}
+                    >
+                      <div className="absolute top-0 right-0 w-24 h-24 bg-white/5 rounded-bl-full -mr-12 -mt-12 transition-transform duration-500 group-hover:scale-150" />
+                      <item.icon
+                        className={`mb-3 md:mb-6 text-white drop-shadow-lg transition-all duration-700 ${
+                          isActive
+                            ? "w-20 h-20 md:w-24 md:h-24"
+                            : "w-12 h-12 md:w-16 md:h-16"
+                        }`}
+                      />
+                      <h3 className="text-base md:text-xl lg:text-2xl font-bold text-center text-white font-primary uppercase tracking-wide">
+                        {item.title}
+                      </h3>
+                      <div className="mt-3 md:mt-4 w-12 h-1 bg-white/50 rounded-full" />
+                    </div>
+
+                    {/* Back */}
+                    <div className="absolute inset-0 backface-hidden rotate-y-180 bg-neutral-900 rounded-2xl flex flex-col justify-center items-center p-4 md:p-8 text-center border-2 border-[#127749]/30">
+                      <item.icon
+                        className={`mb-3 md:mb-4 text-[#127749] transition-all duration-700 ${
+                          isActive
+                            ? "w-16 h-16 md:w-20 md:h-20"
+                            : "w-10 h-10 md:w-12 md:h-12"
+                        }`}
+                      />
+                      <p className="text-neutral-300 text-xs md:text-sm lg:text-base font-medium leading-relaxed">
+                        {item.desc}
+                      </p>
+                      <div className="mt-4 md:mt-6 text-[#127749] font-bold text-xs md:text-sm tracking-widest uppercase">
+                        Expert Solutions
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
       </div>
-    </section>
+    </SectionWrapper>
   );
 };
 

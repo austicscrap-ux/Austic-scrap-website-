@@ -20,13 +20,13 @@ export const RecommendedCard = ({ blog }: { blog: Blog }) => {
           </Link>
           <div className="flex items-center space-x-5">
             <div className="flex items-center">
-              <Calendar className="w-[15px] h-[15px] text-[#03C5CE]" />
+              <Calendar className="w-[15px] h-[15px] text-[#127749]" />
               <span className="ml-2 font-semibold text-sm text-[#7b868f] font-['Open_Sans',Helvetica] leading-6">
                 {moment(blog.createdAt).format("DD MMM YYYY")}
               </span>
             </div>
             <div className="flex items-center">
-              <Clock className="w-[15px] h-[15px] text-[#03C5CE]" />
+              <Clock className="w-[15px] h-[15px] text-[#127749]" />
               <span className="ml-2 font-semibold text-sm text-[#7b868f] font-['Open_Sans',Helvetica] leading-6">
                 {blog.readTime}
               </span>

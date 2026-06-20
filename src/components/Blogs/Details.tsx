@@ -9,6 +9,7 @@ import { Calendar, Clock, Share2 } from "lucide-react";
 
 interface BlogDetailsProps {
   blog: Blog | null;
+  recommendedBlogs?: Blog[];
 }
 
 export const Details = ({ blog }: BlogDetailsProps) => {
@@ -36,22 +37,22 @@ export const Details = ({ blog }: BlogDetailsProps) => {
 
           <div className="flex mt-[30px] space-x-8">
             <div className="flex items-center">
-              <Calendar className="w-[15px] h-[15px] text-[#03C5CE]" />
+              <Calendar className="w-[15px] h-[15px] text-[#127749]" />
               <span className="ml-2 font-sans font-semibold text-[#7b868f] text-base">
                 {moment(blog.createdAt).format("DD MMM YYYY")}
               </span>
             </div>
 
             <div className="flex items-center">
-              <Clock className="w-[15px] h-[15px] text-[#03C5CE]" />
+              <Clock className="w-[15px] h-[15px] text-[#127749]" />
               <span className="ml-2 font-sans font-semibold text-[#7b868f] text-base">
                 {blog.readTime}
               </span>
             </div>
 
             <div className="flex items-center cursor-pointer group">
-              <Share2 className="w-[15px] h-[15px] text-[#03C5CE] group-hover:opacity-80 transition-opacity" />
-              <span className="ml-2 font-sans font-semibold text-[#7b868f] text-base group-hover:text-[#03C5CE] transition-colors">
+              <Share2 className="w-[15px] h-[15px] text-[#127749] group-hover:opacity-80 transition-opacity" />
+              <span className="ml-2 font-sans font-semibold text-[#7b868f] text-base group-hover:text-[#127749] transition-colors">
                 Share
               </span>
             </div>

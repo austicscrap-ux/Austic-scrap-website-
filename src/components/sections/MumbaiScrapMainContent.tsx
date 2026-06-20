@@ -35,7 +35,7 @@ const scrapItems: ScrapItem[] = [
 const MumbaiScrapMainContent: React.FC = () => {
   return (
     <section id="feature" className="imteyaz_wrapper wrapper py-12">
-      <div className="imteyaz_container container mx-auto px-4">
+      <div className="imteyaz_container container mx-auto px-4 lg:px-[86px]">
         <div className="imteyaz_row flex flex-col md:flex-row items-center justify-center">
           {/* Content Part */}
           <motion.div

@@ -1,9 +1,9 @@
 // src/components/sections/TeamSupport.tsx
-'use client';
+"use client";
 
-import React from 'react';
-import Image from 'next/image';
-import { motion } from 'framer-motion';
+import React from "react";
+import Image from "next/image";
+import { motion, useInView } from "framer-motion";
 
 interface TeamSupportItemProps {
   title: string;
@@ -15,74 +15,185 @@ interface TeamSupportItemProps {
 
 const teamSupportItems: TeamSupportItemProps[] = [
   {
-    title: 'TEAM WORK',
+    title: "TEAM WORK",
     description:
-      'Our team is dedicated to providing the best service in the market to ensure customer satisfaction. Our team will collect your scrap with just one call, right from your location—whether it\'s at your doorstep, house, office, or factory/company.',
-    imageSrc: '/images/team%20(1).png',
-    imageAlt: 'Team Work',
+      "Our team is dedicated to providing the best service in the market to ensure customer satisfaction. Our team will collect your scrap with just one call, right from your location—whether it's at your doorstep, house, office, or factory/company.",
+    imageSrc: "/images/team%20(1).png",
+    imageAlt: "Team Work",
     reverse: false,
   },
   {
-    title: 'LABOUR & WORKER',
+    title: "LABOUR & WORKER",
     description:
-      'We have skilled labor and hardworking workers dedicated to providing the best service to our clients in the market. In addition to our labor team, we have an experienced team that plays a vital role in planning, execution, and monitoring of projects to ensure timely completion.',
-    imageSrc: '/images/team%20(3).png',
-    imageAlt: 'Labour & Worker',
+      "We have skilled labor and hardworking workers dedicated to providing the best service to our clients in the market. In addition to our labor team, we have an experienced team that plays a vital role in planning, execution, and monitoring of projects to ensure timely completion.",
+    imageSrc: "/images/team%20(3).png",
+    imageAlt: "Labour & Worker",
     reverse: true, // This item will have the image on the left
   },
   {
-    title: '24 * 7 - SUPPORT',
+    title: "24 * 7 - SUPPORT",
     description:
-      'Austic has a highly experienced team that works around the clock to provide fast and efficient service. Our team will collect your scrap with just one call from your location. Contact us to sell any type of scrap and quickly turn it into cash!',
-    imageSrc: '/images/team%20(2).png',
-    imageAlt: '24/7 Support',
+      "Austic has a highly experienced team that works around the clock to provide fast and efficient service. Our team will collect your scrap with just one call from your location. Contact us to sell any type of scrap and quickly turn it into cash!",
+    imageSrc: "/images/team%20(2).png",
+    imageAlt: "24/7 Support",
     reverse: false,
   },
 ];
 
 const TeamSupport: React.FC = () => {
+  const [activeIndex, setActiveIndex] = React.useState(0);
+
   return (
-    <section className="something py-16 bg-gray-50">
-      <div className="container mx-auto px-4 max-w-7xl">
-        {teamSupportItems.map((item, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 30 }}
+    <section className="bg-amber-50/30 py-16 lg:py-20 relative overflow-hidden border-y border-amber-100/50">
+      <div className="container mx-auto px-4 lg:px-[86px] max-w-7xl relative z-10">
+        <div className="text-center mb-12">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: index * 0.1 }}
             viewport={{ once: true }}
-            className={`section-item flex flex-col md:flex-row items-center justify-between mb-20 gap-8 lg:gap-16
-              ${item.reverse ? 'md:flex-row-reverse' : ''}`}
+            className="text-3xl lg:text-4xl font-bold text-neutral-900 font-primary mb-3"
           >
-            <div className="paras w-full md:w-1/2">
-              <h4 className="text-3xl lg:text-4xl font-bold text-text-black-dark mb-6 tracking-wide font-secondary relative inline-block">
-                {item.title.split(' ').map((word, i) => (
-                  <span key={i} className={word === '&' || word === '*' || word === '-' ? 'text-secondary' : ''}>
-                    {word}{' '} 
-                  </span>
-                ))}
-              </h4>
-              <p className="sectionsub-tag text-lg text-gray-700 leading-relaxed text-left">
-                {item.description}
-              </p>
-            </div>
-            <div className="thumbnail w-full md:w-1/2">
-              <div className="relative overflow-hidden rounded-2xl shadow-xl transition-transform duration-300 hover:scale-[1.02]">
+            Our <span className="text-[#127749]">Operations</span>
+          </motion.h2>
+          <div className="w-20 h-1 bg-[#127749] mx-auto rounded-full"></div>
+        </div>
+
+        {/* Mobile View: Horizontal Scroll */}
+        <div className="md:hidden flex flex-col gap-6">
+          <div
+            className="flex overflow-x-auto snap-x snap-mandatory no-scrollbar pb-4 gap-6"
+            style={{
+              paddingLeft: "calc(50% - 42.5vw)",
+              paddingRight: "calc(50% - 42.5vw)",
+            }}
+          >
+            {teamSupportItems.map((item, index) => (
+              <MobileTeamCard
+                key={`mobile-${index}`}
+                item={item}
+                index={index}
+                setActiveIndex={setActiveIndex}
+              />
+            ))}
+          </div>
+
+          {/* Pagination Dots */}
+          <div className="flex justify-center space-x-2">
+            {teamSupportItems.map((_, i) => (
+              <div
+                key={i}
+                className={`h-2 rounded-full transition-all duration-500 ease-out ${
+                  i === activeIndex
+                    ? "bg-[#127749] w-8 translate-x-0"
+                    : "bg-neutral-300 w-2"
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop View: Grid */}
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          {teamSupportItems.map((item, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1, duration: 0.5 }}
+              viewport={{ once: true }}
+              className="group bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-amber-100/50 flex flex-col h-full"
+            >
+              {/* Image Container */}
+              <div className="relative h-40 w-full overflow-hidden bg-white border-b border-amber-100/30">
                 <Image
                   src={item.imageSrc}
                   alt={item.imageAlt}
-                  width={0}
-                  height={0}
-                  sizes="100vw"
-                  style={{ width: '100%', height: 'auto' }}
-                  className="img-fluid w-full rounded-2xl"
+                  fill
+                  className="object-contain p-3 transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               </div>
-            </div>
-          </motion.div>
-        ))}
+
+              {/* Content Container */}
+              <div className="p-5 flex-1 flex flex-col">
+                <div className="mb-2">
+                  <h4 className="text-xl font-bold text-neutral-900 font-primary uppercase border-l-4 border-[#127749] pl-3">
+                    {item.title}
+                  </h4>
+                </div>
+
+                <p className="text-neutral-600 text-sm leading-relaxed font-secondary font-medium text-justify flex-1">
+                  {item.description}
+                </p>
+
+                {/* Decorative Bottom Bar */}
+                <div className="mt-4 w-full h-1 bg-gradient-to-r from-[#127749] to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
+  );
+};
+
+// Extracted Component for Mobile Logic
+interface MobileTeamCardProps {
+  item: TeamSupportItemProps;
+  index: number;
+  setActiveIndex: (index: number) => void;
+}
+
+const MobileTeamCard = ({
+  item,
+  index,
+  setActiveIndex,
+}: MobileTeamCardProps) => {
+  const ref = React.useRef(null);
+  const inView = useInView(ref, { margin: "0px -40% 0px -40%" });
+
+  React.useEffect(() => {
+    if (inView) {
+      setActiveIndex(index);
+    }
+  }, [inView, index, setActiveIndex]);
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ delay: index * 0.1, duration: 0.5 }}
+      viewport={{ once: true }}
+      className="group bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-md border border-amber-100/50 flex flex-col h-full min-w-[85vw] w-[85vw] snap-center"
+    >
+      {/* Image Container */}
+      <div className="relative h-48 w-full overflow-hidden bg-white border-b border-amber-100/30">
+        <Image
+          src={item.imageSrc}
+          alt={item.imageAlt}
+          fill
+          className="object-contain p-3"
+          sizes="85vw"
+        />
+      </div>
+
+      {/* Content Container */}
+      <div className="p-5 flex-1 flex flex-col">
+        <div className="mb-2">
+          <h4 className="text-xl font-bold text-neutral-900 font-primary uppercase border-l-4 border-[#127749] pl-3">
+            {item.title}
+          </h4>
+        </div>
+
+        <p className="text-neutral-600 text-sm leading-relaxed font-secondary font-medium text-justify flex-1">
+          {item.description}
+        </p>
+
+        {/* Decorative Bottom Bar */}
+        <div className="mt-4 w-full h-1 bg-gradient-to-r from-[#127749] to-transparent"></div>
+      </div>
+    </motion.div>
   );
 };
 

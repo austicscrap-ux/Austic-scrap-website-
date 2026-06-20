@@ -40,7 +40,7 @@ const workingItems: WorkingItemProps[] = [
 const WorkingArea: React.FC = () => {
   return (
     <section className="working-area py-12">
-      <div className="container mx-auto px-4 mt-[-40px] md:mt-0">
+      <div className="container mx-auto px-4 lg:px-[86px] mt-[-40px] md:mt-0">
         {" "}
         {/* Adjusted margin-top for desktop */}
         <div className="row flex flex-wrap justify-center">

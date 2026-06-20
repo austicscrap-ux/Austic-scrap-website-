@@ -1,0 +1,135 @@
+/* Exact 4-Card Grid Layout with Mobile Horizontal Scrolling */
+
+/* Mobile First - Horizontal Scrolling */
+.service-grid-4 {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 1rem; /* Space for scrollbar */
+}
+
+.service-grid-4 > * {
+  flex: 0 0 auto; /* Don't grow or shrink */
+  width: 320px; /* Fixed width for all screens */
+  max-width: 320px;
+  scroll-snap-align: start;
+}
+
+/* Mobile - Show 1 card at a time with horizontal scroll */
+@media screen and (max-width: 768px) {
+  .service-grid-4 {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 1rem;
+  }
+  
+  .service-grid-4 > * {
+    flex: 0 0 auto;
+    width: 320px; /* Fixed width for mobile */
+    max-width: 320px;
+    scroll-snap-align: start;
+  }
+}
+
+/* Tablet - Show 2 cards at a time */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .service-grid-4 {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+  }
+  
+  .service-grid-4 > * {
+    flex: 0 0 auto;
+    width: 320px;
+    max-width: 320px;
+    scroll-snap-align: start;
+  }
+}
+
+/* Desktop - Show 4 cards */
+@media screen and (min-width: 1025px) {
+  .service-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    overflow-x: visible;
+  }
+  
+  .service-grid-4 > * {
+    flex: 1 1 auto;
+  }
+}
+
+/* Ensure rectangular cards with consistent height */
+.service-card-rectangular {
+  aspect-ratio: 1; /* Force square ratio for consistency */
+  min-height: 300px;
+  max-height: 400px;
+}
+
+/* Remove all rounded corners */
+.service-card-rectangular * {
+  border-radius: 0 !important;
+}
+
+/* Precise spacing standards */
+.spacing-standard {
+  padding: 16px; /* Standard x-axis spacing */
+  margin: 0;
+}
+
+.spacing-y-20 {
+  margin-bottom: 20px;
+}
+
+.spacing-x-20 {
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+/* Grid container with exact spacing */
+.grid-container-4 {
+  container-type: inline-size;
+  padding: 0 20px;
+}
+
+/* Force rectangular shapes */
+.rectangular-shape {
+  border-radius: 0 !important;
+  overflow: hidden;
+}
+
+/* Standard card dimensions */
+.card-dimensions {
+  width: 100%;
+  height: auto;
+  min-height: 350px;
+}
+
+/* Ensure all cards have same height in a row */
+.grid-row-equal-height {
+  display: grid;
+  grid-auto-rows: 1fr;
+}
+
+/* Section spacing exactly 20px */
+.section-spacing-20 {
+  margin-bottom: 20px;
+}
+
+/* Override any rounded corners */
+.no-radius {
+  border-radius: 0 !important;
+}
+
+.no-radius * {
+  border-radius: 0 !important;
+}

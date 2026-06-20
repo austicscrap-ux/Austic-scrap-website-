@@ -1,75 +1,152 @@
-// src/components/sections/AcScrapContent.tsx
-'use client';
+"use client";
 
-import React from 'react';
-import SectionWrapper from '@/components/common/SectionWrapper';
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import SectionWrapper from "@/components/common/SectionWrapper";
+import { Button } from "@/components/ui/Button";
 
 const AcScrapContent: React.FC = () => {
+  const acTypes = [
+    {
+      title: "Window AC Units",
+      description:
+        "Widely used in smaller offices and retail spaces. We ensure these compact units are dismantled and recycled with zero environmental leakage.",
+    },
+    {
+      title: "Split Air Conditioners",
+      description:
+        "Common in commercial offices and institutions. We specialize in purchasing split systems that are often replaced by high-efficiency modern units.",
+    },
+    {
+      title: "Central AC Systems",
+      description:
+        "Managed removal and recycling of large-scale systems for malls, hotels, and corporate towers, ensuring industrial-grade efficiency.",
+    },
+    {
+      title: "Industrial AC Units",
+      description:
+        "Heavy-duty systems used in factories and plants. We provide specialized logistics for these complex units, offering top market value.",
+    },
+  ];
+
   return (
-    <SectionWrapper>
-      <div className="max-w-4xl mx-auto">
-        <div className="mb-12">
-          <h1>
-            Air Conditioner Scrap Buyer In Kolkata
-          </h1>
+    <div className="flex flex-col">
+      {/* Hero Section */}
 
-          <p>
-            Austic Scrap Company is Kolkata’s leading air conditioner scrap buyer, catering to the unique needs of businesses across the city. From corporate offices in Salt Lake to shopping centers in Esplanade, banks in Dalhousie, hotels in Park Street, and IT departments in New Town, we understand the importance of upgrading air conditioning systems to meet modern standards. However, as your business grows or updates its infrastructure, dealing with outdated air conditioning units can become a hassle. This is where Austic Scrap steps in as your trusted buyer for old, unused AC units in Kolkata.
-          </p>
-          <p>
-            Our specialized services in Kolkata ensure a hassle-free, streamlined process for businesses looking to sell their old air conditioning units. We handle everything from collection to providing the best market rates for your old equipment. Whether you have a single unit or an entire building’s worth of air conditioners, our goal is to provide you with a reliable and profitable solution to offload your AC scrap.
-          </p>
+      {/* Main Content */}
+      <SectionWrapper id="about-ac-scrap" className="bg-white">
+        <div className="flex flex-col lg:flex-row items-center gap-16 mb-24">
+          <motion.div
+            className="w-full lg:w-1/2"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <div className="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-widest text-[#127749] uppercase bg-[#127749]/10 rounded-full font-secondary">
+              Our Expertise
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold font-primary mb-8 text-neutral-900 leading-tight">
+              Kolkata's Premier{" "}
+              <span className="text-[#127749]">AC Recycling Partner</span>
+            </h2>
+            <div className="space-y-6">
+              <p className="text-neutral-600 text-lg leading-relaxed font-secondary">
+                Austic Scrap Company is Kolkata’s leading air conditioner scrap
+                buyer, catering to the unique needs of businesses across the
+                city. From corporate offices in Salt Lake to shopping centers in
+                Esplanade, we understand the importance of upgrading AC systems.
+              </p>
+              <p className="text-neutral-600 text-lg leading-relaxed font-secondary">
+                Our specialized services in Kolkata ensure a hassle-free,
+                streamlined process for businesses looking to sell their old air
+                conditioning units. We handle everything from collection to
+                providing the best market rates for your equipment.
+              </p>
+            </div>
+          </motion.div>
+
+          <motion.div
+            className="w-full lg:w-1/2"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <div className="relative aspect-video rounded-[32px] overflow-hidden shadow-2xl border-8 border-white">
+              <Image
+                src="/images/Air con-compressed.jpg"
+                alt="AC Recycling Process"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-[32px]" />
+            </div>
+          </motion.div>
         </div>
 
-        <div className="mb-12">
-          <h3>
-            Why Businesses in Kolkata Need Air Conditioner Scrap Buyers
-          </h3>
-          <p>
-            Kolkata’s climate and business landscape demand robust cooling solutions, especially for commercial sectors like IT, retail, and hospitality. Over time, these systems become inefficient and need upgrading. However, disposing of old air conditioning units is not just a matter of clearing space—it’s about finding a responsible and efficient way to get rid of them.
-          </p>
-          <p>
-            Improper disposal of AC units poses risks to the environment and violates regulations regarding hazardous waste. By selling your air conditioning scrap to Austic Scrap Company, you ensure compliance with these laws while also receiving fair compensation for your old equipment. We prioritize environmental sustainability, ensuring that your air conditioning units are recycled properly.
-          </p>
+        <div className="mt-32">
+          <div className="text-center mb-16">
+            <h3 className="text-3xl md:text-4xl font-bold font-primary mb-4 text-neutral-900">
+              Types of <span className="text-[#127749]">Units We Buy</span>
+            </h3>
+            <div className="w-20 h-1.5 bg-secondary mx-auto rounded-full" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {acTypes.map((type, index) => (
+              <motion.div
+                key={index}
+                className="group bg-white p-10 rounded-3xl border border-neutral-100 shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="absolute top-0 right-0 w-24 h-24 bg-neutral-50 rounded-bl-full -mr-12 -mt-12 transition-transform duration-500 group-hover:scale-110" />
+
+                <h4 className="text-2xl font-bold font-primary mb-4 text-[#127749] group-hover:text-black transition-colors relative z-10 capitalize">
+                  {type.title}
+                </h4>
+                <p className="text-neutral-500 leading-relaxed font-secondary relative z-10 group-hover:text-neutral-600 transition-colors">
+                  {type.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
         </div>
 
-        <div className="mb-12">
-          <h2>
-            Our Recycling Process
-          </h2>
-          <p>
-            From little window units to massive central systems, we handle
-            all kinds of air conditioners. Regardless of size, we begin by
-            removing the outdated equipment from your location. They are
-            delivered to our recycling facility after being collected.
-          </p>
-        </div>
-        
-        <div className="mb-12">
-          <h3>
-            Types of Air Conditioners We Buy in Kolkata
-          </h3>
-          <ul className="space-y-4">
-            <li className="flex flex-col sm:flex-row sm:items-baseline gap-2">
-              <span className="font-bold text-lg text-primary min-w-[180px]">Window AC Units:</span> 
-              <span className="text-neutral-600">Widely used in smaller offices and retail spaces, window AC units are common in many commercial buildings. We buy these units and ensure they are recycled responsibly.</span>
-            </li>
-            <li className="flex flex-col sm:flex-row sm:items-baseline gap-2">
-              <span className="font-bold text-lg text-primary min-w-[180px]">Split Air conditioners:</span> 
-              <span className="text-neutral-600">Common in commercial offices and institutions across Kolkata, we specialize in purchasing split AC units that are often upgraded to more energy-efficient systems.</span>
-            </li>
-            <li className="flex flex-col sm:flex-row sm:items-baseline gap-2">
-              <span className="font-bold text-lg text-primary min-w-[180px]">Central AC Systems:</span> 
-              <span className="text-neutral-600">Larger businesses and institutions, such as malls and hotels, use central AC systems that need periodic upgrades. We manage the removal and recycling of these large systems efficiently.</span>
-            </li>
-            <li className="flex flex-col sm:flex-row sm:items-baseline gap-2">
-              <span className="font-bold text-lg text-primary min-w-[180px]">Industrial AC Units:</span> 
-              <span className="text-neutral-600">Factories and larger commercial properties often use heavy-duty air conditioning systems. We specialize in buying industrial AC scrap, offering businesses a reliable solution for disposing of these complex systems.</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </SectionWrapper>
+        <motion.div
+          className="mt-24 p-12 bg-neutral-50 rounded-[40px] border border-neutral-100 relative overflow-hidden"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <div className="max-w-4xl mx-auto">
+            <h3 className="text-3xl font-bold font-primary mb-6 text-neutral-900">
+              Why Kolkata Businesses Choose Us
+            </h3>
+            <p className="text-neutral-600 text-lg mb-8 font-secondary leading-relaxed">
+              Kolkata’s climate demands robust cooling solutions. Over time,
+              systems become inefficient. Improper disposal poses risks to the
+              environment. By selling to Austic Scrap, you ensure compliance
+              with laws while receiving fair compensation. We prioritize
+              environmental sustainability, ensuring that your units are
+              recycled properly.
+            </p>
+            <div className="flex items-center gap-4 text-[#127749] font-bold font-secondary">
+              <div className="w-12 h-12 rounded-full bg-[#127749]/10 flex items-center justify-center">
+                <span className="text-xl">✓</span>
+              </div>
+              <span>Compliant with Environmental Regulations</span>
+            </div>
+          </div>
+        </motion.div>
+      </SectionWrapper>
+    </div>
   );
 };
 

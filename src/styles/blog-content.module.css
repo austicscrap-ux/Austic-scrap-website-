@@ -38,7 +38,7 @@
 }
 
 .blogContent a {
-  color: #03c5ce;
+  color: #127749;
   text-decoration: none;
 }
 
@@ -49,7 +49,7 @@
 .blogContent blockquote {
   border-left-width: 4px;
   border-left-style: solid;
-  border-left-color: #03c5ce;
+  border-left-color: #127749;
   padding-left: 1.5rem;
   font-style: italic;
   margin-top: 2rem;

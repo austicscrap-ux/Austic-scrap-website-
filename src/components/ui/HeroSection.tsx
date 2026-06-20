@@ -1,0 +1,57 @@
+"use client";
+
+import React from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
+
+interface HeroSectionProps {
+  title: string | React.ReactNode;
+  subtitle?: string | React.ReactNode;
+  backgroundImage?: string;
+}
+
+const HeroSection: React.FC<HeroSectionProps> = ({
+  title,
+  subtitle,
+  backgroundImage = "/images/home page.jpg",
+}) => {
+  return (
+    <div className="relative w-full h-[50vh] min-h-[400px] md:h-[35vh] md:min-h-[350px] flex items-center justify-center pt-28 md:pt-28 pb-12 overflow-hidden bg-gray-900">
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src={backgroundImage}
+          alt="Hero Section Background"
+          fill
+          className="object-cover opacity-40"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
+      </div>
+
+      {/* Content */}
+      <div className="container mx-auto px-4 relative z-10 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold text-white mb-6 font-josefin-sans tracking-tight leading-tight px-2">
+            {title}
+          </h1>
+
+          {subtitle && (
+            <p className="text-base sm:text-lg md:text-xl text-gray-200 max-w-3xl mx-auto font-light leading-relaxed px-4">
+              {subtitle}
+            </p>
+          )}
+
+          {/* Decorative Divider */}
+          <div className="w-24 h-1 bg-green-500 mx-auto mt-6 rounded-full" />
+        </motion.div>
+      </div>
+    </div>
+  );
+};
+
+export default HeroSection;

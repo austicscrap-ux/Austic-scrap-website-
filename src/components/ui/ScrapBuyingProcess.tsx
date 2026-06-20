@@ -3,6 +3,7 @@
 import React from "react";
 import { User, Scale, FileText, Handshake } from "lucide-react";
 import { motion } from "framer-motion";
+import SectionWrapper from "@/components/common/SectionWrapper";
 
 const steps = [
   {
@@ -33,67 +34,69 @@ const steps = [
 
 const ScrapBuyingProcess = () => {
   return (
-    <section
+    <SectionWrapper
       id="process"
-      className="services_wrapper wrapper bg-[#fdfd0f] py-16"
+      className="bg-amber-50/30 border-y border-amber-100/50"
     >
-      <div className="container mx-auto px-4 max-w-[1400px]">
-        <div className="text-center mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <h3 className="text-[#127749] text-4xl md:text-5xl font-bold font-secondary mb-6 relative inline-block">
-              Our Scrap Buying Process
-              <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1.5 bg-[#127749] rounded-full opacity-70"></span>
-            </h3>
-            <p className="text-gray-700 text-lg max-w-3xl mx-auto leading-relaxed font-medium">
-              We've distilled our Scrap Buying process into 4 simple steps – a
-              proven method we've perfected over 30 years to deliver fast, fair,
-              and hassle-free service!
-            </p>
-          </motion.div>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {steps.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.15 }}
-              viewport={{ once: true }}
-              className="h-full"
-            >
-              <div className="card service-item bg-white p-8 md:p-10 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 h-full flex flex-col border border-yellow-100/50 relative overflow-hidden group">
-                {/* Decorative background element */}
-                <div className="absolute top-0 right-0 w-24 h-24 bg-yellow-50 rounded-bl-full -mr-8 -mt-8 opacity-50 group-hover:scale-150 transition-transform duration-500"></div>
-
-                <div className="icon-box text-5xl text-secondary mb-6 flex justify-center items-center relative z-10">
-                  <div className="w-20 h-20 rounded-full bg-[#fdfd0f]/30 flex items-center justify-center group-hover:bg-[#fdfd0f] transition-colors duration-300">
-                    <item.icon className="drop-shadow-sm" />
-                  </div>
-                  <span className="absolute -top-2 -right-2 bg-secondary text-white text-xs font-bold w-8 h-8 flex items-center justify-center rounded-full border-2 border-white shadow-md">
-                    {item.step}
-                  </span>
-                </div>
-
-                <div className="flex-grow flex flex-col items-center text-center relative z-10">
-                  <h4 className="text-2xl font-bold mb-4 text-[#127749] font-secondary group-hover:text-black transition-colors">
-                    {item.title}
-                  </h4>
-                  <p className="text-gray-600 leading-relaxed text-base">
-                    {item.desc}
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+      <div className="flex flex-col items-center text-center mb-8 md:mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="max-w-3xl"
+        >
+          <div className="inline-block px-4 py-1.5 mb-4 text-sm font-bold tracking-widest text-[#127749] uppercase bg-[#127749]/10 rounded-full font-secondary">
+            Our Workflow
+          </div>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-primary font-bold text-neutral-900 mb-4 md:mb-6 leading-tight">
+            Our <span className="text-[#127749]">Scrap Buying</span> Process
+          </h2>
+          <p className="text-neutral-600 text-base md:text-lg leading-relaxed font-secondary">
+            Experience a streamlined, transparent, and fair process perfected
+            over 20 years to ensure you get the best value with zero hassle.
+          </p>
+        </motion.div>
       </div>
-    </section>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 relative">
+        {/* Connection Line (Desktop) */}
+        <div className="hidden lg:block absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-amber-200 to-transparent -translate-y-1/2 z-0" />
+
+        {steps.map((item, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            whileTap={{ scale: 0.98 }}
+            transition={{ duration: 0.5, delay: index * 0.15 }}
+            viewport={{ once: true }}
+            className="relative z-10"
+          >
+            <div className="group bg-white p-4 md:p-6 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-500 border border-neutral-100 flex flex-col items-center text-center h-full hover:-translate-y-2">
+              <div className="absolute -top-3 -left-3 w-10 h-10 bg-neutral-900 text-white rounded-xl flex items-center justify-center font-bold text-sm shadow-lg group-hover:bg-[#127749] transition-colors duration-500">
+                0{item.step}
+              </div>
+
+              <div className="w-14 h-14 rounded-xl bg-amber-100/50 flex items-center justify-center mb-4 group-hover:bg-[#127749] transition-all duration-500 group-hover:rotate-[10deg] shadow-inner">
+                <item.icon className="w-7 h-7 text-[#127749] group-hover:text-white transition-colors duration-500" />
+              </div>
+
+              <h3 className="text-lg md:text-xl font-bold mb-3 text-neutral-900 font-primary group-hover:text-[#127749] transition-colors">
+                {item.title}
+              </h3>
+              <p className="text-neutral-600 text-sm md:text-base leading-relaxed font-secondary font-medium flex-grow">
+                {item.desc}
+              </p>
+
+              <div className="mt-4 overflow-hidden h-1 w-0 group-hover:w-full bg-[#127749]/20 transition-all duration-700 rounded-full">
+                <div className="h-full w-1/3 bg-[#127749] animate-marquee" />
+              </div>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </SectionWrapper>
   );
 };
 

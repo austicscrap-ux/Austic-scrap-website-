@@ -17,38 +17,31 @@ export const BlogListSection = ({
   recommendedBlogs,
 }: BlogListSectionProps) => {
   return (
-    <section className="w-full min-h-screen bg-white">
-      <div className="px-4 lg:px-[86px] py-[40px] lg:py-[60px] div-2">
-        <div className="mt-[0px]">
-          <div className="grid grid-cols-1 md:grid-cols-[2.5fr_1fr]">
-            {/* Blog posts */}
-            <div className="w-full lg:pr-[20px] py-[10px] order-1">
+    <section className="w-full min-h-screen bg-amber-50/30 py-16 lg:py-20">
+      <div className="container mx-auto px-4 lg:px-[86px]">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_350px] gap-12 text-left">
+          {/* Main Content Area */}
+          <div>
+            <div className="space-y-8">
               {blogPosts.map((post: Blog, index: number) => (
                 <BlogCard key={post?.slug} post={post} index={index} />
               ))}
             </div>
 
-            {/* Pagination — should follow blog posts on mobile */}
-            <div className="mb-[40px] order-2 md:order-3 block lg:hidden">
+            {/* Pagination */}
+            <div className="mt-16">
               <CustomPagination
                 currentPage={Number(currentPage)}
                 totalPages={totalPages}
               />
             </div>
-
-            {/* Recommended blogs */}
-            <div className="w-full pl-[10px] pr-0 order-3 md:order-2 lg:border-l-[1px] lg:border-[#e5e7eb]">
-              <RecommendedBlogsSection blogPosts={recommendedBlogs} />
-            </div>
           </div>
 
-          {/* Pagination */}
-          <div className="mt-[50px] hidden lg:block">
-            <CustomPagination
-              currentPage={Number(currentPage)}
-              totalPages={totalPages}
-              className="mt-10"
-            />
+          {/* Sidebar / Recommended */}
+          <div>
+            <div className="sticky top-24">
+              <RecommendedBlogsSection blogPosts={recommendedBlogs} />
+            </div>
           </div>
         </div>
       </div>

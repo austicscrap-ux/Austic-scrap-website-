@@ -69,7 +69,7 @@ export const CustomPagination: React.FC<PaginationProps> = ({
             onClick={() => onPageChange(page)}
             className={`rounded-full h-[29px] w-[29px] flex items-center justify-center font-semibold ${
               currentPage === page
-                ? "bg-[#eff4f7] text-[#03c5ce]"
+                ? "bg-[#eff4f7] text-[#127749]"
                 : "text-[#7b868f]"
             }`}
           >
@@ -80,7 +80,7 @@ export const CustomPagination: React.FC<PaginationProps> = ({
             <button
               className={`rounded-full h-[29px] w-[29px] flex items-center justify-center font-semibold ${
                 currentPage === page
-                  ? "bg-[#eff4f7] text-[#03c5ce]"
+                  ? "bg-[#eff4f7] text-[#127749]"
                   : "text-[#7b868f]"
               }`}
             >

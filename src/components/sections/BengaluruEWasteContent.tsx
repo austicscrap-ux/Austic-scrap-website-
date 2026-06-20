@@ -1,127 +1,195 @@
-'use client';
-import React, { useEffect } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import Image from 'next/image';
-import Link from 'next/link';
+"use client";
+
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import SectionWrapper from "@/components/common/SectionWrapper";
+import { Button } from "@/components/ui/Button";
 
 const BengaluruEWasteContent: React.FC = () => {
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: true,
-    });
-  }, []);
+  const ewasteServices = [
+    {
+      title: "Enterprise ITAD",
+      description:
+        "Strategic IT asset disposition for tech giants. We ensure secure disposal of outdated equipment with comprehensive data destruction and certified recycling.",
+    },
+    {
+      title: "Startup Batch Disposal",
+      description:
+        "Tailored e-waste solutions for growing businesses. We offer bulk purchasing of laptops and devices with eco-friendly resource recovery.",
+    },
+    {
+      title: "Research Asset Recovery",
+      description:
+        "Specialized management of laboratory and research equipment, recovering rare materials while supporting Bengaluru’s innovation engine.",
+    },
+    {
+      title: "UPS & Battery Management",
+      description:
+        "Safe handling of critical power systems, reclaiming valuable lead and components while neutralizing hazardous internal materials.",
+    },
+  ];
 
   return (
-    <>
-      <section id="hero" className="hero-section">
-        <div className="hero-content">
-          <Image
-            src="/images/Ewsate greenbackground and right logo.png"
-            alt="Hero Image"
-            layout="fill"
-            objectFit="cover"
-            className="hero-image"
-          />
-          <div className="hero-text">
-            <h1>Efficient E-Waste Recycling for Bengaluru’s Tech-Driven Ecosystem</h1>
-            <Link href="/" className="main-btn">Home</Link>
-            <Link href="/contact" className="main-btn">Sale Now</Link>
-          </div>
+    <div className="flex flex-col">
+      {/* Hero Section */}
+      <section className="relative w-full h-[40vh] min-h-[300px] mt-20 flex items-center justify-center overflow-hidden bg-gray-900">
+        <Image
+          src="/images/laptop-set.jpg"
+          alt="E-Waste Recycling Bengaluru"
+          fill
+          className="object-cover opacity-40"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
+
+        <div className="container mx-auto px-4 relative z-10 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-widest text-accent uppercase bg-accent/10 rounded-full font-secondary">
+              Silicon Valley’s Green Partner
+            </div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 font-primary text-white leading-tight max-w-5xl mx-auto">
+              Bengaluru’s Advanced{" "}
+              <span className="text-secondary">E-Waste Recycling</span>
+            </h1>
+            <p className="text-neutral-200 text-lg md:text-xl mb-10 max-w-3xl mx-auto font-secondary leading-relaxed">
+              Premium ITAD and data destruction services for the nation's
+              tech-driven ecosystem. We provide secure, eco-friendly disposal
+              for corporate and startup assets.
+            </p>
+            <div className="flex flex-wrap justify-center gap-6 mt-10">
+              <Link href="/">
+                <Button className="px-10 py-4 bg-white text-primary font-bold rounded-full hover:bg-secondary hover:text-white transition-all shadow-xl text-lg">
+                  Home
+                </Button>
+              </Link>
+              <Link href="/contact">
+                <Button className="px-10 py-4 bg-secondary text-white font-bold rounded-full hover:bg-white hover:text-primary transition-all shadow-xl text-lg">
+                  Sale Now
+                </Button>
+              </Link>
+            </div>
+          </motion.div>
         </div>
       </section>
 
-      <section id="feature" className="feature-wrapper">
-        <div className="feature-container" data-aos="fade-up">
-          <div className="feature-row">
-            <div className="feature-col content-area text-center text-md-start my-auto order-1">
-              <h2>E-Waste Management Leadership in Bengaluru</h2>
-              <p>
-                Bengaluru, 'the Silicon Valley of India,' is a leader in Bengaluru’s technology and innovation and entrepreneurship industries. With a vast array of Bengaluru’s IT companies, Bengaluru’s startups, and Bengaluru’s research institutions, the city generates a significant amount of electronic waste. Managing this e-waste responsibly is critical for sustaining Bengaluru’s reputation as a leader in both technology and environmental stewardship. At Austic Scrap and Recycling, we provide specialized Bengaluru e-waste management services tailored to Bengaluru’s dynamic tech ecosystem. Our focus is on secure disposal, data protection, and the recovery of valuable materials from electronic waste, all while supporting the city’s commitment to sustainability and innovation.
+      {/* Main Content */}
+      <SectionWrapper id="about-bengaluru-ewaste" className="bg-white">
+        <div className="flex flex-col lg:flex-row items-center gap-16 mb-24">
+          <motion.div
+            className="w-full lg:w-1/2"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <div className="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-widest text-[#127749] uppercase bg-[#127749]/10 rounded-full font-secondary">
+              Tech-Forward Sustainability
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold font-primary mb-8 text-neutral-900 leading-tight">
+              Leadership in{" "}
+              <span className="text-[#127749]">E-Waste Management</span>
+            </h2>
+            <div className="space-y-6">
+              <p className="text-neutral-600 text-lg leading-relaxed font-secondary">
+                Bengaluru, 'the Silicon Valley of India,' is a leader in
+                technology and innovation. With a vast array of IT companies and
+                research institutions, the city generates significant electronic
+                waste.
+              </p>
+              <p className="text-neutral-600 text-lg leading-relaxed font-secondary">
+                At Austic Scrap, we provide specialized e-waste management
+                services tailored to Bengaluru’s dynamic tech ecosystem. Our
+                focus is on secure disposal, absolute data protection, and the
+                recovery of valuable materials from electronic waste.
               </p>
             </div>
-            <div className="feature-col image-area d-flex justify-content-center align-items-center order-2">
-              <div className="image-wrapper" data-aos="zoom-in">
-                <picture>
-                  <source srcSet="/images/laptop-set.webp" type="image/webp" />
-                  <source srcSet="/images/laptop-set.jpg" type="image/jpeg" />
-                  <img
-                    src="/images/laptop-set.jpg"
-                    alt="Series of old Lenovo ThinkPad laptops collected from an office for e-waste recycling in Bengaluru"
-                    loading="lazy"
-                  />
-                </picture>
-              </div>
+          </motion.div>
+
+          <motion.div
+            className="w-full lg:w-1/2"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <div className="relative aspect-video rounded-[32px] overflow-hidden shadow-2xl border-8 border-white">
+              <Image
+                src="/images/laptop-set.jpg"
+                alt="IT Asset Disposition Bengaluru"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-[32px]" />
             </div>
+          </motion.div>
+        </div>
+
+        <div className="mt-32">
+          <div className="text-center mb-16">
+            <h3 className="text-3xl md:text-4xl font-bold font-primary mb-4 text-neutral-900">
+              Strategic{" "}
+              <span className="text-[#127749]">Regional Services</span>
+            </h3>
+            <div className="w-20 h-1.5 bg-secondary mx-auto rounded-full" />
           </div>
 
-          <div className="materials-handled">
-            <strong>Why E-Waste Recycling is Crucial for Bengaluru </strong>
-            <p>
-              Bengaluru, evolving into a worldwide hub for Information Technology (IT), faces the rising challenge of managing e-waste responsibly. The improper disposal of electronic devices can result in the release of dangerous materials like lead and mercury which have acute consequences to both health and environment. In addition, these obsolete electronic gadgets are made up of precious metals such as gold, silver and rare earths that can be reclaimed for reuse.
-            </p>
-          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {ewasteServices.map((type, index) => (
+              <motion.div
+                key={index}
+                className="group bg-white p-10 rounded-3xl border border-neutral-100 shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="absolute top-0 right-0 w-24 h-24 bg-neutral-50 rounded-bl-full -mr-12 -mt-12 transition-transform duration-500 group-hover:scale-110" />
 
-          <div className="why-choose">
-            <strong>Why We Need E-Waste Recycling </strong>
-            <p>
-              E-waste includes all types of old office equipment like computers, laptops, and UPS systems. These aren’t just discarded items; they contain harmful substances like lead and mercury that can damage the environment if not handled properly. Fortunately, there’s a positive side: these old electronics also have valuable materials like gold, silver, and copper inside. By recycling e-waste responsibly in a tech-focused city like Bengaluru, we not only protect the environment but also recover these important resources and reduce the need to mine new ones. This practice meets legal requirements and helps Bengaluru maintain its status as a leading tech city while promoting a more sustainable future.
-            </p>
-          </div>
-
-          <ul className="scrap-list">
-            <li>
-              Office Computers & Laptops: Our company recycles office computers and laptops that are at the end of their service life, with data protection and environmental protection in view.
-            </li>
-            <li>
-              Desktops & CPUs: Our safe disposal solutions recover useful resources—from big desktops to essential CPUs.
-            </li>
-            <li>
-              UPS Systems & Batteries: Since UPS systems and batteries come with hazardous materials, we handle them with extra care to ensure their responsible disposal.
-            </li>
-            <li>Battery</li>
-          </ul>
-
-          <div className="asset-col" data-aos="fade-right">
-            <h3 className="asset-heading text-center">Our E-Waste Services</h3>
-            <div className="asset-types">
-              <div className="asset-type" data-aos="fade-up">
-                <strong>IT Asset Disposition for Tech Companies: </strong>
-                <p>
-                  Bengaluru’s tech companies are at the forefront of innovation, leading to rapid technology turnover. Our IT asset disposition services ensure the secure disposal of outdated equipment, with comprehensive data destruction and environmentally responsible recycling.
+                <h4 className="text-2xl font-bold font-primary mb-4 text-[#127749] group-hover:text-black transition-colors relative z-10 capitalize">
+                  {type.title}
+                </h4>
+                <p className="text-neutral-500 leading-relaxed font-secondary relative z-10 group-hover:text-neutral-600 transition-colors">
+                  {type.description}
                 </p>
-              </div>
-              <div className="asset-type" data-aos="fade-up" data-aos-delay="100">
-                <strong>Startup Ecosystem E-Waste Solutions:</strong>
-                <p>
-                  Bengaluru startups often face the challenge of managing outdated electronics. Our Bengaluru startup e-waste solutions are designed to support these growing businesses, offering bulk purchasing of e-waste, secure data destruction, and eco-friendly recycling practices.
-                </p>
-              </div>
-              <div className="asset-type" data-aos="fade-up" data-aos-delay="200">
-                <strong>Research Institution Equipment Recycling: </strong>
-                <p>
-                  Bengaluru’s reputation as a research hub means that institutions frequently upgrade their equipment. Our Bengaluru research institution recycling services focus on recovering valuable materials from obsolete devices, supporting the city’s ongoing commitment to innovation.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="why-choose">
-            <strong>Why choose Austic for E-waste Recyling </strong>
-            <p>
-              In a city as dynamic as Bengaluru, it’s essential to choose an e-waste recycling partner that understands the unique challenges and opportunities of the tech ecosystem. Austic Scrap and Recycling stands out for our commitment to sustainability, <Link href="/dattasecurity">data security learn more</Link>, and customer satisfaction. Our comprehensive range of services is designed to meet the specific needs of Bengaluru’s startups, IT companies, and research institutions, ensuring that your e-waste is handled in the most responsible and efficient manner possible.
-            </p>
-            <p>
-              <span>End-to-End Support:</span> From the initial consultation to the final disposal of e-waste, we provide end-to-end support to ensure that your electronic waste is managed in the most efficient and responsible way possible.
-            </p>
-            <p>
-              Contact us today to explore our e-waste recycling services in Bengaluru and discover how we can help your business manage electronic waste responsibly!
-            </p>
+              </motion.div>
+            ))}
           </div>
         </div>
-      </section>
-    </>
+
+        <div className="mt-24 bg-neutral-900 rounded-[40px] p-12 text-white relative overflow-hidden shadow-2xl">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-accent/10 rounded-full -mr-32 -mt-32 blur-3xl" />
+          <div className="relative z-10 max-w-4xl">
+            <h3 className="text-3xl font-bold font-primary mb-6">
+              Why Choose Austic in Bengaluru?
+            </h3>
+            <p className="text-white/70 text-lg mb-8 font-secondary leading-relaxed">
+              In a city as dynamic as Bengaluru, you need a partner that
+              understands the unique challenges of the tech ecosystem. We stand
+              out for our commitment to sustainability, certified data security,
+              and specialized startups solutions. Our comprehensive end-to-end
+              support ensures that your e-waste is managed with absolute
+              efficiency.
+            </p>
+            <div className="flex flex-wrap gap-8 text-accent font-bold font-secondary text-sm uppercase tracking-widest">
+              <div className="flex items-center gap-3">
+                <div className="w-2 h-2 bg-accent rounded-full" />
+                <span>Certified Data Destruction</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-2 h-2 bg-secondary rounded-full" />
+                <span>Startup Specific Solutions</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </SectionWrapper>
+    </div>
   );
 };
 

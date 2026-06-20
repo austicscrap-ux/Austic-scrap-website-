@@ -1,149 +1,163 @@
-'use client';
-import React, { useEffect } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import Image from 'next/image';
-import Link from 'next/link';
+"use client";
+
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import SectionWrapper from "@/components/common/SectionWrapper";
+import { Button } from "@/components/ui/Button";
 
 const KolkataEWasteContent: React.FC = () => {
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: true,
-    });
-  }, []);
+  const ewasteServices = [
+    {
+      title: "Laptop Recycling",
+      description:
+        "Professional disposal and material recovery from outdated laptops. We ensure secure data wiping and eco-friendly dismantling.",
+    },
+    {
+      title: "UPS Recycling",
+      description:
+        "Specialized management of UPS systems, safely recovering batteries and capacitors while neutralizing toxic internal components.",
+    },
+    {
+      title: "IT & Telecom Gear",
+      description:
+        "Expert recycling for servers, routers, and networking equipment, maximizing resource recovery for Kolkata’s tech sector.",
+    },
+    {
+      title: "Desktop & CPU Disposal",
+      description:
+        "Safe resource recovery from large-scale desktop deployments, ensuring no hazardous elements enter the local environment.",
+    },
+  ];
 
   return (
-    <>
-      <section id="hero" className="hero-section">
-        <div className="hero-content">
-          <Image
-            src="/images/Ewsate greenbackground and right logo.png"
-            alt="Hero Image"
-            layout="fill"
-            objectFit="cover"
-            className="hero-image"
-          />
-          <div className="hero-text">
-            <h1>Expert E-Waste Management for Kolkata’s Corporate and Industrial Sectors</h1>
-            <Link href="/" className="main-btn">Home</Link>
-            <Link href="/form" className="main-btn">Sale Now</Link>
-          </div>
-        </div>
-      </section>
+    <div className="flex flex-col">
+      {/* Hero Section */}
 
-      <section id="feature" className="feature-wrapper">
-        <div className="feature-container" data-aos="fade-up">
-          <div className="feature-row">
-            <div className="feature-col content-area text-center text-md-start my-auto order-1">
-              <h2>E-Waste Recycling Services in Kolkata</h2>
-              <p>
-                Are you dealing with a buildup of outdated electronics in your office or home? Austic Scrap is your solution. As Kolkata’s leading e-waste recycling and disposal service, we specialize in managing old technology, from obsolete computers and monitors to unused mobile phones. Our dedicated team ensures that your e-waste is recycled and repurposed responsibly, minimizing environmental impact. With Salt Lake City and Newtown rapidly developing as key IT hubs in West Bengal, our services are increasingly essential. By choosing Austic Scrap, you efficiently clear your e-waste, optimize your space, and support sustainable practices. Trust us to handle your e-waste professionally, so you can focus on your business and a greener future.
+      {/* Main Content */}
+      <SectionWrapper id="about-kolkata-ewaste" className="bg-white">
+        <div className="flex flex-col lg:flex-row items-center gap-16 mb-24">
+          <motion.div
+            className="w-full lg:w-1/2"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <div className="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-widest text-[#127749] uppercase bg-[#127749]/10 rounded-full font-secondary">
+              Our Vision
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold font-primary mb-8 text-neutral-900 leading-tight">
+              Leading <span className="text-[#127749]">E-Waste Recycling</span>{" "}
+              in Kolkata
+            </h2>
+            <div className="space-y-6">
+              <p className="text-neutral-600 text-lg leading-relaxed font-secondary">
+                Are you dealing with a buildup of outdated electronics? Austic
+                Scrap is your solution. As Kolkata’s leading e-waste recycling
+                service, we specialize in managing old technology, from obsolete
+                computers to entire enterprise systems.
+              </p>
+              <p className="text-neutral-600 text-lg leading-relaxed font-secondary">
+                With Salt Lake City and Newtown rapidly developing as key IT
+                hubs, our services are essential. By choosing Austic Scrap, you
+                efficiently clear your space while supporting sustainable
+                practices for a greener future.
               </p>
             </div>
+          </motion.div>
 
-            <div className="feature-col image-area d-flex justify-content-center align-items-center order-2">
-              <div className="image-wrapper" data-aos="zoom-in">
-                <picture>
-                  <source srcSet="/images/e-waste-kolkata.webp" type="image/webp" />
-                  <source srcSet="/images/e-waste-kolkata.jpg" type="image/jpeg" />
-                  <img
-                    src="/images/e-waste-kolkata.jpg"
-                    alt="Series of outdated laptops queued on cardboard boxes, prepared for e-waste recycling and disposal in Kolkata."
-                    loading="lazy"
-                  />
-                </picture>
-              </div>
+          <motion.div
+            className="w-full lg:w-1/2"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <div className="relative aspect-video rounded-[32px] overflow-hidden shadow-2xl border-8 border-white">
+              <Image
+                src="/images/e-waste-kolkata.jpg"
+                alt="Series of outdated laptops prepared for e-waste recycling"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-[32px]" />
             </div>
+          </motion.div>
+        </div>
+
+        <div className="mt-32">
+          <div className="text-center mb-16">
+            <h3 className="text-3xl md:text-4xl font-bold font-primary mb-4 text-neutral-900">
+              Our <span className="text-[#127749]">Specialized Services</span>
+            </h3>
+            <div className="w-20 h-1.5 bg-secondary mx-auto rounded-full" />
           </div>
 
-          <div className="asset-col" data-aos="fade-right">
-            <h3 className="asset-heading text-center">Our E-Waste Services</h3>
-            <div className="asset-types">
-              <div className="asset-type" data-aos="fade-up">
-                <strong>Laptop Recycling Service : </strong>
-                <p>
-                  As technology advances, older laptops from the IT sector and corporate offices become outdated and are often replaced. Disposing of these devices improperly can pose risks to both the environment and data security. Our professional laptop recycling services offer a solution that addresses both concerns effectively.
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {ewasteServices.map((type, index) => (
+              <motion.div
+                key={index}
+                className="group bg-white p-10 rounded-3xl border border-neutral-100 shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="absolute top-0 right-0 w-24 h-24 bg-neutral-50 rounded-bl-full -mr-12 -mt-12 transition-transform duration-500 group-hover:scale-110" />
+
+                <h4 className="text-2xl font-bold font-primary mb-4 text-[#127749] group-hover:text-black transition-colors relative z-10 capitalize">
+                  {type.title}
+                </h4>
+                <p className="text-neutral-500 leading-relaxed font-secondary relative z-10 group-hover:text-neutral-600 transition-colors">
+                  {type.description}
                 </p>
-              </div>
-              <div className="asset-type" data-aos="fade-up" data-aos-delay="100">
-                <strong>UPS Recycling Services:</strong>
-                <p>
-                  UPS systems are essential for keeping businesses running during power outages, but what happens when they reach the end of their lifecycle? We offer specialized UPS recycling services, recovering key components like batteries and capacitors while ensuring that toxic materials are handled with care.
-                </p>
-              </div>
-              <div className="asset-type" data-aos="fade-up" data-aos-delay="200">
-                <strong>IT and Telecommunications Equipment Recycling: </strong>
-                <p>
-                  From servers and routers to networking gear, our team expertly recycles IT and telecommunications equipment, ensuring that valuable materials are recovered and hazardous substances are safely managed. We understand the critical role this equipment plays in Kolkata’s tech sector and handle it with the attention it deserves.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="materials-handled">
-            <strong>Why E-Waste Recycling is Crucial for Kolkata </strong>
-            <p>
-              Kolkata, rapidly evolving into a major IT hub, faces the growing challenge of managing e-waste responsibly, particularly in areas like Newtown, Salt Lake, and Sector V. Improper disposal of electronic devices can release harmful substances like lead and mercury, posing serious risks to both health and the environment. Additionally, many of these outdated gadgets contain valuable metals such as gold, silver, and rare earth elements that can be recovered and repurposed. Addressing e-waste effectively in these key areas is crucial for protecting our community and making the most of these precious resources. That’s why we provide professional e-waste disposal services across Kolkata.
-            </p>
-          </div>
-
-          <div className="materials-handled">
-            <strong>E-Waste Recycling Regulation EPR: </strong>
-            <p>
-              At Austic Scrap, we follow Extended Producer Responsibility (EPR) regulations, which require manufacturers to take responsibility for their products throughout their entire lifecycle, including disposal. This means we ensure that electronic waste is collected, treated, and recycled correctly. By adhering to EPR guidelines, Austic Scrap helps reduce the environmental impact of e-waste, keeping it out of landfills and ensuring hazardous materials are handled safely. Our commitment to EPR not only protects the environment but also helps businesses avoid fines and demonstrate their commitment to sustainabilit
-            </p>
-          </div>
-
-          <div className="why-choose">
-            <strong>Why We Need E-Waste Recycling </strong>
-            <p>
-              E-waste includes all types of old office equipment like computers, laptops, and UPS systems. These aren’t just discarded items; they contain harmful substances like lead and mercury that can damage the environment if not handled properly. Fortunately, there’s a positive side: these old electronics also have valuable materials like gold, silver, and copper inside. By recycling e-waste responsibly in a tech-focused city like Bengaluru, we not only protect the environment but also recover these important resources and reduce the need to mine new ones. This practice meets legal requirements and helps Bengaluru maintain its status as a leading tech city while promoting a more sustainable future.
-            </p>
-          </div>
-
-          <ul className="scrap-list">
-            <li>
-              Office Computers & Laptops: Our company recycles office computers and laptops that are at the end of their service life, with data protection and environmental protection in view.
-            </li>
-            <li>
-              Desktops & CPUs: Our safe disposal solutions recover useful resources—from big desktops to essential CPUs.
-            </li>
-            <li>
-              UPS Systems & Batteries: Since UPS systems and batteries come with hazardous materials, we handle them with extra care to ensure their responsible disposal.
-            </li>
-            <li>Battery</li>
-          </ul>
-
-
-          <div className="why-choose">
-            <strong>Why choose Austic for E-waste Recyling </strong>
-            <p>
-              As Kolkata’s business landscape continues to grow and evolve, Austic Scrap provides e-waste recycling solutions specifically tailored to the needs of the city’s commercial and industrial sectors. Our services are built around Kolkata’s unique challenges, from the burgeoning IT hubs in Salt Lake and Newtown to the commercial centers of Park Street and Dalhousie.
-            </p>
-
-            <p>
-              <span>Kolkata-Specific E-Waste Solutions:</span>We understand the unique demands of Kolkata’s growing business and IT sectors. Our recycling services are tailored to meet the city’s specific requirements, ensuring that businesses and institutions can safely and efficiently dispose of their electronic waste.
-            </p>
-
-            <p>
-              <span>Competitive Pricing:</span> We offer top prices for e-waste, ensuring that businesses in Kolkata can recover value from their outdated electronics. Whether you’re a small business or a large corporation, we provide competitive rates for your e-waste, including laptops, desktops, servers, and more.
-            </p>
-
-            <p>
-              <span> Data Security and Destruction Services: </span> In today’s digital age, <Link href="/data-security">data security</Link> is non-negotiable. We offer comprehensive data destruction services to ensure that all sensitive information is completely erased from your devices, protecting your business from potential threats.
-            </p>
-            <p>
-              <span>End-to-End Support:</span> From the initial consultation to the final disposal of e-waste, we provide end-to-end support to ensure that your electronic waste is managed in the most efficient and responsible way possible.
-            </p>
-
-            <p>
-              Contact us today to explore our e-waste recycling services in Kolkata and discover how we can help your business manage electronic waste responsibly!
-            </p>
+              </motion.div>
+            ))}
           </div>
         </div>
-      </section>
-    </>
+
+        <div className="mt-24 grid grid-cols-1 md:grid-cols-2 gap-12">
+          <motion.div
+            className="bg-[#127749] rounded-[40px] p-12 text-white relative overflow-hidden shadow-2xl"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-32 -mt-32 blur-3xl" />
+            <h3 className="text-3xl font-bold font-primary mb-6 relative z-10">
+              EPR Compliance
+            </h3>
+            <p className="text-white/80 text-lg mb-8 font-secondary leading-relaxed relative z-10">
+              We strictly follow Extended Producer Responsibility (EPR)
+              regulations. We ensure electronic waste is collected, treated, and
+              recycled correctly, keeping it out of landfills and ensuring
+              hazardous materials are managed safely.
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="bg-neutral-900 rounded-[40px] p-12 text-white relative overflow-hidden shadow-2xl"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <div className="absolute top-0 right-0 w-64 h-64 bg-accent/10 rounded-full -mr-32 -mt-32 blur-3xl" />
+            <h3 className="text-3xl font-bold font-primary mb-6 relative z-10 text-accent">
+              Strategic Local Solutions
+            </h3>
+            <p className="text-white/70 text-lg mb-8 font-secondary leading-relaxed relative z-10">
+              Tailored for Kolkata's commercial landscape—from the burgeoing IT
+              hubs in Salt Lake to Newtown. We provide end-to-end support,
+              competitive pricing, and uncompromising data destruction services.
+            </p>
+          </motion.div>
+        </div>
+      </SectionWrapper>
+    </div>
   );
 };
 

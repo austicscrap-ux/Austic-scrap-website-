@@ -13,7 +13,7 @@ const AppointmentSection: React.FC = () => {
         backgroundImage: "url('/images/Ewsate greenbackground and right logo.png')",
       }}
     >
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 lg:px-[86px] relative z-10">
         <div className="flex justify-center">
           <div className="w-full lg:w-10/12 text-center">
             <div className="relative z-20 bg-transparent p-5 rounded-md">
