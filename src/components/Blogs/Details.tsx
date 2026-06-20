@@ -9,6 +9,7 @@ import { Calendar, Clock, Share2 } from "lucide-react";
 
 interface BlogDetailsProps {
   blog: Blog | null;
+  recommendedBlogs?: Blog[];
 }
 
 export const Details = ({ blog }: BlogDetailsProps) => {

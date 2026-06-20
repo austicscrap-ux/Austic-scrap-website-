@@ -4,7 +4,35 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Calendar, Clock, MapPin, Leaf } from "lucide-react";
+import { Calendar, Clock, MapPin, Leaf, Users } from "lucide-react";
+import TeamModal from "../ui/TeamModal";
+
+const teamMembers = [
+  {
+    name: "Mr. Sam Jhon",
+    position: "Founder & CEO",
+    description: "Founded Austic Scrap in 2003 with a vision to revolutionize the scrap management industry. His leadership has guided the company from a local enterprise to a national leader.",
+    imageSrc: "/images/team%20(1).png"
+  },
+  {
+    name: "John Doe",
+    position: "Operations Manager",
+    description: "Oversees nationwide logistics and ensures seamless scrap collection and recycling processes across all our major centers.",
+    imageSrc: "/images/team%20(2).png"
+  },
+  {
+    name: "Jane Smith",
+    position: "Head of Sustainability",
+    description: "Leads our eco-friendly initiatives and ensures all metal and e-waste recycling processes meet the highest environmental standards.",
+    imageSrc: "/images/team%20(3).png"
+  },
+  {
+    name: "Robert Wilson",
+    position: "Corporate Relations",
+    description: "Manages partnerships with our major corporate clients, handling asset disposition and large-scale office scrap requirements.",
+    imageSrc: "/images/team%20(1).png"
+  }
+];
 
 const stats = [
   { icon: Calendar, label: "Founded In", value: "2003" },
@@ -14,6 +42,8 @@ const stats = [
 ];
 
 const AboutContent: React.FC = () => {
+  const [isTeamModalOpen, setIsTeamModalOpen] = React.useState(false);
+
   return (
     <section className="about-section py-20 bg-amber-50/30 border-y border-amber-100/50 overflow-hidden">
       <div className="container mx-auto px-4 md:px-8 lg:px-[86px] max-w-7xl">
@@ -52,6 +82,15 @@ const AboutContent: React.FC = () => {
                   exemplifies Austic Scrap&apos;s dedication and innovative
                   vision.
                 </p>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => setIsTeamModalOpen(true)}
+                  className="flex items-center gap-3 bg-[#127749] text-white px-8 py-4 rounded-2xl font-bold shadow-xl shadow-[#127749]/20 hover:bg-[#0e5c38] transition-all group"
+                >
+                  <Users className="group-hover:animate-bounce" />
+                  Our Team
+                </motion.button>
               </div>
             </motion.div>
           </div>
@@ -169,6 +208,12 @@ const AboutContent: React.FC = () => {
           </div>
         </div>
       </div>
+      
+      <TeamModal 
+        isOpen={isTeamModalOpen} 
+        onClose={() => setIsTeamModalOpen(false)} 
+        teamMembers={teamMembers}
+      />
     </section>
   );
 };
