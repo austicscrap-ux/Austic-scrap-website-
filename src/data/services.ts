@@ -105,7 +105,7 @@ export const officeFurnitureCards = [
       satisfactionRate: 97,
       avgResponseTime: "2 hours"
     },
-    img: "/images/office furniture scrap.jpeg"
+    img: "/images/office-furniture-scrap.jpg"
   },
   {
     title: "Office Chair Disposal",
@@ -168,7 +168,7 @@ export const officeFurnitureCards = [
       satisfactionRate: 91,
       avgResponseTime: "4 hours"
     },
-    img: "/images/office furniture scrap.jpeg"
+    img: "/images/office-furniture-scrap.jpg"
   },
 ];
 

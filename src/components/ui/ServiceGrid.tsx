@@ -34,7 +34,7 @@ const services = [
   {
     title: "Corporate Scrap",
     desc: "Our Kolkata-based scrap company buy corporate office scrap, ensuring eco-friendly disposal and top prices.",
-    img: "/images/office furniture scrap.jpeg",
+    img: "/images/office-furniture-scrap.jpg",
     link: "/corporate-office-scrap",
   },
   {
@@ -66,7 +66,7 @@ const ServiceGrid = () => {
     {
       title: "Corporate Scrap",
       desc: "Our Kolkata-based scrap company buy corporate office scrap, ensuring eco-friendly disposal and top prices.",
-      img: "/images/office furniture scrap.jpeg",
+      img: "/images/office-furniture-scrap.jpg",
       link: "/corporate-office-scrap",
     },
     {

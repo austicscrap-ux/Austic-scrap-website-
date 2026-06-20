@@ -17,7 +17,7 @@ interface ServiceCardProps {
 const servicesData: ServiceCardProps[] = [
   {
     href: "/corporate-office-scrap", // Adjusted path
-    imageSrc: "/images/office furniture scrap.jpeg",
+    imageSrc: "/images/office-furniture-scrap.jpg",
     imageAlt: "Corporate Scrap",
     title: "Corporate Scrap",
     description:

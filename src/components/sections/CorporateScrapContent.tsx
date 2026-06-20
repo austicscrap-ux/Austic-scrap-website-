@@ -78,7 +78,7 @@ const CorporateScrapContent: React.FC = () => {
           >
             <div className="relative aspect-video rounded-[32px] overflow-hidden shadow-2xl border-8 border-white">
               <Image
-                src="/images/office furniture scrap.jpeg"
+                src="/images/office-furniture-scrap.jpg"
                 alt="Office Scrap Recycling Process"
                 fill
                 className="object-cover"

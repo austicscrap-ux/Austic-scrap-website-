@@ -18,7 +18,7 @@ export default function CorporatePage() {
           </>
         }
         subtitle="Professional asset disposal and furniture recycling for modern businesses. We provide fair market assessments and rapid logistics for all corporate scrap."
-        backgroundImage="/images/office furniture scrap.jpeg"
+        backgroundImage="/images/office-furniture-scrap.jpg"
       />
       <CorporateScrapContent />
     </main>
