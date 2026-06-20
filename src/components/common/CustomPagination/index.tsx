@@ -27,6 +27,8 @@ export const CustomPagination: React.FC<PaginationProps> = ({
     }
   };
 
+  if (totalPages <= 1) return null;
+
   return (
     <div className={`flex justify-center items-center gap-4 ${className}`}>
       {onPageChange ? (
@@ -44,12 +46,9 @@ export const CustomPagination: React.FC<PaginationProps> = ({
             priority
           />
         </button>
-      ) : (
+      ) : currentPage > 1 ? (
         <Link href={`/blog?page=${currentPage - 1}`}>
-          <button
-            disabled={currentPage === 1}
-            className={`flex items-center justify-center w-6 h-6 ${currentPage === 1 ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}`}
-          >
+          <button className="flex items-center justify-center w-6 h-6 cursor-pointer">
             <Image
               className="w-1.5 h-2.5"
               alt="Previous"
@@ -60,6 +59,20 @@ export const CustomPagination: React.FC<PaginationProps> = ({
             />
           </button>
         </Link>
+      ) : (
+        <button
+          disabled
+          className="flex items-center justify-center w-6 h-6 opacity-50 cursor-not-allowed"
+        >
+          <Image
+            className="w-1.5 h-2.5"
+            alt="Previous"
+            src="/vector-57.png"
+            width={6}
+            height={10}
+            priority
+          />
+        </button>
       )}
 
       {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) =>
@@ -105,12 +118,9 @@ export const CustomPagination: React.FC<PaginationProps> = ({
             priority
           />
         </button>
-      ) : (
+      ) : currentPage < totalPages ? (
         <Link href={`/blog?page=${currentPage + 1}`}>
-          <button
-            disabled={currentPage === totalPages}
-            className={`flex items-center justify-center w-6 h-6 ${currentPage === totalPages ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}`}
-          >
+          <button className="flex items-center justify-center w-6 h-6 cursor-pointer">
             <Image
               className="w-1.5 h-2.5"
               alt="Next"
@@ -121,6 +131,20 @@ export const CustomPagination: React.FC<PaginationProps> = ({
             />
           </button>
         </Link>
+      ) : (
+        <button
+          disabled
+          className="flex items-center justify-center w-6 h-6 opacity-50 cursor-not-allowed"
+        >
+          <Image
+            className="w-1.5 h-2.5"
+            alt="Next"
+            src="/vector-56.png"
+            width={6}
+            height={10}
+            priority
+          />
+        </button>
       )}
     </div>
   );

@@ -29,20 +29,12 @@ const Blog = async ({
       />
 
       <div className="relative">
-        <Suspense
-          fallback={
-            <div className="flex justify-center items-center h-64 text-[#127749]">
-              Loading insights...
-            </div>
-          }
-        >
-          <BlogListSection
-            blogPosts={blogPosts}
-            totalPages={totalPages}
-            currentPage={currentPage}
-            recommendedBlogs={recommendedBlogs}
-          />
-        </Suspense>
+        <BlogListSection
+          blogPosts={blogPosts}
+          totalPages={totalPages}
+          currentPage={currentPage}
+          recommendedBlogs={recommendedBlogs}
+        />
       </div>
     </main>
   );
