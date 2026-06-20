@@ -130,8 +130,10 @@ const GetInTouchForm: React.FC<GetInTouchFormProps> = ({ onSubmit }) => {
             dropdownClass="bg-white border border-neutral-200 rounded-lg shadow-lg"
             containerClass="w-full"
             placeholder="Phone Number *"
-            disabled={isSubmitting}
-            required
+            inputProps={{
+              required: true,
+              disabled: isSubmitting
+            }}
           />
         </div>
       </div>
