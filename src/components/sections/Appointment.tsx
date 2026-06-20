@@ -24,7 +24,7 @@ const AppointmentSection: React.FC = () => {
                 scrap responsibly.
               </h3>
               <Link href="/contact">
-                <Button variant="fill" className="mt-5">
+                <Button variant="default" className="mt-5">
                   Request Appointment
                 </Button>
               </Link>
