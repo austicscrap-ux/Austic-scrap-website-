@@ -33,14 +33,15 @@ const BackToTop: React.FC = () => {
 
   return (
     <button
-      className={`fixed bottom-4 right-4 z-50 bg-bg-light-green w-10 h-10 rounded-full flex items-center justify-center transition-opacity duration-300
+      className={`fixed bottom-6 right-6 z-50 bg-[#127749] hover:bg-[#0e512e] w-11 h-11 rounded-full flex items-center justify-center shadow-lg shadow-black/20 transition-all duration-300 hover:scale-110
         ${isVisible ? "opacity-100 visible" : "opacity-0 invisible"}`}
       onClick={scrollToTop}
       aria-label="Scroll to top"
     >
-      <ArrowUp className="text-white text-2xl" />
+      <ArrowUp className="text-white w-5 h-5" />
     </button>
   );
 };
 
 export default BackToTop;
+
