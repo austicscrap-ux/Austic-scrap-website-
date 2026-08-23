@@ -42,24 +42,36 @@ const Footer: React.FC = () => {
             <h3 className="font-primary text-xl font-bold text-white mb-4">
               Austic Scrap
             </h3>
-            <p className="text-sm leading-relaxed mb-4">
-              We buy office scrap and recycle e-waste, turning electronics into
-              value. Sell your scrap today!
-            </p>
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
                 <Home
                   size={18}
                   className="mt-1 flex-shrink-0 text-primary-light"
                 />
-                <a
-                  href="https://maps.google.com/?q=40/c/1c/1/H+Raja+Santosh+Roy+Road+Kolkata-27"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm hover:text-primary-light transition-colors"
-                >
-                  40/c/1c/1/H Raja Santosh Roy Road Kolkata-27
-                </a>
+                <div className="space-y-2">
+                  <div>
+                    <span className="text-[11px] uppercase tracking-wider text-neutral-400 block font-bold">Office 1:</span>
+                    <a
+                      href="https://maps.google.com/?q=40/c/1c/1/H+Raja+Santosh+Roy+Road+Kolkata-27"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm hover:text-primary-light transition-colors block"
+                    >
+                      40/c/1c/1/H Raja Santosh Roy Road, Kolkata-700027
+                    </a>
+                  </div>
+                  <div>
+                    <span className="text-[11px] uppercase tracking-wider text-neutral-400 block font-bold">Office 2:</span>
+                    <a
+                      href="https://maps.google.com/?q=1,+1E,+Ripon+St,+Esplanade,+Park+Street+area,+Kolkata,+West+Bengal+700016"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm hover:text-primary-light transition-colors block"
+                    >
+                      1, 1E, Ripon St, Esplanade, Park Street area, Kolkata, West Bengal 700016
+                    </a>
+                  </div>
+                </div>
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={18} className="text-primary-light" />

@@ -55,9 +55,10 @@ const ContactInfo: React.FC = () => {
         </h3>
 
         <div className="space-y-4">
+          {/* Office 1 */}
           <div className="p-6 bg-white rounded-xl shadow-sm border border-neutral-100/50">
             <h4 className="text-lg font-bold font-primary text-neutral-900 mb-3">
-              Kolkata Office
+              Office 1 (Registered Facility)
             </h4>
             <div className="space-y-3">
               <div className="flex items-start">
@@ -66,11 +67,63 @@ const ContactInfo: React.FC = () => {
                   className="text-[#127749] mr-3 mt-1 shrink-0"
                 />
                 <div>
-                  <p className="text-neutral-600 font-medium">
-                    Park Street Taltala, Kolkata-700016
+                  <a
+                    href="https://maps.google.com/?q=40/c/1c/1/H+Raja+Santosh+Roy+Road+Kolkata-27"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-neutral-600 font-medium hover:text-[#127749] transition-colors"
+                  >
+                    40/c/1c/1/H Raja Santosh Roy Road
                     <br />
-                    West Bengal, India
-                  </p>
+                    Kolkata, West Bengal 700027
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-center">
+                <Phone size={18} className="text-[#127749] mr-3 shrink-0" />
+                <a
+                  href="tel:+916205518929"
+                  className="text-neutral-600 font-medium hover:text-[#127749] transition-colors"
+                >
+                  +91 62055 18929
+                </a>
+              </div>
+
+              <div className="flex items-center">
+                <Mail size={18} className="text-[#127749] mr-3 shrink-0" />
+                <a
+                  href="mailto:austicscrap@gmail.com"
+                  className="text-neutral-600 font-medium hover:text-[#127749] transition-colors"
+                >
+                  austicscrap@gmail.com
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Office 2 */}
+          <div className="p-6 bg-white rounded-xl shadow-sm border border-neutral-100/50">
+            <h4 className="text-lg font-bold font-primary text-neutral-900 mb-3">
+              Office 2 (Park Street Branch)
+            </h4>
+            <div className="space-y-3">
+              <div className="flex items-start">
+                <MapPin
+                  size={18}
+                  className="text-[#127749] mr-3 mt-1 shrink-0"
+                />
+                <div>
+                  <a
+                    href="https://maps.google.com/?q=1,+1E,+Ripon+St,+Esplanade,+Park+Street+area,+Kolkata,+West+Bengal+700016"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-neutral-600 font-medium hover:text-[#127749] transition-colors"
+                  >
+                    1, 1E, Ripon St, Esplanade
+                    <br />
+                    Park Street area, Kolkata, West Bengal 700016
+                  </a>
                 </div>
               </div>
 
