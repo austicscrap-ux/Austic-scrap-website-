@@ -32,6 +32,21 @@ export default function StructuredData() {
       latitude: '22.5186',
       longitude: '88.3308',
     },
+    department: [
+      {
+        '@type': 'LocalBusiness',
+        name: 'Austic Scrap - Park Street Branch',
+        telephone: '+91-6205518929',
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: '1, 1E, Ripon St, Esplanade, Park Street area',
+          addressLocality: 'Kolkata',
+          addressRegion: 'West Bengal',
+          postalCode: '700016',
+          addressCountry: 'IN',
+        },
+      },
+    ],
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',

@@ -64,9 +64,9 @@ const ContactDetails: React.FC = () => {
         </div>
       </Link>
 
-      {/* Location Card */}
-      <Link
-        href="https://www.google.com/maps/place/Scrap+Buyer/@22.5549376,88.3530503,17z"
+      {/* Location 1 Card */}
+      <a
+        href="https://maps.google.com/?q=40/c/1c/1/H+Raja+Santosh+Roy+Road+Kolkata-27"
         target="_blank"
         rel="noopener noreferrer"
         className="group flex items-center p-6 bg-white rounded-xl shadow-sm border border-neutral-100/50 hover:shadow-md hover:-translate-y-1 transition-all duration-300"
@@ -76,13 +76,33 @@ const ContactDetails: React.FC = () => {
         </div>
         <div>
           <h4 className="text-lg font-bold font-primary text-neutral-900 mb-1">
-            Our Location
+            Office 1 (Registered)
           </h4>
           <p className="text-neutral-600 font-secondary font-medium leading-tight">
-            Park Street Taltala, Kolkata-700016
+            40/c/1c/1/H Raja Santosh Roy Road, Kolkata-700027
           </p>
         </div>
-      </Link>
+      </a>
+
+      {/* Location 2 Card */}
+      <a
+        href="https://maps.google.com/?q=1,+1E,+Ripon+St,+Esplanade,+Park+Street+area,+Kolkata,+West+Bengal+700016"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group flex items-center p-6 bg-white rounded-xl shadow-sm border border-neutral-100/50 hover:shadow-md hover:-translate-y-1 transition-all duration-300"
+      >
+        <div className="w-12 h-12 bg-amber-50 rounded-full flex items-center justify-center text-[#127749] group-hover:bg-[#127749] group-hover:text-white transition-colors duration-300 mr-5 flex-shrink-0">
+          <MapPin size={24} />
+        </div>
+        <div>
+          <h4 className="text-lg font-bold font-primary text-neutral-900 mb-1">
+            Office 2 (Park Street)
+          </h4>
+          <p className="text-neutral-600 font-secondary font-medium leading-tight">
+            1, 1E, Ripon St, Esplanade, Park Street area, Kolkata 700016
+          </p>
+        </div>
+      </a>
     </div>
   );
 };
