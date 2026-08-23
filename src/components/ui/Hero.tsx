@@ -32,9 +32,6 @@ const Hero: React.FC<HeroProps> = ({
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="w-full flex flex-col items-center"
           >
-            <div className="inline-block px-3 py-1 mb-3 text-xs sm:text-sm sm:px-4 sm:py-1.5 sm:mb-4 font-bold tracking-widest text-accent uppercase bg-accent/10 rounded-full font-secondary">
-              Premium Scrap Solutions
-            </div>
             <h1 className="font-primary font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-3 sm:mb-4 lg:mb-6 leading-tight text-white">
               {title}
             </h1>
@@ -44,7 +41,7 @@ const Hero: React.FC<HeroProps> = ({
               <span className="text-secondary">fast pickup</span> for all
               corporate and industrial assets.
             </p>
-            <div className="flex flex-wrap justify-center gap-3">
+            <div className="flex flex-wrap justify-center gap-3 mb-8">
               <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md px-5 py-2.5 rounded-full border border-white/20">
                 <div className="w-2 h-2 bg-accent rounded-full animate-pulse" />
                 <span className="text-white font-bold text-sm uppercase tracking-wider font-secondary">
@@ -57,6 +54,23 @@ const Hero: React.FC<HeroProps> = ({
                   Eco-Friendly Disposal
                 </span>
               </div>
+            </div>
+
+            <div className="flex justify-center">
+              <a
+                href={process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com/austicscrap"}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => {
+                  const url = process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com/austicscrap";
+                  if (typeof window !== "undefined" && (window as any).Calendly) {
+                    (window as any).Calendly.initPopupWidget({ url });
+                  }
+                }}
+                className="inline-flex items-center justify-center px-8 sm:px-10 py-3.5 sm:py-4 bg-[#127749] hover:bg-[#0e5e3a] text-white font-bold text-base sm:text-lg rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer border border-[#127749]"
+              >
+                <span>Book Free Consultation</span>
+              </a>
             </div>
           </motion.div>
         </div>

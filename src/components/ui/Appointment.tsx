@@ -37,16 +37,24 @@ const Appointment = () => {
             enterprises.
           </p>
           <div className="flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4">
-            <Link
-              href="/contact"
-              className="px-8 md:px-10 py-3 md:py-4 bg-secondary text-white font-bold rounded-full hover:bg-white hover:text-primary transition-all shadow-xl hover:shadow-secondary/40 transform hover:-translate-y-1 text-base md:text-lg text-center"
+            <a
+              href={process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com/austicscrap"}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => {
+                const url = process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com/austicscrap";
+                if (typeof window !== "undefined" && (window as any).Calendly) {
+                  (window as any).Calendly.initPopupWidget({ url });
+                }
+              }}
+              className="px-8 md:px-10 py-3 md:py-4 bg-secondary hover:bg-emerald-600 text-white font-bold rounded-full transition-all shadow-xl hover:shadow-secondary/40 transform hover:-translate-y-1 text-base md:text-lg text-center"
             >
-              Request Appointment
-            </Link>
+              Book Free Consultation
+            </a>
             <div className="flex items-center justify-center gap-3 text-white/80 px-5 md:px-6 py-3 md:py-4 border border-white/10 rounded-full backdrop-blur-sm">
               <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
               <span className="text-xs md:text-sm font-bold tracking-wide uppercase">
-                Available 24/7 in Kolkata
+                Available 24/7 Across India
               </span>
             </div>
           </div>
