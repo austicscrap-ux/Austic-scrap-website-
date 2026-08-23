@@ -7,6 +7,7 @@ import WorkingProcess from "@/components/ui/WorkingProcess";
 import ScrapBuyingProcess from "@/components/ui/ScrapBuyingProcess";
 import WhyChooseUs from "@/components/ui/WhyChooseUs";
 import Testimonials from "@/components/ui/Testimonials";
+import FAQSection from "@/components/ui/FAQSection";
 import ClientMarquee from "@/components/ui/ClientMarquee";
 import Locations from "@/components/sections/Locations";
 import IndustriesSection from "@/components/sections/IndustriesSection";
@@ -25,6 +26,7 @@ export default function Home() {
       <ScrapBuyingProcess />
       <WhyChooseUs />
       <Testimonials />
+      <FAQSection />
       <Locations />
     </main>
   );
