@@ -3,6 +3,7 @@
 import React from "react";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
+import { trackPhoneClick, trackWhatsAppClick } from "@/components/analytics/events";
 
 const ContactInfo: React.FC = () => {
   return (
@@ -22,6 +23,7 @@ const ContactInfo: React.FC = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <a
             href="tel:+916205518929"
+            onClick={() => trackPhoneClick("+916205518929", "contact_info_card")}
             className="group flex items-center p-4 bg-[#127749] text-white rounded-xl hover:bg-[#0e5e3a] transition-all duration-300"
           >
             <Phone size={20} className="mr-3" />
@@ -35,6 +37,7 @@ const ContactInfo: React.FC = () => {
             href="https://wa.me/+916205518929"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackWhatsAppClick("+916205518929", "contact_info_card")}
             className="group flex items-center p-4 bg-green-600 text-white rounded-xl hover:bg-green-700 transition-all duration-300"
           >
             <FaWhatsapp size={20} className="mr-3" />

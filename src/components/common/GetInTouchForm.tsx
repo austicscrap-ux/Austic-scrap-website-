@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/Button";
 import { MessageSquare, User, Mail, MapPin } from "lucide-react";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
+import { trackContactFormSubmission } from "@/components/analytics/events";
 
 interface GetInTouchFormProps {
   onSubmit?: (data: GetInTouchData) => void;
@@ -70,6 +71,11 @@ const GetInTouchForm: React.FC<GetInTouchFormProps> = ({ onSubmit }) => {
         onSubmit(formData);
       }
       
+      trackContactFormSubmission('get_in_touch_form', {
+        service_type: formData.serviceType,
+        city: formData.city,
+      });
+
       setStatus("Thank you! Your message has been sent successfully.");
       setFormData({
         name: '',
