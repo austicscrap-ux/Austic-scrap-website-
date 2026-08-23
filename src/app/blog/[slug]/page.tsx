@@ -1,7 +1,14 @@
 import { Details } from "@/components/Blogs/Details";
 import { getBlogBySlug, getBlogs } from "@/functions/blog";
+import { blogPosts } from "@/data/blog";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+
+export async function generateStaticParams() {
+  return blogPosts.map((post) => ({
+    slug: post.slug,
+  }));
+}
 
 export async function generateMetadata({
   params,

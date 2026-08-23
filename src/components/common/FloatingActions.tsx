@@ -3,6 +3,7 @@
 import React from "react";
 import { Phone } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
+import { trackPhoneClick, trackWhatsAppClick } from "@/components/analytics/events";
 
 const FloatingActions = () => {
   return (
@@ -20,6 +21,8 @@ const FloatingActions = () => {
           className="block text-white"
           target="_blank"
           rel="noreferrer"
+          aria-label="Call Austic Scrap"
+          onClick={() => trackPhoneClick("+916205518929", "floating_button")}
         >
           <Phone size={20} />
         </a>
@@ -38,6 +41,8 @@ const FloatingActions = () => {
           className="block text-black"
           target="_blank"
           rel="noreferrer"
+          aria-label="Chat on WhatsApp"
+          onClick={() => trackWhatsAppClick("+916205518929", "floating_button")}
         >
           <FaWhatsapp size={24} />
         </a>

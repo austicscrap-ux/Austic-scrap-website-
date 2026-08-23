@@ -7,6 +7,7 @@ import Footer from '@/components/ui/Footer';
 import BackToTop from '@/components/common/BackToTop';
 import FloatingActions from '@/components/common/FloatingActions';
 import StructuredData from '@/components/seo/StructuredData';
+import Analytics, { GTMNoScript } from '@/components/analytics/Analytics';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const josefinSans = Josefin_Sans({
@@ -104,7 +105,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || 'google-site-verification-token',
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || 'MrsxDeLJSTxesNWGnpfmUDFm3Wq1jFoq1KZCgznxv_g',
     yandex: process.env.NEXT_PUBLIC_YANDEX_VERIFICATION || '',
     yahoo: process.env.NEXT_PUBLIC_YAHOO_VERIFICATION || '',
     other: {
@@ -133,11 +134,13 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <StructuredData />
+        <Analytics />
       </head>
       <body
         className={`${inter.variable} ${josefinSans.variable} font-secondary`}
         suppressHydrationWarning
       >
+        <GTMNoScript />
         <Navbar />
         <FloatingActions />
         {children}

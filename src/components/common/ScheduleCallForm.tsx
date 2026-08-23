@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { Calendar, Clock, Phone, Mail } from "lucide-react";
+import { trackContactFormSubmission } from "@/components/analytics/events";
 
 interface ScheduleCallFormProps {
   onSubmit?: (data: ScheduleCallData) => void;
@@ -46,6 +47,11 @@ const ScheduleCallForm: React.FC<ScheduleCallFormProps> = ({ onSubmit }) => {
         onSubmit(formData);
       }
       
+      trackContactFormSubmission('schedule_call_form', {
+        preferred_date: formData.preferredDate,
+        preferred_time: formData.preferredTime,
+      });
+
       setStatus("Thank you! Your consultation has been scheduled successfully.");
       setFormData({
         name: '',
