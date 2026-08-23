@@ -11,7 +11,7 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({
   title = "Office Scrap Buyers in Kolkata",
-  backgroundImage = "/images/home page.jpg",
+  backgroundImage = "/images/home-page.jpg",
 }) => {
   return (
     <section className="relative w-full h-screen flex items-center overflow-hidden">

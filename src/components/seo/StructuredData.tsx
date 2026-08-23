@@ -11,7 +11,7 @@ export default function StructuredData() {
     alternateName: ['Austic Scrap', 'Austic Recycling', 'Austic Scrap Vendor'],
     url: BASE_URL,
     logo: `${BASE_URL}/images/favicon.png`,
-    image: `${BASE_URL}/images/home%20page.jpg`,
+    image: `${BASE_URL}/images/home-page.jpg`,
     description:
       'Austic Scrap is India’s premier corporate office scrap buyer, certified e-waste recycler, and IT Asset Disposition (ITAD) provider offering eco-friendly disposal and high market value.',
     telephone: '+91-6205518929',

@@ -78,7 +78,7 @@ export const metadata: Metadata = {
       'Turn your office scrap & obsolete IT assets into value. Authorized e-waste recycling, corporate office dismantling, and certified data destruction.',
     images: [
       {
-        url: '/images/home%20page.jpg',
+        url: '/images/home-page.jpg',
         width: 1200,
         height: 630,
         alt: 'Austic Scrap & E-Waste Recycling Office Scrap Management',
@@ -90,7 +90,7 @@ export const metadata: Metadata = {
     title: 'Austic Scrap | Office Scrap Buyers & E-Waste Recycling',
     description:
       'Premier office scrap buyers & e-waste recycling services in Kolkata and across India. Instant quotes & doorstep pickup.',
-    images: ['/images/home%20page.jpg'],
+    images: ['/images/home-page.jpg'],
     creator: '@austicscrap',
   },
   robots: {

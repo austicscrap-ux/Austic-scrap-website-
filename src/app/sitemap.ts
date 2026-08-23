@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next';
+import { blogPosts } from '@/data/blog';
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.austicscrap.com';
 
@@ -219,10 +220,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
+  // Blog Post Pages (dynamically generated from blog data)
+  const blogPages: MetadataRoute.Sitemap = blogPosts.map((post) => ({
+    url: `${BASE_URL}/blog/${post.slug}`,
+    lastModified: post.createdAt || currentDate,
+    changeFrequency: 'monthly' as const,
+    priority: 0.6,
+  }));
+
   return [
     ...corePages,
     ...servicePages,
     ...cityScrapPages,
     ...cityEwastePages,
+    ...blogPages,
   ];
 }
+
