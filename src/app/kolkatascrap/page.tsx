@@ -5,9 +5,23 @@ import KolkataWhyChooseUs from "@/components/sections/KolkataWhyChooseUs";
 
 export const metadata = {
   title:
-    "Professional Office Scrap Buyers in Kolkata | Scrap Recycling Services",
+    "Office Scrap Buyers in Kolkata | Salt Lake Sector V, New Town, Rajarhat, Park Street & Dalhousie",
   description:
-    "Austic Scrap offers professional scrap buying and recycling services in Kolkata. We purchase office furniture, workstations, IT scrap, and e-waste with competitive prices and eco-friendly disposal.",
+    "Austic Scrap is the leading office scrap buyer & e-waste recycler in Kolkata. Serving Salt Lake Sector V, New Town, Rajarhat, Park Street, Dalhousie, Howrah, and Hooghly with doorstep pickup, high valuation & certified dismantling.",
+  keywords: [
+    "Office Scrap Buyers in Kolkata",
+    "Scrap buyers in Salt Lake Sector V",
+    "Office scrap buyer New Town Rajarhat",
+    "Corporate scrap vendor Park Street Kolkata",
+    "Scrap buyers Dalhousie BBD Bagh",
+    "E-waste recycling Salt Lake Kolkata",
+    "IT company scrap buyer Sector V",
+    "Old workstation scrap buyer Kolkata",
+    "Howrah industrial scrap buyer",
+    "Dankuni Hooghly scrap recycling",
+    "North 24 Parganas scrap dealer",
+    "South 24 Parganas corporate scrap",
+  ],
 };
 
 export default function KolkataScrapPage() {

@@ -2,9 +2,21 @@ import HeroSection from "@/components/ui/HeroSection";
 import KolkataEWasteContent from "@/components/sections/KolkataEWasteContent";
 
 export const metadata = {
-  title: "Best E-Waste Recycling in Kolkata| IT Asset Disposal Services",
+  title: "E-Waste Recycling in Kolkata | Salt Lake Sector V, New Town & Park Street ITAD",
   description:
-    "Get trusted e-waste recycling services in Kolkata. We specialize in secure IT asset disposal, eco-friendly recycling solutions, and safe data destruction",
+    "Authorized e-waste recycling & IT asset disposition (ITAD) in Kolkata. Serving IT companies in Salt Lake Sector V, New Town, Rajarhat, Park Street & Dalhousie with certified data destruction & free doorstep pickup.",
+  keywords: [
+    "E-waste recycling in Kolkata",
+    "IT asset disposition Salt Lake Sector V",
+    "Computer scrap buyer New Town Kolkata",
+    "Electronic waste disposal Rajarhat",
+    "E-waste vendor Park Street Kolkata",
+    "Server scrap recycling Dalhousie",
+    "Data destruction certificate Kolkata",
+    "Laptop scrap buyer Sector V",
+    "Howrah e-waste recycling",
+    "Hooghly IT scrap disposal",
+  ],
 };
 
 export default function KolkataEWastePage() {
