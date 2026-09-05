@@ -2,12 +2,16 @@
 import HeroSection from "@/components/ui/HeroSection";
 import KolkataScrapMainContent from "@/components/sections/KolkataScrapMainContent";
 import KolkataWhyChooseUs from "@/components/sections/KolkataWhyChooseUs";
+import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 
 export const metadata = {
   title:
     "Office Scrap Buyers in Kolkata | Salt Lake Sector V, New Town, Rajarhat, Park Street & Dalhousie",
   description:
     "Austic Scrap is the leading office scrap buyer & e-waste recycler in Kolkata. Serving Salt Lake Sector V, New Town, Rajarhat, Park Street, Dalhousie, Howrah, and Hooghly with doorstep pickup, high valuation & certified dismantling.",
+  alternates: {
+    canonical: "/kolkatascrap",
+  },
   keywords: [
     "Office Scrap Buyers in Kolkata",
     "Scrap buyers in Salt Lake Sector V",
@@ -27,6 +31,12 @@ export const metadata = {
 export default function KolkataScrapPage() {
   return (
     <main>
+      <BreadcrumbSchema
+        items={[
+          { name: "Services & Locations", url: "/service" },
+          { name: "Kolkata Scrap Buyer", url: "/kolkatascrap" },
+        ]}
+      />
       <HeroSection
         title={
           <>

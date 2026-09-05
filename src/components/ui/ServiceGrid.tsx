@@ -15,43 +15,43 @@ const services = [
   },
   {
     title: "Electrical Scrap",
-    desc: "Purchase old office electric scrap such as wires cables and used electronic device from caproate office",
+    desc: "Purchase old office electrical scrap such as wiring, cables, distribution panels, and electronic equipment from corporate offices.",
     img: "/images/electrical scrap-compressed.jpg",
     link: "/electrical",
   },
   {
     title: "Metal Scrap",
-    desc: "We specialize in purchasing and recycling various types of metal scrap, including aluminum, copper, and steel in Kolkata",
+    desc: "We specialize in purchasing and recycling various types of metal scrap, including aluminum, copper, and steel in Kolkata.",
     img: "/images/coppper crop.jpg",
-    link: "/metal",
+    link: "/metal-recycling",
   },
   {
     title: "Battery Recycling",
-    desc: "We specialize in purchasing workstations and office furniture from corporate, institution, and banking sector",
+    desc: "Eco-friendly recycling and disposal of corporate UPS batteries, industrial lead-acid, and server battery banks with authorized safety protocols.",
     img: "/images/bettery recycling.jpeg",
     link: "/battery-recycling",
   },
   {
     title: "Corporate Scrap",
-    desc: "Our Kolkata-based scrap company buy corporate office scrap, ensuring eco-friendly disposal and top prices.",
+    desc: "Our Kolkata-based scrap company buys corporate office scrap, ensuring eco-friendly disposal, certified compliance, and top prices.",
     img: "/images/office-furniture-scrap.jpg",
     link: "/corporate-office-scrap",
   },
   {
     title: "Old DG Generator",
-    desc: "We buy old office furniture like outdated desk, Office Scrap, cabinets, office chair to minimize office waste effectively",
+    desc: "Safe uninstallation, decommissioning, and high-value buyback of commercial diesel generators and industrial power equipment.",
     img: "/images/dg set crop.jpg",
     link: "/old-dg-generator",
   },
   {
     title: "IT Asset Disposition",
-    desc: "IT Asset Disposition services prioritize security for IT disposal, ensuring the best price and offering the best service in Kolkata",
+    desc: "Certified IT Asset Disposition (ITAD) prioritizing data security, DoD/NIST sanitization, fair asset recovery, and compliance.",
     img: "/images/IT Asset Disposition Buyer.jpeg",
     link: "/asset-disposition",
   },
   {
     title: "E-waste Recycling",
-    desc: "Buy corporate Office E-waste item such as computers and Laptop for recycling ensuring data security and environmental protection",
+    desc: "Buy corporate office e-waste items such as computers, laptops, and servers for recycling, ensuring data destruction and environmental safety.",
     img: "/images/e-waste-recycling-kolkata.jpeg",
     link: "/ewaste-recycling-kolkata",
   },
@@ -60,24 +60,23 @@ const services = [
 const ServiceGrid = () => {
   const [isExpanded, setIsExpanded] = React.useState(false);
 
-  // Corrected links and ordering as per request (First 4: Corporate, ITAD, E-waste, AC)
-  // Reordering array to match the requested priority for mobile initial view
+  // Corrected links and ordering as per priority (Corporate, ITAD, E-waste, AC, Electrical, Metal, Battery, DG)
   const orderedServices = [
     {
       title: "Corporate Scrap",
-      desc: "Our Kolkata-based scrap company buy corporate office scrap, ensuring eco-friendly disposal and top prices.",
+      desc: "Our Kolkata-based scrap company buys corporate office scrap, ensuring eco-friendly disposal, certified compliance, and top prices.",
       img: "/images/office-furniture-scrap.jpg",
       link: "/corporate-office-scrap",
     },
     {
       title: "IT Asset Disposition",
-      desc: "IT Asset Disposition services prioritize security for IT disposal, ensuring the best price and offering the best service in Kolkata",
+      desc: "Certified IT Asset Disposition (ITAD) prioritizing data security, DoD/NIST sanitization, fair asset recovery, and compliance.",
       img: "/images/IT Asset Disposition Buyer.jpeg",
       link: "/asset-disposition",
     },
     {
       title: "E-waste Recycling",
-      desc: "Buy corporate Office E-waste item such as computers and Laptop for recycling ensuring data security and environmental protection",
+      desc: "Buy corporate office e-waste items such as computers, laptops, and servers for recycling, ensuring data destruction and environmental safety.",
       img: "/images/e-waste-recycling-kolkata.jpeg",
       link: "/ewaste-recycling-kolkata",
     },
@@ -89,25 +88,25 @@ const ServiceGrid = () => {
     },
     {
       title: "Electrical Scrap",
-      desc: "Purchase old office electric scrap such as wires cables and used electronic device from caproate office",
+      desc: "Purchase old office electrical scrap such as wiring, cables, distribution panels, and electronic equipment from corporate offices.",
       img: "/images/electrical scrap-compressed.jpg",
       link: "/electrical",
     },
     {
       title: "Metal Scrap",
-      desc: "We specialize in purchasing and recycling various types of metal scrap, including aluminum, copper, and steel in Kolkata",
+      desc: "We specialize in purchasing and recycling various types of metal scrap, including aluminum, copper, and steel in Kolkata.",
       img: "/images/coppper crop.jpg",
-      link: "/metal",
+      link: "/metal-recycling",
     },
     {
       title: "Battery Recycling",
-      desc: "We specialize in purchasing workstations and office furniture from corporate, institution, and banking sector",
+      desc: "Eco-friendly recycling and disposal of corporate UPS batteries, industrial lead-acid, and server battery banks with authorized safety protocols.",
       img: "/images/bettery recycling.jpeg",
       link: "/battery-recycling",
     },
     {
       title: "Old DG Generator",
-      desc: "We buy old office furniture like outdated desk, Office Scrap, cabinets, office chair to minimize office waste effectively",
+      desc: "Safe uninstallation, decommissioning, and high-value buyback of commercial diesel generators and industrial power equipment.",
       img: "/images/dg set crop.jpg",
       link: "/old-dg-generator",
     },

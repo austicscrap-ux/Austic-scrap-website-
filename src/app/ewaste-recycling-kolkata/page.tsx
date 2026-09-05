@@ -1,10 +1,14 @@
 import HeroSection from "@/components/ui/HeroSection";
 import KolkataEWasteContent from "@/components/sections/KolkataEWasteContent";
+import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 
 export const metadata = {
   title: "E-Waste Recycling in Kolkata | Salt Lake Sector V, New Town & Park Street ITAD",
   description:
     "Authorized e-waste recycling & IT asset disposition (ITAD) in Kolkata. Serving IT companies in Salt Lake Sector V, New Town, Rajarhat, Park Street & Dalhousie with certified data destruction & free doorstep pickup.",
+  alternates: {
+    canonical: "/ewaste-recycling-kolkata",
+  },
   keywords: [
     "E-waste recycling in Kolkata",
     "IT asset disposition Salt Lake Sector V",
@@ -22,6 +26,12 @@ export const metadata = {
 export default function KolkataEWastePage() {
   return (
     <main>
+      <BreadcrumbSchema
+        items={[
+          { name: "Services", url: "/service" },
+          { name: "E-Waste Recycling Kolkata", url: "/ewaste-recycling-kolkata" },
+        ]}
+      />
       <HeroSection
         title={
           <>

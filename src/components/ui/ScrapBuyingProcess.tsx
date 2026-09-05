@@ -21,7 +21,7 @@ const steps = [
   {
     icon: FileText,
     step: 3,
-    title: "Quotation Subimt",
+    title: "Quotation Submission",
     desc: "In the third step, we send the best quotation after real-time/spot evaluation of scrap price",
   },
   {
