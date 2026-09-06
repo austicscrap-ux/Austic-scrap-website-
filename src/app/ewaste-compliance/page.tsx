@@ -156,7 +156,7 @@ export default function EWasteCompliancePage() {
             <p>For compliance-related queries or to schedule a compliant e-waste pickup:</p>
             <ul className="list-none space-y-2 mt-4">
               <li><strong>Email:</strong> austicscrap@gmail.com</li>
-              <li><strong>Phone:</strong> +91 9088-495-495</li>
+              <li><strong>Phone:</strong> <a href="tel:+916205518929" className="hover:underline text-[#127749]">+91 62055 18929</a></li>
               <li><strong>Address:</strong> Kolkata, West Bengal, India</li>
             </ul>
           </section>
