@@ -2,7 +2,6 @@ import Hero from "@/components/ui/Hero";
 import Marquee from "@/components/ui/Marquee";
 import Features from "@/components/ui/Features";
 import ServiceGrid from "@/components/ui/ServiceGrid";
-import Appointment from "@/components/ui/Appointment";
 import WorkingProcess from "@/components/ui/WorkingProcess";
 import ScrapBuyingProcess from "@/components/ui/ScrapBuyingProcess";
 import WhyChooseUs from "@/components/ui/WhyChooseUs";
@@ -19,14 +18,13 @@ export default function Home() {
       <Hero />
       <Marquee />
       <Features />
-      <StatsCounter />
       <ClientMarquee />
       <ServiceGrid />
       <IndustriesSection />
-      <Appointment />
       <WorkingProcess />
       <ScrapBuyingProcess />
       <WhyChooseUs />
+      <StatsCounter />
       <Testimonials />
       <FAQSection />
       <Locations />

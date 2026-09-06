@@ -96,19 +96,15 @@ const StatsCounter: React.FC = () => {
     <section
       ref={ref}
       aria-label="Enterprise Impact and Statistics"
-      className="relative py-16 md:py-20 bg-gradient-to-b from-[#0e512e] to-[#0a3d22] text-white overflow-hidden shadow-xl"
+      className="relative py-14 md:py-18 bg-transparent overflow-hidden"
     >
-      {/* Background Decorative Rings */}
-      <div className="absolute -top-24 -left-24 w-96 h-96 bg-white/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-emerald-400/10 rounded-full blur-3xl pointer-events-none" />
-
       <div className="container mx-auto px-4 lg:px-[86px] relative z-10">
         <div className="text-center max-w-2xl mx-auto mb-12">
           <motion.span
             initial={{ opacity: 0, y: 10 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
-            className="inline-block py-1 px-3.5 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-xs font-semibold uppercase tracking-wider mb-3"
+            className="inline-block py-1 px-3.5 rounded-full bg-[#127749]/10 border border-[#127749]/20 text-[#127749] text-xs font-semibold uppercase tracking-wider mb-3"
           >
             Proven Track Record Since 2003
           </motion.span>
@@ -116,7 +112,7 @@ const StatsCounter: React.FC = () => {
             initial={{ opacity: 0, y: 15 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-2xl md:text-3xl lg:text-4xl font-bold font-primary tracking-tight text-white"
+            className="text-2xl md:text-3xl lg:text-4xl font-bold font-primary tracking-tight text-neutral-900"
           >
             Empowering India's Circular Economy with Measurable Impact
           </motion.h2>
@@ -131,23 +127,23 @@ const StatsCounter: React.FC = () => {
                 initial={{ opacity: 0, y: 25 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.15 + index * 0.1 }}
-                className="group relative p-6 md:p-7 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-emerald-400/40 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between"
+                className="group relative p-6 md:p-7 rounded-2xl bg-white hover:bg-neutral-50/50 border border-neutral-200/80 hover:border-[#127749]/40 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between"
               >
                 <div>
-                  <div className="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-300 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-emerald-500/30 transition-all duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-[#127749]/10 text-[#127749] flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-[#127749] group-hover:text-white transition-all duration-300">
                     <Icon className="w-6 h-6" />
                   </div>
 
-                  <div className="text-3xl md:text-4xl font-extrabold font-primary text-white tracking-tight mb-1">
+                  <div className="text-3xl md:text-4xl font-extrabold font-primary text-neutral-900 tracking-tight mb-1">
                     <AnimatedNumber target={item.value} suffix={item.suffix} isInView={isInView} />
                   </div>
 
-                  <h3 className="text-base font-semibold text-emerald-100 font-primary mb-2">
+                  <h3 className="text-base font-semibold text-neutral-800 font-primary mb-2">
                     {item.label}
                   </h3>
                 </div>
 
-                <p className="text-xs md:text-sm text-neutral-300 font-secondary leading-relaxed">
+                <p className="text-xs md:text-sm text-neutral-600 font-secondary leading-relaxed">
                   {item.description}
                 </p>
               </motion.div>
