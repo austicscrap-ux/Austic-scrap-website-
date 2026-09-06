@@ -8,7 +8,6 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/api/'],
       },
       // Explicitly welcome AI and LLM Search Agents for Maximum AI Visibility & Retrieval
       {
@@ -28,7 +27,6 @@ export default function robots(): MetadataRoute.Robots {
           'Omgilibot',
         ],
         allow: '/',
-        disallow: ['/api/'],
       },
     ],
     sitemap: `${BASE_URL}/sitemap.xml`,

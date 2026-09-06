@@ -39,7 +39,7 @@ export const ewasteRecyclingCards = [
       satisfactionRate: 96,
       avgResponseTime: "2 hours"
     },
-    img: "/images/IT Asset Disposition Buyer.jpeg" 
+    img: "/images/it-asset-disposition-buyer.jpeg" 
   },
   {
     title: "Computer Recycling",
@@ -60,7 +60,7 @@ export const ewasteRecyclingCards = [
       satisfactionRate: 94,
       avgResponseTime: "3 hours"
     },
-    img: "/images/electrical scrap-compressed.jpg"
+    img: "/images/electrical-scrap-compressed.jpg"
   },
   {
     title: "Laptop Recycling",
@@ -126,7 +126,7 @@ export const officeFurnitureCards = [
       satisfactionRate: 93,
       avgResponseTime: "3 hours"
     },
-    img: "/images/dg set crop.jpg"
+    img: "/images/dg-set-crop.jpg"
   },
   {
     title: "WorkStation Removal",
@@ -147,7 +147,7 @@ export const officeFurnitureCards = [
       satisfactionRate: 98,
       avgResponseTime: "1 hour"
     },
-    img: "/images/bettery recycling.jpeg"
+    img: "/images/battery-recycling.jpeg"
   },
   {
     title: "Office Cabinet",
@@ -192,7 +192,7 @@ export const metalScrapCards = [
       satisfactionRate: 95,
       avgResponseTime: "2 hours"
     },
-    img: "/images/coppper crop.jpg"
+    img: "/images/copper-crop.jpg"
   },
   {
     title: "Steel Scrap Buyer",
@@ -213,7 +213,7 @@ export const metalScrapCards = [
       satisfactionRate: 96,
       avgResponseTime: "1.5 hours"
     },
-    img: "/images/Air con-compressed.jpg"
+    img: "/images/air-con-compressed.jpg"
   },
   {
     title: "Aluminum Scrap Buyer",
@@ -234,7 +234,7 @@ export const metalScrapCards = [
       satisfactionRate: 93,
       avgResponseTime: "3 hours"
     },
-    img: "/images/coppper crop.jpg"
+    img: "/images/copper-crop.jpg"
   },
   {
     title: "Copper Scrap Buyer",
@@ -255,6 +255,6 @@ export const metalScrapCards = [
       satisfactionRate: 97,
       avgResponseTime: "1 hour"
     },
-    img: "/images/electrical scrap-compressed.jpg"
+    img: "/images/electrical-scrap-compressed.jpg"
   },
 ];

@@ -6,6 +6,7 @@ import Navbar from '@/components/ui/Navbar';
 import Footer from '@/components/ui/Footer';
 import BackToTop from '@/components/common/BackToTop';
 import FloatingActions from '@/components/common/FloatingActions';
+import CookieConsent from '@/components/common/CookieConsent';
 import StructuredData from '@/components/seo/StructuredData';
 import Analytics, { GTMNoScript } from '@/components/analytics/Analytics';
 
@@ -35,13 +36,21 @@ export const metadata: Metadata = {
     'Austic Scrap is a certified scrap buyer & e-waste recycling company in Kolkata and Pan-India. We buy office scrap, computers, servers, IT assets, batteries, DG sets, and metal scrap with secure data destruction.',
   keywords: [
     'Office Scrap Buyers in Kolkata',
+    'Scrap Buyers Salt Lake Sector V',
+    'Office Scrap New Town Rajarhat',
+    'Corporate Scrap Vendor Park Street Kolkata',
+    'Scrap Dealer Dalhousie BBD Bagh',
     'E-waste Recycling Kolkata',
     'IT Asset Disposition India',
-    'ITAD services',
+    'ITAD services Salt Lake',
     'Corporate scrap buyer',
     'Scrap vendor Kolkata',
-    'Computer scrap recycling',
-    'Old AC buyer',
+    'Computer scrap recycling Sector V',
+    'Howrah industrial scrap buyers',
+    'Hooghly Dankuni scrap recycling',
+    'North 24 Parganas corporate scrap',
+    'South 24 Parganas office scrap',
+    'Old AC buyer Kolkata',
     'Old DG generator scrap',
     'Office workstation scrap',
     'Data destruction and security',
@@ -145,6 +154,7 @@ export default function RootLayout({
         <FloatingActions />
         {children}
         <BackToTop />
+        <CookieConsent />
         <Footer />
       </body>
     </html>

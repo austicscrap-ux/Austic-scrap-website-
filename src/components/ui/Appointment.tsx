@@ -12,7 +12,7 @@ const Appointment = () => {
         className="absolute inset-0 opacity-40 bg-cover bg-center"
         style={{
           backgroundImage:
-            'url("/images/Ewsate greenbackground and right logo.png")',
+            'url("/images/ewaste-green-bg-logo.png")',
         }}
       />
       <div className="absolute inset-0 bg-gradient-to-r from-neutral-900 via-neutral-900/80 to-transparent" />

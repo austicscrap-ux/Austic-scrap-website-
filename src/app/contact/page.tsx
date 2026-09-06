@@ -6,6 +6,21 @@ export const metadata = {
   title: "Contact Us | Austic Scrap Solutions",
   description:
     "Get in touch with Austic Scrap for reliable e-waste and scrap management services. Call, email, or visit our Kolkata office.",
+  alternates: {
+    canonical: "/contact",
+  },
+  openGraph: {
+    title: "Contact Us | Austic Scrap Solutions",
+    description: "Get in touch with Austic Scrap for reliable e-waste and scrap management services.",
+    url: "https://www.austicscrap.com/contact",
+    siteName: "Austic Scrap & E-Waste Recycling",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact Austic Scrap | Get a Free Quote",
+    description: "Reach out for e-waste and scrap management services. Call, email, or visit us.",
+  },
 };
 
 export default function ContactPage() {

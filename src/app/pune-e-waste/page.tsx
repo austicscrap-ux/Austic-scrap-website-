@@ -1,10 +1,40 @@
 import React from "react";
 import CityContent from "@/components/sections/CityContent";
+import { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "E-Waste Recycling & Disposal in Pune | IT Scrap Buyer | Austic",
   description:
     "Choose eco-friendly e-waste recycling in Pune. We provide IT asset disposition, secure data management, and responsible electronic waste disposal for corporate.",
+  alternates: {
+    canonical: "/pune-e-waste",
+  },
+  keywords: [
+    "e-waste recycling Pune",
+    "IT asset disposition Hinjawadi",
+    "computer scrap buyer Magarpatta Pune",
+    "electronic waste disposal Kharadi",
+    "e-waste vendor Pimpri-Chinchwad",
+    "server scrap recycling Pune",
+    "data destruction certificate Pune",
+    "laptop scrap buyer Wakad Pune",
+    "corporate IT scrap buyer Pune",
+    "manufacturing e-waste disposal Pune",
+  ],
+  openGraph: {
+    title: "E-Waste Recycling & Disposal in Pune | IT Scrap Buyer",
+    description: "Eco-friendly e-waste recycling in Pune. IT asset disposition, secure data management, and responsible electronic waste disposal.",
+    url: "https://www.austicscrap.com/pune-e-waste",
+    siteName: "Austic Scrap & E-Waste Recycling",
+    type: "website",
+    images: [{ url: "/images/ewaste-green-bg-logo.png", width: 1200, height: 630, alt: "E-waste recycling services in Pune" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Pune E-Waste Recycling | Austic Scrap",
+    description: "Eco-friendly e-waste recycling in Pune. IT asset disposition and secure data management.",
+    images: ["/images/ewaste-green-bg-logo.png"],
+  },
 };
 
 const PunePage = () => {
@@ -13,10 +43,10 @@ const PunePage = () => {
       cityName="Pune"
       heroTitle="E-Waste Management Solutions for Pune’s Evolving Tech and Industrial Sector"
       heroDescription="Austic Scrap and Recycling offers specialized solutions for Pune's unique blend of heritage and modern industry."
-      heroImage="/images/Ewsate greenbackground and right logo.png"
+      heroImage="/images/ewaste-green-bg-logo.png"
       introTitle="E-Waste Management Leadership in Pune"
       introText="Pune, a perfect place balancing both heritage and contemporary, is famous for its institutions of learning, but it is also finding its way in the area of investments and industries. As this vibrant city carves its niche in IT and manufacturing, one problem looms large: the management of electronic waste. At Austic Scrap and Recycling, we pledge to offer solutions for e-waste management that specifically cater to the growing needs in Pune’s steppe business."
-      introImage="/images/workstation scrap buyer"
+      introImage="/images/workstation-scrap.jpg"
       whyNeedRecycling={{
         title: "Why We Need E-Waste Recycling",
         description:

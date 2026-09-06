@@ -18,7 +18,7 @@ const teamSupportItems: TeamSupportItemProps[] = [
     title: "TEAM WORK",
     description:
       "Our team is dedicated to providing the best service in the market to ensure customer satisfaction. Our team will collect your scrap with just one call, right from your location—whether it's at your doorstep, house, office, or factory/company.",
-    imageSrc: "/images/team%20(1).png",
+    imageSrc: "/images/team-1.png",
     imageAlt: "Team Work",
     reverse: false,
   },
@@ -26,7 +26,7 @@ const teamSupportItems: TeamSupportItemProps[] = [
     title: "LABOUR & WORKER",
     description:
       "We have skilled labor and hardworking workers dedicated to providing the best service to our clients in the market. In addition to our labor team, we have an experienced team that plays a vital role in planning, execution, and monitoring of projects to ensure timely completion.",
-    imageSrc: "/images/team%20(3).png",
+    imageSrc: "/images/team-3.png",
     imageAlt: "Labour & Worker",
     reverse: true, // This item will have the image on the left
   },
@@ -34,7 +34,7 @@ const teamSupportItems: TeamSupportItemProps[] = [
     title: "24 * 7 - SUPPORT",
     description:
       "Austic has a highly experienced team that works around the clock to provide fast and efficient service. Our team will collect your scrap with just one call from your location. Contact us to sell any type of scrap and quickly turn it into cash!",
-    imageSrc: "/images/team%20(2).png",
+    imageSrc: "/images/team-2.png",
     imageAlt: "24/7 Support",
     reverse: false,
   },

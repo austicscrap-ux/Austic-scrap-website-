@@ -15,12 +15,14 @@ import {
 
 const Footer: React.FC = () => {
   const [email, setEmail] = useState("");
+  const [isSubscribed, setIsSubscribed] = useState(false);
 
   const handleNewsletterSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (email) {
-      alert(`Thank you for subscribing, ${email}! (Frontend only mode)`);
+      setIsSubscribed(true);
       setEmail("");
+      setTimeout(() => setIsSubscribed(false), 5000);
     }
   };
 
@@ -162,29 +164,35 @@ const Footer: React.FC = () => {
               <p className="text-sm mb-3">
                 Subscribe to our newsletter for the latest updates.
               </p>
-              <form
-                onSubmit={handleNewsletterSubmit}
-                className="flex flex-col gap-3"
-              >
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="bg-neutral-800 border border-neutral-700 rounded-lg px-4 h-10 text-sm text-white w-full focus:outline-none focus:ring-2 focus:ring-primary-light transition-all placeholder-neutral-500"
-                  placeholder="Your Email"
-                  aria-label="Email for newsletter"
-                  required
-                  suppressHydrationWarning
-                />
-                <Button
-                  type="submit"
-                  variant="default"
-                  size="default"
-                  className="w-full h-10 bg-[#127749] hover:bg-black text-white font-bold transition-all rounded-lg"
+              {isSubscribed ? (
+                <div className="p-3 bg-[#127749]/20 border border-[#127749] text-primary-light text-xs rounded-lg font-medium">
+                  ✓ Thank you for subscribing! You will receive our monthly recycling insights.
+                </div>
+              ) : (
+                <form
+                  onSubmit={handleNewsletterSubmit}
+                  className="flex flex-col gap-3"
                 >
-                  Subscribe
-                </Button>
-              </form>
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="bg-neutral-800 border border-neutral-700 rounded-lg px-4 h-10 text-sm text-white w-full focus:outline-none focus:ring-2 focus:ring-primary-light transition-all placeholder-neutral-500"
+                    placeholder="Your Email"
+                    aria-label="Email for newsletter"
+                    required
+                    suppressHydrationWarning
+                  />
+                  <Button
+                    type="submit"
+                    variant="default"
+                    size="default"
+                    className="w-full h-10 bg-[#127749] hover:bg-black text-white font-bold transition-all rounded-lg"
+                  >
+                    Subscribe
+                  </Button>
+                </form>
+              )}
             </div>
             <div>
               <h3 className="font-primary text-xl font-bold text-white mb-4">
@@ -209,10 +217,17 @@ const Footer: React.FC = () => {
         </div>
       </div>
       <div className="bg-neutral-950/50 border-t border-neutral-800">
-        <div className="container mx-auto px-4 lg:px-[86px] py-4 text-center text-sm">
+        <div className="container mx-auto px-4 lg:px-[86px] py-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-neutral-400">
           <p>
-            &copy; {new Date().getFullYear()} Austic Scrap. All Rights Reserved.
+            &copy; {new Date().getFullYear()} Austic Scrap & Recycling. All Rights Reserved.
           </p>
+          <div className="flex items-center gap-4">
+            <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <span>•</span>
+            <Link href="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</Link>
+            <span>•</span>
+            <Link href="/ewaste-compliance" className="hover:text-white transition-colors">E-Waste Compliance</Link>
+          </div>
         </div>
       </div>
     </footer>

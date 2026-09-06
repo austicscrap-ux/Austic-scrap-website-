@@ -77,7 +77,7 @@ const AcScrapContent: React.FC = () => {
           >
             <div className="relative aspect-video rounded-[32px] overflow-hidden shadow-2xl border-8 border-white">
               <Image
-                src="/images/Air con-compressed.jpg"
+                src="/images/air-con-compressed.jpg"
                 alt="AC Recycling Process"
                 fill
                 className="object-cover"

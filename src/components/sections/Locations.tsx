@@ -43,7 +43,7 @@ const Locations: React.FC = () => {
         </div>
 
         {/* Mobile: Marquee Layout */}
-        <div className="md:hidden flex w-full relative">
+        <div className="md:hidden flex w-full relative overflow-hidden">
           <div className="flex animate-marquee-infinite whitespace-nowrap py-4">
             {/* Duplicated 3 times for seamless infinite loop */}
             {[...locationItems, ...locationItems, ...locationItems].map(

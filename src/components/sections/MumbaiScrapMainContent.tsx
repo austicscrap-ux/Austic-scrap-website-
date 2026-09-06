@@ -62,7 +62,7 @@ const MumbaiScrapMainContent: React.FC = () => {
           >
             <div className="imteyaz_logo-square">
               <Image
-                src="/images/workstation scrap buyer.jpeg"
+                src="/images/workstation-scrap.jpg"
                 alt="Workstation Scrap Buyer"
                 width={500}
                 height={300}

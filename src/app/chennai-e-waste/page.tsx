@@ -1,11 +1,40 @@
-import React from "react";
+import { Metadata } from "next";
 import CityContent from "@/components/sections/CityContent";
 
-export const metadata = {
+export const metadata: Metadata = {
   title:
     "Chennai Advanced E-Waste Recycling | ITAD & Data Destruction Services",
   description:
     "Efficient e-waste recycling in Chennai for tech companies. We offer secure IT asset disposition, data destruction, and sustainable electronic waste management.",
+  alternates: {
+    canonical: "/chennai-e-waste",
+  },
+  keywords: [
+    "e-waste recycling Chennai",
+    "IT asset disposition OMR Chennai",
+    "computer scrap buyer Guindy",
+    "electronic waste disposal Ambattur",
+    "e-waste vendor Sriperumbudur",
+    "server scrap recycling Chennai",
+    "data destruction certificate Chennai",
+    "laptop scrap buyer Sholinganallur",
+    "corporate IT scrap buyer Chennai",
+    "e-waste management Tidel Park Chennai",
+  ],
+  openGraph: {
+    title: "Chennai E-Waste Recycling | ITAD & Data Destruction",
+    description: "Efficient e-waste recycling in Chennai for tech companies. Secure IT asset disposition and sustainable electronic waste management.",
+    url: "https://www.austicscrap.com/chennai-e-waste",
+    siteName: "Austic Scrap & E-Waste Recycling",
+    type: "website",
+    images: [{ url: "/images/ewaste-green-bg-logo.png", width: 1200, height: 630, alt: "E-waste recycling services in Chennai" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Chennai E-Waste Recycling | Austic Scrap",
+    description: "Efficient e-waste recycling for Chennai's tech companies. Secure ITAD services.",
+    images: ["/images/ewaste-green-bg-logo.png"],
+  },
 };
 
 const ChennaiPage = () => {
@@ -14,7 +43,7 @@ const ChennaiPage = () => {
       cityName="Chennai"
       heroTitle="Sustainable E-Waste Management for Chennai’s Growing Tech and Industrial Landscape"
       heroDescription="Reliable recycling solutions for Chennai's vibrant tech ecosystem."
-      heroImage="/images/Ewsate greenbackground and right logo.png"
+      heroImage="/images/ewaste-green-bg-logo.png"
       introTitle="E-Waste Management Leadership in Chennai"
       introText="In Chennai’s vibrant industrial and corporate environments, effective management of surplus or outdated scrap materials is crucial. Austic Scrap provides customized scrap-buying services, focusing on a range of scrap types, including metals and electronic waste. We deliver a streamlined and professional service, ensuring businesses achieve maximum value for their scrap. Our skilled team supports operational efficiency and adherence to waste management regulations, offering a dependable and efficient solution for all your scrap disposal requirements."
       introImage="/images/e-waste-chennai.jpg"

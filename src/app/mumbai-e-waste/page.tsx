@@ -1,10 +1,40 @@
 import React from "react";
 import CityContent from "@/components/sections/CityContent";
+import { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Top E-waste Recycling in Mumbai | IT Asset Disposal | Austic",
   description:
     "Looking for reliable e-waste recycling in Mumbai? We offer sustainable IT asset disposal, corporate e-waste management, and secure data destruction services",
+  alternates: {
+    canonical: "/mumbai-e-waste",
+  },
+  keywords: [
+    "e-waste recycling Mumbai",
+    "IT asset disposition BKC Mumbai",
+    "computer scrap buyer Andheri Mumbai",
+    "electronic waste disposal Navi Mumbai",
+    "e-waste vendor Lower Parel",
+    "server scrap recycling Mumbai",
+    "data destruction certificate Mumbai",
+    "laptop scrap buyer Thane",
+    "corporate IT scrap buyer Mumbai",
+    "banking e-waste disposal Mumbai",
+  ],
+  openGraph: {
+    title: "Top E-waste Recycling in Mumbai | IT Asset Disposal",
+    description: "Reliable e-waste recycling in Mumbai. Sustainable IT asset disposal, corporate e-waste management, and secure data destruction.",
+    url: "https://www.austicscrap.com/mumbai-e-waste",
+    siteName: "Austic Scrap & E-Waste Recycling",
+    type: "website",
+    images: [{ url: "/images/ewaste-green-bg-logo.png", width: 1200, height: 630, alt: "E-waste recycling services in Mumbai" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Mumbai E-Waste Recycling | Austic Scrap",
+    description: "Reliable e-waste recycling in Mumbai. Sustainable IT asset disposal and secure data destruction.",
+    images: ["/images/ewaste-green-bg-logo.png"],
+  },
 };
 
 const MumbaiPage = () => {
@@ -13,7 +43,7 @@ const MumbaiPage = () => {
       cityName="Mumbai"
       heroTitle="Comprehensive E-Waste Solutions for Mumbai’s Corporate and Financial Sectors"
       heroDescription="Expert e-waste recycling services designed for India's financial capital."
-      heroImage="/images/Ewsate greenbackground and right logo.png"
+      heroImage="/images/ewaste-green-bg-logo.png"
       introTitle="E-Waste Management Leadership in Mumbai"
       introText="Mumbai, India's bustling financial capital, generates significant e-waste due to its thriving business sector, rapid urbanization, and the constant turnover of technology. With industries, corporate offices, and residential areas continuously upgrading their devices, the city sees an ever-growing pile of discarded electronics. At Austic Scrap and Recycling, we understand the unique challenges this presents. We specialize in buying Information Technology (IT) e-waste scrap and offering IT Asset Disposition (ITAD) services. Our expertise extends across sectors, from the banking industry to corporate offices, where we handle the responsible disposal of outdated IT assets. We also work with small businesses, purchasing electronic waste in bulk, and ensuring that all e-waste is processed with the utmost care. By focusing on efficient recycling, we recover valuable materials like metals, plastics, and rare earth elements, helping to reduce the environmental footprint and promote sustainability in Mumbai."
       introImage="/images/e-waste-mumbai.jpg"

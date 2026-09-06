@@ -12,25 +12,25 @@ const teamMembers = [
     name: "Mr. Sam Jhon",
     position: "Founder & CEO",
     description: "Founded Austic Scrap in 2003 with a vision to revolutionize the scrap management industry. His leadership has guided the company from a local enterprise to a national leader.",
-    imageSrc: "/images/team%20(1).png"
+    imageSrc: "/images/team-1.png"
   },
   {
     name: "John Doe",
     position: "Operations Manager",
     description: "Oversees nationwide logistics and ensures seamless scrap collection and recycling processes across all our major centers.",
-    imageSrc: "/images/team%20(2).png"
+    imageSrc: "/images/team-2.png"
   },
   {
     name: "Jane Smith",
     position: "Head of Sustainability",
     description: "Leads our eco-friendly initiatives and ensures all metal and e-waste recycling processes meet the highest environmental standards.",
-    imageSrc: "/images/team%20(3).png"
+    imageSrc: "/images/team-3.png"
   },
   {
     name: "Robert Wilson",
     position: "Corporate Relations",
     description: "Manages partnerships with our major corporate clients, handling asset disposition and large-scale office scrap requirements.",
-    imageSrc: "/images/team%20(1).png"
+    imageSrc: "/images/team-1.png"
   }
 ];
 

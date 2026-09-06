@@ -1,11 +1,42 @@
 import React from "react";
 import CityContent from "@/components/sections/CityContent";
 
-export const metadata = {
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
   title:
-    "Bengaluru’s Advanced E-Waste Recycling | ITAD & Data Destruction Services",
+    "Bengaluru's Advanced E-Waste Recycling | ITAD & Data Destruction Services",
   description:
     "Efficient e-waste recycling in Bengaluru for tech companies. We offer secure IT asset disposition, data destruction, and sustainable electronic waste management.",
+  alternates: {
+    canonical: "/bengaluru-e-waste",
+  },
+  keywords: [
+    "e-waste recycling Bengaluru",
+    "IT asset disposition Electronic City",
+    "computer scrap buyer Whitefield Bengaluru",
+    "electronic waste disposal Manyata Tech Park",
+    "e-waste vendor Outer Ring Road Bengaluru",
+    "server scrap recycling Bengaluru",
+    "data destruction certificate Bengaluru",
+    "laptop scrap buyer Koramangala",
+    "startup e-waste solution Bengaluru",
+    "corporate IT scrap buyer Bengaluru",
+  ],
+  openGraph: {
+    title: "Bengaluru's Advanced E-Waste Recycling | ITAD & Data Destruction",
+    description: "Efficient e-waste recycling in Bengaluru for tech companies. Secure IT asset disposition and sustainable electronic waste management.",
+    url: "https://www.austicscrap.com/bengaluru-e-waste",
+    siteName: "Austic Scrap & E-Waste Recycling",
+    type: "website",
+    images: [{ url: "/images/ewaste-green-bg-logo.png", width: 1200, height: 630, alt: "E-waste recycling services in Bengaluru" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Bengaluru E-Waste Recycling | Austic Scrap",
+    description: "Efficient e-waste recycling for Bengaluru's tech companies. Secure ITAD services.",
+    images: ["/images/ewaste-green-bg-logo.png"],
+  },
 };
 
 const BengaluruPage = () => {
@@ -14,9 +45,9 @@ const BengaluruPage = () => {
       cityName="Bengaluru"
       heroTitle="Efficient E-Waste Recycling for Bengaluru’s Tech-Driven Ecosystem"
       heroDescription="Supporting the Silicon Valley of India with premier e-waste management solutions."
-      heroImage="/images/Ewsate greenbackground and right logo.png"
+      heroImage="/images/ewaste-green-bg-logo.png"
       introTitle="E-Waste Management Leadership in Bengaluru"
-      introText="Bengaluru, 'the Silicon Valley of India,' is a leader in Bengaluru’s technology and innovation and entrepreneurship industries. With a vast array of Bengaluru’s IT companies, Bengaluru’s startups, and Bengaluru’s research institutions, the city generates a significant amount of electronic waste. Managing this e-waste responsibly is critical for sustaining Bengaluru’s reputation as a leader in both technology and environmental stewardship. At Austic Scrap and Recycling, we provide specialized Bengaluru e-waste management services tailored to Bengaluru’s dynamic tech ecosystem. Our focus is on secure disposal, data protection, and the recovery of valuable materials from electronic waste, all while supporting the city’s commitment to sustainability and innovation."
+      introText="Bengaluru, widely known as the Silicon Valley of India, is a global leader in technology, innovation, and entrepreneurship. With a vast network of IT companies, fast-growing startups, and world-class research institutions, the city generates a significant volume of electronic waste each year. Managing this e-waste responsibly is critical for sustaining the city's reputation as a leader in both technology and environmental stewardship. At Austic Scrap and Recycling, we provide specialized e-waste management services tailored to Bengaluru's dynamic tech ecosystem. Our focus is on secure disposal, data protection, and the recovery of valuable materials from electronic waste, all while supporting the city's commitment to sustainability and innovation."
       introImage="/images/laptop-set.jpg"
       whyNeedRecycling={{
         title: "Why We Need E-Waste Recycling",

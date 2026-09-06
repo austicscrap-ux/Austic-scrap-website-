@@ -1,10 +1,40 @@
 import React from "react";
 import CityContent from "@/components/sections/CityContent";
+import { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Top E-Waste Recycling in Hyderabad | Office IT Equipment Disposal",
   description:
     "Leading e-waste recycling in Hyderabad with secure IT equipment disposal, data destruction, and corporate and bank sector electronic waste management.",
+  alternates: {
+    canonical: "/hyderabad-e-waste",
+  },
+  keywords: [
+    "e-waste recycling Hyderabad",
+    "IT asset disposition HITEC City",
+    "computer scrap buyer Gachibowli",
+    "electronic waste disposal Madhapur",
+    "e-waste vendor Financial District Hyderabad",
+    "server scrap recycling Hyderabad",
+    "data destruction certificate Hyderabad",
+    "laptop scrap buyer Secunderabad",
+    "corporate IT scrap buyer Hyderabad",
+    "banking e-waste disposal Hyderabad",
+  ],
+  openGraph: {
+    title: "Top E-Waste Recycling in Hyderabad | IT Equipment Disposal",
+    description: "Leading e-waste recycling in Hyderabad. Secure IT equipment disposal, data destruction, and corporate electronic waste management.",
+    url: "https://www.austicscrap.com/hyderabad-e-waste",
+    siteName: "Austic Scrap & E-Waste Recycling",
+    type: "website",
+    images: [{ url: "/images/e-waste-svg-banner.jpg", width: 1200, height: 630, alt: "E-waste recycling services in Hyderabad" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hyderabad E-Waste Recycling | Austic Scrap",
+    description: "Leading e-waste recycling in Hyderabad. Secure IT disposal and data destruction.",
+    images: ["/images/e-waste-svg-banner.jpg"],
+  },
 };
 
 const HyderabadPage = () => {
@@ -13,7 +43,7 @@ const HyderabadPage = () => {
       cityName="Hyderabad"
       heroTitle="Reliable E-Waste disposal Management for Hyderabad’s Tech and Corporate Sectors"
       heroDescription="Efficient and secure e-waste solutions tailored for Hyderabad's growing technology hub."
-      heroImage="/images/E-waste svg banner.jpg"
+      heroImage="/images/e-waste-svg-banner.jpg"
       introTitle="E-Waste Management Leadership in Hyderabad"
       introText="Hyderabad is the information technology and innovation focal point of India, where many IT startups, multinational companies, and also financial institutions exist. The city produces a lot of electric waste due to the fast-tech development. Austic Scrap and Recycling takes pride in providing high-quality e-waste recycling and IT Asset Disposition (ITAD) services specifically for the dynamic business environment in Hyderabad. Our expertise cuts across various sectors, including IT startups, corporate offices, and banks, to promote responsible disposal and recycling of obsolete electronic assets. We are committed to recovering as many valuable materials as possible from e-waste while reducing its negative impact on the environment, thereby driving forward sustainability for future generations in Hyderabad."
       introImage="/images/e-waste-hydrabad.jpg"

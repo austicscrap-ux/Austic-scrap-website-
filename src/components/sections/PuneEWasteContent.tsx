@@ -36,7 +36,7 @@ const PuneEWasteContent: React.FC = () => {
       {/* Hero Section */}
       <section className="relative w-full h-[40vh] min-h-[300px] mt-20 flex items-center justify-center overflow-hidden bg-gray-900">
         <Image
-          src="/images/workstation scrap buyer"
+          src="/images/workstation-scrap.jpg"
           alt="E-Waste Recycling Pune Tech Hub"
           fill
           className="object-cover opacity-40"
@@ -120,7 +120,7 @@ const PuneEWasteContent: React.FC = () => {
           >
             <div className="relative aspect-video rounded-[32px] overflow-hidden shadow-2xl border-8 border-white">
               <Image
-                src="/images/workstation scrap buyer"
+                src="/images/workstation-scrap.jpg"
                 alt="Pune ITAD Services"
                 fill
                 className="object-cover"

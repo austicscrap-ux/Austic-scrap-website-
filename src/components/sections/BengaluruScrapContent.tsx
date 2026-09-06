@@ -78,7 +78,7 @@ const BengaluruScrapContent: React.FC = () => {
           >
             <div className="relative aspect-video rounded-[32px] overflow-hidden shadow-2xl border-8 border-white">
               <Image
-                src="/images/workstation scrap buyer.jpeg"
+                src="/images/workstation-scrap.jpg"
                 alt="Workstation Scrap Buyer"
                 fill
                 className="object-cover"

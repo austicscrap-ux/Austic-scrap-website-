@@ -189,9 +189,11 @@ const GetInTouchForm: React.FC<GetInTouchFormProps> = ({ onSubmit }) => {
             <option value="Kolkata">Kolkata</option>
             <option value="Delhi">Delhi</option>
             <option value="Mumbai">Mumbai</option>
-            <option value="Patna">Patna</option>
             <option value="Bengaluru">Bengaluru</option>
             <option value="Hyderabad">Hyderabad</option>
+            <option value="Chennai">Chennai</option>
+            <option value="Pune">Pune</option>
+            <option value="Patna">Patna</option>
           </select>
         </div>
       </div>

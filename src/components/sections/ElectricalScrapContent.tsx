@@ -81,7 +81,7 @@ const ElectricalScrapContent: React.FC = () => {
           >
             <div className="relative aspect-video rounded-[32px] overflow-hidden shadow-2xl border-8 border-white">
               <Image
-                src="/images/electrical scrap-compressed.jpg"
+                src="/images/electrical-scrap-compressed.jpg"
                 alt="Electrical Recycling Process"
                 fill
                 className="object-cover"

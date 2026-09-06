@@ -125,7 +125,7 @@ const DataSecurityContent: React.FC = () => {
           >
             <div className="relative aspect-video rounded-[32px] overflow-hidden shadow-2xl border-8 border-white">
               <Image
-                src="/images/IT Asset Disposition Buyer.jpeg"
+                src="/images/it-asset-disposition-buyer.jpeg"
                 alt="Secure Data Destruction Process"
                 fill
                 className="object-cover"
