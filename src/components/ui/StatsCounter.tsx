@@ -43,8 +43,8 @@ const stats: CounterItem[] = [
     icon: ShieldCheck,
     value: 100,
     suffix: "%",
-    label: "CPCB Certified",
-    description: "Full regulatory compliance, green disposal & destruction certificates",
+    label: "CPCB Compliant Network",
+    description: "Channelized via authorized recyclers with green disposal & destruction certificates",
   },
 ];
 

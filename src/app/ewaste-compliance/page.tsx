@@ -2,28 +2,30 @@ import { Metadata } from "next";
 import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 
 export const metadata: Metadata = {
-  title: "E-Waste Compliance & CPCB Guidelines | Austic Scrap & Recycling",
+  title: "E-Waste Compliance & Regulatory Framework | Austic Scrap & Recycling",
   description:
-    "Learn about Austic Scrap's e-waste compliance practices, CPCB authorization, and adherence to E-Waste (Management) Rules, 2022. Certified and responsible recycling.",
+    "Learn about Austic Scrap's e-waste compliance practices, collection partnership with CPCB-authorized recyclers, and adherence to E-Waste (Management) Rules, 2022.",
   alternates: {
     canonical: "/ewaste-compliance",
   },
   keywords: [
-    "E-waste compliance India",
-    "CPCB authorized e-waste recycler",
-    "E-waste management rules 2022",
-    "Certified e-waste disposal",
-    "E-waste regulations India",
-    "SPCB authorized recycler Kolkata",
-    "R2 certified recycling",
-    "ISO 14001 e-waste",
+    "e-waste compliance India",
+    "CPCB authorized recycling partner",
+    "E-Waste Management Rules 2022",
+    "corporate e-waste disposal compliance",
+    "EPR compliance partner",
+    "Form 6 manifest e-waste",
+    "green certificate recycling",
+    "electronic waste legal framework",
+    "SPCB compliant scrap pickup",
+    "certified ITAD compliance",
   ],
   openGraph: {
     type: "website",
     url: "https://www.austicscrap.com/ewaste-compliance",
-    title: "E-Waste Compliance & CPCB Guidelines | Austic Scrap",
+    title: "E-Waste Compliance & Regulatory Framework | Austic Scrap",
     description:
-      "CPCB authorized e-waste recycling. Learn about our compliance with E-Waste Management Rules 2022.",
+      "Compliant e-waste channelization in partnership with CPCB-authorized recyclers. Learn about our adherence to E-Waste Management Rules 2022.",
     siteName: "Austic Scrap & E-Waste Recycling",
   },
 };
@@ -57,13 +59,10 @@ export default function EWasteCompliancePage() {
 
           <section>
             <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-              2. CPCB & SPCB Authorization
+              2. CPCB & SPCB Authorized Recycling Network
             </h2>
             <p>
-              We operate under authorization from the <strong>Central Pollution Control Board (CPCB)</strong>{" "}
-              and relevant <strong>State Pollution Control Boards (SPCBs)</strong>. Our facilities and
-              processes are regularly audited to ensure compliance with all environmental standards
-              and regulations governing e-waste processing.
+              Austic Scrap operates as a dedicated corporate collection, aggregation, and channelization partner working in formal agreement with <strong>Central Pollution Control Board (CPCB)</strong> and <strong>State Pollution Control Board (SPCB)</strong> authorized recycling facilities and registered dismantlers. All scrap and electronic waste collected from our clients is securely channelized into government-approved recycling facilities, ensuring full statutory adherence, zero-landfill processing, and the provision of official Green Disposal and Recycling Certificates for corporate compliance audits.
             </p>
           </section>
 
@@ -115,15 +114,15 @@ export default function EWasteCompliancePage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="bg-white rounded-lg p-6 border border-gray-200">
                 <h3 className="font-semibold text-gray-900 mb-2">ISO 14001:2015</h3>
-                <p className="text-sm text-gray-600">Environmental Management System certification ensuring systematic environmental impact reduction.</p>
+                <p className="text-sm text-gray-600">Environmental Management System standards ensuring systematic environmental impact reduction.</p>
               </div>
               <div className="bg-white rounded-lg p-6 border border-gray-200">
-                <h3 className="font-semibold text-gray-900 mb-2">R2 Certified</h3>
-                <p className="text-sm text-gray-600">Responsible Recycling certification for electronics refurbishing and recycling.</p>
+                <h3 className="font-semibold text-gray-900 mb-2">R2 Standards</h3>
+                <p className="text-sm text-gray-600">Responsible Recycling practices for electronics refurbishing and material recovery.</p>
               </div>
               <div className="bg-white rounded-lg p-6 border border-gray-200">
-                <h3 className="font-semibold text-gray-900 mb-2">CPCB Authorized</h3>
-                <p className="text-sm text-gray-600">Central Pollution Control Board authorization for e-waste handling and processing.</p>
+                <h3 className="font-semibold text-gray-900 mb-2">CPCB Partner Network</h3>
+                <p className="text-sm text-gray-600">Channelized exclusively through Central Pollution Control Board authorized recycling and processing plants.</p>
               </div>
               <div className="bg-white rounded-lg p-6 border border-gray-200">
                 <h3 className="font-semibold text-gray-900 mb-2">NIST 800-88</h3>
