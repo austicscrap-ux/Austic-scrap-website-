@@ -14,7 +14,7 @@ const Hero: React.FC<HeroProps> = ({
   backgroundImage = "/images/home-page.jpg",
 }) => {
   return (
-    <section className="relative w-full h-screen flex items-center overflow-hidden">
+    <section className="relative w-full min-h-screen flex items-center overflow-hidden py-20 lg:py-0">
       {/* Background with advanced overlay */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -23,7 +23,7 @@ const Hero: React.FC<HeroProps> = ({
         <div className="absolute inset-0 bg-gradient-to-r from-neutral-900/90 via-neutral-900/60 to-transparent z-0"></div>
       </div>
 
-      <div className="container mx-auto px-4 lg:px-[86px] relative z-10 pt-28 pb-12 lg:py-12">
+      <div className="container mx-auto px-4 lg:px-[86px] relative z-10 pt-20 pb-12 lg:py-12">
         <div className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto">
           {/* Hero Content */}
           <motion.div

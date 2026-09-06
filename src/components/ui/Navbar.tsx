@@ -131,7 +131,7 @@ const Navbar: React.FC = () => {
       <div
         id="mobile-menu"
         className={cn(
-          "fixed top-0 right-0 z-50 h-full w-80 bg-white shadow-2xl transition-transform duration-300 ease-in-out",
+          "fixed top-0 right-0 z-50 h-full w-[280px] sm:w-80 max-w-[85vw] bg-white shadow-2xl transition-transform duration-300 ease-in-out",
           isOpen ? "translate-x-0" : "translate-x-full",
         )}
         role="dialog"
