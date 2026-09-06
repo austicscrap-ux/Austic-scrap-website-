@@ -85,7 +85,7 @@ const BatteryRecyclingContent: React.FC = () => {
           >
             <div className="relative aspect-square rounded-[32px] overflow-hidden shadow-2xl border-8 border-white">
               <Image
-                src="/images/bettery recycling.jpeg"
+                src="/images/battery-recycling.jpeg"
                 alt="Battery Recycling Process"
                 fill
                 className="object-cover"

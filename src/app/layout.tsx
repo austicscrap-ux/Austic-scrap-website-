@@ -6,6 +6,7 @@ import Navbar from '@/components/ui/Navbar';
 import Footer from '@/components/ui/Footer';
 import BackToTop from '@/components/common/BackToTop';
 import FloatingActions from '@/components/common/FloatingActions';
+import CookieConsent from '@/components/common/CookieConsent';
 import StructuredData from '@/components/seo/StructuredData';
 import Analytics, { GTMNoScript } from '@/components/analytics/Analytics';
 
@@ -153,6 +154,7 @@ export default function RootLayout({
         <FloatingActions />
         {children}
         <BackToTop />
+        <CookieConsent />
         <Footer />
       </body>
     </html>

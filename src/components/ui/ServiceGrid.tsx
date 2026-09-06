@@ -6,56 +6,6 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import SectionWrapper from "@/components/common/SectionWrapper";
 
-const services = [
-  {
-    title: "Air Conditioner",
-    desc: "Specializing in buying used AC units from commercial buildings, we ensure hassle-free pickup and responsible recycling.",
-    img: "/images/Air con-compressed.jpg",
-    link: "/old-ac-buyer",
-  },
-  {
-    title: "Electrical Scrap",
-    desc: "Purchase old office electrical scrap such as wiring, cables, distribution panels, and electronic equipment from corporate offices.",
-    img: "/images/electrical scrap-compressed.jpg",
-    link: "/electrical",
-  },
-  {
-    title: "Metal Scrap",
-    desc: "We specialize in purchasing and recycling various types of metal scrap, including aluminum, copper, and steel in Kolkata.",
-    img: "/images/coppper crop.jpg",
-    link: "/metal-recycling",
-  },
-  {
-    title: "Battery Recycling",
-    desc: "Eco-friendly recycling and disposal of corporate UPS batteries, industrial lead-acid, and server battery banks with authorized safety protocols.",
-    img: "/images/bettery recycling.jpeg",
-    link: "/battery-recycling",
-  },
-  {
-    title: "Corporate Scrap",
-    desc: "Our Kolkata-based scrap company buys corporate office scrap, ensuring eco-friendly disposal, certified compliance, and top prices.",
-    img: "/images/office-furniture-scrap.jpg",
-    link: "/corporate-office-scrap",
-  },
-  {
-    title: "Old DG Generator",
-    desc: "Safe uninstallation, decommissioning, and high-value buyback of commercial diesel generators and industrial power equipment.",
-    img: "/images/dg set crop.jpg",
-    link: "/old-dg-generator",
-  },
-  {
-    title: "IT Asset Disposition",
-    desc: "Certified IT Asset Disposition (ITAD) prioritizing data security, DoD/NIST sanitization, fair asset recovery, and compliance.",
-    img: "/images/IT Asset Disposition Buyer.jpeg",
-    link: "/asset-disposition",
-  },
-  {
-    title: "E-waste Recycling",
-    desc: "Buy corporate office e-waste items such as computers, laptops, and servers for recycling, ensuring data destruction and environmental safety.",
-    img: "/images/e-waste-recycling-kolkata.jpeg",
-    link: "/ewaste-recycling-kolkata",
-  },
-];
 
 const ServiceGrid = () => {
   const [isExpanded, setIsExpanded] = React.useState(false);
@@ -71,7 +21,7 @@ const ServiceGrid = () => {
     {
       title: "IT Asset Disposition",
       desc: "Certified IT Asset Disposition (ITAD) prioritizing data security, DoD/NIST sanitization, fair asset recovery, and compliance.",
-      img: "/images/IT Asset Disposition Buyer.jpeg",
+      img: "/images/it-asset-disposition-buyer.jpeg",
       link: "/asset-disposition",
     },
     {
@@ -83,31 +33,31 @@ const ServiceGrid = () => {
     {
       title: "Air Conditioner",
       desc: "Specializing in buying used AC units from commercial buildings, we ensure hassle-free pickup and responsible recycling.",
-      img: "/images/Air con-compressed.jpg",
+      img: "/images/air-con-compressed.jpg",
       link: "/old-ac-buyer",
     },
     {
       title: "Electrical Scrap",
       desc: "Purchase old office electrical scrap such as wiring, cables, distribution panels, and electronic equipment from corporate offices.",
-      img: "/images/electrical scrap-compressed.jpg",
+      img: "/images/electrical-scrap-compressed.jpg",
       link: "/electrical",
     },
     {
       title: "Metal Scrap",
       desc: "We specialize in purchasing and recycling various types of metal scrap, including aluminum, copper, and steel in Kolkata.",
-      img: "/images/coppper crop.jpg",
+      img: "/images/copper-crop.jpg",
       link: "/metal-recycling",
     },
     {
       title: "Battery Recycling",
       desc: "Eco-friendly recycling and disposal of corporate UPS batteries, industrial lead-acid, and server battery banks with authorized safety protocols.",
-      img: "/images/bettery recycling.jpeg",
+      img: "/images/battery-recycling.jpeg",
       link: "/battery-recycling",
     },
     {
       title: "Old DG Generator",
       desc: "Safe uninstallation, decommissioning, and high-value buyback of commercial diesel generators and industrial power equipment.",
-      img: "/images/dg set crop.jpg",
+      img: "/images/dg-set-crop.jpg",
       link: "/old-dg-generator",
     },
   ];

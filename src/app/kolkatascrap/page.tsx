@@ -26,6 +26,23 @@ export const metadata = {
     "North 24 Parganas scrap dealer",
     "South 24 Parganas corporate scrap",
   ],
+  openGraph: {
+    type: "website" as const,
+    url: "https://www.austicscrap.com/kolkatascrap",
+    title: "Office Scrap Buyers in Kolkata | Salt Lake, New Town | Austic",
+    description:
+      "Leading office scrap buyer in Kolkata. Serving Salt Lake Sector V, New Town, Rajarhat, Park Street with doorstep pickup & high valuation.",
+    siteName: "Austic Scrap & E-Waste Recycling",
+    images: [{ url: "/images/home-page.jpg", width: 1200, height: 630, alt: "Office scrap buying services in Kolkata by Austic Scrap" }],
+  },
+  twitter: {
+    card: "summary_large_image" as const,
+    title: "Office Scrap Buyers in Kolkata | Salt Lake, New Town | Austic",
+    description:
+      "Leading office scrap buyer in Kolkata. Serving Salt Lake Sector V, New Town & Rajarhat with doorstep pickup.",
+    images: ["/images/home-page.jpg"],
+    creator: "@austicscrap",
+  },
 };
 
 export default function KolkataScrapPage() {

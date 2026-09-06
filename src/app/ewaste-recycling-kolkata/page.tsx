@@ -21,6 +21,23 @@ export const metadata = {
     "Howrah e-waste recycling",
     "Hooghly IT scrap disposal",
   ],
+  openGraph: {
+    type: "website" as const,
+    url: "https://www.austicscrap.com/ewaste-recycling-kolkata",
+    title: "E-Waste Recycling in Kolkata | Certified ITAD | Austic",
+    description:
+      "Authorized e-waste recycling in Kolkata. Serving Salt Lake Sector V, New Town, Rajarhat with certified data destruction & free pickup.",
+    siteName: "Austic Scrap & E-Waste Recycling",
+    images: [{ url: "/images/e-waste-recycling-kolkata.jpeg", width: 1200, height: 630, alt: "E-waste recycling and IT asset disposition services in Kolkata by Austic Scrap" }],
+  },
+  twitter: {
+    card: "summary_large_image" as const,
+    title: "E-Waste Recycling in Kolkata | Certified ITAD | Austic",
+    description:
+      "Authorized e-waste recycling in Kolkata. Serving Salt Lake Sector V, New Town & Rajarhat with certified data destruction.",
+    images: ["/images/e-waste-recycling-kolkata.jpeg"],
+    creator: "@austicscrap",
+  },
 };
 
 export default function KolkataEWastePage() {

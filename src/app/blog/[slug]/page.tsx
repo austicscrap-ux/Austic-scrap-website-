@@ -3,6 +3,7 @@ import { getBlogBySlug, getBlogs } from "@/functions/blog";
 import { blogPosts } from "@/data/blog";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+import ArticleSchema from "@/components/seo/ArticleSchema";
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.austicscrap.com';
 
@@ -85,8 +86,19 @@ export default async function BlogDetailsPage({
     notFound();
   }
 
+  const plainDescription = (blog.description || "")
+    .replace(/<[^>]*>/g, "")
+    .substring(0, 160)
+    .trim();
+
   return (
     <main className="min-h-screen bg-gray-50 pt-20">
+      <ArticleSchema
+        title={blog.title}
+        description={plainDescription}
+        url={`/blog/${slug}`}
+        image={blog.image}
+      />
       <Details blog={blog} recommendedBlogs={recommendedBlogs} />
     </main>
   );

@@ -10,7 +10,7 @@ const PuneScrapHero: React.FC = () => {
   return (
     <section className="relative w-full h-[40vh] min-h-[300px] mt-20 flex items-center justify-center overflow-hidden bg-gray-900">
       <Image
-        src="/images/Ewsate greenbackground and right logo.png"
+        src="/images/ewaste-green-bg-logo.png"
         alt="Office Scrap Collection in Pune"
         fill
         className="object-cover opacity-40"

@@ -14,7 +14,7 @@ const MumbaiScrapHero: React.FC = () => {
     >
       {/* Background Image */}
       <Image
-        src="/images/Ewsate greenbackground and right logo.png"
+        src="/images/ewaste-green-bg-logo.png"
         alt="Office Scrap Collection in Mumbai"
         fill
         className="object-cover -z-10 opacity-40"

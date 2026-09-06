@@ -81,7 +81,7 @@ const MetalScrapContent: React.FC = () => {
           >
             <div className="relative aspect-video rounded-[32px] overflow-hidden shadow-2xl border-8 border-white">
               <Image
-                src="/images/coppper crop.jpg"
+                src="/images/copper-crop.jpg"
                 alt="Metal Recycling Process"
                 fill
                 className="object-cover"

@@ -54,7 +54,7 @@ const Navbar: React.FC = () => {
           aria-label="Austic Scrap Home"
         >
           <Image
-            src="/images/starbuck logo.png"
+            src="/images/starbuck-logo.png"
             alt="Austic Scrap Logo"
             width={60}
             height={60}

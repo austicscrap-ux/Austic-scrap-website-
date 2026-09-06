@@ -1,10 +1,40 @@
 import React from "react";
 import CityContent from "@/components/sections/CityContent";
+import { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "E-Waste Recycling in Delhi NCR | Electronic Waste Management",
   description:
     "Professional e-waste recycling in Delhi. We offer expert IT asset disposal and recycling solutions for your electronic waste",
+  alternates: {
+    canonical: "/delhi-e-waste",
+  },
+  keywords: [
+    "e-waste recycling Delhi NCR",
+    "IT asset disposition Gurgaon",
+    "computer scrap buyer Noida",
+    "electronic waste disposal Greater Noida",
+    "e-waste vendor Cyber City Gurgaon",
+    "server scrap recycling Delhi",
+    "data destruction certificate Delhi NCR",
+    "laptop scrap buyer Faridabad",
+    "corporate IT scrap buyer Delhi",
+    "data center decommissioning Delhi NCR",
+  ],
+  openGraph: {
+    title: "E-Waste Recycling in Delhi NCR | Electronic Waste Management",
+    description: "Professional e-waste recycling in Delhi NCR. Expert IT asset disposal and recycling solutions for corporate electronic waste.",
+    url: "https://www.austicscrap.com/delhi-e-waste",
+    siteName: "Austic Scrap & E-Waste Recycling",
+    type: "website",
+    images: [{ url: "/images/ewaste-green-bg-logo.png", width: 1200, height: 630, alt: "E-waste recycling services in Delhi NCR" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Delhi NCR E-Waste Recycling | Austic Scrap",
+    description: "Professional e-waste recycling in Delhi NCR. Expert IT asset disposal and data destruction.",
+    images: ["/images/ewaste-green-bg-logo.png"],
+  },
 };
 
 const DelhiPage = () => {
@@ -13,7 +43,7 @@ const DelhiPage = () => {
       cityName="Delhi"
       heroTitle="Eco-Friendly E-Waste Recycling for Delhi’s Corporate and Educational Institutions"
       heroDescription="Your trusted partner for responsible electronic waste disposal in the capital."
-      heroImage="/images/Ewsate greenbackground and right logo.png"
+      heroImage="/images/ewaste-green-bg-logo.png"
       introTitle="E-Waste Management Leadership in Delhi"
       introText="Delhi is taking proactive measures to address the escalating issue of electronic waste as older devices are increasingly discarded. The city is adopting innovative recycling strategies through collaborations between government initiatives and private enterprises, with Austic Scrap and Recycling at the forefront of efforts to assist businesses in responsibly disposing of obsolete electronics. By emphasizing the careful handling and recovery of valuable materials, Delhi is promoting a culture of responsible e-waste management. This forward-thinking strategy not only benefits the environment but also generates economic opportunities, establishing Delhi as a model for other cities in sustainable electronic waste management."
       introImage="/images/e-waste-delhi.jpg"
