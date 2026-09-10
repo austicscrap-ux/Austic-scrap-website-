@@ -41,6 +41,20 @@ const Hero: React.FC<HeroProps> = ({
               <span className="text-secondary">fast doorstep pickup</span> for all
               corporate, IT, and industrial assets.
             </p>
+            <div className="flex flex-wrap justify-center gap-3 mb-8">
+              <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md px-5 py-2.5 rounded-full border border-white/20">
+                <div className="w-2 h-2 bg-accent rounded-full animate-pulse" />
+                <span className="text-white font-bold text-sm uppercase tracking-wider font-secondary">
+                  Market Best Rates
+                </span>
+              </div>
+              <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md px-5 py-2.5 rounded-full border border-white/20">
+                <div className="w-2 h-2 bg-secondary rounded-full animate-pulse" />
+                <span className="text-white font-bold text-sm uppercase tracking-wider font-secondary">
+                  Eco-Friendly Disposal
+                </span>
+              </div>
+            </div>
             <div className="flex justify-center">
               <a
                 href={process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com/austicscrap"}
