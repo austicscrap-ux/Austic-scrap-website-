@@ -29,11 +29,11 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Austic Scrap | Office Scrap Buyers & E-Waste Recycling in Kolkata & India',
+    default: 'Austic Scrap | Office Scrap Buyers & E-Waste Recycling in Kolkata',
     template: '%s | Austic Scrap & Recycling',
   },
   description:
-    'Austic Scrap is a certified scrap buyer & e-waste recycling company in Kolkata and Pan-India. We buy office scrap, computers, servers, IT assets, batteries, DG sets, and metal scrap with secure data destruction.',
+    'Austic Scrap: Authorized office scrap buyers & e-waste recycling company in Kolkata. Top market rates, fast pickup & certified green disposal.',
   keywords: [
     'Office Scrap Buyers in Kolkata',
     'Scrap Buyers Salt Lake Sector V',

@@ -15,7 +15,6 @@ import {
   Factory,
 } from "lucide-react";
 
-// Store the component itself, NOT the element, to fix the lint error and allow cleaner usage
 const locationItems = [
   { href: "/delhi-e-waste", icon: Landmark, title: "Delhi" },
   { href: "/ewaste-recycling-kolkata", icon: Waves, title: "Kolkata" },
@@ -24,7 +23,7 @@ const locationItems = [
   { href: "/pune-e-waste", icon: Monitor, title: "Pune" },
   { href: "/mumbai-e-waste", icon: Building2, title: "Mumbai" },
   { href: "/chennai-e-waste", icon: MapPin, title: "Chennai" },
-  { href: "#", icon: Leaf, title: "Haryana" },
+  { href: "/delhiscrap", icon: Leaf, title: "Haryana" },
 ];
 
 const Locations: React.FC = () => {
@@ -42,30 +41,20 @@ const Locations: React.FC = () => {
           <div className="w-24 h-1.5 bg-[#127749] mx-auto rounded-full" />
         </div>
 
-        {/* Mobile: Marquee Layout */}
-        <div className="md:hidden flex w-full relative overflow-hidden">
-          <div className="flex animate-marquee-infinite whitespace-nowrap py-4">
-            {/* Duplicated 3 times for seamless infinite loop */}
-            {[...locationItems, ...locationItems, ...locationItems].map(
-              (item, index) => (
-                <MobileLocationCard key={`mobile-${index}`} item={item} />
-              ),
-            )}
-          </div>
-        </div>
-
-        {/* Desktop: Horizontal Scroll (Marquee) Layout */}
-        <div className="hidden md:flex w-full relative overflow-hidden">
-          <div className="flex animate-marquee-infinite whitespace-nowrap py-6">
-            {/* Duplicated 3 times for seamless infinite loop */}
-            {[...locationItems, ...locationItems, ...locationItems].map(
-              (item, index) => (
-                <DesktopLocationCard
-                  key={`desktop-scroll-${index}`}
-                  item={item}
-                />
-              ),
-            )}
+        {/* Responsive Marquee Layout */}
+        <div className="flex w-full relative overflow-hidden" aria-label="Locations Marquee">
+          <div className="flex animate-marquee-infinite whitespace-nowrap py-5">
+            {/* Primary Semantic Links (Rendered for users, search engines and accessibility) */}
+            {locationItems.map((item, index) => (
+              <LocationCard key={`loc-primary-${index}`} item={item} />
+            ))}
+            {/* Cloned sets for seamless infinite loop (aria-hidden and non-anchor to avoid duplicate anchors / heading skipping) */}
+            {locationItems.map((item, index) => (
+              <LocationCardClone key={`loc-clone-1-${index}`} item={item} />
+            ))}
+            {locationItems.map((item, index) => (
+              <LocationCardClone key={`loc-clone-2-${index}`} item={item} />
+            ))}
           </div>
         </div>
       </div>
@@ -73,46 +62,9 @@ const Locations: React.FC = () => {
   );
 };
 
-// Extracted component to handle individual InView state for Mobile
-const MobileLocationCard = ({ item }: { item: (typeof locationItems)[0] }) => {
+// Primary Card with genuine Semantic Link and H3 heading
+const LocationCard = ({ item }: { item: (typeof locationItems)[0] }) => {
   const ref = React.useRef(null);
-  // Active when element is in the horizontal center of the viewport
-  const isInView = useInView(ref, {
-    margin: "0px -40% 0px -40%", // Narrow active zone to simulate "selection"
-  });
-
-  return (
-    <Link
-      ref={ref}
-      href={item.href}
-      className={`inline-flex flex-col items-center justify-center mx-3 border rounded-2xl p-6 w-[160px] flex-shrink-0 transition-all duration-500 ${
-        isInView
-          ? "bg-[#127749] border-[#127749] scale-105 shadow-xl"
-          : "bg-white border-[#127749]/10 scale-100"
-      }`}
-    >
-      <div
-        className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-3 transition-colors duration-500 ${
-          isInView ? "bg-white/20 text-white" : "bg-[#127749]/10 text-[#127749]"
-        }`}
-      >
-        <item.icon className="w-7 h-7" strokeWidth={2} />
-      </div>
-      <h5
-        className={`text-lg font-bold font-primary transition-colors duration-500 ${
-          isInView ? "text-white" : "text-neutral-900"
-        }`}
-      >
-        {item.title}
-      </h5>
-    </Link>
-  );
-};
-
-// Extracted component to handle individual InView state for Desktop
-const DesktopLocationCard = ({ item }: { item: (typeof locationItems)[0] }) => {
-  const ref = React.useRef(null);
-  // Broader active zone for desktop since it's wider
   const isInView = useInView(ref, {
     margin: "0px -40% 0px -40%",
   });
@@ -121,29 +73,51 @@ const DesktopLocationCard = ({ item }: { item: (typeof locationItems)[0] }) => {
     <Link
       ref={ref}
       href={item.href}
-      className={`group relative border rounded-xl p-4 flex flex-col items-center justify-center text-center transition-all duration-500 hover:-translate-y-1 mx-3 w-48 flex-shrink-0 ${
+      aria-label={`Scrap and E-Waste Services in ${item.title}`}
+      className={`group relative border rounded-2xl p-5 md:p-6 flex flex-col items-center justify-center text-center transition-all duration-500 hover:-translate-y-1 mx-3 w-[160px] md:w-48 flex-shrink-0 ${
         isInView
-          ? "bg-[#127749] border-[#127749] shadow-lg scale-105"
-          : "bg-[#127749]/5 border-[#127749]/10 hover:bg-[#127749] scale-100"
+          ? "bg-[#127749] border-[#127749] shadow-xl scale-105"
+          : "bg-white border-[#127749]/10 hover:bg-[#127749] scale-100"
       }`}
     >
       <div
-        className={`flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center mb-3 transition-all duration-500 ${
+        className={`w-12 h-12 md:w-14 md:h-14 rounded-2xl flex items-center justify-center mb-3 transition-colors duration-500 ${
           isInView
             ? "bg-white/20 text-white"
-            : "bg-[#127749]/20 text-[#127749] group-hover:bg-white/20 group-hover:text-white"
+            : "bg-[#127749]/10 text-[#127749] group-hover:bg-white/20 group-hover:text-white"
         }`}
       >
-        <item.icon className="w-6 h-6" strokeWidth={2} />
+        <item.icon className="w-6 h-6 md:w-7 md:h-7" strokeWidth={2} />
       </div>
-      <h5
-        className={`text-base font-bold font-primary transition-colors duration-500 whitespace-normal ${
+      <h3
+        className={`text-base md:text-lg font-bold font-primary transition-colors duration-500 whitespace-normal ${
           isInView ? "text-white" : "text-neutral-900 group-hover:text-white"
         }`}
       >
         {item.title}
-      </h5>
+      </h3>
     </Link>
+  );
+};
+
+// Decorative Clone for Marquee animation continuity (aria-hidden, not indexed as duplicate link)
+const LocationCardClone = ({ item }: { item: (typeof locationItems)[0] }) => {
+  return (
+    <div
+      aria-hidden="true"
+      tabIndex={-1}
+      onClick={() => {
+        if (item.href && item.href !== "#") window.location.href = item.href;
+      }}
+      className="group relative border rounded-2xl p-5 md:p-6 flex flex-col items-center justify-center text-center transition-all duration-500 hover:-translate-y-1 mx-3 w-[160px] md:w-48 flex-shrink-0 bg-white border-[#127749]/10 hover:bg-[#127749] scale-100 cursor-pointer select-none"
+    >
+      <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl flex items-center justify-center mb-3 transition-colors duration-500 bg-[#127749]/10 text-[#127749] group-hover:bg-white/20 group-hover:text-white">
+        <item.icon className="w-6 h-6 md:w-7 md:h-7" strokeWidth={2} />
+      </div>
+      <span className="text-base md:text-lg font-bold font-primary transition-colors duration-500 whitespace-normal text-neutral-900 group-hover:text-white">
+        {item.title}
+      </span>
+    </div>
   );
 };
 

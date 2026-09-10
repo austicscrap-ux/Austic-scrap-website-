@@ -107,9 +107,9 @@ const Testimonials = () => {
                     </p>
 
                     <div>
-                      <h4 className="text-xl md:text-2xl font-bold text-neutral-900 font-primary">
+                      <h3 className="text-xl md:text-2xl font-bold text-neutral-900 font-primary">
                         {testimonials[currentIndex].name}
-                      </h4>
+                      </h3>
                       <span className="text-xs md:text-sm text-[#127749] font-bold uppercase tracking-widest">
                         {testimonials[currentIndex].role}
                       </span>
