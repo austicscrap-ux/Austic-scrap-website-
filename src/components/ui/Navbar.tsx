@@ -144,9 +144,9 @@ const Navbar: React.FC = () => {
               <div className="w-4 h-1 bg-white rounded-full" />
             </div>
             <div>
-              <h2 id="mobile-menu-title" className="text-lg font-bold text-neutral-900">
+              <p id="mobile-menu-title" className="text-lg font-bold text-neutral-900">
                 Menu
-              </h2>
+              </p>
               <p className="text-xs text-neutral-500">Navigation</p>
             </div>
           </div>
